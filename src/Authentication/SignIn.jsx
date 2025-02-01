@@ -3,6 +3,7 @@ import signinAnimation from '../../public/SignIn.json';
 import { FaGoogle } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import Lottie from 'lottie-react';
+import 'animate.css';
 
 const SignIn = () => {
   const handleLogin = e => {
@@ -15,15 +16,15 @@ const SignIn = () => {
   }
   return (
          <div className="flex  items-center py-6 md:py-10 lg:py-16 justify-center ">
-      <div className=" lg:w-full lg:max-w-6xl flex flex-col-reverse lg:flex-row bg-white rounded-lg  ">
+      <div className=" lg:w-full lg:max-w-7xl flex flex-col-reverse md:flex-row bg-white rounded-lg  ">
 
         {/* Form Section */}
-        <div className="w-full lg:w-1/2 p-8 bg-green-500 bg-opacity-5">
-          <h2 className="animate__animated animate__bounceIn text-3xl font-bold text-green-500 lg:mt-8 mb-2">Welcome back!</h2>
-          <p className="text-black text-lg font-semibold">The faster you login, the faster you can build your resume.</p>
+        <div className="w-full md:w-1/2 p-8 bg-green-500 bg-opacity-5">
+          <h2 className="animate__animated animate__bounceIn animate__slow text-3xl font-bold text-[#3BB77E] lg:mt-8 mb-2">Welcome back!</h2>
+          <p className="text-[#253D4E] text-lg font-semibold">Experience The Best E-Commerce Platform !</p>
           <form onSubmit={handleLogin} className="mt-6">
-            <div className="mb-4 animate__animated animate__lightSpeedInLeft">
-              <label className="block  text-sm font-bold mb-2" htmlFor="email">
+            <div className="mb-4 animate__animated animate__lightSpeedInLeft animate__slow" >
+              <label className="text-[#253D4E] block  text-sm font-bold mb-2" htmlFor="email">
                 Email
               </label>
               <input
@@ -35,8 +36,8 @@ const SignIn = () => {
                 className="w-full px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:border-green-500"
               />
             </div>
-            <div className="mb-4 animate__animated animate__lightSpeedInRight">
-              <label className="block  text-sm font-bold mb-2" htmlFor="password">
+            <div className="mb-4 animate__animated animate__lightSpeedInRight animate__slow">
+              <label className=" text-[#253D4E] block  text-sm font-bold mb-2" htmlFor="password">
                 Password
               </label>
               <input
@@ -48,34 +49,34 @@ const SignIn = () => {
                 className="w-full px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:border-green-500"
               />
             </div>
-            <div className="flex items-center justify-between mb-4 animate__animated animate__lightSpeedInLeft">
+            <div className="flex items-center justify-between mb-4 animate__animated animate__lightSpeedInLeft animate__slow">
               <label className="flex items-center">
-                <input type="checkbox" className="form-checkbox h-4 w-4 text-green-500" />
-                <span className="ml-2 text-sm text-gray-600">Remember me</span>
+                <input type="checkbox" className="form-checkbox h-4 w-4 text-[#3BB77E]" />
+                <span className="ml-2 text-sm text-[#253D4E]">Remember me</span>
               </label>
-              <a href="#" className="text-sm text-green-500 hover:underline">Forgot Password?</a>
+              <a href="#" className="text-sm text-[#3BB77E] hover:underline">Forgot Password?</a>
             </div>
             <button
               type="submit"
-              className="animate__animated animate__lightSpeedInRight w-full text-black font-bold py-2 px-4 rounded-lg border border-green-500 shadow-md hover:bg-green-500 hover:text-white hover:shadow-lg transition-all duration-300"
+              className="animate__animated animate__lightSpeedInRight w-full text-[#253D4E] font-bold py-2 px-4 rounded-lg border border-green-500 shadow-md hover:bg-[#3BB77E] hover:text-white hover:shadow-lg transition-all duration-300"
             >
               Sign In
             </button>
 
-            <button className="animate__animated animate__lightSpeedInLeft mt-4 w-full text-black font-bold py-2 px-4 rounded-lg border border-green-500 shadow-md hover:bg-green-500 hover:text-white hover:shadow-lg transition-all duration-300 flex items-center justify-center">
+            <button className="animate__animated animate__lightSpeedInLeft animate__slow mt-4 w-full text-[#253D4E] font-bold py-2 px-4 rounded-lg border border-green-500 shadow-md hover:bg-[#3BB77E] hover:text-white hover:shadow-lg transition-all duration-300 flex items-center justify-center">
            
-             <FaGoogle className='mr-3 text-green-500 hover:text-black'/>
+             <FaGoogle className='mr-3 text-[#3BB77E] hover:text-black'/>
               Sign In with Google
             </button>
           </form>
-          <p className="mt-6 text-center font-bold">
-            Don’t have an account?{' '}
-            <Link to="/signup" className="font-bold text-green-500">Sign Up</Link>
+          <p className="text-[#253D4E] mt-6 text-center font-bold">
+            Don’t have an account?{'  '}
+            <Link to="/signup" className="font-bold text-[#3BB77E]">Sign Up</Link>
           </p>
         </div>
 
         {/* Lottie Animation Section */}
-        <div className="animate__animated animate__bounceIn w-full lg:w-1/2 flex justify-center items-center p-6 lg:p-10 bg-green-500 bg-opacity-5">
+        <div className="animate__animated animate__bounceIn animate__slow w-full md:w-1/2  p-6 lg:p-10 bg-green-500 bg-opacity-5">
           <Lottie animationData={signinAnimation} className="w-full h-full max-h-[400px] md:max-h-[500px] lg:max-h-[600px]" />
         </div>
       </div>
