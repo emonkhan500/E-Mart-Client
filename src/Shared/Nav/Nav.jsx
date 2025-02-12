@@ -34,7 +34,7 @@ const Nav = () => {
           <img
             src={logo}
             alt="logo"
-            className="w-32 md:w-[150px] lg:w-[200px] lg:pr-16"
+            className="w-32 md:w-[160px] lg:w-[200px] lg:pr-20"
           />
         </div>
 
@@ -48,8 +48,8 @@ const Nav = () => {
           </div>
         </div>
         {/*  location div */}
-        <div className=" border rounded px-2 py-2 shadow hidden lg:flex gap-1 items-center justify-center ">
-          <CiLocationOn className="text-xl" />
+        <div className=" border rounded px-10 py-3 shadow hidden lg:flex gap-2 items-center justify-center ">
+          <CiLocationOn className="text-2xl" />
           <h1 className="text-[#3BB77E]">Your Location</h1>
         </div>
         {/* lcon div */}
