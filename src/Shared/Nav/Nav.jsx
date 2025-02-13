@@ -13,13 +13,12 @@ import { VscAccount } from "react-icons/vsc";
 import SabNav from "./SabNav";
 
 const Nav = () => {
-  const [mobileAboutUsOpen, setMobileAboutUsOpen] = useState(false);
-  const [mobileServiceOpen, setMobileServiceOpen] = useState(false);
+ 
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
 
   return (
-    <div className="flex flex-col">
-      <nav className=" flex items-center gap-8 lg:gap-20 lg:px-20 mx-auto  h-auto mt-10 mb-6">
+    <div className="flex flex-col ">
+      <nav className="lato flex items-center gap-8 lg:gap-20 lg:px-20 mx-auto  h-auto mt-10 mb-6">
         {/* small menu */}
         <div>
           <CiMenuFries
@@ -85,15 +84,13 @@ const Nav = () => {
           {/* account icon */}
           <div className="  md:flex gap-2 items-center justify-center">
             <div className="indicator">
-              <span className="indicator-item rounded-full bg-green-500 text-xs px-1 text-white">
-                6
-              </span>
+             
               <button>
                 <VscAccount className="text-2xl font-extrabold text-[#253D4E] cursor-pointer hover:text-[#3B9DF8] transition-all duration-500 " />
               </button>
             </div>
             <h1 className="mt-1 text-sm text-[#7E7E7E] hidden md:flex">
-              Account
+              Login
             </h1>
           </div>
         </div>
@@ -103,86 +100,25 @@ const Nav = () => {
           className={` ${
             mobileSidebarOpen
               ? "translate-x-0 opacity-100 z-20"
-              : "translate-x-[200px] opacity-0 z-[-1]"
-          } md:hidden bg-white boxShadow p-4 text-center absolute top-[55px] right-0 sm:w-[300px] w-full rounded-md transition-all duration-300`}
+              : "translate-x-[200px] opacity-50 z-[-1]"
+          } md:hidden bg-white boxShadow p-4 text-center absolute top-[65px] right-0 sm:w-[300px] w-full rounded-md transition-all duration-300`}
         >
-          <ul className="items-start gap-[20px] text-[1rem] text-gray-600 flex flex-col">
-            <li className="hover:text-[#3B9DF8] group transition-all duration-500 cursor-pointer capitalize flex items-center gap-[10px]">
-              Home
-            </li>
+        
+          <ul className="quick font-bold gap-[20px] text-[1rem] flex flex-col text-[#424242] ">
+          <li className="">Home</li>
+          <li className="">About</li>
+          <li className="">Shop</li>
 
-            <li
-              onClick={() => setMobileAboutUsOpen(!mobileAboutUsOpen)}
-              className="hover:text-[#3B9DF8] group transition-all duration-500 cursor-pointer capitalize flex items-center gap-[10px]"
-            >
-              About Us
-              <IoIosArrowDown
-                className={`${
-                  mobileAboutUsOpen ? "rotate-[180deg]" : "rotate-0"
-                } text-gray-600 group-hover:text-[#3B9DF8] transition-all duration-300`}
-              />
-            </li>
-
-            {/* about us mega menu */}
-            <div
-              className={`${
-                mobileAboutUsOpen ? "block" : "hidden"
-              } group font-[500] ml-6`}
-            >
-              <ul className="flex flex-col gap-[7px] text-[#424242]">
-                <li className="flex items-center gap-[7px] hover:text-[#3B9DF8] transition-all duration-300">
-                  <BsArrowRight className="text-[#424242] text-[0.9rem]" />{" "}
-                  Company Details
-                </li>
-              </ul>
-            </div>
-
-            <li
-              onClick={() => setMobileServiceOpen(!mobileServiceOpen)}
-              className="hover:text-[#3B9DF8] group transition-all duration-500 cursor-pointer capitalize flex items-center gap-[10px]"
-            >
-              Service
-              <IoIosArrowDown
-                className={`${
-                  mobileServiceOpen ? "rotate-0" : "rotate-[180deg]"
-                } text-gray-600 group-hover:text-[#3B9DF8] transition-all duration-300`}
-              />
-            </li>
-
-            {/* service mega menu */}
-            <div
-              className={`${
-                mobileServiceOpen ? "hidden" : "block"
-              } font-[500] ml-6`}
-            >
-              <ul className="flex flex-col gap-[7px] text-[#424242]">
-                <li className="flex items-center gap-[7px] hover:text-[#3B9DF8] transition-all duration-300">
-                  <BsArrowRight className="text-[#424242] text-[0.9rem]" />{" "}
-                  Company Details
-                </li>
-              </ul>
-
-              <div className="flex flex-col gap-[10px] mt-4">
-                <div className="flex items-center gap-[10px] text-[1rem] text-[#424242]">
-                  <MdDashboardCustomize className="bg-blue-200 text-blue-900 p-1.5 rounded-full text-[2rem]" />
-                  Full Customize
-                </div>
-
-                <div className="flex items-center gap-[10px] text-[1rem] text-[#424242]">
-                  <CgIfDesign className="bg-orange-200 text-orange-800 p-1.5 rounded-full text-[2rem]" />
-                  Modern Design
-                </div>
-
-                <div className="flex items-center gap-[10px] text-[1rem] text-[#424242]">
-                  <FaCubesStacked className="bg-yellow-200 text-yellow-800 p-1.5 rounded-full text-[2rem]" />
-                  Well Stacktured
-                </div>
-              </div>
-            </div>
-          </ul>
+          <li>Vendors</li>
+          <li>Blog</li>
+          <li>Pages</li>
+          <li>Contact</li>
+        </ul>
         </aside>
       </nav>
+      <div className="hidden lg:block"> 
       <SabNav></SabNav>
+      </div>
     </div>
   );
 };

@@ -1,63 +1,43 @@
-
 import { MdDashboardCustomize, MdKeyboardArrowDown } from "react-icons/md";
 import { BsArrowRight } from "react-icons/bs";
 import { CgIfDesign } from "react-icons/cg";
 import { FaCubesStacked } from "react-icons/fa6";
+import { BiSupport } from "react-icons/bi";
 
 const SabNav = () => {
-    return (
-        <div>
-            <ul className="items-center gap-[20px] text-[1rem] text-[#424242] md:flex hidden">
-<li className="transition-all duration-500 cursor-pointer hover:text-[#3B9DF8] capitalize">
-  Home
-</li>
-
-{/* about us mega menu */}
-<li className=" transition-all duration-500 cursor-pointer hover:text-[#3B9DF8] capitalize flex items-center gap-[3px] group relative">
-About
-  <MdKeyboardArrowDown className="text-[1.5rem] text-[#424242] group-hover:text-[#3B9DF8] transition-all duration-500 group-hover:rotate-[180deg]" />
-  <article className="p-6 bg-white rounded-md boxShadow w-[500px] absolute top-[40px] z-[-1] left-[-100px] group-hover:translate-y-0 translate-y-[-20px] group-hover:opacity-100 opacity-0 group-hover:z-30 transition-all duration-300">
-    <div className="grid grid-cols-2">
-      <ul className="flex flex-col gap-[7px] text-[#424242]">
-        <li className="flex items-center gap-[7px] hover:text-[#3B9DF8] transition-all duration-300">
-          <BsArrowRight className="text-[#424242] text-[0.9rem]" />{" "}
-          Company Details
-        </li>
-        
-      </ul>
-
-      
-    </div>
-
-  </article>
-</li>
-
-{/* service mega menu */}
-<li className="transition-all duration-500 cursor-pointer hover:text-[#3B9DF8] capitalize group relative flex items-center gap-[3px]">
-Shop 
-  <MdKeyboardArrowDown className="text-[1.5rem] text-[#424242] group-hover:text-[#3B9DF8] transition-all duration-500 group-hover:rotate-[180deg]" />
-  <article className="p-6 bg-white rounded-md w-[500px] absolute top-[40px] z-[-1] left-[-150px] group-hover:translate-y-0 translate-y-[-20px] group-hover:opacity-100 opacity-0 group-hover:z-30 transition-all duration-300">
-    <div className="grid grid-cols-2">
-      <ul className="flex flex-col gap-[7px] text-[#424242]">
-        <li className="flex items-center gap-[7px] hover:text-[#3B9DF8] transition-all duration-300">
-          <BsArrowRight className="text-[#424242] text-[0.9rem]" />{" "}
-          Company Details
-        </li>
-        
-      </ul>
-
-     
-    </div>
-
-  </article>
-</li>
-<li>Vendors</li>
-<li>Blog</li>
-<li>Pages</li>
-<li>Contact</li>
-</ul>
+  return (
+    <div className="border-[#ECECEC] border-t-2 border-b-2 ">
+      <div className=" flex px-44 mx-auto mt-2 mb-2 gap-36 ">
+        {/* all category div */}
+        <div className="px-7 py-2 bg-[#3BB77E] text-white rounded quick ">
+          <button>All Categories</button>
         </div>
-    );
+        {/*navlink pages */}
+        <ul className="quick font-bold items-center gap-16 text-[1rem] text-[#424242] md:flex hidden">
+          <li className="">Home</li>
+          <li className="">About</li>
+          <li className="">Shop</li>
+
+          <li>Vendors</li>
+          <li>Blog</li>
+          <li>Pages</li>
+          <li>Contact</li>
+        </ul>
+        {/* contact div */}
+        <div className="flex gap-6 justify-center items-center  ml-24">
+          <BiSupport className="text-[#253D4E] text-4xl" />
+          <div className="">
+            <h1 className="text-[#3BB77E] text-lg font-bold quick">
+              +8801884932158
+            </h1>
+            <h1 className="text-[#7E7E7E] text-sm ml-5 lato">
+              24/7 Support Center
+            </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default SabNav;
