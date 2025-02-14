@@ -2,12 +2,10 @@ import React, { useState } from "react";
 import logo from "../../assets/logo.svg";
 
 // react icons
-import { IoIosArrowDown, IoIosSearch } from "react-icons/io";
+import {  IoIosSearch } from "react-icons/io";
 import { CiHeart, CiLocationOn, CiMenuFries } from "react-icons/ci";
-import { MdDashboardCustomize } from "react-icons/md";
-import { BsArrowRight } from "react-icons/bs";
-import { CgIfDesign } from "react-icons/cg";
-import { FaCubesStacked } from "react-icons/fa6";
+
+
 import { IoCartOutline } from "react-icons/io5";
 import { VscAccount } from "react-icons/vsc";
 import SabNav from "./SabNav";
@@ -97,26 +95,23 @@ const Nav = () => {
         
         {/* mobile menu */}
         <aside
-          className={` ${
-            mobileSidebarOpen
-              ? "translate-x-0 opacity-100 z-20"
-              : "translate-x-[200px] opacity-50 z-[-1]"
-          } md:hidden bg-white boxShadow p-4 text-center absolute top-[65px] right-0 sm:w-[300px] w-full rounded-md transition-all duration-300`}
-        >
-        
-          <ul className="quick font-bold gap-[20px] text-[1rem] flex flex-col text-[#424242] ">
-          <li className="">Home</li>
-          <li className="">About</li>
-          <li className="">Shop</li>
+  className={`quick fixed top-20 right-0 h-screen bg-white shadow-lg p-4 w-[70%] max-w-[300px] transition-transform duration-300 ${
+    mobileSidebarOpen ? "translate-x-0" : "translate-x-full"
+  }`}
+>
+  <ul className="quick font-bold gap-[20px] text-[1rem] flex flex-col text-[#424242] mt-10">
+    <li className="cursor-pointer">Home</li>
+    <li className="cursor-pointer">About</li>
+    <li className="cursor-pointer">Shop</li>
+    <li className="cursor-pointer">Vendors</li>
+    <li className="cursor-pointer">Blog</li>
+    <li className="cursor-pointer">Pages</li>
+    <li className="cursor-pointer">Contact</li>
+  </ul>
+</aside>
 
-          <li>Vendors</li>
-          <li>Blog</li>
-          <li>Pages</li>
-          <li>Contact</li>
-        </ul>
-        </aside>
       </nav>
-      <div className="hidden lg:block"> 
+      <div className="hidden md:block"> 
       <SabNav></SabNav>
       </div>
     </div>
