@@ -9,29 +9,101 @@ import { CiHeart, CiLocationOn, CiMenuFries } from "react-icons/ci";
 import { IoCartOutline } from "react-icons/io5";
 import { VscAccount } from "react-icons/vsc";
 import SabNav from "./SabNav";
+import { NavLink } from "react-router-dom";
 
 const Nav = () => {
  
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
 
+  const navlinks = (
+    <>
+  <li>
+    <NavLink 
+    to='/'
+    className={({isActive})=>isActive ?"quick font-extrabold text-[#3BB77E]":"quick font-bold text-[#424242]"}
+    >
+  Home
+  
+    </NavLink>
+  </li>
+  <li>
+    <NavLink 
+    to='/about'
+    className={({isActive})=>isActive ?"quick font-extrabold text-[#3BB77E]":"quick font-bold text-[#424242]"}
+    >
+  About
+  
+    </NavLink>
+  </li>
+  <li>
+    <NavLink 
+    to='/shop'
+    className={({isActive})=>isActive ?"quick font-extrabold text-[#3BB77E]":"quick font-bold text-[#424242]"}
+    >
+  Shop
+  
+    </NavLink>
+  </li>
+  <li>
+    <NavLink 
+    to='/vendors'
+    className={({isActive})=>isActive ?"quick font-extrabold text-[#3BB77E]":"quick font-bold text-[#424242]"}
+    >
+  Vendors
+  
+    </NavLink>
+  </li>
+  <li>
+    <NavLink 
+    to='/blogs'
+    className={({isActive})=>isActive ?"quick font-extrabold text-[#3BB77E]":"quick font-bold text-[#424242]"}
+    >
+  Blogs
+  
+    </NavLink>
+  </li>
+  <li>
+    <NavLink 
+    to='/pages'
+    className={({isActive})=>isActive ?"quick font-extrabold text-[#3BB77E]":"quick font-bold text-[#424242]"}
+    >
+  Pages
+  
+    </NavLink>
+  </li>
+  <li>
+    <NavLink 
+    to='/contact'
+    className={({isActive})=>isActive ?"quick font-extrabold text-[#3BB77E]":"quick font-bold text-[#424242]"}
+    >
+  Contact
+  
+    </NavLink>
+  </li>
+  
+  
+  
+  </>
+  )
+
   return (
-    <div className="flex flex-col ">
-      <nav className="lato flex items-center gap-8 lg:gap-20 lg:px-20 mx-auto  h-auto mt-10 mb-6">
+    <div className="w-screen flex flex-col ">
+      <nav className=" lato flex items-center gap-8 lg:gap-20 md:px-4  mx-auto  h-auto mt-10 mb-6">
         {/* small menu */}
         <div>
           <CiMenuFries
-            className="text-[1.6rem]  md:pl-0 text-[#424242]c cursor-pointer md:hidden flex"
+            className="text-[1.6rem]  md:pl-0 text-[#424242]c cursor-pointer lg:hidden flex"
             onClick={() => setMobileSidebarOpen(!mobileSidebarOpen)}
           />
         </div>
 
         {/* logo */}
 
-        <div className="">
+        <div className="w-32  md:w-[160px] lg:w-[200px] lg:pr-20">
           <img
             src={logo}
             alt="logo"
-            className="w-32 md:w-[160px] lg:w-[200px] lg:pr-20"
+            className=""
           />
         </div>
 
@@ -45,12 +117,12 @@ const Nav = () => {
           </div>
         </div>
         {/*  location div */}
-        <div className=" border rounded px-10 py-3 shadow hidden lg:flex gap-2 items-center justify-center ">
+        <div className=" border rounded px-9 py-3 shadow hidden lg:flex gap-2 items-center justify-center ">
           <CiLocationOn className="text-2xl" />
           <h1 className="text-[#3BB77E]">Your Location</h1>
         </div>
         {/* lcon div */}
-        <div className="flex items-center pl-10 gap-2 md:gap-6">
+        <div className="flex items-center  gap-2 md:gap-6">
           {/*wishlist icon */}
           <div className="flex gap-2 items-center justify-center">
             <div className="indicator">
@@ -99,19 +171,13 @@ const Nav = () => {
     mobileSidebarOpen ? "translate-x-0" : "translate-x-full"
   }`}
 >
-  <ul className="quick font-bold gap-[20px] text-[1rem] flex flex-col text-[#424242] mt-10">
-    <li className="cursor-pointer">Home</li>
-    <li className="cursor-pointer">About</li>
-    <li className="cursor-pointer">Shop</li>
-    <li className="cursor-pointer">Vendors</li>
-    <li className="cursor-pointer">Blog</li>
-    <li className="cursor-pointer">Pages</li>
-    <li className="cursor-pointer">Contact</li>
+  <ul className=" gap-[20px] text-[1rem] flex flex-col  mt-10">
+    {navlinks}
   </ul>
 </aside>
 
       </nav>
-      <div className="hidden md:block"> 
+      <div className="w-fit hidden lg:block"> 
       <SabNav></SabNav>
       </div>
     </div>
@@ -120,4 +186,4 @@ const Nav = () => {
 
 export default Nav;
 
-// {/* nav links */}
+
