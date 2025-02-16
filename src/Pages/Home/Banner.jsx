@@ -19,7 +19,7 @@ const Banner = () => {
                 Save up to 50% on your first order
               </p>
               <div>
-                <Link to="/shop">
+                <Link to="/shop" className="inline-block">
                   <button className="px-2 md:px-3 py-1 md:py-2 text-xs md:text-xl lato mr-5 bg-[#3BB77E] rounded flex justify-center items-center gap-2">Shop Now 
                   <FaArrowRightLong /> </button>
                 
@@ -49,9 +49,9 @@ const Banner = () => {
               <p className="lato text-[#7E7E7E] font-light text-xs md:text-2xl mb-1">
                 Save up to 50% on your first order
               </p>
-              <div>
-                <Link to="/shop">
-                  <button className="px-2 md:px-3 py-1 md:py-2 text-xs md:text-xl lato mr-5 bg-[#3BB77E] rounded flex justify-center items-center gap-2">Shop Now 
+              <div className="">
+                <Link  to="/shop" className="inline-block">
+                  <button t className="px-2 md:px-3 py-1 md:py-2 text-xs md:text-xl lato mr-5 bg-[#3BB77E] rounded flex justify-center items-center gap-2">Shop Now 
                   <FaArrowRightLong /> </button>
                 
                 </Link>

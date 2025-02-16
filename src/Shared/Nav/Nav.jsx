@@ -113,7 +113,7 @@ const Nav = () => {
               className=" md:w-[250px] lg:w-[600px] py-3  border-2 border-[#3BB77E] lg:pl-16 outline-none "
               placeholder="Search For Items..."
             />
-            <IoIosSearch className="absolute top-[14px] md:left-[400px] lg:left-[550px] text-[#424242] text-[1.3rem]" />
+            <IoIosSearch className="hidden lg:flex absolute top-[14px] md:left-[400px] lg:left-[550px] text-[#424242] text-[1.3rem]" />
           </div>
         </div>
         {/*  location div */}

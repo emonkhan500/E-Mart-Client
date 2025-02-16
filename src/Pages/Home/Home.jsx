@@ -1,10 +1,12 @@
 import React from 'react';
 import Banner from './Banner';
+import Featured from './Featured';
 
 const Home = () => {
     return (
-        <div className='mt- lg:mt-10'>
+        <div className=' lg:mt-10'>
             <Banner></Banner>
+            <Featured></Featured>
         </div>
     );
 };
