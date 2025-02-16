@@ -78,21 +78,19 @@ Contact
 </>
 )
 
-
-
   return (
     <div className="border-[#ECECEC]  border-t-2 border-b-2 ">
-      <div className=" flex md:px-9 lg:px-44 mx-auto mt-2 mb-2 md:gap-10 lg:gap-36 ">
+      <div className=" flex md:px-10  mx-auto mt-2 mb-2 md:gap-10 lg:gap-36 ">
         {/* all category div */}
         <div className="px-7 py-2 bg-[#3BB77E] text-white rounded quick ">
           <button>All Categories</button>
         </div>
         {/*navlink pages */}
-        <ul className=" items-center md:gap-10 lg:gap-16 text-[1rem]  md:flex hidden">
+        <ul className=" items-center md:gap-10 lg:gap-16 text-[1rem]   md:flex hidden">
         {navlinks}
         </ul>
         {/* contact div */}
-        <div className="lg:flex gap-6 justify-center items-center hidden  ml-24">
+        <div className="lg:flex gap-6 justify-center items-center hidden  ml-28">
           <BiSupport className="text-[#253D4E] text-4xl" />
           <div className="">
             <h1 className="text-[#3BB77E] text-lg font-bold quick">
