@@ -5,7 +5,7 @@ import Footer from '../../Shared/Footer/Footer';
 
 const Home = () => {
     return (
-        <div className=' lg:mt-10'>
+        <div className=' lg:mt-10 w-full max-w-[1586px] mx-auto'>
             <Banner></Banner>
             <Featured></Featured>
         <Footer></Footer>

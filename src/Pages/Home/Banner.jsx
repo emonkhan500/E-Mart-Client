@@ -5,7 +5,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 
 const Banner = () => {
   return (
-    <div className="w-full lg:w-[1586px] mx-2  lg:mx-4  flex justify-center">
+    <div className=" w-full h-[200px] md:h-[380px] lg:h-[580px] lg:w-[1586px] mx-2  lg:mx-4  flex justify-center">
       <div className="carousel  relative">
         {/* Slide 1 */}
         <div id="slide1" className="carousel-item relative w-full">
@@ -15,7 +15,7 @@ const Banner = () => {
               <h2 className="quick text-xl md:text-4xl lg:text-7xl  font-bold text-[#253D4E] mb-1">
                 Don't miss amazing grocery deals
               </h2>
-              <p className="lato text-[#7E7E7E] font-light text-xs md:text-2xl mb-1">
+              <p className="lato text-[#7E7E7E] font-light text-xs md:text-2xl mb-2">
                 Save up to 50% on your first order
               </p>
               <div>
@@ -46,7 +46,7 @@ const Banner = () => {
               <h2 className="quick text-xl md:text-4xl lg:text-7xl  font-bold text-[#253D4E] mb-1">
               Fresh Vegetables Big discount
               </h2>
-              <p className="lato text-[#7E7E7E] font-light text-xs md:text-2xl mb-1">
+              <p className="lato text-[#7E7E7E] font-light text-xs md:text-2xl mb-2">
                 Save up to 50% on your first order
               </p>
               <div className="">
