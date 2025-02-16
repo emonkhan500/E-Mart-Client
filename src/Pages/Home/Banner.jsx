@@ -4,22 +4,22 @@ import img2 from "../../assets/slider-2.png";
 
 const Banner = () => {
   return (
-    <div className="w-full flex justify-center">
-      <div className="carousel w-[1586px] relative">
+    <div className="w-full lg:w-[1586px] mx-2  lg:mx-4  flex justify-center">
+      <div className="carousel  relative">
         {/* Slide 1 */}
         <div id="slide1" className="carousel-item relative w-full">
           <img src={img1} className="w-full rounded-xl" />
           <div className="absolute inset-0 flex items-center ">
             <div className="text-white space-y-7 pl-12 w-1/2">
-              <h2 className="quick text-7xl font-bold text-[#253D4E]">
+              <h2 className="quick md:text-5xl lg:text-7xl font-bold text-[#253D4E]">
                 Don't miss amazing grocery deals
               </h2>
-              <p className="text-[#7E7E7E] font-normal text-2xl">
+              <p className="lato text-[#7E7E7E] font-normal text-2xl">
                 Save up to 50% on your first order
               </p>
               <div>
                 <Link to="/shop">
-                  <button className="btn mr-5">Shop Now</button>
+                  <button className="px-3 py-2 text-xl lato mr-5 bg-[#3BB77E] rounded">Shop Now </button>
                 </Link>
               </div>
             </div>
@@ -48,8 +48,8 @@ const Banner = () => {
                 your dream property here!
               </p>
               <div>
-                <Link to="/allproperty">
-                  <button className="btn mr-5">Discover More</button>
+                <Link to="/shop">
+                  <button className="btn mr-5">Shop Now</button>
                 </Link>
               </div>
             </div>

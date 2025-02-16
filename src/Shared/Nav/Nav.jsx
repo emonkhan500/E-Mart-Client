@@ -87,7 +87,7 @@ const Nav = () => {
   )
 
   return (
-    <div className="w-screen flex flex-col ">
+    <div className=" flex flex-col ">
       <nav className=" lato flex items-center gap-8 lg:gap-20 md:px-4  mx-auto  h-auto mt-10 mb-6">
         {/* small menu */}
         <div>
@@ -110,7 +110,7 @@ const Nav = () => {
         <div className="">
           <div className="relative md:flex items-center justify-center hidden">
             <input
-              className=" md:w-[450px] lg:w-[600px] py-3 pr-4 border-2 border-[#3BB77E] lg:pl-16 outline-none "
+              className=" md:w-[250px] lg:w-[600px] py-3  border-2 border-[#3BB77E] lg:pl-16 outline-none "
               placeholder="Search For Items..."
             />
             <IoIosSearch className="absolute top-[14px] md:left-[400px] lg:left-[550px] text-[#424242] text-[1.3rem]" />
@@ -167,7 +167,7 @@ const Nav = () => {
         
         {/* mobile menu */}
         <aside
-  className={`quick fixed top-20 right-0 h-screen bg-white shadow-lg p-4 w-[70%] max-w-[300px] transition-transform duration-300 ${
+  className={`quick fixed top-20 right-0 h-screen bg-white z-20 shadow-lg p-4 w-[70%] max-w-[300px] transition-transform duration-300 ${
     mobileSidebarOpen ? "translate-x-0" : "translate-x-full"
   }`}
 >
