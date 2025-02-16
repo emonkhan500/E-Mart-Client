@@ -7,6 +7,11 @@
     position: relative;
     height: 100%;
   }
+  .container {
+    width: 100%;
+    max-width: 100vw;
+    overflow: hidden;
+  }
   
   body {
     background: white;
@@ -18,7 +23,7 @@
   }
   
   .swiper {
-    width: 100%;
+    width: 100% !important;
     height: 100%;
   }
   
@@ -26,7 +31,7 @@
     text-align: center;
     font-size: 18px;
     background: #fff;
-  
+    min-width: auto !important;
     /* Center slide text vertically */
     display: flex;
     justify-content: center;
@@ -39,4 +44,10 @@
     height: 100%;
     object-fit: cover;
   }
-  
+  .swiper-pagination {
+    position: relative; 
+    margin-top: 20px; 
+  }
+  .swiper-wrapper {
+    display: flex;
+  }
