@@ -79,7 +79,7 @@ Contact
 )
 
   return (
-    <div className="border-[#ECECEC]  border-t-2 border-b-2 ">
+    <div className="border-[#ECECEC] border-t-2 border-b-2 max-w-[1024px] mx-auto px-4 ">
       <div className=" flex md:px-10  mx-auto mt-2 mb-2 md:gap-10 lg:gap-36 ">
         {/* all category div */}
         <div className="px-7 py-2 bg-[#3BB77E] text-white rounded quick ">

@@ -88,7 +88,7 @@ const Nav = () => {
 
   return (
     <div className=" flex flex-col ">
-      <nav className=" lato flex items-center gap-8 lg:gap-20 md:px-4  mx-auto  h-auto mt-10 mb-6">
+      <nav className="w-full max-w-[1024px] px-4 lato flex items-center gap-8 lg:gap-20 md:px-4  mx-auto  h-auto mt-10 mb-6">
         {/* small menu */}
         <div>
           <CiMenuFries
