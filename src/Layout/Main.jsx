@@ -8,7 +8,7 @@ const Main = () => {
     return (
         <div className='w-full max-w-[1586px] px-4 md:px-8 lg:px-12 xl:px-16 mx-auto '>
             <Nav></Nav>
-            {/* <SabNav></SabNav> */}
+           
             <Outlet></Outlet>
            
             

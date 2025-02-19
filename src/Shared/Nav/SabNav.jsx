@@ -8,22 +8,72 @@ const SabNav = () => {
 
   const navlinks = (
     <>
-    {["Home", "About", "Shop", "Vendors", "Blogs", "Pages", "Contact"].map(
-      (item) => (
-        <li key={item}>
-          <NavLink
-            to={`/${item.toLowerCase()}`}
-            className={({ isActive }) =>
-              isActive
-                ? "quick font-extrabold text-[#3BB77E]"
-                : "quick font-bold text-[#424242]"
-            }
-          >
-            {item}
-          </NavLink>
-        </li>
-      )
-    )}
+  <li>
+    <NavLink 
+    to='/'
+    className={({isActive})=>isActive ?"quick font-extrabold text-[#3BB77E]":"quick font-bold text-[#424242]"}
+    >
+  Home
+  
+    </NavLink>
+  </li>
+  <li>
+    <NavLink 
+    to='/about'
+    className={({isActive})=>isActive ?"quick font-extrabold text-[#3BB77E]":"quick font-bold text-[#424242]"}
+    >
+  About
+  
+    </NavLink>
+  </li>
+  <li>
+    <NavLink 
+    to='/shop'
+    className={({isActive})=>isActive ?"quick font-extrabold text-[#3BB77E]":"quick font-bold text-[#424242]"}
+    >
+  Shop
+  
+    </NavLink>
+  </li>
+  <li>
+    <NavLink 
+    to='/vendors'
+    className={({isActive})=>isActive ?"quick font-extrabold text-[#3BB77E]":"quick font-bold text-[#424242]"}
+    >
+  Vendors
+  
+    </NavLink>
+  </li>
+  <li>
+    <NavLink 
+    to='/blogs'
+    className={({isActive})=>isActive ?"quick font-extrabold text-[#3BB77E]":"quick font-bold text-[#424242]"}
+    >
+  Blogs
+  
+    </NavLink>
+  </li>
+  <li>
+    <NavLink 
+    to='/pages'
+    className={({isActive})=>isActive ?"quick font-extrabold text-[#3BB77E]":"quick font-bold text-[#424242]"}
+    >
+  Pages
+  
+    </NavLink>
+  </li>
+  <li>
+    <NavLink 
+    to='/contact'
+    className={({isActive})=>isActive ?"quick font-extrabold text-[#3BB77E]":"quick font-bold text-[#424242]"}
+    >
+  Contact
+  
+    </NavLink>
+  </li>
+  
+  
+  
   </>
   );
 
