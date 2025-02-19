@@ -6,7 +6,7 @@ const UnderFeature = () => {
     <div>
       <div className="quick grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-3 mt-2">
         <div
-          className="relative w-full   bg-cover bg-center flex items-center p-6 rounded-lg shadow-md"
+          className="relative w-full  h-[250px]  bg-cover bg-center flex items-center p-2  rounded-lg shadow-md"
           style={{
             backgroundImage:
               "url('https://i.ibb.co.com/WvNkDjHd/banner-1-png.png')",
@@ -24,7 +24,7 @@ const UnderFeature = () => {
           </div>
         </div>
         <div
-          className="relative w-full   bg-cover bg-center flex items-center p-6 rounded-lg shadow-md"
+          className="relative w-full h-[250px]  bg-cover bg-center flex items-center p-2 rounded-lg shadow-md"
           style={{
             backgroundImage:
               "url('https://i.ibb.co.com/jvvLydBd/banner-2-png.png')",
@@ -35,14 +35,14 @@ const UnderFeature = () => {
               Make your Breakfast Healthy and Easy
             </h2>
             <Link to='/shop'>
-            <button  className="mt-4 px-4 py-2 bg-[#3BB77E]  text-white rounded hover:bg-green-600">
+            <button  className="mt-4  px-4 py-2 bg-[#3BB77E]  text-white rounded hover:bg-green-600">
               Shop Now →
             </button>
             </Link>
           </div>
         </div>
         <div
-          className="relative w-full   bg-cover bg-center flex items-center p-6 rounded-lg shadow-md"
+          className="relative w-full h-[250px]  bg-cover bg-center flex items-center p-2  rounded-lg shadow-md"
           style={{
             backgroundImage:
               "url('https://i.ibb.co.com/pjCwt3KD/banner-3-png.png')",
@@ -53,7 +53,7 @@ const UnderFeature = () => {
               The best Organic Products Online
             </h2>
             <Link to='/shop'> 
-            <button  className="mt-4 px-4 py-2 bg-[#3BB77E]  text-white rounded hover:bg-green-600">
+            <button  className="mt-4  px-4 py-2 bg-[#3BB77E]  text-white rounded hover:bg-green-600">
               Shop Now →
             </button>
             </Link>

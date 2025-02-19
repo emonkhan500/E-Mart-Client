@@ -5,7 +5,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 
 const Banner = () => {
   return (
-    <div className="w-full max-w-[1586px] mx-auto px-4 md:px-2 h-[200px] md:h-[380px] lg:h-[580px]   lg:mx-4  flex justify-center">
+    <div className="w-full max-w-[1586px] mx-auto px-4 md:px-2 h-[200px] md:h-[380px] lg:h-[580px]  flex justify-center">
       <div className="carousel  relative">
         {/* Slide 1 */}
         <div id="slide1" className="carousel-item relative w-full">
