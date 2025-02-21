@@ -1,27 +1,32 @@
 import { BiSupport } from "react-icons/bi";
 import logo from "../../assets/logo.svg";
+import google from "../../assets/Link → google-play.jpg.png";
+import appstore from "../../assets/Link → app-store.jpg.png";
+import { CiLocationOn, CiMail } from "react-icons/ci";
+import { MdCall } from "react-icons/md";
+import { IoMdTime } from "react-icons/io";
 
 const Footer = () => {
   return (
-    <div className="mt-40 mb-36 lato ">
-      <div className="grid  grid-cols-2 md:grid-cols-3 lg:grid-cols-6 text-[#253D4E]">
+    <div className="mt-20 mb-10 quick ">
+      <div className="grid  grid-cols-2 md:grid-cols-3 lg:grid-cols-6 text-[#253D4E] gap-10">
         {/* clo-1 */}
         <div className="space-y-4">
-          <div>
+          <div className="mb-8">
             <img src={logo} alt="" />
           </div>
-          <h1 className="my-2 text-lg"><span className="text-xl">Buy Fresh - Eat Healthy!</span> <br />
+          <h1 className="text-base md:text-lg"><span className="text-lg md:text-xl">Buy Fresh - Eat Healthy!</span> <br />
            Buy Your grocery from us. </h1>
-          <h1>Address: Tangail 1900, Dhaka,Bangladesh</h1>
-          <h1>Call Us:(+880) - 1884932158</h1>
-          <h1>Email:emon562002@gamil.com</h1>
-          <h1>Hours: 24H ,Sat - Fri</h1>
+          <h1 className="flex flex-wrap  gap-2 items-center "><CiLocationOn className="flex text-lg text-[#3BB77E] font-bold" /> <span className="text-lg text-[#3BB77E]">Address:</span>Dhaka,Bangladesh</h1>
+          <h1 className="flex flex-wrap gap-2 items-center "><MdCall className="flex font-bold items-center text-[#3BB77E]"/> <span className="text-lg text-[#3BB77E]">Call Us:</span>(+880)-1884932158</h1>
+          <h1 className="flex flex-wrap gap-2 items-center "><CiMail className="flex font-bold items-center text-[#3BB77E] text-base"/><span className="text-xs text-[#3BB77E]">Email:</span>emon562002@gamil.com</h1>
+          <h1 className="flex gap-2 items-center "><IoMdTime className="flex items-center font-bold text-[#3BB77E]"/> <span className="text-lg text-[#3BB77E]">Hours:</span> 24/7</h1>
 
         </div>
         {/* clo-2 */}
         <div>
-          <h1 className="mb-3">Company</h1>
-          <div className="space-y-5 text-lg">
+          <h1 className=" text-[#7E7E7E]">Company</h1>
+          <div className="space-y-2 md:space-y-5 text-lg">
             <h1>About Us</h1>
             <h1>Delivery Information</h1>
             <h1>Privacy Policy</h1>
@@ -32,8 +37,8 @@ const Footer = () => {
         </div>
         {/* clo-3 */}
         <div>
-          <h1 className="mb-3">Account</h1>
-          <div className="space-y-5 text-lg">
+          <h1 className="mb-3 text-3xl font-bold">Account</h1>
+          <div className="space-y-2 md:space-y-5 text-lg">
             
             <h1>View Cart</h1>
             <h1>My Wishlist</h1>
@@ -45,8 +50,8 @@ const Footer = () => {
         </div>
         {/* clo-4 */}
         <div>
-          <h1 className="mb-3">Corporate</h1>
-          <div className="space-y-5 text-lg">
+          <h1 className="mb-3 text-3xl font-bold">Corporate</h1>
+          <div className="space-y-2 md:space-y-5 text-lg">
             
             <h1>Become a Vendor</h1>
             <h1>Affiliate Program</h1>
@@ -58,8 +63,8 @@ const Footer = () => {
         </div>
         {/* clo-5 */}
         <div>
-          <h1 className="mb-3">Popular</h1>
-          <div className="space-y-5 text-lg">
+          <h1 className="mb-3 text-3xl font-bold">Popular</h1>
+          <div className="space-y-2 md:space-y-5 text-lg">
             
             <h1>Milk & Flavoured Milk</h1>
             <h1>Butter and Margarine</h1>
@@ -71,35 +76,36 @@ const Footer = () => {
         </div>
         {/* clo-6 */}
         <div>
-          <h1 className="mb-3">Install App</h1>
-          <h1>From App Store or Google Play</h1>
-          <div className="flex ">
+          <h1 className="mb-6 text-3xl font-bold">Install App</h1>
+          <h1 className=" font-semibold mt-20">From App Store or Google Play</h1>
+          <div className="flex flex-col lg:w-7/12 md:flex-row gap-2 mt-4">
             
-            <img  src="" alt="" />
-            <img className=""  src="" alt="" />
-            <img className="" src="" alt="" />
+            
+            <img className=""  src={google} alt="" />
+            <img className="" src={appstore} alt="" />
             
           </div>
 
         </div>
       </div>
-      <div className="flex justify-between ">
-      <div>
-          <h1>© 2022, Nest - HTML Ecommerce Template
-</h1>
+
+      {/* subFooter */}
+      <div className="flex flex-col md:flex-row justify-between border-t-[#BCE3C9] border-t-2 mt-16 mb-16 px-4 md:px-8 py-6 gap-6 md:gap-0 text-center md:text-left">
+        <div className="font-semibold">
+          <h1>© 2025, <span className="text-lg text-[#3BB77E]">E-Mart & Grocery</span></h1>
           <h1>All rights reserved</h1>
         </div>
-        <div className="hidden lg:flex gap-4 items-center">
+        <div className="flex flex-col md:flex-row items-center gap-4 font-semibold">
           <BiSupport className="text-[#253D4E] text-4xl" />
           <div>
-            <h1 className="text-[#3BB77E] text-lg font-bold quick">
-              +8801884932158
-            </h1>
-            <h1 className="text-[#7E7E7E] text-sm lato">24/7 Support Center</h1>
+            <h1 className="text-[#3BB77E] text-lg font-bold">+8801884932158</h1>
+            <h1 className="text-[#7E7E7E] text-sm">24/7 Support Center</h1>
           </div>
         </div>
-        <div></div>
-        
+        <div className="font-semibold">
+          <h1>Follow Us</h1>
+          <h1>Up to 15% discount on your first subscribe</h1>
+        </div>
       </div>
     </div>
   );
