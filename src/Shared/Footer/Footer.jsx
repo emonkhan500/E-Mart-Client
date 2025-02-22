@@ -8,7 +8,7 @@ import { IoMdTime } from "react-icons/io";
 
 const Footer = () => {
   return (
-    <div className="mt-20 mb-10 quick ">
+    <div className="mt-20  quick px-4 pt-2 shadow-md rounded ">
       <div className="grid  grid-cols-2 md:grid-cols-3 lg:grid-cols-6 text-[#253D4E] gap-10">
         {/* clo-1 */}
         <div className="space-y-4">
@@ -78,7 +78,7 @@ const Footer = () => {
         <div>
           <h1 className="mb-6 text-3xl font-bold">Install App</h1>
           <h1 className=" font-semibold mt-20">From App Store or Google Play</h1>
-          <div className="flex flex-col lg:w-7/12 md:flex-row gap-2 mt-4">
+          <div className="flex flex-col lg:w-3/6  shadow-md rounded md:flex-row gap-2 mt-4">
             
             
             <img className=""  src={google} alt="" />
