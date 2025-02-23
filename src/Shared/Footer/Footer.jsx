@@ -8,8 +8,8 @@ import { IoMdTime } from "react-icons/io";
 
 const Footer = () => {
   return (
-    <div className=" mt-10 md:mt-12 lg:mt-14  quick px-4 pt-2 shadow-md rounded ">
-      <div className="grid  grid-cols-2 md:grid-cols-3 lg:grid-cols-6 text-[#253D4E] gap-10">
+    <div className=" mt-10 md:mt-12 lg:mt-14  quick px-4 pt-2 border shadow-md rounded ">
+      <div className="grid pt-3 grid-cols-2 md:grid-cols-3 lg:grid-cols-6 text-[#253D4E] gap-10">
         {/* clo-1 */}
         <div className="space-y-4">
           <div className="mb-8">
