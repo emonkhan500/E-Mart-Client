@@ -5,6 +5,7 @@ import Footer from '../../Shared/Footer/Footer';
 import UnderFeature from './UnderFeature';
 import UpFooter from './UpFooter';
 import Newsletter from './Newsletter';
+import Popular from './Popular';
 
 const Home = () => {
     return (
@@ -12,6 +13,7 @@ const Home = () => {
             <Banner></Banner>
             <Featured></Featured>
             <UnderFeature></UnderFeature>
+            <Popular></Popular>
             <Newsletter></Newsletter>
             <UpFooter></UpFooter>
         
