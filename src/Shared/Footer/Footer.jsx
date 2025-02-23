@@ -90,7 +90,7 @@ const Footer = () => {
       </div>
 
       {/* subFooter */}
-      <div className="flex flex-col md:flex-row justify-between border-t-[#BCE3C9] border-t-2 mt-16 mb-16 px-4 md:px-8 py-6 gap-6 md:gap-0 text-center md:text-left">
+      <div className="flex flex-col md:flex-row justify-between border-t-[#BCE3C9] border-t-2 mt-16 mb-8 px-4 md:px-8 py-6 gap-6 md:gap-0 text-center md:text-left">
         <div className="font-semibold">
           <h1>© 2025, <span className="text-lg text-[#3BB77E]">E-Mart & Grocery</span></h1>
           <h1>All rights reserved</h1>
