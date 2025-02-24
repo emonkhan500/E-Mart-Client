@@ -48,7 +48,44 @@ const DealsOfDay = () => {
             </div>
           </div>
         </div>
-        {/* 1 */}
+        {/* 2 */}
+        <div>
+          <div>
+            <img src="https://i.ibb.co.com/B5fR598G/banner-6-png.png" alt="" />
+          </div>
+          {/* relative div */}
+          <div className="relative w-11/12 lg:w-[280px] xl:w-[320px] bg-[#FFF] rounded shadow px-3 py-1 -top-24 left-3">
+            <h1 className="quick text-xl font-bold text-[#253D4E] mt-1 mb-2">
+              Seeds of Change Organic Quinoa, Brown, & Red Rice
+            </h1>
+            <p>
+              By <span className="text-[#3BB77E]">NestFood</span>
+            </p>
+            <div className="rating mt-2">
+              <input
+                type="radio"
+                name="rating-1"
+                className="mask mask-star bg-orange-400"
+              />
+              <input
+                type="radio"
+                name="rating-1"
+                className="mask mask-star bg-orange-400"
+                defaultChecked
+              />
+              <input type="radio" name="rating-1" className="mask mask-star " />
+              <input type="radio" name="rating-1" className="mask mask-star " />
+              <input type="radio" name="rating-1" className="mask mask-star " />
+            </div>
+            <div className="flex justify-between items-center px-6 mt-2 mb-2">
+              <h1 className="text-[#3BB77E] text-lg font-semibold">$28.85</h1>
+              <button className="flex items-center justify-center gap-2 px-3 py-2 rounded bg-[#DEF9EC] text-[#3BB77E]">
+                <FaShoppingCart /> Add
+              </button>
+            </div>
+          </div>
+        </div>
+        {/* 3 */}
         <div>
           <div>
             <img src="https://i.ibb.co.com/fzsPYRrY/banner-5-png.png" alt="" />
@@ -85,47 +122,10 @@ const DealsOfDay = () => {
             </div>
           </div>
         </div>
-        {/* 1 */}
+        {/* 4 */}
         <div>
           <div>
-            <img src="https://i.ibb.co.com/fzsPYRrY/banner-5-png.png" alt="" />
-          </div>
-          {/* relative div */}
-          <div className="relative w-11/12 lg:w-[280px] xl:w-[320px] bg-[#FFF] rounded shadow px-3 py-1 -top-24 left-3">
-            <h1 className="quick text-xl font-bold text-[#253D4E] mt-1 mb-2">
-              Seeds of Change Organic Quinoa, Brown, & Red Rice
-            </h1>
-            <p>
-              By <span className="text-[#3BB77E]">NestFood</span>
-            </p>
-            <div className="rating mt-2">
-              <input
-                type="radio"
-                name="rating-1"
-                className="mask mask-star bg-orange-400"
-              />
-              <input
-                type="radio"
-                name="rating-1"
-                className="mask mask-star bg-orange-400"
-                defaultChecked
-              />
-              <input type="radio" name="rating-1" className="mask mask-star " />
-              <input type="radio" name="rating-1" className="mask mask-star " />
-              <input type="radio" name="rating-1" className="mask mask-star " />
-            </div>
-            <div className="flex justify-between items-center px-6 mt-2 mb-2">
-              <h1 className="text-[#3BB77E] text-lg font-semibold">$28.85</h1>
-              <button className="flex items-center justify-center gap-2 px-3 py-2 rounded bg-[#DEF9EC] text-[#3BB77E]">
-                <FaShoppingCart /> Add
-              </button>
-            </div>
-          </div>
-        </div>
-        {/* 1 */}
-        <div>
-          <div>
-            <img src="https://i.ibb.co.com/fzsPYRrY/banner-5-png.png" alt="" />
+            <img src="https://i.ibb.co.com/wF3gMBGG/banner-8-png.png" alt="" />
           </div>
           {/* relative div */}
           <div className="relative w-11/12 lg:w-[280px] xl:w-[320px] bg-[#FFF] rounded shadow px-3 py-1 -top-24 left-3">
