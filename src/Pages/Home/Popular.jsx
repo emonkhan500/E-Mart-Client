@@ -23,9 +23,9 @@ const Popular = () => {
       <div className="rating mt-2">
         <input type="radio" name="rating-1" className="mask mask-star bg-orange-400" />
         <input type="radio" name="rating-1" className="mask mask-star bg-orange-400" defaultChecked />
-        <input type="radio" name="rating-1" className="mask mask-star" />
-        <input type="radio" name="rating-1" className="mask mask-star" />
-        <input type="radio" name="rating-1" className="mask mask-star" />
+        <input type="radio" name="rating-1" className="mask mask-star bg-orange-400" />
+        <input type="radio" name="rating-1" className="mask mask-star bg-orange-400" />
+        <input type="radio" name="rating-1" className="mask mask-star bg-orange-400" />
       </div>
       <div className="flex justify-between items-center px-6 mt-2 mb-5">
         <h1 className="text-[#3BB77E] text-lg font-semibold">$28.85</h1>
@@ -49,9 +49,9 @@ const Popular = () => {
       <div className="rating mt-2">
         <input type="radio" name="rating-1" className="mask mask-star bg-orange-400" />
         <input type="radio" name="rating-1" className="mask mask-star bg-orange-400" defaultChecked />
-        <input type="radio" name="rating-1" className="mask mask-star" />
-        <input type="radio" name="rating-1" className="mask mask-star" />
-        <input type="radio" name="rating-1" className="mask mask-star" />
+        <input type="radio" name="rating-1" className="mask mask-star bg-orange-400" />
+        <input type="radio" name="rating-1" className="mask mask-star bg-orange-400" />
+        <input type="radio" name="rating-1" className="mask mask-star bg-orange-400" />
       </div>
       <div className="flex justify-between items-center  px-6 mt-2 mb-5">
         <h1 className="text-[#3BB77E] text-lg font-semibold">$28.85</h1>
