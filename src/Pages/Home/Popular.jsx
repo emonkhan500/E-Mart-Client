@@ -27,7 +27,7 @@ const Popular = () => {
         <input type="radio" name="rating-1" className="mask mask-star" />
         <input type="radio" name="rating-1" className="mask mask-star" />
       </div>
-      <div className="flex justify-between items-center px-9 mt-2 mb-5">
+      <div className="flex justify-between items-center px-6 mt-2 mb-5">
         <h1 className="text-[#3BB77E] text-lg font-semibold">$28.85</h1>
         <button className="flex items-center justify-center gap-2 px-3 py-2 rounded bg-[#DEF9EC] text-[#3BB77E]">
           <FaShoppingCart /> Add
@@ -53,7 +53,7 @@ const Popular = () => {
         <input type="radio" name="rating-1" className="mask mask-star" />
         <input type="radio" name="rating-1" className="mask mask-star" />
       </div>
-      <div className="flex justify-between items-center  px-9 mt-2 mb-5">
+      <div className="flex justify-between items-center  px-6 mt-2 mb-5">
         <h1 className="text-[#3BB77E] text-lg font-semibold">$28.85</h1>
         <button className="flex items-center justify-center gap-2 px-3 py-2 rounded bg-[#DEF9EC] text-[#3BB77E]">
           <FaShoppingCart /> Add
@@ -79,7 +79,7 @@ const Popular = () => {
         <input type="radio" name="rating-1" className="mask mask-star" />
         <input type="radio" name="rating-1" className="mask mask-star" />
       </div>
-      <div className="flex justify-between items-center  px-9 mt-2 mb-5">
+      <div className="flex justify-between items-center  px-6 mt-2 mb-5">
         <h1 className="text-[#3BB77E] text-lg font-semibold">$28.85</h1>
         <button className="flex items-center justify-center gap-2 px-3 py-2 rounded bg-[#DEF9EC] text-[#3BB77E]">
           <FaShoppingCart /> Add
@@ -105,7 +105,7 @@ const Popular = () => {
         <input type="radio" name="rating-1" className="mask mask-star" />
         <input type="radio" name="rating-1" className="mask mask-star" />
       </div>
-      <div className="flex justify-between items-center  px-9 mt-2 mb-5">
+      <div className="flex justify-between items-center  px-6 mt-2 mb-5">
         <h1 className="text-[#3BB77E] text-lg font-semibold">$28.85</h1>
         <button className="flex items-center justify-center gap-2 px-3 py-2 rounded bg-[#DEF9EC] text-[#3BB77E]">
           <FaShoppingCart /> Add
@@ -131,7 +131,7 @@ const Popular = () => {
         <input type="radio" name="rating-1" className="mask mask-star" />
         <input type="radio" name="rating-1" className="mask mask-star" />
       </div>
-      <div className="flex justify-between items-center  px-9 mt-2 mb-5">
+      <div className="flex justify-between items-center  px-6 mt-2 mb-5">
         <h1 className="text-[#3BB77E] text-lg font-semibold">$28.85</h1>
         <button className="flex items-center justify-center gap-2 px-3 py-2 rounded bg-[#DEF9EC] text-[#3BB77E]">
           <FaShoppingCart /> Add
@@ -157,7 +157,7 @@ const Popular = () => {
         <input type="radio" name="rating-1" className="mask mask-star" />
         <input type="radio" name="rating-1" className="mask mask-star" />
       </div>
-      <div className="flex justify-between items-center  px-9 mt-2 mb-5">
+      <div className="flex justify-between items-center  px-6 mt-2 mb-5">
         <h1 className="text-[#3BB77E] text-lg font-semibold">$28.85</h1>
         <button className="flex items-center justify-center gap-2 px-3 py-2 rounded bg-[#DEF9EC] text-[#3BB77E]">
           <FaShoppingCart /> Add
@@ -183,7 +183,7 @@ const Popular = () => {
         <input type="radio" name="rating-1" className="mask mask-star" />
         <input type="radio" name="rating-1" className="mask mask-star" />
       </div>
-      <div className="flex justify-between items-center  px-9 mt-2 mb-5">
+      <div className="flex justify-between items-center  px-6 mt-2 mb-5">
         <h1 className="text-[#3BB77E] text-lg font-semibold">$28.85</h1>
         <button className="flex items-center justify-center gap-2 px-3 py-2 rounded bg-[#DEF9EC] text-[#3BB77E]">
           <FaShoppingCart /> Add
@@ -209,7 +209,7 @@ const Popular = () => {
         <input type="radio" name="rating-1" className="mask mask-star" />
         <input type="radio" name="rating-1" className="mask mask-star" />
       </div>
-      <div className="flex justify-between items-center  px-9 mt-2 mb-5">
+      <div className="flex justify-between items-center  px-6 mt-2 mb-5">
         <h1 className="text-[#3BB77E] text-lg font-semibold">$28.85</h1>
         <button className="flex items-center justify-center gap-2 px-3 py-2 rounded bg-[#DEF9EC] text-[#3BB77E]">
           <FaShoppingCart /> Add
@@ -235,7 +235,7 @@ const Popular = () => {
         <input type="radio" name="rating-1" className="mask mask-star" />
         <input type="radio" name="rating-1" className="mask mask-star" />
       </div>
-      <div className="flex justify-between items-center  px-9 mt-2 mb-5">
+      <div className="flex justify-between items-center  px-6 mt-2 mb-5">
         <h1 className="text-[#3BB77E] text-lg font-semibold">$28.85</h1>
         <button className="flex items-center justify-center gap-2 px-3 py-2 rounded bg-[#DEF9EC] text-[#3BB77E]">
           <FaShoppingCart /> Add
@@ -261,7 +261,7 @@ const Popular = () => {
         <input type="radio" name="rating-1" className="mask mask-star" />
         <input type="radio" name="rating-1" className="mask mask-star" />
       </div>
-      <div className="flex justify-between items-center  px-9 mt-2 mb-5">
+      <div className="flex justify-between items-center  px-6 mt-2 mb-5">
         <h1 className="text-[#3BB77E] text-lg font-semibold">$28.85</h1>
         <button className="flex items-center justify-center gap-2 px-3 py-2 rounded bg-[#DEF9EC] text-[#3BB77E]">
           <FaShoppingCart /> Add
