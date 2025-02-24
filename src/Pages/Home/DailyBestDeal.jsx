@@ -15,16 +15,16 @@ import { FaShoppingCart } from "react-icons/fa";
 
 const DailyBestDeal = () => {
   return (
-    <div className="flex justify-center">
-      <div className="md:my-7 my-4 mt-10 text-center">
+    <div className="">
+      <div className=" my-4 mt-10 text-center">
         <h1 className="text-[#253D4E] text-2xl md:text-4xl font-bold">
           Daily Best Sells
         </h1>
       </div>
       {/* main */}
-      <div>
+      <div className="flex justify-center gap-4">
         <div
-          className="relative  w-[335px]   bg-cover bg-center flex items-center p-2  rounded-lg shadow-md"
+          className="  hidden lg:flex relative  w-[450px] h-[552px]  bg-cover bg-center items-center p-2  rounded-lg shadow-md"
           style={{
             backgroundImage: "url('https://i.ibb.co.com/DHppj7Yn/leaf.png')",
           }}
@@ -40,9 +40,7 @@ const DailyBestDeal = () => {
             </Link>
           </div>
         </div>
-        
-      </div>
-      <Swiper
+        <Swiper
         slidesPerView={10}
         spaceBetween={1}
         freeMode={true}
@@ -50,23 +48,24 @@ const DailyBestDeal = () => {
           clickable: true,
         }}
         modules={[FreeMode, Pagination]}
-        className="mySwiper w-full lg:w-[1586px] mx-auto lg:pl-7"
+        className="mySwiper w-full  mx-auto lg:pl-7"
         breakpoints={{
-          320: { slidesPerView: 1, spaceBetween: 0 }, // Mobile (sm)
-          550: { slidesPerView: 2, spaceBetween: 2 }, // Small tablets
-          640: { slidesPerView: 2, spaceBetween: 3 }, // Tablets
+          320: { slidesPerView: 1, spaceBetween: 2 }, // Mobile (sm)
+          550: { slidesPerView: 2, spaceBetween: 3 }, // Small tablets
+          640: { slidesPerView: 2, spaceBetween: 4}, // Tablets
           770: { slidesPerView: 3, spaceBetween: 5 }, // Small laptops
           1024: { slidesPerView: 3, spaceBetween: 10 }, // Standard laptops (adjusted)
           1280: { slidesPerView: 4, spaceBetween: 12 }, // Large laptops
-          1440: { slidesPerView: 5, spaceBetween: 10 }, // Widescreen monitors
+          1440: { slidesPerView: 4, spaceBetween: 10 }, // Widescreen monitors
         }}
       >
         <SwiperSlide>
-        <div className="md:w-[240px] lg:w-[236px] xl:w-[240px] border border-[#ECECEC] rounded-lg px-3 shadow mx-auto">
-    <div className="flex justify-center">
+        <div className="text-start w-full border border-[#ECECEC] rounded-lg  shadow mx-auto">
+    <div className="flex ">
       <img src="https://i.ibb.co.com/LXM7jQh1/Link-product-3-1-jpg.png" alt="Product" />
     </div>
     <div>
+      <div className="px-4">
       <p className="text-[#ADADAD]">Snack</p>
       <h1 className="quick text-xl font-bold text-[#253D4E] mt-1 mb-2">
         Seeds of Change Organic Quinoa, Brown, & Red Rice
@@ -79,155 +78,147 @@ const DailyBestDeal = () => {
         <input type="radio" name="rating-1" className="mask mask-star" />
         <input type="radio" name="rating-1" className="mask mask-star" />
       </div>
-      <div className="flex justify-between items-center  px-6 mt-2 mb-5">
-        <h1 className="text-[#3BB77E] text-lg font-semibold">$28.85</h1>
-        <button className="flex items-center justify-center gap-2 px-3 py-2 rounded bg-[#DEF9EC] text-[#3BB77E]">
-          <FaShoppingCart /> Add
-        </button>
+      <h1 className="text-[#3BB77E] text-lg font-semibold">$28.85</h1>
       </div>
-    </div>
-  </div>
-        </SwiperSlide>
-        <SwiperSlide>
-        <div className="md:w-[240px] lg:w-[236px] xl:w-[240px] border border-[#ECECEC] rounded-lg px-3 shadow mx-auto">
-    <div className="flex justify-center">
-      <img src="https://i.ibb.co.com/LXM7jQh1/Link-product-3-1-jpg.png" alt="Product" />
-    </div>
-    <div>
-      <p className="text-[#ADADAD]">Snack</p>
-      <h1 className="quick text-xl font-bold text-[#253D4E] mt-1 mb-2">
-        Seeds of Change Organic Quinoa, Brown, & Red Rice
-      </h1>
-      <p>By <span className="text-[#3BB77E]">NestFood</span></p>
-      <div className="rating mt-2">
-        <input type="radio" name="rating-1" className="mask mask-star bg-orange-400" />
-        <input type="radio" name="rating-1" className="mask mask-star bg-orange-400" defaultChecked />
-        <input type="radio" name="rating-1" className="mask mask-star" />
-        <input type="radio" name="rating-1" className="mask mask-star" />
-        <input type="radio" name="rating-1" className="mask mask-star" />
-      </div>
-      <div className="flex justify-between items-center  px-6 mt-2 mb-5">
-        <h1 className="text-[#3BB77E] text-lg font-semibold">$28.85</h1>
-        <button className="flex items-center justify-center gap-2 px-3 py-2 rounded bg-[#DEF9EC] text-[#3BB77E]">
-          <FaShoppingCart /> Add
-        </button>
-      </div>
-    </div>
-  </div>
-        </SwiperSlide>
-        <SwiperSlide>
-        <div className="md:w-[240px] lg:w-[236px] xl:w-[240px] border border-[#ECECEC] rounded-lg px-3 shadow mx-auto">
-    <div className="flex justify-center">
-      <img src="https://i.ibb.co.com/LXM7jQh1/Link-product-3-1-jpg.png" alt="Product" />
-    </div>
-    <div>
-      <p className="text-[#ADADAD]">Snack</p>
-      <h1 className="quick text-xl font-bold text-[#253D4E] mt-1 mb-2">
-        Seeds of Change Organic Quinoa, Brown, & Red Rice
-      </h1>
-      <p>By <span className="text-[#3BB77E]">NestFood</span></p>
-      <div className="rating mt-2">
-        <input type="radio" name="rating-1" className="mask mask-star bg-orange-400" />
-        <input type="radio" name="rating-1" className="mask mask-star bg-orange-400" defaultChecked />
-        <input type="radio" name="rating-1" className="mask mask-star" />
-        <input type="radio" name="rating-1" className="mask mask-star" />
-        <input type="radio" name="rating-1" className="mask mask-star" />
-      </div>
-      <div className="flex justify-between items-center  px-6 mt-2 mb-5">
-        <h1 className="text-[#3BB77E] text-lg font-semibold">$28.85</h1>
-        <button className="flex items-center justify-center gap-2 px-3 py-2 rounded bg-[#DEF9EC] text-[#3BB77E]">
-          <FaShoppingCart /> Add
-        </button>
-      </div>
-    </div>
-  </div>
-        </SwiperSlide>
-        <SwiperSlide>
-        <div className="md:w-[240px] lg:w-[236px] xl:w-[240px] border border-[#ECECEC] rounded-lg px-3 shadow mx-auto">
-    <div className="flex justify-center">
-      <img src="https://i.ibb.co.com/LXM7jQh1/Link-product-3-1-jpg.png" alt="Product" />
-    </div>
-    <div>
-      <p className="text-[#ADADAD]">Snack</p>
-      <h1 className="quick text-xl font-bold text-[#253D4E] mt-1 mb-2">
-        Seeds of Change Organic Quinoa, Brown, & Red Rice
-      </h1>
-      <p>By <span className="text-[#3BB77E]">NestFood</span></p>
-      <div className="rating mt-2">
-        <input type="radio" name="rating-1" className="mask mask-star bg-orange-400" />
-        <input type="radio" name="rating-1" className="mask mask-star bg-orange-400" defaultChecked />
-        <input type="radio" name="rating-1" className="mask mask-star" />
-        <input type="radio" name="rating-1" className="mask mask-star" />
-        <input type="radio" name="rating-1" className="mask mask-star" />
-      </div>
-      <div className="flex justify-between items-center  px-6 mt-2 mb-5">
-        <h1 className="text-[#3BB77E] text-lg font-semibold">$28.85</h1>
-        <button className="flex items-center justify-center gap-2 px-3 py-2 rounded bg-[#DEF9EC] text-[#3BB77E]">
-          <FaShoppingCart /> Add
-        </button>
-      </div>
-    </div>
-  </div>
-        </SwiperSlide>
-        <SwiperSlide>
-        <div className="md:w-[240px] lg:w-[236px] xl:w-[240px] border border-[#ECECEC] rounded-lg px-3 shadow mx-auto">
-    <div className="flex justify-center">
-      <img src="https://i.ibb.co.com/LXM7jQh1/Link-product-3-1-jpg.png" alt="Product" />
-    </div>
-    <div>
-      <p className="text-[#ADADAD]">Snack</p>
-      <h1 className="quick text-xl font-bold text-[#253D4E] mt-1 mb-2">
-        Seeds of Change Organic Quinoa, Brown, & Red Rice
-      </h1>
-      <p>By <span className="text-[#3BB77E]">NestFood</span></p>
-      <div className="rating mt-2">
-        <input type="radio" name="rating-1" className="mask mask-star bg-orange-400" />
-        <input type="radio" name="rating-1" className="mask mask-star bg-orange-400" defaultChecked />
-        <input type="radio" name="rating-1" className="mask mask-star" />
-        <input type="radio" name="rating-1" className="mask mask-star" />
-        <input type="radio" name="rating-1" className="mask mask-star" />
-      </div>
-      <div className="flex justify-between items-center  px-6 mt-2 mb-5">
-        <h1 className="text-[#3BB77E] text-lg font-semibold">$28.85</h1>
-        <button className="flex items-center justify-center gap-2 px-3 py-2 rounded bg-[#DEF9EC] text-[#3BB77E]">
-          <FaShoppingCart /> Add
-        </button>
-      </div>
-    </div>
-  </div>
-        </SwiperSlide>
-        <SwiperSlide>
-        <div className="md:w-[240px] lg:w-[236px] xl:w-[240px] border border-[#ECECEC] rounded-lg px-3 shadow mx-auto">
-    <div className="flex justify-center">
-      <img src="https://i.ibb.co.com/LXM7jQh1/Link-product-3-1-jpg.png" alt="Product" />
-    </div>
-    <div>
-      <p className="text-[#ADADAD]">Snack</p>
-      <h1 className="quick text-xl font-bold text-[#253D4E] mt-1 mb-2">
-        Seeds of Change Organic Quinoa, Brown, & Red Rice
-      </h1>
-      <p>By <span className="text-[#3BB77E]">NestFood</span></p>
-      <div className="rating mt-2">
-        <input type="radio" name="rating-1" className="mask mask-star bg-orange-400" />
-        <input type="radio" name="rating-1" className="mask mask-star bg-orange-400" defaultChecked />
-        <input type="radio" name="rating-1" className="mask mask-star" />
-        <input type="radio" name="rating-1" className="mask mask-star" />
-        <input type="radio" name="rating-1" className="mask mask-star" />
-      </div>
-      <div className="flex justify-between items-center  px-6 mt-2 mb-5">
-        <h1 className="text-[#3BB77E] text-lg font-semibold">$28.85</h1>
-        <button className="flex items-center justify-center gap-2 px-3 py-2 rounded bg-[#DEF9EC] text-[#3BB77E]">
-          <FaShoppingCart /> Add
-        </button>
-      </div>
-    </div>
-  </div>
-        </SwiperSlide>
-
+      <div className="  mt-2 ">
         
-
         
+        <button className="w-full flex items-center justify-center gap-2 px-3 py-2 rounded bg-[#3BB77E] text-white">
+          <FaShoppingCart /> Add To cart
+        </button>
+      </div>
+    </div>
+  </div>
+        </SwiperSlide>
+        <SwiperSlide>
+        <div className="text-start w-full border border-[#ECECEC] rounded-lg  shadow mx-auto">
+    <div className="flex ">
+      <img src="https://i.ibb.co.com/LXM7jQh1/Link-product-3-1-jpg.png" alt="Product" />
+    </div>
+    <div>
+      <div className="px-4">
+      <p className="text-[#ADADAD]">Snack</p>
+      <h1 className="quick text-xl font-bold text-[#253D4E] mt-1 mb-2">
+        Seeds of Change Organic Quinoa, Brown, & Red Rice
+      </h1>
+      <p>By <span className="text-[#3BB77E]">NestFood</span></p>
+      <div className="rating mt-2">
+        <input type="radio" name="rating-1" className="mask mask-star bg-orange-400" />
+        <input type="radio" name="rating-1" className="mask mask-star bg-orange-400" defaultChecked />
+        <input type="radio" name="rating-1" className="mask mask-star" />
+        <input type="radio" name="rating-1" className="mask mask-star" />
+        <input type="radio" name="rating-1" className="mask mask-star" />
+      </div>
+      <h1 className="text-[#3BB77E] text-lg font-semibold">$28.85</h1>
+      </div>
+      <div className="  mt-2 ">
+        
+        
+        <button className="w-full flex items-center justify-center gap-2 px-3 py-2 rounded bg-[#3BB77E] text-white">
+          <FaShoppingCart /> Add To cart
+        </button>
+      </div>
+    </div>
+  </div>
+        </SwiperSlide>
+        <SwiperSlide>
+        <div className="text-start w-full border border-[#ECECEC] rounded-lg  shadow mx-auto">
+    <div className="flex ">
+      <img src="https://i.ibb.co.com/LXM7jQh1/Link-product-3-1-jpg.png" alt="Product" />
+    </div>
+    <div>
+      <div className="px-4">
+      <p className="text-[#ADADAD]">Snack</p>
+      <h1 className="quick text-xl font-bold text-[#253D4E] mt-1 mb-2">
+        Seeds of Change Organic Quinoa, Brown, & Red Rice
+      </h1>
+      <p>By <span className="text-[#3BB77E]">NestFood</span></p>
+      <div className="rating mt-2">
+        <input type="radio" name="rating-1" className="mask mask-star bg-orange-400" />
+        <input type="radio" name="rating-1" className="mask mask-star bg-orange-400" defaultChecked />
+        <input type="radio" name="rating-1" className="mask mask-star" />
+        <input type="radio" name="rating-1" className="mask mask-star" />
+        <input type="radio" name="rating-1" className="mask mask-star" />
+      </div>
+      <h1 className="text-[#3BB77E] text-lg font-semibold">$28.85</h1>
+      </div>
+      <div className="  mt-2 ">
+        
+        
+        <button className="w-full flex items-center justify-center gap-2 px-3 py-2 rounded bg-[#3BB77E] text-white">
+          <FaShoppingCart /> Add To cart
+        </button>
+      </div>
+    </div>
+  </div>
+        </SwiperSlide>
+        <SwiperSlide>
+        <div className="text-start w-full border border-[#ECECEC] rounded-lg  shadow mx-auto">
+    <div className="flex ">
+      <img src="https://i.ibb.co.com/LXM7jQh1/Link-product-3-1-jpg.png" alt="Product" />
+    </div>
+    <div>
+      <div className="px-4">
+      <p className="text-[#ADADAD]">Snack</p>
+      <h1 className="quick text-xl font-bold text-[#253D4E] mt-1 mb-2">
+        Seeds of Change Organic Quinoa, Brown, & Red Rice
+      </h1>
+      <p>By <span className="text-[#3BB77E]">NestFood</span></p>
+      <div className="rating mt-2">
+        <input type="radio" name="rating-1" className="mask mask-star bg-orange-400" />
+        <input type="radio" name="rating-1" className="mask mask-star bg-orange-400" defaultChecked />
+        <input type="radio" name="rating-1" className="mask mask-star" />
+        <input type="radio" name="rating-1" className="mask mask-star" />
+        <input type="radio" name="rating-1" className="mask mask-star" />
+      </div>
+      <h1 className="text-[#3BB77E] text-lg font-semibold">$28.85</h1>
+      </div>
+      <div className="  mt-2 ">
+        
+        
+        <button className="w-full flex items-center justify-center gap-2 px-3 py-2 rounded bg-[#3BB77E] text-white">
+          <FaShoppingCart /> Add To cart
+        </button>
+      </div>
+    </div>
+  </div>
+        </SwiperSlide>
+        <SwiperSlide>
+        <div className="text-start w-full border border-[#ECECEC] rounded-lg  shadow mx-auto">
+    <div className="flex ">
+      <img src="https://i.ibb.co.com/LXM7jQh1/Link-product-3-1-jpg.png" alt="Product" />
+    </div>
+    <div>
+      <div className="px-4">
+      <p className="text-[#ADADAD]">Snack</p>
+      <h1 className="quick text-xl font-bold text-[#253D4E] mt-1 mb-2">
+        Seeds of Change Organic Quinoa, Brown, & Red Rice
+      </h1>
+      <p>By <span className="text-[#3BB77E]">NestFood</span></p>
+      <div className="rating mt-2">
+        <input type="radio" name="rating-1" className="mask mask-star bg-orange-400" />
+        <input type="radio" name="rating-1" className="mask mask-star bg-orange-400" defaultChecked />
+        <input type="radio" name="rating-1" className="mask mask-star" />
+        <input type="radio" name="rating-1" className="mask mask-star" />
+        <input type="radio" name="rating-1" className="mask mask-star" />
+      </div>
+      <h1 className="text-[#3BB77E] text-lg font-semibold">$28.85</h1>
+      </div>
+      <div className="  mt-2 ">
+        
+        
+        <button className="w-full flex items-center justify-center gap-2 px-3 py-2 rounded bg-[#3BB77E] text-white">
+          <FaShoppingCart /> Add To cart
+        </button>
+      </div>
+    </div>
+  </div>
+        </SwiperSlide>
+     
       </Swiper>
+        
+      </div>
+      
     </div>
   );
 };
