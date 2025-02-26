@@ -31,3 +31,9 @@ body {
   display: block;
   width: 100%;
 }
+@media (max-width: 768px) {
+  .swiper-slide {
+    width: 250px; /* Smaller width for mobile */
+    height: 250px;
+  }
+}
