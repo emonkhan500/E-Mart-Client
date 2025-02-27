@@ -1,9 +1,11 @@
 import React from 'react';
+import Newsletter from '../Home/Newsletter';
 
 const Contact = () => {
     return (
         <div>
-            <h1> This is Contact Page </h1>
+       
+            <Newsletter></Newsletter>
         </div>
     );
 };
