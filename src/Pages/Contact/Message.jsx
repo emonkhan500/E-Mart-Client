@@ -1,11 +1,82 @@
-import React from 'react';
+import React from "react";
 
 const Message = () => {
-    return (
-        <div>
-            <h1>This is message box</h1>
+  return (
+    // <div>
+    //   <h1>Drop Us a Line</h1>
+    //   <p>
+    //     Your email address will not be published. Required fields are marked *
+    //   </p>
+    //   {/* contact form  */}
+    //   <div></div>
+    // </div>
+    <section className="w-full mb-8 lg:flex-row flex items-center gap-3 flex-col  lg:p-[40px] rounded-xl">
+      {/* form area */}
+      <form className="lg:w-[60%] w-full">
+        <div className="lg:w-[80%] w-full mx-auto">
+          
+
+          <div className="flex sm:flex-row flex-col items-center gap-2 md:gap-[20px]">
+            <div className="flex flex-col gap-[5px] w-full sm:w-[50%]">
+              <input
+                type="text"
+                placeholder="Your name"
+                className="peer border-[#383844] border rounded-md outline-none px-4 py-2 lg:py-4 w-full  text-gray-400 transition-colors duration-300"
+              />
+            </div>
+
+            <div className="flex flex-col gap-[5px] w-full sm:w-[50%]">
+              <input
+                type="email"
+                placeholder="Email address"
+                className="peer border-[#383844] border rounded-md outline-none px-4 py-2 lg:py-4 w-full text-gray-400 transition-colors duration-300"
+              />
+            </div>
+          </div>
+          <div className="flex mt-3 sm:flex-row flex-col items-center gap-2 md:gap-[20px]">
+            <div className="flex flex-col gap-[5px] w-full sm:w-[50%]">
+              <input
+                type="text"
+                placeholder="Your name"
+                className="peer border-[#383844] border rounded-md outline-none px-4 py-2 lg:py-4 w-full  text-gray-400 transition-colors duration-300"
+              />
+            </div>
+
+            <div className="flex flex-col gap-[5px] w-full sm:w-[50%]">
+              <input
+                type="email"
+                placeholder="Email address"
+                className="peer border-[#383844] border rounded-md outline-none px-4 py-2 lg:py-4 w-full text-gray-400 transition-colors duration-300"
+              />
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-[5px] w-full mt-[20px]">
+            <textarea
+              placeholder="Write message"
+              className="peer min-h-28 md:min-h-[200px] border-[#383844] border rounded-md outline-none px-4 py-3 w-full text-gray-400 transition-colors duration-300"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            className="py-2.5 px-6 bg-[#253D4E] text-white rounded-md text-[1rem] mt-[10px] w-full"
+          >
+            Send Message
+          </button>
         </div>
-    );
+      </form>
+
+      {/*  image  */}
+      <div className="">
+        <img
+          src="https://i.ibb.co.com/JW8TGVwS/contact.png"
+          alt="image"
+          className="rounded lg:w-4/5 "
+        />
+      </div>
+    </section>
+  );
 };
 
 export default Message;
