@@ -10,8 +10,14 @@ const Message = () => {
     //   {/* contact form  */}
     //   <div></div>
     // </div>
-    <div className="border-t-2 mt-16">
-    <h1 className="text-4xl text-center font-bold mt-3 text-[#3BB77E]"> Contact Here ..</h1>
+    <div className=" mt-16">
+   <div>
+     <h1 className="text-4xl text-center font-bold mt-3 text-[#3BB77E]"> Contact Here ..</h1>
+    
+    <div className="flex justify-center mt-3 pr-7">
+    <img className="" src="https://i.ibb.co.com/1JBhBjNq/underheading.png " alt="" />
+    </div>
+   </div>
     <section className="w-full mb-8 lg:flex-row flex items-center gap-3 flex-col  lg:p-[40px] rounded-xl">
        
       {/* form area */}

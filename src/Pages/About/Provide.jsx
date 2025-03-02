@@ -10,6 +10,9 @@ const Provide = () => {
     <div className="md:mt-7 px-4 md:px-10 lg:px-16 lato">
       <div className="text-center ">
         <h1 className="font-bold text-[#253D4E] text-3xl ">What We Provide</h1>
+        <div className="flex justify-center mt-3 pr-7">
+    <img className="" src="https://i.ibb.co.com/1JBhBjNq/underheading.png " alt="" />
+    </div>
       </div>
       {/* card */}
       <div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-4">
