@@ -2,7 +2,7 @@ import React from "react";
 
 const Help = () => {
   return (
-    <div className="flex flex-col md:flex-row lg:flex-row  gap-12 md:gap-3 lg:gap-6 mb-10">
+    <div className="flex border py-4 px-2 flex-col md:flex-row lg:flex-row  gap-0 md:gap-3 lg:gap-6 mb-10">
       <div className="space-y-4 md:w-5/6 lg:w-1/3">
         <h1 className="text-[#3BB77E] text-lg font-bold quick">How can help you ?</h1>
         <h1 className="text-3xl text-[#253D4E] font-bold">Let us know how
