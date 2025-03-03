@@ -2,14 +2,7 @@ import React from "react";
 
 const Message = () => {
   return (
-    // <div>
-    //   <h1>Drop Us a Line</h1>
-    //   <p>
-    //     Your email address will not be published. Required fields are marked *
-    //   </p>
-    //   {/* contact form  */}
-    //   <div></div>
-    // </div>
+   
     <div className=" mt-16">
    <div>
      <h1 className="text-4xl text-center font-bold mt-3 text-[#3BB77E]"> Contact Here ..</h1>
