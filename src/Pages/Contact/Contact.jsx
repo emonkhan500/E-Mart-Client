@@ -7,7 +7,7 @@ import ShareHead from '../../Shared/ShareHead';
 
 const Contact = () => {
     return (
-       <div className='lato mt-6'>
+       <div className='lato '>
          <div>
           <ShareHead  pageTitle={'Contact'}></ShareHead>
        <Help></Help>

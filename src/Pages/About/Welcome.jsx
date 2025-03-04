@@ -13,7 +13,7 @@ import '../About/Style.css';
 import { EffectCoverflow, Pagination } from 'swiper/modules';
 const Welcome = () => {
     return (
-        <div className='quick flex items-center justify-center flex-col gap-9 md:flex-row lg:mt-10'>
+        <div className='quick flex items-center justify-center flex-col gap-9 md:flex-row '>
            <div className='rounded  md::w-1/2'>
             <img  className=' md:h-[600px]' src="https://i.ibb.co.com/ch9pJ2fX/Section-about-1-png.png" alt="" />
            </div>

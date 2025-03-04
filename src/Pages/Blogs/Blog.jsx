@@ -1,8 +1,9 @@
 import React from 'react';
-import BlogHeader from './BlogHeader';
+
 import BlogContent from './BlogContent';
 import UpFooter from '../Home/UpFooter';
 import ShareHead from '../../Shared/ShareHead';
+import Newsletter from '../Home/Newsletter';
 
 const Blog = () => {
     return (
@@ -10,6 +11,7 @@ const Blog = () => {
             <ShareHead pageTitle={'Blog & News'}></ShareHead>
             <BlogContent></BlogContent>
             <UpFooter></UpFooter>
+            <Newsletter></Newsletter>
         </div>
     );
 };
