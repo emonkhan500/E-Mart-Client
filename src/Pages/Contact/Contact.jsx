@@ -3,11 +3,13 @@ import Newsletter from '../Home/Newsletter';
 import Help from './Help';
 import Message from './Message';
 import Team from '../About/Team';
+import ShareHead from '../../Shared/ShareHead';
 
 const Contact = () => {
     return (
-       <div className='lato mt-16'>
+       <div className='lato mt-6'>
          <div>
+          <ShareHead  pageTitle={'Contact'}></ShareHead>
        <Help></Help>
        <Message></Message>
        <Team></Team>
