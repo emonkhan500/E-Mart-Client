@@ -16,7 +16,7 @@ const Featured = () => {
   return (
     <div className="mb-3 ">
       <div className="w-full lato ">
-        <h1 className="text-center mt-12 mb-4 font-bold text-xl md:text-2xl lg:text-4xl">
+        <h1 className="text-center mt-4 md:mt-12  font-bold text-xl md:text-2xl lg:text-4xl">
           Featured Categories
         </h1>
       </div>

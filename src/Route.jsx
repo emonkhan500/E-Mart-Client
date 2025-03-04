@@ -9,10 +9,10 @@ import SignUp from "./Authentication/SignUp";
 
 import Shop from "./Pages/Shop";
 import Vendors from "./Pages/Vendors";
-import Blogs from "./Pages/Blogs";
-import Pages from "./Pages/Pages";
+
 import Contact from "./Pages/Contact/Contact";
 import About from "./Pages/About/About";
+import Blog from "./Pages/Blogs/Blog";
 
 export const router = createBrowserRouter([
     {
@@ -43,7 +43,7 @@ export const router = createBrowserRouter([
         
         {
           path:'/blogs',
-          element:<Blogs></Blogs>
+          element:<Blog></Blog>
         },
         {
           path:'/contact',

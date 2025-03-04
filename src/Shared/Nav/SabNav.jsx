@@ -53,15 +53,7 @@ const SabNav = () => {
   
     </NavLink>
   </li>
-  <li>
-    <NavLink 
-    to='/pages'
-    className={({isActive})=>isActive ?"quick font-extrabold text-[#3BB77E]":"quick font-bold text-[#424242]"}
-    >
-  Pages
   
-    </NavLink>
-  </li>
   <li>
     <NavLink 
     to='/contact'
