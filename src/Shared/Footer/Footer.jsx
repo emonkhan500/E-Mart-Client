@@ -1,4 +1,5 @@
 import { BiSupport } from "react-icons/bi";
+import { FaGithub, FaLinkedin, FaFacebookF, FaInstagram } from "react-icons/fa";
 import logo from "../../assets/logo.svg";
 import google from "../../assets/Link → google-play.jpg.png";
 import appstore from "../../assets/Link → app-store.jpg.png";
@@ -93,7 +94,7 @@ const Footer = () => {
       <div className="flex flex-col md:flex-row justify-between border-t-[#BCE3C9] border-t-2 mt-16 mb-8 px-4 md:px-8 py-6 gap-6 md:gap-0 text-center md:text-left">
         <div className="font-semibold">
           <h1>© 2025, <span className="text-lg text-[#3BB77E]">E-Mart & Grocery</span></h1>
-          <h1>All rights reserved</h1>
+          <h1 className="text-[#7E7E7E]">All rights reserved</h1>
         </div>
         <div className="flex flex-col md:flex-row items-center gap-4 font-semibold">
           <BiSupport className="text-[#253D4E] text-4xl" />
@@ -103,8 +104,40 @@ const Footer = () => {
           </div>
         </div>
         <div className="font-semibold">
-          <h1>Follow Us</h1>
-          <h1>Up to 15% discount on your first subscribe</h1>
+          
+          <div className="flex items-center justify-center gap-3"> 
+          <h1 className="text-lg font-bold">Follow Us :</h1>
+          <div class="flex justify-center    space-x-2 ">
+   {/* Icon 1  */}
+  <a href="https://github.com/emonkhan500"  class=" rounded-lg p-2 ">
+   
+       <FaGithub className="w-6 h-6 text-[#3BB77E]"></FaGithub>
+    
+  </a>
+  
+ {/* Icon 2  */}
+  <a href="https://www.linkedin.com/in/md-emon-khan"  class=" rounded-lg p-2 ">
+   
+     <FaLinkedin className="w-6 h-6 text-[#3BB77E]"></FaLinkedin>
+    
+  </a>
+  
+  {/* Icon 3  */}
+  <a href="https://www.facebook.com/profile.php?id=100025282659899&mibextid=ZbWKwL"  class=" rounded-lg p-2 ">
+    
+    <FaFacebookF className="w-6 h-6 text-[#3BB77E]"/>
+   
+  </a>
+  
+   {/* Icon 4 */}
+  <a href="https://www.instagram.com/em0_n/"  class=" rounded-lg p-2 ">
+    
+  <FaInstagram  className="w-6 h-6 text-[#3BB77E]"/>
+   
+  </a>
+</div>
+          </div>
+          <h1 className="text-[#7E7E7E]">Up to 15% discount on your first subscribe</h1>
         </div>
       </div>
     </div>
