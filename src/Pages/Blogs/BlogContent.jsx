@@ -88,7 +88,7 @@ const BlogContent = () => {
   const totalPages = Math.ceil(blogPosts.length / postsPerPage);
 
   return (
-    <div className="quick mt-10">
+    <div className="quick mt-10">    
       <div>
         {/* Header */}
         <div className="border-t-4 mt-8 border-[#3BB77E] flex flex-col md:flex-row items-center justify-between md:px-12 lg:px-16 xl:px-32">
