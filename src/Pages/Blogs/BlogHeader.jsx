@@ -1,4 +1,5 @@
 import { IoIosArrowForward, IoMdHome } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 const BlogHeader = () => {
   return (
@@ -13,7 +14,7 @@ const BlogHeader = () => {
       </h1>
 
       <div className="flex items-center gap-4 justify-center mt-6  font-medium"> 
-        <button  className="flex justify-center items-center gap-2 text-xl"><IoMdHome className="text-[#3BB77E] "/> Home</button>
+        <Link to='/'   className="flex justify-center items-center gap-2 text-xl"><IoMdHome className="text-[#3BB77E] "/> Home</Link>
         <h1 className="text-[#7E7E7E]  flex justify-center items-center gap-2 text-xl"><IoIosArrowForward />  Blog & News</h1>
       </div>
     </div>
