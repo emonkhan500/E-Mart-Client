@@ -1,5 +1,5 @@
 import React from 'react';
-import Newsletter from '../Home/Newsletter';
+import SharedNewsletter from '../../Shared/SharedNewsletter';
 import Help from './Help';
 import Message from './Message';
 import Team from '../About/Team';
@@ -13,7 +13,7 @@ const Contact = () => {
        <Help></Help>
        <Message></Message>
        <Team></Team>
-            <Newsletter></Newsletter>
+            <SharedNewsletter></SharedNewsletter>
         </div>
        </div>
     );

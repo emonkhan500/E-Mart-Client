@@ -3,7 +3,7 @@ import React from 'react';
 import BlogContent from './BlogContent';
 import UpFooter from '../Home/UpFooter';
 import ShareHead from '../../Shared/ShareHead';
-import Newsletter from '../Home/Newsletter';
+import SharedNewsletter from '../../Shared/SharedNewsletter';
 
 const Blog = () => {
     return (
@@ -11,7 +11,7 @@ const Blog = () => {
             <ShareHead pageTitle={'Blog & News'}></ShareHead>
             <BlogContent></BlogContent>
             <UpFooter></UpFooter>
-            <Newsletter></Newsletter>
+            <SharedNewsletter></SharedNewsletter>
         </div>
     );
 };

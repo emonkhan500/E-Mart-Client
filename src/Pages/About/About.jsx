@@ -2,7 +2,7 @@ import React from 'react';
 import Welcome from './Welcome';
 import Provide from './Provide';
 import Glory from './Glory';
-import Newsletter from '../Home/Newsletter';
+import SharedNewsletter from '../../Shared/SharedNewsletter';
 import Address from './Address';
 import Moto from './Moto';
 import ShareHead from '../../Shared/ShareHead';
@@ -16,7 +16,7 @@ const About = () => {
            <Moto></Moto>
            <Glory></Glory>
            <Address></Address>
-           <Newsletter></Newsletter>
+           <SharedNewsletter></SharedNewsletter>
         </div>
     );
 };
