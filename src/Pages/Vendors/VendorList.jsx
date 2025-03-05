@@ -14,6 +14,7 @@ const VendorList = () => {
             <IoIosSearch className="relative top-[1px] -left-[55px] md:-left-[65px] lg:-left-[90px] text-[#424242] text-2xl" />
           </div>
             </div>
+            
         </div>
     );
 };
