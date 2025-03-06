@@ -7,12 +7,13 @@ import Home from "./Pages/Home/Home";
 import SignIn from "./Authentication/SignIn";
 import SignUp from "./Authentication/SignUp";
 
-import Shop from "./Pages/Shop";
+
 import Vendors from "./Pages/Vendors/Vendors";
 
 import Contact from "./Pages/Contact/Contact";
 import About from "./Pages/About/About";
 import Blog from "./Pages/Blogs/Blog";
+import Shop from "./Pages/Shop/Shop";
 
 export const router = createBrowserRouter([
     {
