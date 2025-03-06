@@ -1,9 +1,10 @@
 import React from 'react';
+import ShareHead from '../../Shared/ShareHead';
 
 const Shop = () => {
     return (
         <div>
-            <h1>This is shop</h1>
+           <ShareHead pageTitle={'Shop'}></ShareHead>
         </div>
     );
 };
