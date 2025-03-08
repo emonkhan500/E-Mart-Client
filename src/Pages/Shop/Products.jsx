@@ -38,7 +38,30 @@ const Products = () => {
         {/* side bar */}
         <div className="w-1/4 space-y-10">
             {/* category */}
-       
+        <div className="max-w-sm mx-auto bg-white shadow-lg rounded-xl p-6">
+      <h2 className="text-xl font-semibold text-gray-800 flex items-center">
+        Category
+        <span className="ml-2 w-10 h-1 bg-green-500 rounded"></span>
+      </h2>
+      <div className="mt-4 space-y-3">
+        {categories.map((cat, index) => (
+          <div
+            key={index}
+            className="flex items-center justify-between bg-gray-50 p-3 rounded-lg shadow-sm hover:bg-green-100 transition"
+          >
+            <div className="flex items-center space-x-3">
+                <img src={cat.icon} alt="" />
+              
+              <span className="text-gray-700 font-medium">{cat.name}</span>
+            </div>
+            <span className="bg-green-500 text-white text-sm px-3 py-1 rounded-full font-semibold">
+              {cat.count}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+    
         </div>
         {/* product  */}
         <div className="w-3/4">
