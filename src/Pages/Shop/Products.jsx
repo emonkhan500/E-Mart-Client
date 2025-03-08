@@ -61,7 +61,24 @@ const Products = () => {
         ))}
       </div>
     </div>
-    
+    {/* trending */}
+    <div className="max-w-sm mx-auto bg-white shadow-lg rounded-xl p-6">
+      <h2 className="text-xl font-semibold text-gray-800 flex items-center">
+        New products
+        <span className="ml-2 w-10 h-1 bg-green-500 rounded"></span>
+      </h2>
+      <div className="mt-4 space-y-4">
+        {products.map((product) => (
+          <div key={product.id} className="flex items-center space-x-4 border-b pb-3 last:border-b-0">
+            <img src={product.image} alt={product.name} className="w-14 h-14 rounded-md object-cover" />
+            <div>
+              <h3 className="text-green-600 font-semibold">{product.name}</h3>
+              <p className="text-gray-700 font-medium">${product.price.toFixed(2)}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
         </div>
         {/* product  */}
         <div className="w-3/4">
