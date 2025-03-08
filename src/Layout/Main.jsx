@@ -6,7 +6,7 @@ import SabNav from '../Shared/Nav/SabNav';
 
 const Main = () => {
     return (
-        <div className='w-full max-w-[1586px] px-4 md:px-8 lg:px-12 xl:px-16 mx-auto mb-9'>
+        <div className='w-full max-w-[1600px] px-4 md:px-8 lg:px-12 xl:px-16 mx-auto mb-9'>
             <Nav></Nav>
            
             <Outlet></Outlet>

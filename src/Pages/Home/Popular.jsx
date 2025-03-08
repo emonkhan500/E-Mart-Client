@@ -10,7 +10,7 @@ const Popular = () => {
       {/* product div */}
       <div className="grid gap-4 md:gap-2 lg:gap-2 xl:gap-2 grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 justify-center items-center">
         {/* 1 */}
-  <div className="md:w-[240px] lg:w-[236px] xl:w-[240px] border border-[#ECECEC] rounded-lg px-3 shadow mx-auto">
+  <div className="md:w-[245px] lg:w-[236px] xl:w-[265px] border border-[#ECECEC] rounded-lg px-3 shadow mx-auto">
     <div className="flex justify-center">
       <img src="https://i.ibb.co.com/Pv8THjRB/Link-product-1-1-jpg.png" alt="Product" />
     </div>
@@ -36,7 +36,7 @@ const Popular = () => {
     </div>
   </div>
         {/* 2 */}
-        <div className="md:w-[240px] lg:w-[236px] xl:w-[240px] border border-[#ECECEC] rounded-lg px-3 shadow mx-auto">
+        <div className="md:w-[245px] lg:w-[236px] xl:w-[265px] border border-[#ECECEC] rounded-lg px-3 shadow mx-auto">
     <div className="flex justify-center">
       <img src="https://i.ibb.co.com/FbmYkT4h/Link-product-2-1-jpg.png" alt="Product" />
     </div>
@@ -62,7 +62,7 @@ const Popular = () => {
     </div>
   </div>
         {/* 3 */}
-        <div className="md:w-[240px] lg:w-[236px] xl:w-[240px] border border-[#ECECEC] rounded-lg px-3 shadow mx-auto">
+        <div className="md:w-[245px] lg:w-[236px] xl:w-[265px] border border-[#ECECEC] rounded-lg px-3 shadow mx-auto">
     <div className="flex justify-center">
       <img src="https://i.ibb.co.com/LXM7jQh1/Link-product-3-1-jpg.png" alt="Product" />
     </div>
@@ -88,7 +88,7 @@ const Popular = () => {
     </div>
   </div>
         {/* 4 */}
-        <div className="md:w-[240px] lg:w-[236px] xl:w-[240px] border border-[#ECECEC] rounded-lg px-3 shadow mx-auto">
+        <div className="md:w-[245px] lg:w-[236px] xl:w-[265px] border border-[#ECECEC] rounded-lg px-3 shadow mx-auto">
     <div className="flex justify-center">
       <img src="https://i.ibb.co.com/QjJKgt40/Link-product-4-1-jpg.png" alt="Product" />
     </div>
@@ -114,7 +114,7 @@ const Popular = () => {
     </div>
   </div>
         {/* 5 */}
-        <div className="md:w-[240px] lg:w-[236px] xl:w-[240px] border border-[#ECECEC] rounded-lg px-3 shadow mx-auto">
+        <div className="md:w-[245px] lg:w-[236px] xl:w-[265px] border border-[#ECECEC] rounded-lg px-3 shadow mx-auto">
     <div className="flex justify-center">
       <img src="https://i.ibb.co.com/gFj6ng40/Link-product-5-1-jpg.png" alt="Product" />
     </div>
@@ -140,7 +140,7 @@ const Popular = () => {
     </div>
   </div>
         {/* 6 */}
-        <div className="md:w-[240px] lg:w-[236px] xl:w-[240px] border border-[#ECECEC] rounded-lg px-3 shadow mx-auto"> 
+        <div className="md:w-[245px] lg:w-[236px] xl:w-[265px] border border-[#ECECEC] rounded-lg px-3 shadow mx-auto"> 
     <div className="flex justify-center">
       <img src="https://i.ibb.co.com/Pv8THjRB/Link-product-1-1-jpg.png" alt="Product" />
     </div>
@@ -166,7 +166,7 @@ const Popular = () => {
     </div>
   </div>
   {/* 7 */}
-  <div className="md:w-[240px] lg:w-[236px] xl:w-[240px] border border-[#ECECEC] rounded-lg px-3 shadow mx-auto">
+  <div className="md:w-[245px] lg:w-[236px] xl:w-[265px] border border-[#ECECEC] rounded-lg px-3 shadow mx-auto">
     <div className="flex justify-center">
       <img src="https://i.ibb.co.com/QjJKgt40/Link-product-4-1-jpg.png" alt="Product" />
     </div>
@@ -192,7 +192,7 @@ const Popular = () => {
     </div>
   </div>
         {/* 8 */}
-        <div className="md:w-[240px] lg:w-[236px] xl:w-[240px] border border-[#ECECEC] rounded-lg px-3 shadow mx-auto">
+        <div className="md:w-[245px] lg:w-[236px] xl:w-[265px] border border-[#ECECEC] rounded-lg px-3 shadow mx-auto">
     <div className="flex justify-center">
       <img src="https://i.ibb.co.com/Pv8THjRB/Link-product-1-1-jpg.png" alt="Product" />
     </div>
@@ -218,7 +218,7 @@ const Popular = () => {
     </div>
   </div>
   {/* 9 */}
-  <div className="md:w-[240px] lg:w-[236px] xl:w-[240px] border border-[#ECECEC] rounded-lg px-3 shadow mx-auto">
+  <div className="md:w-[245px] lg:w-[236px] xl:w-[265px] border border-[#ECECEC] rounded-lg px-3 shadow mx-auto">
     <div className="flex justify-center">
       <img src="https://i.ibb.co.com/FbmYkT4h/Link-product-2-1-jpg.png" alt="Product" />
     </div>
@@ -244,7 +244,7 @@ const Popular = () => {
     </div>
   </div>
         {/* 10 */}
-        <div className="md:w-[240px] lg:w-[236px] xl:w-[240px] border border-[#ECECEC] rounded-lg px-3 shadow mx-auto">
+        <div className="md:w-[245px] lg:w-[236px] xl:w-[265px] border border-[#ECECEC] rounded-lg px-3 shadow mx-auto">
     <div className="flex justify-center">
       <img src="https://i.ibb.co.com/Pv8THjRB/Link-product-1-1-jpg.png" alt="Product" />
     </div>
