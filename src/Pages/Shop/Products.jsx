@@ -33,15 +33,15 @@ const categories = [
 const Products = () => {
     
   return (
-    <div className="mt-20">
-      <div className="flex gap-4 ">
+    <div className="mt-20 quick">
+      <div className="flex lg:gap-4 ">
         {/* side bar */}
         <div className="w-1/4 space-y-10">
             {/* category */}
-        <div className="max-w-sm mx-auto bg-white shadow-lg rounded-xl p-6">
-      <h2 className="text-xl font-semibold text-gray-800 flex items-center">
+        <div className="max-w-sm mx-auto border bg-white shadow-lg rounded-xl p-6">
+      <h2 className=" text-xl font-semibold text-[#253D4E]  items-center">
         Category
-        <span className="ml-2 w-10 h-1 bg-green-500 rounded"></span>
+        <div className=" w-16 h-[2px] bg-[#BCE3C9]  rounded mt-2"></div>
       </h2>
       <div className="mt-4 space-y-3">
         {categories.map((cat, index) => (
@@ -49,12 +49,12 @@ const Products = () => {
             key={index}
             className="flex items-center justify-between bg-gray-50 p-3 rounded-lg shadow-sm hover:bg-green-100 transition"
           >
-            <div className="flex items-center space-x-3">
+            <div className="flex lg:gap-7 items-center space-x-3">
                 <img src={cat.icon} alt="" />
               
-              <span className="text-gray-700 font-medium">{cat.name}</span>
+              <span className="text-[#253D4E] font-medium">{cat.name}</span>
             </div>
-            <span className="bg-green-500 text-white text-sm px-3 py-1 rounded-full font-semibold">
+            <span className="bg-[#BCE3C9] text-[#253D4E] text-sm px-2 py-1 rounded-full font-semibold">
               {cat.count}
             </span>
           </div>
@@ -63,9 +63,9 @@ const Products = () => {
     </div>
     {/* trending */}
     <div className="max-w-sm mx-auto bg-white shadow-lg rounded-xl p-6">
-      <h2 className="text-xl font-semibold text-gray-800 flex items-center">
-        New products
-        <span className="ml-2 w-10 h-1 bg-green-500 rounded"></span>
+    <h2 className=" text-xl font-semibold text-[#253D4E]  items-center">
+    New products
+        <div className=" w-16 h-[2px] bg-[#BCE3C9]  rounded mt-2"></div>
       </h2>
       <div className="mt-4 space-y-4">
         {products.map((product) => (
