@@ -61,6 +61,63 @@ const Products = () => {
         ))}
       </div>
     </div>
+    {/* sort */}
+    <div className="p-6 bg-white shadow-lg rounded-lg w-72">
+      {/* Title */}
+      <h3 className="text-lg font-semibold mb-4">Filter by price</h3>
+
+      {/* Price Slider */}
+      <div>
+        <div className="relative w-full h-1 bg-gray-300 rounded-full">
+          <div className="absolute left-1/4 right-1/2 h-1 bg-green-600 rounded-full"></div>
+          <div className="absolute left-1/4 w-4 h-4 bg-white border-2 border-green-600 rounded-full -top-1"></div>
+          <div className="absolute left-1/2 w-4 h-4 bg-white border-2 border-green-600 rounded-full -top-1"></div>
+        </div>
+        <div className="flex justify-between text-sm text-green-600 mt-2">
+          <span>From: $500</span>
+          <span>To: $1,000</span>
+        </div>
+      </div>
+
+      {/* Color Filters */}
+      <h4 className="text-md font-medium mt-6">Color</h4>
+      <div className="space-y-2">
+        <label className="flex items-center gap-2">
+          <input type="checkbox" className="w-4 h-4" />
+          <span>Red (56)</span>
+        </label>
+        <label className="flex items-center gap-2">
+          <input type="checkbox" className="w-4 h-4" />
+          <span>Green (78)</span>
+        </label>
+        <label className="flex items-center gap-2">
+          <input type="checkbox" className="w-4 h-4" />
+          <span>Blue (54)</span>
+        </label>
+      </div>
+
+      {/* Item Condition Filters */}
+      <h4 className="text-md font-medium mt-6">Item Condition</h4>
+      <div className="space-y-2">
+        <label className="flex items-center gap-2">
+          <input type="checkbox" className="w-4 h-4" />
+          <span>New (1506)</span>
+        </label>
+        <label className="flex items-center gap-2">
+          <input type="checkbox" className="w-4 h-4" />
+          <span>Refurbished (27)</span>
+        </label>
+        <label className="flex items-center gap-2">
+          <input type="checkbox" className="w-4 h-4" />
+          <span>Used (45)</span>
+        </label>
+      </div>
+
+      {/* Filter Button */}
+      <button className="mt-6 w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-2 rounded-lg">
+        Filter
+      </button>
+    </div>
     {/* trending */}
     <div className="max-w-sm mx-auto bg-white shadow-lg rounded-xl p-6">
     <h2 className=" text-xl font-semibold text-[#253D4E]  items-center">
