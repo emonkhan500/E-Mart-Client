@@ -19,7 +19,7 @@ const DealsOfDay = () => {
           {/* relative div */}
           <div className="relative w-11/12 md:w-10/12 lg:w-[280px] xl:w-[320px] bg-[#FFF] rounded shadow px-3 py-1 -top-24 left-3">
             <h1 className="quick text-xl font-bold text-[#253D4E] mt-1 mb-2">
-              Seeds of Change Organic Quinoa, Brown, & Red Rice
+              Seeds of Change Organic Quinoa, Brown & Rice
             </h1>
             <p>
               By <span className="text-[#3BB77E]">NestFood</span>
@@ -56,7 +56,7 @@ const DealsOfDay = () => {
           {/* relative div */}
           <div className="relative w-11/12 lg:w-[280px] xl:w-[320px] bg-[#FFF] rounded shadow px-3 py-1 -top-24 left-3">
             <h1 className="quick text-xl font-bold text-[#253D4E] mt-1 mb-2">
-              Seeds of Change Organic Quinoa, Brown, & Red Rice
+              Seeds of Change Organic Quinoa, Brown & Rice
             </h1>
             <p>
               By <span className="text-[#3BB77E]">NestFood</span>

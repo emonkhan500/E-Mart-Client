@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 
 const products = [
@@ -29,8 +29,121 @@ const categories = [
     { name: "Baking material", count: 68, icon: "https://i.ibb.co.com/8nnp9fDT/category-5-svg.png" },
     { name: "Fresh Fruit", count: 24, icon: "https://i.ibb.co.com/BKy4Xc1v/category-1-svg.png" },
   ];
+  const product =[
+    [
+      [
+        {
+          "name": "Seeds of Change Organic Quinoa",
+          "category": "Snack",
+          "brand": "NestFood",
+          "rating": 4.0,
+          "price": 28.85,
+          "original_price": 33.2,
+          "label": "Hot",
+          "image_url": "https://i.ibb.co.com/F4BntgjP/Link-product-9-1-jpg.png"
+        },
+        {
+          "name": "All Natural Italian-Style Chicken Meatballs",
+          "category": "Snack",
+          "brand": "Stouffer",
+          "rating": 3.5,
+          "price": 52.85,
+          "original_price": 58.2,
+          "label": "Sale",
+          "image_url": "https://i.ibb.co.com/xqhXcMGT/Link-cat-14-png.png"
+        },
+        {
+          "name": "Angie’s Boomchickapop Sweet & Salty",
+          "category": "Snack",
+          "brand": "StarKist",
+          "rating": 4.0,
+          "price": 48.85,
+          "original_price": 52.8,
+          "label": "New",
+          "image_url": "https://i.ibb.co.com/gFj6ng40/Link-product-5-1-jpg.png"
+        },
+        {
+          "name": "Foster Farms Takeout Crispy Classic",
+          "category": "Vegetables",
+          "brand": "NestFood",
+          "rating": 4.0,
+          "price": 17.85,
+          "original_price": 19.9,
+          "image_url": "https://i.ibb.co.com/LXM7jQh1/Link-product-3-1-jpg.png"
+        },
+        {
+          "name": "Blue Diamond Almonds Lightly",
+          "category": "Pet Foods",
+          "brand": "NestFood",
+          "rating": 4.0,
+          "price": 23.85,
+          "original_price": 28.2,
+          "discount": "-14%",
+          "image_url": "https://i.ibb.co.com/QjJKgt40/Link-product-4-1-jpg.png"
+        },
+        {
+          "name": "Chobani Complete Vanilla Greek",
+          "category": "Hodo Foods",
+          "brand": "NestFood",
+          "rating": 4.0,
+          "price": 54.85,
+          "original_price": 58.8,
+          "image_url": "https://i.ibb.co.com/FbmYkT4h/Link-product-2-1-jpg.png"
+        },
+        {
+          "name": "Canada Dry Ginger Ale - 2 L Bottle",
+          "category": "Meats",
+          "brand": "NestFood",
+          "rating": 4.0,
+          "price": 32.85,
+          "original_price": 35.8,
+          "image_url": "https://i.ibb.co.com/Pv8THjRB/Link-product-1-1-jpg.png"
+        },
+        {
+          "name": "Encore Seafoods Stuffed Alaskan",
+          "category": "Snack",
+          "brand": "NestFood",
+          "rating": 4.0,
+          "price": 35.85,
+          "original_price": 37.8,
+          "label": "Sale",
+          "image_url": "https://i.ibb.co.com/XGHHcq9/Link-product-6-1-jpg.png"
+        },
+        {
+          "name": "Gorton’s Beer Battered Fish Fillets",
+          "category": "Coffees",
+          "brand": "Old El Paso",
+          "rating": 4.0,
+          "price": 23.85,
+          "original_price": 25.8,
+          "label": "Hot",
+          "image_url": "https://i.ibb.co.com/LdyQtCbZ/Link-product-8-1-jpg.png"
+        },
+        {
+          "name": "Haagen-Dazs Caramel Cone Ice Cream",
+          "category": "Cream",
+          "brand": "Tyson",
+          "rating": 2.0,
+          "price": 22.85,
+          "original_price": 24.8,
+          "image_url": "https://i.ibb.co.com/QjJKgt40/Link-product-4-1-jpg.png"
+        }
+      ]
+      
+    ]
+    
+  ]
 
 const Products = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const postsPerPage = 8;
+
+  // Calculate the indexes of posts to display
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentItem = product.slice(indexOfFirstPost, indexOfLastPost);
+
+  const totalPages = Math.ceil(product.length / postsPerPage);
     
   return (
     <div className="mt-20 quick">
@@ -62,7 +175,7 @@ const Products = () => {
       </div>
     </div>
     {/* sort */}
-    <div className="p-6 bg-white shadow-lg rounded-lg w-72">
+    <div className="p-6 bg-white shadow-lg rounded-lg max-w-sm">
       {/* Title */}
       <h3 className="text-lg font-semibold mb-4">Filter by price</h3>
 
@@ -140,21 +253,21 @@ const Products = () => {
         {/* product  */}
         <div className="w-3/4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-            {/* 1 */}
-            <div className="md:w-[245px] lg:w-[236px] xl:w-[265px] border border-[#ECECEC] rounded-lg px-3 shadow mx-auto">
+            {currentItem.map((item, index)=>{
+              <div className="md:w-[245px] lg:w-[236px] xl:w-[265px] border border-[#ECECEC] rounded-lg px-3 shadow mx-auto">
               <div className="flex justify-center">
                 <img
-                  src="https://i.ibb.co.com/Pv8THjRB/Link-product-1-1-jpg.png"
-                  alt="Product"
+                  src={item.image_url}
+                  
                 />
               </div>
               <div>
-                <p className="text-[#ADADAD]">Snack</p>
+                <p className="text-[#ADADAD]">{item.category}</p>
                 <h1 className="quick text-xl font-bold text-[#253D4E] mt-1 mb-2">
-                  Seeds of Change Organic Quinoa, Brown, & Red Rice
+                  {item.name}
                 </h1>
                 <p>
-                  By <span className="text-[#3BB77E]">NestFood</span>
+                  By <span className="text-[#3BB77E]">{item.brand}</span>
                 </p>
                 <div className="rating mt-2">
                   <input
@@ -186,7 +299,7 @@ const Products = () => {
                 </div>
                 <div className="flex justify-between items-center px-6 mt-2 mb-5">
                   <h1 className="text-[#3BB77E] text-lg font-semibold">
-                    $28.85
+                    {item.original_price }
                   </h1>
                   <button className="flex items-center justify-center gap-2 px-3 py-2 rounded bg-[#DEF9EC] text-[#3BB77E]">
                     <FaShoppingCart /> Add
@@ -194,169 +307,44 @@ const Products = () => {
                 </div>
               </div>
             </div>
-            {/* 2 */}
-            <div className="md:w-[245px] lg:w-[236px] xl:w-[265px] border border-[#ECECEC] rounded-lg px-3 shadow mx-auto">
-              <div className="flex justify-center">
-                <img
-                  src="https://i.ibb.co.com/Pv8THjRB/Link-product-1-1-jpg.png"
-                  alt="Product"
-                />
-              </div>
-              <div>
-                <p className="text-[#ADADAD]">Snack</p>
-                <h1 className="quick text-xl font-bold text-[#253D4E] mt-1 mb-2">
-                  Seeds of Change Organic Quinoa, Brown, & Red Rice
-                </h1>
-                <p>
-                  By <span className="text-[#3BB77E]">NestFood</span>
-                </p>
-                <div className="rating mt-2">
-                  <input
-                    type="radio"
-                    name="rating-1"
-                    className="mask mask-star bg-orange-400"
-                  />
-                  <input
-                    type="radio"
-                    name="rating-1"
-                    className="mask mask-star bg-orange-400"
-                    defaultChecked
-                  />
-                  <input
-                    type="radio"
-                    name="rating-1"
-                    className="mask mask-star bg-orange-400"
-                  />
-                  <input
-                    type="radio"
-                    name="rating-1"
-                    className="mask mask-star bg-orange-400"
-                  />
-                  <input
-                    type="radio"
-                    name="rating-1"
-                    className="mask mask-star bg-orange-400"
-                  />
-                </div>
-                <div className="flex justify-between items-center px-6 mt-2 mb-5">
-                  <h1 className="text-[#3BB77E] text-lg font-semibold">
-                    $28.85
-                  </h1>
-                  <button className="flex items-center justify-center gap-2 px-3 py-2 rounded bg-[#DEF9EC] text-[#3BB77E]">
-                    <FaShoppingCart /> Add
-                  </button>
-                </div>
-              </div>
-            </div>
-            {/* 3 */}
-            <div className="md:w-[245px] lg:w-[236px] xl:w-[265px] border border-[#ECECEC] rounded-lg px-3 shadow mx-auto">
-              <div className="flex justify-center">
-                <img
-                  src="https://i.ibb.co.com/Pv8THjRB/Link-product-1-1-jpg.png"
-                  alt="Product"
-                />
-              </div>
-              <div>
-                <p className="text-[#ADADAD]">Snack</p>
-                <h1 className="quick text-xl font-bold text-[#253D4E] mt-1 mb-2">
-                  Seeds of Change Organic Quinoa, Brown, & Red Rice
-                </h1>
-                <p>
-                  By <span className="text-[#3BB77E]">NestFood</span>
-                </p>
-                <div className="rating mt-2">
-                  <input
-                    type="radio"
-                    name="rating-1"
-                    className="mask mask-star bg-orange-400"
-                  />
-                  <input
-                    type="radio"
-                    name="rating-1"
-                    className="mask mask-star bg-orange-400"
-                    defaultChecked
-                  />
-                  <input
-                    type="radio"
-                    name="rating-1"
-                    className="mask mask-star bg-orange-400"
-                  />
-                  <input
-                    type="radio"
-                    name="rating-1"
-                    className="mask mask-star bg-orange-400"
-                  />
-                  <input
-                    type="radio"
-                    name="rating-1"
-                    className="mask mask-star bg-orange-400"
-                  />
-                </div>
-                <div className="flex justify-between items-center px-6 mt-2 mb-5">
-                  <h1 className="text-[#3BB77E] text-lg font-semibold">
-                    $28.85
-                  </h1>
-                  <button className="flex items-center justify-center gap-2 px-3 py-2 rounded bg-[#DEF9EC] text-[#3BB77E]">
-                    <FaShoppingCart /> Add
-                  </button>
-                </div>
-              </div>
-            </div>
-            {/* 4 */}
-            <div className="md:w-[245px] lg:w-[236px] xl:w-[265px] border border-[#ECECEC] rounded-lg px-3 shadow mx-auto">
-              <div className="flex justify-center">
-                <img
-                  src="https://i.ibb.co.com/Pv8THjRB/Link-product-1-1-jpg.png"
-                  alt="Product"
-                />
-              </div>
-              <div>
-                <p className="text-[#ADADAD]">Snack</p>
-                <h1 className="quick text-xl font-bold text-[#253D4E] mt-1 mb-2">
-                  Seeds of Change Organic Quinoa, Brown, & Red Rice
-                </h1>
-                <p>
-                  By <span className="text-[#3BB77E]">NestFood</span>
-                </p>
-                <div className="rating mt-2">
-                  <input
-                    type="radio"
-                    name="rating-1"
-                    className="mask mask-star bg-orange-400"
-                  />
-                  <input
-                    type="radio"
-                    name="rating-1"
-                    className="mask mask-star bg-orange-400"
-                    defaultChecked
-                  />
-                  <input
-                    type="radio"
-                    name="rating-1"
-                    className="mask mask-star bg-orange-400"
-                  />
-                  <input
-                    type="radio"
-                    name="rating-1"
-                    className="mask mask-star bg-orange-400"
-                  />
-                  <input
-                    type="radio"
-                    name="rating-1"
-                    className="mask mask-star bg-orange-400"
-                  />
-                </div>
-                <div className="flex justify-between items-center px-6 mt-2 mb-5">
-                  <h1 className="text-[#3BB77E] text-lg font-semibold">
-                    $28.85
-                  </h1>
-                  <button className="flex items-center justify-center gap-2 px-3 py-2 rounded bg-[#DEF9EC] text-[#3BB77E]">
-                    <FaShoppingCart /> Add
-                  </button>
-                </div>
-              </div>
-            </div>
+            })}
+            
+           
           </div>
+          {/* Pagination */}
+        <div className="flex justify-center mt-10">
+          <button
+            className={`mx-2 px-4 py-2 rounded ${
+              currentPage === 1 ? "bg-gray-300 cursor-not-allowed" : "bg-[#3BB77E] text-white"
+            }`}
+            onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+            disabled={currentPage === 1}
+          >
+            Previous
+          </button>
+          {Array.from({ length: totalPages }, (_, i) => (
+            <button
+              key={i}
+              className={`mx-1 px-3 py-2 rounded ${
+                currentPage === i + 1
+                  ? "bg-[#3BB77E] text-white"
+                  : "bg-gray-200 text-black"
+              }`}
+              onClick={() => setCurrentPage(i + 1)}
+            >
+              {i + 1}
+            </button>
+          ))}
+          <button
+            className={`mx-2 px-4 py-2 rounded ${
+              currentPage === totalPages ? "bg-gray-300 cursor-not-allowed" : "bg-[#3BB77E] text-white"
+            }`}
+            onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+            disabled={currentPage === totalPages}
+          >
+            Next
+          </button>
+        </div>
         </div>
       </div>
     </div>

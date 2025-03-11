@@ -68,7 +68,7 @@ const DailyBestDeal = () => {
       <div className="px-4">
       <p className="text-[#ADADAD]">Snack</p>
       <h1 className="quick md:text-lg lg:text-xl font-bold text-[#253D4E] mt-1 mb-2">
-        Seeds of Change Organic Quinoa, Brown, & Red Rice
+        Seeds of Change Organic Quinoa, Brown & Rice
       </h1>
       <p>By <span className="text-[#3BB77E]">NestFood</span></p>
       <div className="rating mt-2">
@@ -131,7 +131,7 @@ Yogurt
       <div className="px-4">
       <p className="text-[#ADADAD]">Snack</p>
       <h1 className="quick text-xl font-bold text-[#253D4E] mt-1 mb-2">
-        Seeds of Change Organic Quinoa, Brown, & Red Rice
+        Seeds of Change Organic Quinoa, Brown & Rice
       </h1>
       <p>By <span className="text-[#3BB77E]">NestFood</span></p>
       <div className="rating mt-2">
