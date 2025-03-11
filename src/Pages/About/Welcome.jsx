@@ -46,32 +46,30 @@ reprehenderit in voluptate id est laborum.</p>
         className="mySwiper lg:mt-4"
       >
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+          <img  src="https://i.ibb.co.com/LXM7jQh1/Link-product-3-1-jpg.png" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+          <img src="https://i.ibb.co.com/xqhXcMGT/Link-cat-14-png.png" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+          <img src="https://i.ibb.co.com/FbmYkT4h/Link-product-2-1-jpg.png" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+          <img src="https://i.ibb.co.com/Pv8THjRB/Link-product-1-1-jpg.png" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
+          <img src="https://i.ibb.co.com/XGHHcq9/Link-product-6-1-jpg.png" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
+          <img src="https://i.ibb.co.com/LdyQtCbZ/Link-product-8-1-jpg.png" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
+          <img src="https://i.ibb.co.com/QjJKgt40/Link-product-4-1-jpg.png" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
+          <img src="https://i.ibb.co.com/F4BntgjP/Link-product-9-1-jpg.png" />
         </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
-        </SwiperSlide>
+       
       </Swiper>   
            </div>
            </div>
