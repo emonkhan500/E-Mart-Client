@@ -1,180 +1,265 @@
 import React, { useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 
+// Dummy product data
 const products = [
-    {
-      id: 1,
-      name: "Chen Cardigan",
-      price: 99.5,
-      image: "https://i.ibb.co.com/mCFXymfH/thumbnail-4-jpg.png", 
-    },
-    {
-      id: 2,
-      name: "Chen Sweater",
-      price: 89.5,
-      image: "https://i.ibb.co.com/4RJ5nQ0v/thumbnail-5-jpg.png",
-    },
-    {
-      id: 3,
-      name: "Colorful Jacket",
-      price: 25,
-      image: "https://i.ibb.co.com/ZR9JHp3b/thumbnail-6-jpg.png", 
-    },
-  ];
+  {
+    id: 1,
+    name: "Chen Cardigan",
+    price: 99.5,
+    image: "https://i.ibb.co/mCFXymfH/thumbnail-4-jpg.png",
+  },
+  {
+    id: 2,
+    name: "Chen Sweater",
+    price: 89.5,
+    image: "https://i.ibb.co/4RJ5nQ0v/thumbnail-5-jpg.png",
+  },
+  {
+    id: 3,
+    name: "Colorful Jacket",
+    price: 25,
+    image: "https://i.ibb.co/ZR9JHp3b/thumbnail-6-jpg.png",
+  },
+];
 
 const categories = [
-    { name: "Milks & Dairies", count: 30, icon: "https://i.ibb.co.com/LTcNd90/category-2-svg.png" },
-    
-    { name: "Pet Foods", count: 42, icon: "https://i.ibb.co.com/4g2XB5pB/category-4-svg.png" },
-    { name: "Baking material", count: 68, icon: "https://i.ibb.co.com/8nnp9fDT/category-5-svg.png" },
-    { name: "Fresh Fruit", count: 24, icon: "https://i.ibb.co.com/BKy4Xc1v/category-1-svg.png" },
-  ];
-  const product =[
-    [
-      [
-        {
-          "name": "Seeds of Change Organic Quinoa",
-          "category": "Snack",
-          "brand": "NestFood",
-          "rating": 4.0,
-          "price": 28.85,
-          "original_price": 33.2,
-          "label": "Hot",
-          "image_url": "https://i.ibb.co.com/F4BntgjP/Link-product-9-1-jpg.png"
-        },
-        {
-          "name": "All Natural Italian-Style Chicken Meatballs",
-          "category": "Snack",
-          "brand": "Stouffer",
-          "rating": 3.5,
-          "price": 52.85,
-          "original_price": 58.2,
-          "label": "Sale",
-          "image_url": "https://i.ibb.co.com/xqhXcMGT/Link-cat-14-png.png"
-        },
-        {
-          "name": "Angie’s Boomchickapop Sweet & Salty",
-          "category": "Snack",
-          "brand": "StarKist",
-          "rating": 4.0,
-          "price": 48.85,
-          "original_price": 52.8,
-          "label": "New",
-          "image_url": "https://i.ibb.co.com/gFj6ng40/Link-product-5-1-jpg.png"
-        },
-        {
-          "name": "Foster Farms Takeout Crispy Classic",
-          "category": "Vegetables",
-          "brand": "NestFood",
-          "rating": 4.0,
-          "price": 17.85,
-          "original_price": 19.9,
-          "image_url": "https://i.ibb.co.com/LXM7jQh1/Link-product-3-1-jpg.png"
-        },
-        {
-          "name": "Blue Diamond Almonds Lightly",
-          "category": "Pet Foods",
-          "brand": "NestFood",
-          "rating": 4.0,
-          "price": 23.85,
-          "original_price": 28.2,
-          "discount": "-14%",
-          "image_url": "https://i.ibb.co.com/QjJKgt40/Link-product-4-1-jpg.png"
-        },
-        {
-          "name": "Chobani Complete Vanilla Greek",
-          "category": "Hodo Foods",
-          "brand": "NestFood",
-          "rating": 4.0,
-          "price": 54.85,
-          "original_price": 58.8,
-          "image_url": "https://i.ibb.co.com/FbmYkT4h/Link-product-2-1-jpg.png"
-        },
-        {
-          "name": "Canada Dry Ginger Ale - 2 L Bottle",
-          "category": "Meats",
-          "brand": "NestFood",
-          "rating": 4.0,
-          "price": 32.85,
-          "original_price": 35.8,
-          "image_url": "https://i.ibb.co.com/Pv8THjRB/Link-product-1-1-jpg.png"
-        },
-        {
-          "name": "Encore Seafoods Stuffed Alaskan",
-          "category": "Snack",
-          "brand": "NestFood",
-          "rating": 4.0,
-          "price": 35.85,
-          "original_price": 37.8,
-          "label": "Sale",
-          "image_url": "https://i.ibb.co.com/XGHHcq9/Link-product-6-1-jpg.png"
-        },
-        {
-          "name": "Gorton’s Beer Battered Fish Fillets",
-          "category": "Coffees",
-          "brand": "Old El Paso",
-          "rating": 4.0,
-          "price": 23.85,
-          "original_price": 25.8,
-          "label": "Hot",
-          "image_url": "https://i.ibb.co.com/LdyQtCbZ/Link-product-8-1-jpg.png"
-        },
-        {
-          "name": "Haagen-Dazs Caramel Cone Ice Cream",
-          "category": "Cream",
-          "brand": "Tyson",
-          "rating": 2.0,
-          "price": 22.85,
-          "original_price": 24.8,
-          "image_url": "https://i.ibb.co.com/QjJKgt40/Link-product-4-1-jpg.png"
-        }
-      ]
-      
-    ]
-    
-  ]
+  { name: "Milks & Dairies", count: 30, icon: "https://i.ibb.co.com/LTcNd90/category-2-svg.png" },
+  
+  { name: "Pet Foods", count: 42, icon: "https://i.ibb.co.com/4g2XB5pB/category-4-svg.png" },
+  { name: "Baking material", count: 68, icon: "https://i.ibb.co.com/8nnp9fDT/category-5-svg.png" },
+  { name: "Fresh Fruit", count: 24, icon: "https://i.ibb.co.com/BKy4Xc1v/category-1-svg.png" },
+];
+
+// Corrected Product List (Flattened Structure)
+const product = [
+  {
+    "name": "Seeds of Change Organic Quinoa",
+    "category": "Snack",
+    "brand": "NestFood",
+    "rating": 4.0,
+    "price": 28.85,
+    "original_price": 33.2,
+    "label": "Hot",
+    "image_url": "https://i.ibb.co.com/F4BntgjP/Link-product-9-1-jpg.png"
+  },
+  {
+    "name": "All Natural Italian-Style Chicken Meatballs",
+    "category": "Snack",
+    "brand": "Stouffer",
+    "rating": 3.5,
+    "price": 52.85,
+    "original_price": 58.2,
+    "label": "Sale",
+    "image_url": "https://i.ibb.co.com/xqhXcMGT/Link-cat-14-png.png"
+  },
+  {
+    "name": "Angie’s Boomchickapop Sweet & Salty",
+    "category": "Snack",
+    "brand": "StarKist",
+    "rating": 4.0,
+    "price": 48.85,
+    "original_price": 52.8,
+    "label": "New",
+    "image_url": "https://i.ibb.co.com/gFj6ng40/Link-product-5-1-jpg.png"
+  },
+  {
+    "name": "Foster Farms Takeout Crispy Classic",
+    "category": "Vegetables",
+    "brand": "NestFood",
+    "rating": 4.0,
+    "price": 17.85,
+    "original_price": 19.9,
+    "image_url": "https://i.ibb.co.com/LXM7jQh1/Link-product-3-1-jpg.png"
+  },
+  {
+    "name": "Blue Diamond Almonds Lightly",
+    "category": "Pet Foods",
+    "brand": "NestFood",
+    "rating": 4.0,
+    "price": 23.85,
+    "original_price": 28.2,
+    "discount": "-14%",
+    "image_url": "https://i.ibb.co.com/QjJKgt40/Link-product-4-1-jpg.png"
+  },
+  {
+    "name": "Chobani Complete Vanilla Greek",
+    "category": "Hodo Foods",
+    "brand": "NestFood",
+    "rating": 4.0,
+    "price": 54.85,
+    "original_price": 58.8,
+    "image_url": "https://i.ibb.co.com/FbmYkT4h/Link-product-2-1-jpg.png"
+  },
+  {
+    "name": "Canada Dry Ginger Ale - 2 L Bottle",
+    "category": "Meats",
+    "brand": "NestFood",
+    "rating": 4.0,
+    "price": 32.85,
+    "original_price": 35.8,
+    "image_url": "https://i.ibb.co.com/Pv8THjRB/Link-product-1-1-jpg.png"
+  },
+  {
+    "name": "Encore Seafoods Stuffed Alaskan",
+    "category": "Snack",
+    "brand": "NestFood",
+    "rating": 4.0,
+    "price": 35.85,
+    "original_price": 37.8,
+    "label": "Sale",
+    "image_url": "https://i.ibb.co.com/XGHHcq9/Link-product-6-1-jpg.png"
+  },
+  {
+    "name": "Gorton’s Beer Battered Fish Fillets",
+    "category": "Coffees",
+    "brand": "Old El Paso",
+    "rating": 4.0,
+    "price": 23.85,
+    "original_price": 25.8,
+    "label": "Hot",
+    "image_url": "https://i.ibb.co.com/LdyQtCbZ/Link-product-8-1-jpg.png"
+  },
+  {
+    "name": "Haagen-Dazs Caramel Cone Ice Cream",
+    "category": "Cream",
+    "brand": "Tyson",
+    "rating": 2.0,
+    "price": 22.85,
+    "original_price": 24.8,
+    "image_url": "https://i.ibb.co.com/QjJKgt40/Link-product-4-1-jpg.png"
+  },
+  {
+    "name": "Seeds of Change Organic Quinoa",
+    "category": "Snack",
+    "brand": "NestFood",
+    "rating": 4.0,
+    "price": 28.85,
+    "original_price": 33.2,
+    "label": "Hot",
+    "image_url": "https://i.ibb.co.com/F4BntgjP/Link-product-9-1-jpg.png"
+  },
+  {
+    "name": "All Natural Italian-Style Chicken Meatballs",
+    "category": "Snack",
+    "brand": "Stouffer",
+    "rating": 3.5,
+    "price": 52.85,
+    "original_price": 58.2,
+    "label": "Sale",
+    "image_url": "https://i.ibb.co.com/xqhXcMGT/Link-cat-14-png.png"
+  },
+  {
+    "name": "Angie’s Boomchickapop Sweet & Salty",
+    "category": "Snack",
+    "brand": "StarKist",
+    "rating": 4.0,
+    "price": 48.85,
+    "original_price": 52.8,
+    "label": "New",
+    "image_url": "https://i.ibb.co.com/gFj6ng40/Link-product-5-1-jpg.png"
+  },
+  {
+    "name": "Foster Farms Takeout Crispy Classic",
+    "category": "Vegetables",
+    "brand": "NestFood",
+    "rating": 4.0,
+    "price": 17.85,
+    "original_price": 19.9,
+    "image_url": "https://i.ibb.co.com/LXM7jQh1/Link-product-3-1-jpg.png"
+  },
+  {
+    "name": "Blue Diamond Almonds Lightly",
+    "category": "Pet Foods",
+    "brand": "NestFood",
+    "rating": 4.0,
+    "price": 23.85,
+    "original_price": 28.2,
+    "discount": "-14%",
+    "image_url": "https://i.ibb.co.com/QjJKgt40/Link-product-4-1-jpg.png"
+  },
+  {
+    "name": "Chobani Complete Vanilla Greek",
+    "category": "Hodo Foods",
+    "brand": "NestFood",
+    "rating": 4.0,
+    "price": 54.85,
+    "original_price": 58.8,
+    "image_url": "https://i.ibb.co.com/FbmYkT4h/Link-product-2-1-jpg.png"
+  },
+  {
+    "name": "Canada Dry Ginger Ale - 2 L Bottle",
+    "category": "Meats",
+    "brand": "NestFood",
+    "rating": 4.0,
+    "price": 32.85,
+    "original_price": 35.8,
+    "image_url": "https://i.ibb.co.com/Pv8THjRB/Link-product-1-1-jpg.png"
+  },
+  {
+    "name": "Encore Seafoods Stuffed Alaskan",
+    "category": "Snack",
+    "brand": "NestFood",
+    "rating": 4.0,
+    "price": 35.85,
+    "original_price": 37.8,
+    "label": "Sale",
+    "image_url": "https://i.ibb.co.com/XGHHcq9/Link-product-6-1-jpg.png"
+  },
+  {
+    "name": "Gorton’s Beer Battered Fish Fillets",
+    "category": "Coffees",
+    "brand": "Old El Paso",
+    "rating": 4.0,
+    "price": 23.85,
+    "original_price": 25.8,
+    "label": "Hot",
+    "image_url": "https://i.ibb.co.com/LdyQtCbZ/Link-product-8-1-jpg.png"
+  },
+  {
+    "name": "Haagen-Dazs Caramel Cone Ice Cream",
+    "category": "Cream",
+    "brand": "Tyson",
+    "rating": 2.0,
+    "price": 22.85,
+    "original_price": 24.8,
+    "image_url": "https://i.ibb.co.com/QjJKgt40/Link-product-4-1-jpg.png"
+  }
+];
 
 const Products = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const postsPerPage = 8;
+  const postsPerPage = 12;
 
-  // Calculate the indexes of posts to display
+  // Pagination logic
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentItem = product.slice(indexOfFirstPost, indexOfLastPost);
-
   const totalPages = Math.ceil(product.length / postsPerPage);
-    
+
   return (
     <div className="mt-20 quick">
-      <div className="flex lg:gap-4 ">
-        {/* side bar */}
+      <div className="flex lg:gap-4">
+        {/* Sidebar */}
         <div className="w-1/4 space-y-10">
-            {/* category */}
-        <div className="max-w-sm mx-auto border bg-white shadow-lg rounded-xl p-6">
-      <h2 className=" text-xl font-semibold text-[#253D4E]  items-center">
-        Category
-        <div className=" w-16 h-[2px] bg-[#BCE3C9]  rounded mt-2"></div>
-      </h2>
-      <div className="mt-4 space-y-3">
-        {categories.map((cat, index) => (
-          <div
-            key={index}
-            className="flex items-center justify-between bg-gray-50 p-3 rounded-lg shadow-sm hover:bg-green-100 transition"
-          >
-            <div className="flex lg:gap-7 items-center space-x-3">
-                <img src={cat.icon} alt="" />
-              
-              <span className="text-[#253D4E] font-medium">{cat.name}</span>
+          {/* Categories */}
+          <div className="max-w-sm mx-auto border bg-white shadow-lg rounded-xl p-6">
+            <h2 className="text-xl font-semibold text-[#253D4E]">Category</h2>
+            <div className="mt-4 space-y-3">
+              {categories.map((cat, index) => (
+                <div key={index} className="flex items-center justify-between bg-gray-50 p-3 rounded-lg hover:bg-green-100">
+                  <div className="flex lg:gap-7 items-center">
+                    <img src={cat.icon} alt="" />
+                    <span className="text-[#253D4E] font-medium">{cat.name}</span>
+                  </div>
+                  <span className="bg-[#BCE3C9] text-[#253D4E] text-sm px-2 py-1 rounded-full font-semibold">
+                    {cat.count}
+                  </span>
+                </div>
+              ))}
             </div>
-            <span className="bg-[#BCE3C9] text-[#253D4E] text-sm px-2 py-1 rounded-full font-semibold">
-              {cat.count}
-            </span>
           </div>
-        ))}
-      </div>
-    </div>
-    {/* sort */}
+           {/* sort */}
     <div className="p-6 bg-white shadow-lg rounded-lg max-w-sm">
       {/* Title */}
       <h3 className="text-lg font-semibold mb-4">Filter by price</h3>
@@ -231,120 +316,73 @@ const Products = () => {
         Filter
       </button>
     </div>
-    {/* trending */}
-    <div className="max-w-sm mx-auto bg-white shadow-lg rounded-xl p-6">
-    <h2 className=" text-xl font-semibold text-[#253D4E]  items-center">
-    New products
-        <div className=" w-16 h-[2px] bg-[#BCE3C9]  rounded mt-2"></div>
-      </h2>
-      <div className="mt-4 space-y-4">
-        {products.map((product) => (
-          <div key={product.id} className="flex items-center space-x-4 border-b pb-3 last:border-b-0">
-            <img src={product.image} alt={product.name} className="w-14 h-14 rounded-md object-cover" />
-            <div>
-              <h3 className="text-green-600 font-semibold">{product.name}</h3>
-              <p className="text-gray-700 font-medium">${product.price.toFixed(2)}</p>
+
+          {/* New Products */}
+          <div className="max-w-sm mx-auto bg-white shadow-lg rounded-xl p-6">
+            <h2 className="text-xl font-semibold text-[#253D4E]">New Products</h2>
+            <div className="mt-4 space-y-4">
+              {products.map((product) => (
+                <div key={product.id} className="flex items-center space-x-4 border-b pb-3 last:border-b-0">
+                  <img src={product.image} alt={product.name} className="w-14 h-14 rounded-md" />
+                  <div>
+                    <h3 className="text-green-600 font-semibold">{product.name}</h3>
+                    <p className="text-gray-700 font-medium">${product.price.toFixed(2)}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
-        ))}
-      </div>
-    </div>
         </div>
-        {/* product  */}
+
+        {/* Product List */}
         <div className="w-3/4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-            {currentItem.map((item, index)=>{
-              <div className="md:w-[245px] lg:w-[236px] xl:w-[265px] border border-[#ECECEC] rounded-lg px-3 shadow mx-auto">
-              <div className="flex justify-center">
-                <img
-                  src={item.image_url}
-                  
-                />
-              </div>
-              <div>
-                <p className="text-[#ADADAD]">{item.category}</p>
-                <h1 className="quick text-xl font-bold text-[#253D4E] mt-1 mb-2">
-                  {item.name}
-                </h1>
-                <p>
-                  By <span className="text-[#3BB77E]">{item.brand}</span>
-                </p>
-                <div className="rating mt-2">
-                  <input
-                    type="radio"
-                    name="rating-1"
-                    className="mask mask-star bg-orange-400"
-                  />
-                  <input
-                    type="radio"
-                    name="rating-1"
-                    className="mask mask-star bg-orange-400"
-                    defaultChecked
-                  />
-                  <input
-                    type="radio"
-                    name="rating-1"
-                    className="mask mask-star bg-orange-400"
-                  />
-                  <input
-                    type="radio"
-                    name="rating-1"
-                    className="mask mask-star bg-orange-400"
-                  />
-                  <input
-                    type="radio"
-                    name="rating-1"
-                    className="mask mask-star bg-orange-400"
-                  />
+            {currentItem.map((item, index) => (
+              <div key={index} className="border border-[#ECECEC] rounded-lg px-3 shadow mx-auto">
+                <div className="flex justify-center">
+                  <img src={item.image_url} alt={item.name} className="w-full" />
                 </div>
-                <div className="flex justify-between items-center px-6 mt-2 mb-5">
-                  <h1 className="text-[#3BB77E] text-lg font-semibold">
-                    {item.original_price }
-                  </h1>
-                  <button className="flex items-center justify-center gap-2 px-3 py-2 rounded bg-[#DEF9EC] text-[#3BB77E]">
+                <div className="space-y-2">
+                  <p className="text-[#ADADAD]">{item.category}</p>
+                  <h1 className="quick text-xl font-bold text-[#253D4E]">{item.name}</h1>
+                  <p>By <span className="text-[#3BB77E]">{item.brand}</span></p>
+                  <div className="flex justify-between px-3 pb-4">
+                  <h1 className="text-[#3BB77E] text-lg font-semibold">${item.original_price}</h1>
+                  <button className="flex items-center gap-2 px-3 py-2 rounded bg-[#DEF9EC] text-[#3BB77E]">
                     <FaShoppingCart /> Add
                   </button>
+                  </div>
                 </div>
               </div>
-            </div>
-            })}
-            
-           
+            ))}
           </div>
+
           {/* Pagination */}
-        <div className="flex justify-center mt-10">
-          <button
-            className={`mx-2 px-4 py-2 rounded ${
-              currentPage === 1 ? "bg-gray-300 cursor-not-allowed" : "bg-[#3BB77E] text-white"
-            }`}
-            onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-            disabled={currentPage === 1}
-          >
-            Previous
-          </button>
-          {Array.from({ length: totalPages }, (_, i) => (
+          <div className="flex justify-center mt-10">
             <button
-              key={i}
-              className={`mx-1 px-3 py-2 rounded ${
-                currentPage === i + 1
-                  ? "bg-[#3BB77E] text-white"
-                  : "bg-gray-200 text-black"
-              }`}
-              onClick={() => setCurrentPage(i + 1)}
+              className="mx-2 px-4 py-2 rounded bg-[#3BB77E] text-white"
+              onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+              disabled={currentPage === 1}
             >
-              {i + 1}
+              Previous
             </button>
-          ))}
-          <button
-            className={`mx-2 px-4 py-2 rounded ${
-              currentPage === totalPages ? "bg-gray-300 cursor-not-allowed" : "bg-[#3BB77E] text-white"
-            }`}
-            onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
-            disabled={currentPage === totalPages}
-          >
-            Next
-          </button>
-        </div>
+            {Array.from({ length: totalPages }, (_, i) => (
+              <button
+                key={i}
+                className={`mx-1 px-3 py-2 rounded ${currentPage === i + 1 ? "bg-[#3BB77E] text-white" : "bg-gray-200"}`}
+                onClick={() => setCurrentPage(i + 1)}
+              >
+                {i + 1}
+              </button>
+            ))}
+            <button
+              className="mx-2 px-4 py-2 rounded bg-[#3BB77E] text-white"
+              onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+              disabled={currentPage === totalPages}
+            >
+              Next
+            </button>
+          </div>
         </div>
       </div>
     </div>
