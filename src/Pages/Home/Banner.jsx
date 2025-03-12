@@ -5,11 +5,11 @@ import { FaArrowRightLong } from "react-icons/fa6";
 
 const Banner = () => {
   return (
-    <div className="w-full  mx-auto px-4 md:px-2 h-[200px] md:h-[380px] lg:h-[580px]  flex justify-center">
+    <div className="w-full   mx-auto  pt-2 h-[200px] md:h-[380px] lg:h-[580px]  flex justify-center">
       <div className="carousel  relative">
         {/* Slide 1 */}
         <div id="slide1" className="carousel-item relative w-full">
-          <img src={img1} className="w-full rounded-xl" />
+          <img src={img1} className="w-full rounded-b-xl" />
           <div className="absolute inset-0 flex items-center ">
             <div className="text-white  md:space-y-5 lg:space-y-7 pl-2 md:pl-12 w-3/5 md:w-1/2">
               <h2 className="quick text-xl md:text-4xl lg:text-7xl  font-bold text-[#253D4E] mb-1">
@@ -40,7 +40,7 @@ const Banner = () => {
 
         {/* Slide 2 */}
         <div id="slide2" className="carousel-item relative w-full">
-          <img src={img2} className="w-full rounded-xl" />
+          <img src={img2} className="w-full rounded-b-xl" />
           <div className="absolute inset-0 flex items-center ">
             <div className="text-white  md:space-y-5 lg:space-y-7 pl-2 md:pl-12 w-3/5 md:w-1/2">
               <h2 className="quick text-xl md:text-4xl lg:text-7xl  font-bold text-[#253D4E] mb-1">

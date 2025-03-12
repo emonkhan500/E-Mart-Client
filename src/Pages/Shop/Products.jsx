@@ -255,7 +255,7 @@ const Products = () => {
 
   return (
     <div className="mt-20 quick">
-      <div className="flex lg:gap-4">
+      <div className="flex flex-col md:flex-row lg:gap-4">
         {/* Sidebar */}
         <div className="w-1/4 space-y-10">
           {/* Categories */}

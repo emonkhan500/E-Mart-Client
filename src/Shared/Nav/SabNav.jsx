@@ -1,7 +1,6 @@
-import { useState } from "react";
-import { MdMenu, MdClose } from "react-icons/md";
+
 import { BiSupport } from "react-icons/bi";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const SabNav = () => {
   
@@ -74,7 +73,7 @@ const SabNav = () => {
       <div className="flex justify-between items-center py-3 md:px-6 lg:px-0 ">
         {/* All Categories Button */}
         <div className="px-5 py-2 md:mr-4  bg-[#3BB77E] text-white rounded quick">
-          <button>All Categories</button>
+          <Link to='/shop'>All Categories</Link>
         </div>
 
         {/* Desktop Navigation */}
