@@ -254,10 +254,10 @@ const Products = () => {
   const totalPages = Math.ceil(product.length / postsPerPage);
 
   return (
-    <div className="mt-20 quick">
-      <div className="flex flex-col md:flex-row lg:gap-4">
+    <div className="mt-8 md:mt-20 quick">
+      <div className="flex flex-col md:flex-row gap-6 md:gap-4">
         {/* Sidebar */}
-        <div className="w-1/4 space-y-10">
+        <div className="w-full md:w-1/4 space-y-10">
           {/* Categories */}
           <div className="max-w-sm mx-auto border bg-white shadow-lg rounded-xl p-6">
             <h2 className="text-xl font-semibold text-[#253D4E]">Category</h2>
@@ -369,8 +369,8 @@ const Products = () => {
         </div>
 
         {/* Product List */}
-        <div className="w-3/4">
-          <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+        <div className="md:w-3/4">
+          <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 ">
           {currentItem.map((item, index) => (
   <div
     key={index}

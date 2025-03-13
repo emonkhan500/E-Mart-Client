@@ -81,7 +81,7 @@ const Nav = () => {
   );
 
   return (
-    <div className="flex flex-col sticky top-0 z-50 bg-[#DEF9EC]">
+    <div className="flex flex-col sticky top-0 z-50 bg-white shadow-xl">
       <nav className="w-full  px-4 lato flex justify-between items-center gap-4  md:px-4 mx-auto h-auto mt-10 mb-6">
         {/* Small menu */}
         <button className="md:hidden text-3xl text-[#3BB77E]" onClick={toggleMenu}>
