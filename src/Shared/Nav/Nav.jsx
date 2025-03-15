@@ -8,7 +8,7 @@ import { IoCartOutline } from "react-icons/io5";
 import { VscAccount } from "react-icons/vsc";
 import { MdClose, MdMenu } from "react-icons/md";
 import SabNav from "./SabNav";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -141,14 +141,14 @@ const Nav = () => {
           </div>
 
           {/* Account icon */}
-          <div className="flex gap-2 items-center">
+          <Link to='/signup' className="flex gap-2 items-center">
             <button>
               <VscAccount className="text-2xl font-extrabold text-[#253D4E] hover:text-[#3B9DF8] transition-all duration-500" />
             </button>
             <h1 className="mt-1 text-sm text-[#7E7E7E] hidden md:flex">
               Login
             </h1>
-          </div>
+          </Link >
         </div>
 
         {/* Mobile Sidebar Menu */}
