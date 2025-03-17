@@ -1,14 +1,14 @@
+import { createContext } from "react";
 
+export const AuthContext = createContext(null);
 
+const AuthProvider = ({children}) => {
+  const Values = { emon: 'emonkhan'};
 
-
-
-const AuthProvider = () => {
-    return (
-        <div>
-            
-        </div>
-    );
+  return (
+  <AuthContext.Provider value={Values}>{children}
+  </AuthContext.Provider>
+  );
 };
 
 export default AuthProvider;

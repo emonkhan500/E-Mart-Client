@@ -2,8 +2,12 @@ import { Link } from "react-router-dom";
 import img1 from "../../assets/slider-1.png";
 import img2 from "../../assets/slider-2.png";
 import { FaArrowRightLong } from "react-icons/fa6";
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Banner = () => {
+  const values = useContext(AuthContext)
+  console.log(values);
   return (
     <div className="w-full   mx-auto  pt-2 h-[200px] md:h-[380px] lg:h-[580px]  flex justify-center">
       <div className="carousel  relative">
@@ -69,6 +73,7 @@ const Banner = () => {
           </div>
         </div>
       </div>
+      
     </div>
   );
 };
