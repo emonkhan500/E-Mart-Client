@@ -6,8 +6,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const Banner = () => {
-  const values = useContext(AuthContext)
-  console.log(values);
+  
   return (
     <div className="w-full   mx-auto  pt-2 h-[200px] md:h-[380px] lg:h-[580px]  flex justify-center">
       <div className="carousel  relative">
