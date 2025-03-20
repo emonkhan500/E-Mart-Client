@@ -1,17 +1,36 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import signinAnimation from '../../public/SignIn.json';
 import { FaGoogle } from "react-icons/fa";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Lottie from 'lottie-react';
 import 'animate.css';
+import { AuthContext } from '../Provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const SignIn = () => {
+const{login}=useContext(AuthContext)
+const navigate=useNavigate()
+const [registerError,setRegisterError]=useState()
+
   const handleLogin = e => {
     e.preventDefault();
   
     const email = e.target.email.value;
     const pass = e.target.pass.value;
     console.log(email, pass);
+
+
+
+    login(email,pass)
+    .then((result)=>{
+      console.log(result.user);
+      Swal.fire('Login Successful !')
+      navigate('/')
+      
+    })
+    .catch((error)=>{
+      setRegisterError(error.message)
+    })
 
   }
   return (
@@ -63,12 +82,13 @@ const SignIn = () => {
               Sign In
             </button>
 
-            <button className="animate__animated animate__lightSpeedInLeft animate__slow mt-4 w-full text-[#253D4E] font-bold py-2 px-4 rounded-lg border border-green-500 shadow-md hover:bg-[#3BB77E] hover:text-white hover:shadow-lg transition-all duration-300 flex items-center justify-center">
            
-             <FaGoogle className='mr-3 text-[#3BB77E] hover:text-black'/>
-              Sign In with Google
-            </button>
           </form>
+          <button className="animate__animated animate__lightSpeedInLeft animate__slow mt-4 w-full text-[#253D4E] font-bold py-2 px-4 rounded-lg border border-green-500 shadow-md hover:bg-[#3BB77E] hover:text-white hover:shadow-lg transition-all duration-300 flex items-center justify-center">
+           
+           <FaGoogle className='mr-3 text-[#3BB77E] hover:text-black'/>
+            Sign In with Google
+          </button>
           <p className="text-[#253D4E] mt-6 text-center font-bold">
             Don’t have an account?{'  '}
             <Link to="/signup" className="font-bold text-[#3BB77E]">Sign Up</Link>

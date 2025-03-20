@@ -5,6 +5,7 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   onAuthStateChanged,
+  signInWithEmailAndPassword,
 } from "firebase/auth";
 import app from "../Authentication/Firebase/firebase.config";
 
@@ -28,25 +29,32 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, googleProvider);
   };
 
+  
   // user manage
   useEffect(()=>{
     const unSubscribe=  onAuthStateChanged(auth,(currentUser)=>{
-  console.log('inside ',currentUser)
-  setUser(currentUser)
-  setLoading(false)
-      })
-      return ()=>{
-          unSubscribe()
-      }
+      console.log('inside ',currentUser)
+      setUser(currentUser)
+      setLoading(false)
+    })
+    return ()=>{
+      unSubscribe()
+    }
   },[])
-
-
+  
+  
+  // login
+  const login=(email,pass)=>{
+    setLoading(true);
+   return signInWithEmailAndPassword(auth,email,pass)
+  }
   
   const authData = {
     createUser,
     user,
     loading,
     googleLogin,
+    login
   };
 
   return (
