@@ -79,7 +79,7 @@ const Footer = () => {
         <div>
           <h1 className="mb-6 text-3xl font-bold">Install App</h1>
           <h1 className=" font-semibold mt-20">From App Store or Google Play</h1>
-          <div className="flex flex-col lg:w-3/6  shadow-md rounded md:flex-row gap-2 mt-4">
+          <div className="flex flex-col lg:w-3/6  shadow-md rounded lg:flex-row gap-2 mt-4">
             
             
             <img className=""  src={google} alt="" />

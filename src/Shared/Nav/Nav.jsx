@@ -13,7 +13,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 
 const Nav = () => {
-  const{logOut}=useContext(AuthContext)
+  const{logOut,user}=useContext(AuthContext)
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -95,7 +95,7 @@ const Nav = () => {
 
   return (
     <div className="flex flex-col sticky top-0 z-50 bg-white shadow-xl">
-      <nav className="w-full  px-4 lato flex justify-between items-center gap-4  md:px-4 mx-auto h-auto mt-10 mb-6">
+      <nav className="w-full  px-4 lato flex justify-between items-center gap-4  md:px-2 mx-auto h-auto mt-10 mb-6">
         {/* Small menu */}
         <button className="md:hidden text-3xl text-[#3BB77E]" onClick={toggleMenu}>
           {isOpen ? <MdClose /> : <MdMenu />}
@@ -103,7 +103,7 @@ const Nav = () => {
 
        <div className="flex  justify-center items-center gap-4">
          {/* Logo */}
-         <div className="w-32 md:w-[160px] lg:w-[180px] ">
+         <div className="w-20 md:w-[130px] lg:w-[180px] ">
           <img src={logo} alt="logo" />
         </div>
 
@@ -132,7 +132,7 @@ const Nav = () => {
                 6
               </span>
               <button>
-                <CiHeart className="text-2xl font-extrabold text-[#253D4E] hover:text-[#3B9DF8] transition-all duration-500" />
+                <CiHeart className="text-2xl font-extrabold text-[#253D4E] hover:text-[#3BB77E] transition-all duration-500" />
               </button>
             </div>
             <h1 className="mt-1 text-sm text-[#7E7E7E] hidden md:flex">
@@ -147,21 +147,36 @@ const Nav = () => {
                 6
               </span>
               <button>
-                <IoCartOutline className="text-2xl font-extrabold text-[#253D4E] hover:text-[#3B9DF8] transition-all duration-500" />
+                <IoCartOutline className="text-2xl font-extrabold text-[#253D4E] hover:text-[#3BB77E] transition-all duration-500" />
               </button>
             </div>
             <h1 className="mt-1 text-sm text-[#7E7E7E] hidden md:flex">Cart</h1>
           </div>
 
-          {/* Account icon */}
-          <Link to='/signup' className="flex gap-2 items-center">
-            <button>
-              <VscAccount className="text-2xl font-extrabold text-[#253D4E] hover:text-[#3B9DF8] transition-all duration-500" />
-            </button>
-            <h1 className="mt-1 text-sm text-[#7E7E7E] hidden md:flex">
-              Login
+          {
+          user?
+          <>
+           <button onClick={handleLogout} className="bg-[#F2FCE4] flex gap-1 items-center px-3 py-2 relative shadow before:absolute before:top-0 before:left-0 before:w-0 before:h-0 before:border-l-[4px] before:border-t-[4px] before:border-transparent hover:before:w-full hover:before:h-full hover:before:border-[#3BB77E] hover:before:transition-all hover:before:duration-500 after:border-r-[4px] after:border-b-[4px] after:border-transparent hover:after:border-[#3BB77E] after:absolute after:bottom-0 after:right-0 after:w-0 after:h-0 hover:after:w-full hover:after:h-full hover:after:transition-all hover:after:duration-500">
+              <VscAccount className="hidden md:flex  text-2xl font-extrabold text-[#253D4E]  transition-all duration-500" />
+              <h1 className="mt-1 text-sm text-[#7E7E7E] ">
+              SignOut
             </h1>
+            </button>
+          </> 
+          :
+           <>
+            {/* Account icon */}
+          <Link to='/signin' >
+            <button className="bg-[#F2FCE4] flex gap-1 items-center px-2  md:px-3 py-1 md:py-2 relative shadow before:absolute before:top-0 before:left-0 before:w-0 before:h-0 before:border-l-[4px] before:border-t-[4px] before:border-transparent hover:before:w-full hover:before:h-full hover:before:border-[#3BB77E] hover:before:transition-all hover:before:duration-500 after:border-r-[4px] after:border-b-[4px] after:border-transparent hover:after:border-[#3BB77E] after:absolute after:bottom-0 after:right-0 after:w-0 after:h-0 hover:after:w-full hover:after:h-full hover:after:transition-all hover:after:duration-500">
+              <VscAccount className="hidden md:flex text-2xl font-extrabold text-[#253D4E] hover:text-[#3B9DF8] transition-all duration-500" />
+              <h1 className="mt-1 text-sm text-[#7E7E7E] ">
+              SignIn
+            </h1>
+            </button>
+            
           </Link >
+          </>
+          }
         </div>
 
         {/* Mobile Sidebar Menu */}
