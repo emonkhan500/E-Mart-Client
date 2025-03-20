@@ -1,14 +1,16 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import signupAnimation from "../../public/SignUp.json";
 import { FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Lottie from "lottie-react";
 import "animate.css";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
 
 const SignUp = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser,googleLogin } = useContext(AuthContext);
+  const navigate =useNavigate()
+  const[registerError,setRegisterError]=useState( '')
 
   // userWith email
   const handleSignUp = (e) => {
@@ -23,11 +25,26 @@ const SignUp = () => {
       .then((result) => {
         console.log(result.user);
         Swal.fire(`Welcome ${name}`);
+        navigate('/')
       })
       .catch((error) => {
-        console.log(error.message);
+        setRegisterError(error.message);
       });
+
   };
+  // google login
+  const handleGoogleLogin=()=>{
+    googleLogin()
+    .then((result)=>{
+      Swal.fire(`Welcome ${result.user.displayName}`);
+      console.log(result.user)
+      navigate('/')
+    })
+    .catch((error) => {
+      setRegisterError(error.message);
+    });
+  }
+  
   return (
     <div className="flex  items-center py-6 md:py-10 lg:py-16 justify-center ">
       <div className=" lg:w-full lg:max-w-7xl flex flex-col-reverse md:flex-row bg-white rounded-lg  ">
@@ -106,18 +123,21 @@ const SignUp = () => {
             >
               Sign Up
             </button>
-
-            <button className="animate__animated animate__lightSpeedInLeft animate__slow mt-4 w-full text-[#253D4E] font-bold py-2 px-4 rounded-lg border border-green-500 shadow-md hover:bg-[#3BB77E] hover:text-white hover:shadow-lg transition-all duration-300 flex items-center justify-center">
+            </form>
+            <button onClick={handleGoogleLogin} className="animate__animated animate__lightSpeedInLeft animate__slow mt-4 w-full text-[#253D4E] font-bold py-2 px-4 rounded-lg border border-green-500 shadow-md hover:bg-[#3BB77E] hover:text-white hover:shadow-lg transition-all duration-300 flex items-center justify-center">
               <FaGoogle className="mr-3 text-[#3BB77E] hover:text-black" />
               Sign Up with Google
             </button>
-          </form>
+          
           <p className="text-[#253D4E] mt-6 text-center font-bold">
             Already have an account?{"  "}
             <Link to="/signin" className="font-bold text-[#3BB77E]">
               Sign In
             </Link>
           </p>
+          {
+         registerError &&  <p className='text-red-600 text-lg'>{registerError}</p>
+     }
         </div>
 
         {/* Lottie Animation Section */}
