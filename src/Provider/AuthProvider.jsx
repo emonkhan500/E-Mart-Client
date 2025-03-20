@@ -6,8 +6,10 @@ import {
   signInWithPopup,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signOut,
 } from "firebase/auth";
 import app from "../Authentication/Firebase/firebase.config";
+import Swal from "sweetalert2";
 
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
@@ -48,13 +50,19 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
    return signInWithEmailAndPassword(auth,email,pass)
   }
+  // logout
+  const logOut=()=>{
+    signOut(auth)
+    
+  }
   
   const authData = {
     createUser,
     user,
     loading,
     googleLogin,
-    login
+    login,
+    logOut
   };
 
   return (
