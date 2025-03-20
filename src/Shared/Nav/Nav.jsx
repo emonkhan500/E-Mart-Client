@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import logo from "../../assets/logo.svg";
 
 // React icons
@@ -9,13 +9,26 @@ import { VscAccount } from "react-icons/vsc";
 import { MdClose, MdMenu } from "react-icons/md";
 import SabNav from "./SabNav";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Nav = () => {
+  const{logOut}=useContext(AuthContext)
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+
+  const handleLogout=()=>{
+    logOut()
+    .then(()=>{
+      Swal.fire('Sign Out');
+    })
+    .catch((error)=>{
+      console.log(error.message);
+    })
+  }
 
   const navlinks = (
     <>
