@@ -127,7 +127,7 @@ const SignUp = () => {
             </form>
             <button onClick={handleGoogleLogin} className="animate__animated animate__lightSpeedInLeft animate__slow mt-4 w-full text-[#253D4E] font-bold py-2 px-4 rounded-lg border border-green-500 shadow-md hover:bg-[#3BB77E] hover:text-white hover:shadow-lg transition-all duration-300 flex items-center justify-center">
               <FaGoogle className="mr-3 text-[#3BB77E] hover:text-black" />
-              Sign Up with Google
+              Sign In with Google
             </button>
           
           <p className="text-[#253D4E] mt-6 text-center font-bold">
