@@ -6,11 +6,13 @@ import Lottie from 'lottie-react';
 import 'animate.css';
 import { AuthContext } from '../Provider/AuthProvider';
 import Swal from 'sweetalert2';
+import { signInWithPopup } from 'firebase/auth';
 
 const SignIn = () => {
-const{login}=useContext(AuthContext)
+const{login,googleLogin}=useContext(AuthContext)
 const navigate=useNavigate()
 const [registerError,setRegisterError]=useState()
+
 
   const handleLogin = e => {
     e.preventDefault();
@@ -33,6 +35,19 @@ const [registerError,setRegisterError]=useState()
     })
 
   }
+  const handleGoogle=()=>{
+    googleLogin()
+    .then((result)=>{
+      Swal.fire(`Welcome ${result.user.displayName}`);
+      console.log(result.user)
+      navigate('/')
+    })
+    .catch((error)=>{
+console.log(error.message);
+    })
+  }
+
+
   return (
          <div className="flex  items-center py-6 md:py-10 lg:py-16 justify-center ">
       <div className=" lg:w-full lg:max-w-7xl flex flex-col-reverse md:flex-row bg-white rounded-lg  ">
@@ -84,7 +99,7 @@ const [registerError,setRegisterError]=useState()
 
            
           </form>
-          <button className="animate__animated animate__lightSpeedInLeft animate__slow mt-4 w-full text-[#253D4E] font-bold py-2 px-4 rounded-lg border border-green-500 shadow-md hover:bg-[#3BB77E] hover:text-white hover:shadow-lg transition-all duration-300 flex items-center justify-center">
+          <button onClick={handleGoogle} className="animate__animated animate__lightSpeedInLeft animate__slow mt-4 w-full text-[#253D4E] font-bold py-2 px-4 rounded-lg border border-green-500 shadow-md hover:bg-[#3BB77E] hover:text-white hover:shadow-lg transition-all duration-300 flex items-center justify-center">
            
            <FaGoogle className='mr-3 text-[#3BB77E] hover:text-black'/>
             Sign In with Google
