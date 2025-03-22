@@ -52,7 +52,7 @@ const AuthProvider = ({ children }) => {
   }
   // logout
   const logOut=()=>{
-    signOut(auth)
+   return signOut(auth)
     
   }
   

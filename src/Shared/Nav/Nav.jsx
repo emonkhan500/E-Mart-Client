@@ -8,13 +8,14 @@ import { IoCartOutline } from "react-icons/io5";
 import { VscAccount } from "react-icons/vsc";
 import { MdClose, MdMenu } from "react-icons/md";
 import SabNav from "./SabNav";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 
 const Nav = () => {
   const{logOut,user}=useContext(AuthContext)
   const [isOpen, setIsOpen] = useState(false);
+  const navigate=useNavigate()
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -23,7 +24,9 @@ const Nav = () => {
   const handleLogout=()=>{
     logOut()
     .then(()=>{
-      Swal.fire('Sign Out');
+      Swal.fire('Sign Out')
+      navigate('/signin')
+     
     })
     .catch((error)=>{
       console.log(error.message);
