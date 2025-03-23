@@ -21,17 +21,7 @@ const Nav = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleLogout=()=>{
-    logOut()
-    .then(()=>{
-      Swal.fire('Sign Out')
-      navigate('/signin')
-     
-    })
-    .catch((error)=>{
-      console.log(error.message);
-    })
-  }
+  
 
   const navlinks = (
     <>
