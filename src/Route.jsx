@@ -14,6 +14,7 @@ import Contact from "./Pages/Contact/Contact";
 import About from "./Pages/About/About";
 import Blog from "./Pages/Blogs/Blog";
 import Shop from "./Pages/Shop/Shop";
+import Dashboard from "./Layout/Dashboard";
 
 export const router = createBrowserRouter([
     {
@@ -56,4 +57,8 @@ export const router = createBrowserRouter([
         }
       ]
     },
+    {
+      path:'/dashboard',
+      element:<Dashboard></Dashboard>
+    }
   ]);

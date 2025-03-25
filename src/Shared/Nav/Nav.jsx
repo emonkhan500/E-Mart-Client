@@ -21,7 +21,17 @@ const Nav = () => {
     setIsOpen(!isOpen);
   };
 
-  
+  const handleLogout=()=>{
+    logOut()
+    .then(()=>{
+      Swal.fire('Sign Out')
+      navigate('/signin')
+     
+    })
+    .catch((error)=>{
+      console.log(error.message);
+    })
+  }
 
   const navlinks = (
     <>
@@ -88,7 +98,7 @@ const Nav = () => {
 
   return (
     <div className="flex flex-col sticky top-0 z-50 bg-white shadow-xl">
-      <nav className="w-full  px-4 lato flex justify-between items-center gap-4  md:px-2 xl:px-20 mx-auto h-auto mt-10 mb-6">
+      <nav className="w-full  px-2 lato flex justify-between items-center gap-3 md:px-2 xl:px-20 mx-auto h-auto mt-10 mb-6">
         {/* Small menu */}
         <button className="md:hidden text-3xl text-[#3BB77E]" onClick={toggleMenu}>
           {isOpen ? <MdClose /> : <MdMenu />}
@@ -117,9 +127,9 @@ const Nav = () => {
         </div>
 
         {/* Icons Section */}
-        <div className="flex items-center gap-2 md:gap-6">
+        <div className="flex items-center gap-1 md:gap-6">
           {/* Wishlist icon */}
-          <div className="flex gap-2 items-center">
+          {/* <div className="flex gap-2 items-center">
             <div className="indicator">
               <span className="indicator-item rounded-full bg-green-500 text-xs px-1 text-white">
                 6
@@ -131,10 +141,10 @@ const Nav = () => {
             <h1 className="mt-1 text-sm text-[#7E7E7E] hidden md:flex">
               Wishlist
             </h1>
-          </div>
+          </div> */}
 
           {/* Cart icon */}
-          <div className="flex gap-2 items-center">
+          {/* <div className="flex gap-2 items-center">
             <div className="indicator">
               <span className="indicator-item rounded-full bg-green-500 text-xs px-1 text-white">
                 6
@@ -144,7 +154,18 @@ const Nav = () => {
               </button>
             </div>
             <h1 className="mt-1 text-sm text-[#7E7E7E] hidden md:flex">Cart</h1>
+          </div> */}
+          <Link to='/dashboard'>
+          <div className="bg-[#F2FCE4] px-3 py-1 md:py-2 rounded-md flex lg:gap-2 items-center shadow-md">
+            
+             
+             <button>
+                <IoCartOutline className="hidden md:flex text-2xl font-extrabold text-[#253D4E] hover:text-[#3BB77E] transition-all duration-500" />
+              </button>
+            
+            <h1 className="mt-1 text-sm text-[#7E7E7E] ">Dashboard</h1>
           </div>
+             </Link>
 
           {
           user?
