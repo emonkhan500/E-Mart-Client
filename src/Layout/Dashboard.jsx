@@ -3,6 +3,7 @@ import Nav from '../Shared/Nav/Nav';
 import Footer from '../Shared/Footer/Footer';
 import ShareHead from '../Shared/ShareHead';
 import Newsletter from '../Shared/SharedNewsletter';
+import UpFooter from '../Pages/Home/UpFooter';
 
 const Dashboard = () => {
     return (
@@ -10,6 +11,7 @@ const Dashboard = () => {
            <Nav></Nav>
            <ShareHead pageTitle={'DASHBOARD'}></ShareHead>
            <Newsletter></Newsletter>
+           <UpFooter></UpFooter>
            <Footer></Footer>
         </div>
     );
