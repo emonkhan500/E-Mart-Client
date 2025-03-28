@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import Nav from "../Shared/Nav/Nav";
 import Footer from "../Shared/Footer/Footer";
 import ShareHead from "../Shared/ShareHead";
 import Newsletter from "../Shared/SharedNewsletter";
 import UpFooter from "../Pages/Home/UpFooter";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Dashboard = () => {
+    const{logOut,user}=useContext(AuthContext)
   return (
     <div className=" w-full max-w-[1600px] px-3 md:px-8 lg:px-12 xl:px-16 mx-auto mb-9">
       <Nav></Nav>
@@ -23,7 +25,7 @@ const Dashboard = () => {
                         </h3>
                         <nav className="mt-6">
                             <ul className="flex flex-col gap-2">
-                                {currentUser?.role === "admin" ? (
+                                {user?.role === "admin" ? (
                                     <>
                                         <li>
                                             <NavLink
@@ -109,19 +111,19 @@ const Dashboard = () => {
 
                 {/* Sidebar Footer */}
                 <div className="px-2 py-4">
-                    {currentUser?.photo && (
+                    {user?.photo && (
                         <div className="max-w-36 mx-auto mb-5">
                             <img
                                 className="border-4 border-white rounded-full"
-                                src={currentUser?.photo || "https://i.ibb.co.com/WWrPS5F/demo-user.png"}
+                                src={user?.photo || "https://i.ibb.co.com/WWrPS5F/demo-user.png"}
                                 alt="User Profile"
                             />
                         </div>
                     )}
                     <div className="flex items-center gap-3">
                         <div>
-                            <p className="font-semibold uppercase">{currentUser?.name || "User"}</p>
-                            <p className="xl:text-sm lg:text-xs text-gray-300">{currentUser?.email}</p>
+                            <p className="font-semibold uppercase">{user?.name || "User"}</p>
+                            <p className="xl:text-sm lg:text-xs text-gray-300">{user?.email}</p>
                         </div>
                     </div>
                     <div className="mt-4 flex flex-col gap-2">
@@ -148,7 +150,7 @@ const Dashboard = () => {
                 </div>
                 <nav className="mt-6 px-4">
                     <ul className="flex flex-col gap-2">
-                        {currentUser?.role === "admin" ? (
+                        {user?.role === "admin" ? (
                             <>
                                 <li>
                                     <NavLink
