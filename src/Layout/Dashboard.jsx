@@ -1,13 +1,21 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Nav from "../Shared/Nav/Nav";
 import Footer from "../Shared/Footer/Footer";
 import ShareHead from "../Shared/ShareHead";
 import Newsletter from "../Shared/SharedNewsletter";
 import UpFooter from "../Pages/Home/UpFooter";
 import { AuthContext } from "../Provider/AuthProvider";
+import { NavLink } from "react-router-dom";
+import { FaTimes } from "react-icons/fa";
+import { HiOutlineBars3 } from "react-icons/hi2";
 
 const Dashboard = () => {
     const{logOut,user}=useContext(AuthContext)
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleSidebar = () => {
+        setIsOpen(!isOpen);
+    };
   return (
     <div className=" w-full max-w-[1600px] px-3 md:px-8 lg:px-12 xl:px-16 mx-auto mb-9">
       <Nav></Nav>
@@ -133,7 +141,7 @@ const Dashboard = () => {
                             Account
                         </NavLink>
                         <button
-                            onClick={logout}
+                            onClick={logOut}
                             className="block p-2 rounded bg-red-600 text-center hover:bg-red-700">
                             Logout
                         </button>
@@ -233,7 +241,7 @@ const Dashboard = () => {
                     </ul>
                 </nav>
                 <div className="px-4 py-4">
-                    <button onClick={logout} className="w-full p-2 rounded bg-pink text-center hover:bg-red">
+                    <button onClick={logOut} className="w-full p-2 rounded bg-pink text-center hover:bg-red">
                         Logout
                     </button>
                 </div>
@@ -246,10 +254,10 @@ const Dashboard = () => {
                 {isOpen ? <FaTimes /> : <HiOutlineBars3 />}
             </button>
 
-            {/* Main Content */}
+            {/* Main Content
             <div className="flex-1 lg:p-5 p-2 overflow-x-auto overflow-y-auto">
-                <Outlet />
-            </div>
+                
+            </div> */}
         </div>
       </div>
       <Newsletter></Newsletter>
