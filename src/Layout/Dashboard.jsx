@@ -18,7 +18,7 @@ const Dashboard = () => {
     };
   return (
     <div className=" w-full max-w-[1600px] px-3 md:px-8 lg:px-12 xl:px-16 mx-auto mb-9">
-      <Nav></Nav>
+      
       <ShareHead pageTitle={"DASHBOARD"}></ShareHead>
       {/* layout */}
       <div>
@@ -224,7 +224,7 @@ const Dashboard = () => {
                                         My Orders
                                     </NavLink>
                                 </li>
-                                <div className="border"></div>
+                                <div className="border"></div>  
                                 <li>
                                     <NavLink
                                         to="/"
