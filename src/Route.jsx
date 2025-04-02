@@ -15,6 +15,7 @@ import About from "./Pages/About/About";
 import Blog from "./Pages/Blogs/Blog";
 import Shop from "./Pages/Shop/Shop";
 import Dashboard from "./Layout/Dashboard";
+import UserProfile from "./UserThing/UserProfile";
 
 export const router = createBrowserRouter([
     {
@@ -59,6 +60,16 @@ export const router = createBrowserRouter([
     },
     {
       path:'/dashboard',
-      element:<Dashboard></Dashboard>
+      element:<Dashboard></Dashboard>,
+      children:[
+        {
+          path:'/dashboard/userprofile',
+          element:<UserProfile></UserProfile>
+        },
+        {
+          path:'/dashboard/orders',
+          element:<Orders></Orders>
+        },
+      ]
     }
   ]);
