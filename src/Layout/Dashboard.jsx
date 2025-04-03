@@ -9,21 +9,16 @@ import { CgProfile } from "react-icons/cg";
 import { AiOutlineUnorderedList } from "react-icons/ai";
 import { IoIosLogOut } from "react-icons/io";
 
-
-
-
-
-
 const Dashboard = () => {
  
 
   return (
-    <div>
+    <div className="w-full max-w-[1600px] px-3 md:px-8 lg:px-12 xl:px-16 mx-auto">
         <Nav></Nav>
-   
-    <div className="flex flex-col md:flex-row md:gap- lg:gap-36  h-[100vh] px-2 md:px-10 lg:px-32 xl:px-44">
+        <h1 className="text-4xl font-bold mt-16">DASHBOARD</h1>
+    <div className="flex flex-col md:flex-row md:gap- lg:gap-36   px-2 md:px-10 lg:px-32 xl:px-44">
     
-    <div className=" w-auto md:w-64 lg:w-80 lg:min-h-screen  pt-20">
+    <div className=" w-auto md:w-64 lg:w-80  pt-20">
     <ul className="menu space-y-2 mx-5 ">
   <li className="text-center">
     <NavLink 
@@ -65,6 +60,9 @@ const Dashboard = () => {
       <Outlet></Outlet>
     </div>
   </div>
+    <Footer></Footer>
+
+  
   </div>
   );
 };
