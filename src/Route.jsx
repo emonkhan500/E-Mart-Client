@@ -16,6 +16,7 @@ import Blog from "./Pages/Blogs/Blog";
 import Shop from "./Pages/Shop/Shop";
 import Dashboard from "./Layout/Dashboard";
 import UserProfile from "./UserThing/UserProfile";
+import Orders from "./UserThing/Orders";
 
 export const router = createBrowserRouter([
     {

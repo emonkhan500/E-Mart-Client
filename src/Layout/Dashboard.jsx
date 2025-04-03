@@ -18,43 +18,46 @@ const Dashboard = () => {
  
 
   return (
-    <div className="flex flex-col md:flex-row  h-[100vh] ">
-    <div className=" w-auto lg:w-64 lg:min-h-screen bg-[#8ba80941] pt-20">
-      <ul className="menu space-y-2 mx-5">
-        
-          <li>
-  <NavLink className='text-lg' to='/dashboard/userprofile'><IoMdHome />Profile</NavLink>
-  </li>
+    <div>
+        <Nav></Nav>
+   
+    <div className="flex flex-col md:flex-row  h-[100vh] px-2 md:px-10 lg:px-32 xl:px-44">
+    
+    <div className=" w-auto md:w-64 lg:w-80 lg:min-h-screen  pt-20">
+    <ul className="menu space-y-2 mx-5">
   <li>
-  <NavLink className='text-lg' to='/dashboard/orders'><HiOutlineHomeModern />Orders</NavLink>
-  </li>
-  <li>
-  <NavLink className='text-lg' to='/dashboard/manageusersbyadmin'><FaUsers /> Manage Users</NavLink>
+    <NavLink 
+      to='/dashboard/userprofile' 
+      className={({ isActive }) => 
+        `text-lg  font-bold border rounded-md px-3 py-3 transition ${
+          isActive ? 'bg-[#3BB77E] text-white' : 'bg-white border-gray-300'
+        } hover:bg-[#3BB77E] hover:text-white`
+      }
+    >
+      <IoMdHome /> Profile
+    </NavLink>
   </li>
   
-  
-        
-        {/* divider */}
-        <div className="divider"></div>
+  <li>
+    <NavLink 
+      to='/dashboard/orders' 
+      className={({ isActive }) => 
+        `text-lg border font-bold rounded-md px-3 py-3 transition ${
+          isActive ? 'bg-[#3BB77E] text-white' : 'bg-white border-gray-300'
+        } hover:bg-[#3BB77E] hover:text-white`
+      }
+    >
+      <HiOutlineHomeModern /> Orders
+    </NavLink>
+  </li>
+</ul>
 
-        <li>
-          <NavLink className="text-lg" to="/">
-            <IoMdHome /> HOME
-          </NavLink>
-        </li>
-        <li>
-          <NavLink className="text-lg" to="/allproperty">
-            <IoMenu /> ALL PROPERTY
-          </NavLink>
-        </li>
-        
-        
-      </ul>
     </div>
 
-    <div className="flex-1 ">
+    <div className="flex-1 pt-6 md:pt-20">
       <Outlet></Outlet>
     </div>
+  </div>
   </div>
   );
 };
