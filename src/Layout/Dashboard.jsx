@@ -15,7 +15,7 @@ const Dashboard = () => {
   return (
     <div className="w-full max-w-[1600px] px-3 md:px-8 lg:px-12 xl:px-16 mx-auto">
         <Nav></Nav>
-        <h1 className="text-4xl font-bold mt-16">DASHBOARD</h1>
+       
     <div className="flex flex-col md:flex-row md:gap- lg:gap-36   px-2 md:px-10 lg:px-32 xl:px-44">
     
     <div className=" w-auto md:w-64 lg:w-80  pt-20">
@@ -57,6 +57,7 @@ const Dashboard = () => {
     </div>
 
     <div className="flex-1 pt-6 md:pt-20">
+    <h1 className="text-4xl font-bold mb-16">DASHBOARD</h1>
       <Outlet></Outlet>
     </div>
   </div>
