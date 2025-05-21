@@ -4,8 +4,15 @@ import { FaShoppingCart } from "react-icons/fa";
 const Popular = () => {
   return (
     <div className="lato">
-      <div className="md:my-7 my-4 mt-10 text-center">
+      <div className="md:my-7 my-4 pt-24 text-center">
         <h1 className="text-[#253D4E] text-2xl md:text-4xl font-bold">Popular Product</h1>
+        <div className="flex justify-center mt-3 pr-7 mb-8">
+          <img
+            className=""
+            src="https://i.ibb.co.com/1JBhBjNq/underheading.png "
+            alt=""
+          />
+        </div>
       </div>
       {/* product div */}
       <div className="grid gap-4 md:gap-2 lg:gap-2 xl:gap-2 grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 justify-center items-center">

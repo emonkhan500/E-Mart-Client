@@ -15,10 +15,17 @@ import { FreeMode, Pagination } from "swiper/modules";
 const Featured = () => {
   return (
     <div className="mb-3 ">
-      <div className="w-full lato ">
-        <h1 className="text-center mt-4 md:mt-12  font-bold text-xl md:text-2xl lg:text-4xl">
+      <div className="w-full lato -mb-20 pt-6 lg:pt-10">
+        <h1 className="text-center mt-4 md:mt-12  font-bold  text-2xl md:text-4xl">
           Featured Categories
         </h1>
+        <div className="flex justify-center mt-3 pr-7 mb-8">
+          <img
+            className=""
+            src="https://i.ibb.co.com/1JBhBjNq/underheading.png "
+            alt=""
+          />
+        </div>
       </div>
       <Swiper
         slidesPerView={10}
