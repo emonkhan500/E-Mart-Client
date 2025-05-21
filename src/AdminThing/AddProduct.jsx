@@ -14,118 +14,111 @@ const AddProduct = () => {
         </div>
            </div>
            <form
-        onSubmit=''
-        className=" mx-auto md:m-6 md:p-2 grid grid-cols-2 justify-items-center gap-x-6 gap-y-2 "
-      >
-        <div className="form-control w-full">
-          <label className="label">
-            <span className="label-text">Property Name</span>
-          </label>
-          <input
-            name="propertyname"
-            type="text"
-            placeholder="Enter Property Name"
-            className="input input-bordered w-full"
-            required
-          />
-        </div>
+  onSubmit=""
+  className="mx-auto md:m-6 md:p-2 grid grid-cols-2 justify-items-center gap-x-6 gap-y-2"
+>
+  {/* Product Title */}
+  <div className="form-control w-full">
+    <label className="label">
+      <span className="label-text">Product Title</span>
+    </label>
+    <input
+      name="title"
+      type="text"
+      placeholder="Enter Product Title"
+      className="input input-bordered w-full"
+      required
+    />
+  </div>
 
-        <div className="form-control w-full">
-          <label className="label">
-            <span className="label-text">Property Location</span>
-          </label>
-          <input
-            name="location"
-            type="text"
-            placeholder="Enter Property Location"
-            className="input input-bordered w-full"
-            required
-          />
-        </div>
+  {/* Category */}
+  <div className="form-control w-full">
+    <label className="label">
+      <span className="label-text">Category</span>
+    </label>
+    <input
+      name="category"
+      type="text"
+      placeholder="Enter Category"
+      className="input input-bordered w-full"
+      required
+    />
+  </div>
 
-        <div className="form-control w-full">
-          <label className="label">
-            <span className="label-text">Agent Name</span>
-          </label>
-          <input
-            defaultValue=''
-            name="agentname"
-            type="text"
-            placeholder="Enter Craft Rating"
-            className="input input-bordered w-full"
-            readOnly
-          />
-        </div>
+  {/* Vendor */}
+  <div className="form-control w-full">
+    <label className="label">
+      <span className="label-text">Vendor</span>
+    </label>
+    <input
+      defaultValue=""
+      name="vendor"
+      type="text"
+      placeholder="Enter Vendor Name"
+      className="input input-bordered w-full"
+      readOnly
+    />
+  </div>
 
-        <div className="form-control w-full">
-          <label className="label">
-            <span className="label-text">Agent Email</span>
-          </label>
-          <input
-            name="agentemail"
-            defaultValue=''
-            type="text"
-            placeholder="Enter Craft Price"
-            className="input input-bordered w-full"
-            readOnly
-          />
-        </div>
-        <div className="form-control w-full">
-          <label className="label">
-            <span className="label-text">Minimum Price ($)</span>
-          </label>
-          <input
-            
-            name="minprice"
-            type="number"
-            placeholder="Minimum Price"
-            className="input input-bordered w-full"
-            
-          />
-        </div>
+  {/* Price */}
+  <div className="form-control w-full">
+    <label className="label">
+      <span className="label-text">Price</span>
+    </label>
+    <input
+      name="price"
+      defaultValue=""
+      type="text"
+      placeholder="Enter Product Price"
+      className="input input-bordered w-full"
+      readOnly
+    />
+  </div>
 
-        <div className="form-control w-full">
-          <label className="label">
-            <span className="label-text">Maximum Price ($)</span>
-          </label>
-          <input
-            
-            name="maxprice"
-            type="number"
-            placeholder="Maximum Price"
-            className="input input-bordered w-full"
-            
-          />
-        </div>
-        <div className="form-control w-full">
-          <label className="label">
-            <span className="label-text">Description</span>
-          </label>
-          <textarea
+  {/* Description */}
+  <div className="form-control w-full col-span-2">
+    <label className="label">
+      <span className="label-text">Description</span>
+    </label>
+    <textarea
+      rows={3}
+      cols={30}
+      name="des"
+      placeholder="Description"
+      className="input input-bordered w-full"
+    />
+  </div>
 
-            rows={3}
-            cols={30}
-            name="des"
-            type="number"
-            placeholder="Description"
-            className="input input-bordered w-full"
-            
-          />
-        </div>
+  {/* Rating Dropdown */}
+  <div className="form-control w-full">
+    <label className="label">
+      <span className="label-text">Rating</span>
+    </label>
+    <select name="rating" className="select select-bordered w-full" required>
+      <option value="">Select Rating</option>
+      <option value="1"> 1</option>
+      <option value="2"> 2</option>
+      <option value="3"> 3</option>
+      <option value="4"> 4</option>
+      <option value="5"> 5</option>
+    </select>
+  </div>
 
+  {/* Image Upload */}
+  <input
+    type="file"
+    name="img"
+    className="mt-10 text-white bg-[#3BB77E] file-input border-l-0 w-full max-w-xs"
+  />
 
-           
-        <input
-          type="file"
-          name="img"
-          className=" mt-10 text-white bg-[#3BB77E] file-input border-l-0 w-full max-w-xs"
-        />
-        <input
-          type="submit"
-          className=" font-bold py-3 text-lg col-span-2 my-5 min-w-full text-white bg-[#3BB77E]"
-          value="Add Property"
-        />
-      </form>
+  {/* Submit Button */}
+  <input
+    type="submit"
+    className="font-bold py-3 text-lg col-span-2 my-5 min-w-full text-white bg-[#3BB77E]"
+    value="Add Property"
+  />
+</form>
+
         </div>
     );
 };
