@@ -4,7 +4,7 @@ import { FaShoppingCart } from "react-icons/fa";
 const DealsOfDay = () => {
   return (
     <div className="mt-16">
-      <div className="md:my-7 my-4 pt-24 text-center">
+      <div className="md:my-7 my-4 pt-8 lg:pt-24 text-center">
         <h1 className="text-[#253D4E] text-2xl md:text-4xl font-bold">
           Deals Of The Day
         </h1>
