@@ -7,6 +7,7 @@ import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import app from "../Authentication/Firebase/firebase.config";
 import Swal from "sweetalert2";
@@ -31,7 +32,10 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, googleProvider);
   };
 
-  
+  // update user
+  const updateUser =(name,email)=>updateProfile(auth.currentUser,{
+    displayName:name, email:email 
+  })
   // user manage
   useEffect(()=>{
     const unSubscribe=  onAuthStateChanged(auth,(currentUser)=>{
