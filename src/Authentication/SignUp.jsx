@@ -8,7 +8,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
 
 const SignUp = () => {
-  const { createUser,googleLogin } = useContext(AuthContext);
+  const { createUser,googleLogin,updateUser } = useContext(AuthContext);
   const navigate =useNavigate()
   const[registerError,setRegisterError]=useState( '')
 
