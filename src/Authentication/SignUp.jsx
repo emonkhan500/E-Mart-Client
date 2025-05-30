@@ -32,18 +32,16 @@ const SignUp = () => {
               name,
               email,
             };
-            axiosPublic.post("/users",userInfo)
-            .then((res) => {
-              if(res.data.insertedId){
+            axiosPublic.post("/users", userInfo).then((res) => {
+              if (res.data.insertedId) {
                 Swal.fire(`Welcome ${name}`);
-        navigate('/')
+                navigate("/");
               }
             });
           })
           .catch((error) => {
             console.log(error);
           });
-        
       })
       .catch((error) => {
         console.log(error.message);
@@ -54,13 +52,15 @@ const SignUp = () => {
   const handleGoogleLogin = () => {
     googleLogin()
       .then((result) => {
-        const userInfo={
-          email:result.user?.email,
-          name: result.user?.name
-        }
-        Swal.fire(`Welcome ${result.user.displayName}`);
-        console.log(result.user);
-        navigate("/");
+        const userInfo = {
+          email: result.user?.email,
+          name: result.user?.displayName,
+        };
+        axiosPublic.post("/users", userInfo).then((res) => {
+          Swal.fire(`Welcome ${result.user.displayName}`);
+          console.log(result.user);
+          navigate("/");
+        });
       })
       .catch((error) => {
         setRegisterError(error.message);
