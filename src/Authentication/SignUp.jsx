@@ -54,6 +54,10 @@ const SignUp = () => {
   const handleGoogleLogin = () => {
     googleLogin()
       .then((result) => {
+        const userInfo={
+          email:result.user?.email,
+          name: result.user?.name
+        }
         Swal.fire(`Welcome ${result.user.displayName}`);
         console.log(result.user);
         navigate("/");
