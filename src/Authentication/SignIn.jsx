@@ -7,9 +7,11 @@ import 'animate.css';
 import { AuthContext } from '../Provider/AuthProvider';
 import Swal from 'sweetalert2';
 import { signInWithPopup } from 'firebase/auth';
+import useAxiosPublic from '../Axios/useAxiosPublic';
 
 const SignIn = () => {
 const{login,googleLogin}=useContext(AuthContext)
+const axiosPublic=useAxiosPublic()
 const navigate=useNavigate()
 const [registerError,setRegisterError]=useState()
 
@@ -35,17 +37,23 @@ const [registerError,setRegisterError]=useState()
     })
 
   }
-  const handleGoogle=()=>{
+  const handleGoogleLogin = () => {
     googleLogin()
-    .then((result)=>{
-      Swal.fire(`Welcome ${result.user.displayName}`);
-      console.log(result.user)
-      navigate('/')
-    })
-    .catch((error)=>{
-console.log(error.message);
-    })
-  }
+      .then((result) => {
+        const userInfo = {
+          email: result.user?.email,
+          name: result.user?.displayName,
+        };
+        axiosPublic.post("/users", userInfo).then((res) => {
+          Swal.fire(`Welcome ${result.user.displayName}`);
+          console.log(result.user);
+          navigate("/");
+        });
+      })
+      .catch((error) => {
+        setRegisterError(error.message);
+      });
+  };
 
 
   return (
@@ -99,7 +107,7 @@ console.log(error.message);
 
            
           </form>
-          <button onClick={handleGoogle} className="animate__animated animate__lightSpeedInLeft animate__slow mt-4 w-full text-[#253D4E] font-bold py-2 px-4 rounded-lg border border-green-500 shadow-md hover:bg-[#3BB77E] hover:text-white hover:shadow-lg transition-all duration-300 flex items-center justify-center">
+          <button onClick={handleGoogleLogin} className="animate__animated animate__lightSpeedInLeft animate__slow mt-4 w-full text-[#253D4E] font-bold py-2 px-4 rounded-lg border border-green-500 shadow-md hover:bg-[#3BB77E] hover:text-white hover:shadow-lg transition-all duration-300 flex items-center justify-center">
            
            <FaGoogle className='mr-3 text-[#3BB77E] hover:text-black'/>
             Sign In with Google
