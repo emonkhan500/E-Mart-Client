@@ -55,6 +55,7 @@ const SignUp = () => {
         const userInfo = {
           email: result.user?.email,
           name: result.user?.displayName,
+          time: result.user?.metadata?.creationTime
         };
         axiosPublic.post("/users", userInfo).then((res) => {
           Swal.fire(`Welcome ${result.user.displayName}`);
