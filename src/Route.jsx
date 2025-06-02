@@ -23,6 +23,7 @@ import ManageOrders from "./AdminThing/ManageOrders";
 import AddProduct from "./AdminThing/AddProduct";
 import ManageUser from "./AdminThing/ManageUser";
 import AdminProfile from "./AdminThing/AdminProfile";
+import PrivateRoute from "./Private&Admin/PrivateRoute";
 
 export const router = createBrowserRouter([
     {
@@ -48,7 +49,7 @@ export const router = createBrowserRouter([
         },
         {
           path:'/shop',
-          element:<Shop></Shop>
+          element:<PrivateRoute><Shop></Shop></PrivateRoute>
         },
         {
           path:'/vendors',
@@ -71,7 +72,7 @@ export const router = createBrowserRouter([
     },
     {
       path:'/dashboard',
-      element:<Dashboard></Dashboard>,
+      element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
       children:[
         // admin
         {
