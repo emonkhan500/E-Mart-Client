@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import signupAnimation from "../../public/SignUp.json";
 import { FaGoogle } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Lottie from "lottie-react";
 import "animate.css";
 import { AuthContext } from "../Provider/AuthProvider";
@@ -11,6 +11,7 @@ import useAxiosPublic from "../Axios/useAxiosPublic";
 const SignUp = () => {
   const { createUser, googleLogin, updateUser } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location =useLocation()
   const axiosPublic = useAxiosPublic();
   const [registerError, setRegisterError] = useState("");
 
@@ -35,7 +36,7 @@ const SignUp = () => {
             axiosPublic.post("/users", userInfo).then((res) => {
               if (res.data.insertedId) {
                 Swal.fire(`Welcome ${name}`);
-                navigate("/");
+                navigate(location?.state? location?.state :'/')
               }
             });
           })
@@ -60,7 +61,7 @@ const SignUp = () => {
         axiosPublic.post("/users", userInfo).then((res) => {
           Swal.fire(`Welcome ${result.user.displayName}`);
           console.log(result.user);
-          navigate("/");
+          navigate(location?.state? location?.state :'/')
         });
       })
       .catch((error) => {
