@@ -3,7 +3,7 @@ import logo from "../../assets/logo.svg";
 
 // React icons
 import { IoIosSearch } from "react-icons/io";
-import { CiHeart, CiLocationOn } from "react-icons/ci";
+
 import { IoCartOutline } from "react-icons/io5";
 import { VscAccount } from "react-icons/vsc";
 import { MdClose, MdMenu, MdOutlineDashboard } from "react-icons/md";
@@ -15,7 +15,7 @@ import Swal from "sweetalert2";
 const Nav = () => {
   const { logOut, user } = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
-  const navigate = useNavigate();
+  const navigate = useNavigate();   
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
