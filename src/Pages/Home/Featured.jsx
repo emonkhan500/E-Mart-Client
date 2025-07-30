@@ -14,7 +14,7 @@ import { FreeMode, Pagination } from "swiper/modules";
 
 const Featured = () => {
   return (
-    <div className="mb-3 ">
+    <div className="mb-3 pl-">
       <div className="w-full lato -mb-20 pt-6 lg:pt-10">
         <h1 className="text-center mt-4 md:mt-12  font-bold  text-2xl md:text-4xl">
           Featured Categories

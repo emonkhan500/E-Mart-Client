@@ -14,6 +14,7 @@ import Swal from "sweetalert2";
 
 const Nav = () => {
   const { logOut, user } = useContext(AuthContext);
+  console.log(user);
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();   
 

@@ -10,7 +10,8 @@ const ManageUser = () => {
           <tr>
             <th>Name</th>
             <th>Email</th>
-            <th>Created Time</th>
+            <th>Make Admin</th>
+            
             <th>Remove</th>
 
           </tr>
@@ -20,7 +21,12 @@ const ManageUser = () => {
           <tr className="border-b-2 border-slate-100">
             <td className="text-lg font-bold text-[#253D4E]">Emon Khan</td>
             <td className="text-xl font-bold text-[#253D4E]">khdilo47@gmail.com</td>
-            <td className="text-xl font-bold text-[#253D4E]">5-7-2025; 12.35 PM</td>
+            
+            <th>
+              <button className="btn btn-ghost btn-lg">
+                <FaRegTrashAlt />
+              </button>
+            </th>
             <th>
               <button className="btn btn-ghost btn-lg">
                 <FaRegTrashAlt />
