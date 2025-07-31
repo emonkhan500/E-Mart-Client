@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FaRegTrashAlt } from "react-icons/fa";
+import { RiAdminLine } from "react-icons/ri";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const ManageUser = () => {
+ 
   return (
     <div className="overflow-x-auto w-full  ">
       <table className="table border-2 border-slate-200 p-3">
@@ -24,7 +27,7 @@ const ManageUser = () => {
             
             <th>
               <button className="btn btn-ghost btn-lg">
-                <FaRegTrashAlt />
+              <RiAdminLine />
               </button>
             </th>
             <th>
@@ -37,7 +40,11 @@ const ManageUser = () => {
           <tr className="border-b-2 border-slate-100">
             <td className="text-lg font-bold text-[#253D4E]">Emon Khan</td>
             <td className="text-xl font-bold text-[#253D4E]">khdilo47@gmail.com</td>
-            <td className="text-xl font-bold text-[#253D4E]">5-7-2025; 12.35 PM</td>
+            <th>
+              <button className="btn btn-ghost btn-lg">
+              <RiAdminLine />
+              </button>
+            </th>
             <th>
               <button className="btn btn-ghost btn-lg">
                 <FaRegTrashAlt />
@@ -48,7 +55,11 @@ const ManageUser = () => {
           <tr className="border-b-2 border-slate-100">
             <td className="text-lg font-bold text-[#253D4E]">Emon Khan</td>
             <td className="text-xl font-bold text-[#253D4E]">khdilo47@gmail.com</td>
-            <td className="text-xl font-bold text-[#253D4E]">5-7-2025; 12.35 PM</td>
+            <th>
+              <button className="btn btn-ghost btn-lg">
+              <RiAdminLine />
+              </button>
+            </th>
             <th>
               <button className="btn btn-ghost btn-lg">
                 <FaRegTrashAlt />
@@ -59,7 +70,11 @@ const ManageUser = () => {
           <tr className="border-b-2 border-slate-100">
             <td className="text-lg font-bold text-[#253D4E]">Emon Khan</td>
             <td className="text-xl font-bold text-[#253D4E]">khdilo47@gmail.com</td>
-            <td className="text-xl font-bold text-[#253D4E]">5-7-2025; 12.35 PM</td>
+            <th>
+              <button className="btn btn-ghost btn-lg">
+              <RiAdminLine />
+              </button>
+            </th>
             <th>
               <button className="btn btn-ghost btn-lg">
                 <FaRegTrashAlt />
@@ -70,7 +85,11 @@ const ManageUser = () => {
           <tr className="border-b-2 border-slate-100">
             <td className="text-lg font-bold text-[#253D4E]">Emon Khan</td>
             <td className="text-xl font-bold text-[#253D4E]">khdilo47@gmail.com</td>
-            <td className="text-xl font-bold text-[#253D4E]">5-7-2025; 12.35 PM</td>
+            <th>
+              <button className="btn btn-ghost btn-lg">
+              <RiAdminLine />
+              </button>
+            </th>
             <th>
               <button className="btn btn-ghost btn-lg">
                 <FaRegTrashAlt />
