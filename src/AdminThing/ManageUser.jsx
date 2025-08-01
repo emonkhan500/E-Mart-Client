@@ -2,9 +2,19 @@ import React, { useContext } from "react";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { RiAdminLine } from "react-icons/ri";
 import { AuthContext } from "../Provider/AuthProvider";
+import useAxiosSecure from "../Axios/useAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
 
 const ManageUser = () => {
- 
+    const axiosSecure = useAxiosSecure()
+    const {data: users=[], refetch}=useQuery({
+      queryKey:['users'],
+      queryFn: async()=>{
+        const res =await axiosSecure.get('/users')
+        return res.data
+      }
+    })
+ console.log(users);
   return (
     <div className="overflow-x-auto w-full  ">
       <table className="table border-2 border-slate-200 p-3">
