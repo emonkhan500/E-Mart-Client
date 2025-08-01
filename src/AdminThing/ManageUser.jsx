@@ -30,82 +30,26 @@ const ManageUser = () => {
           </tr>
         </thead>
         <tbody>
-          {/* row 1 */}
-          <tr className="border-b-2 border-slate-100">
-            <td className="text-lg font-bold text-[#253D4E]">Emon Khan</td>
-            <td className="text-xl font-bold text-[#253D4E]">khdilo47@gmail.com</td>
-            
-            <th>
-              <button className="btn btn-ghost btn-lg">
-              <RiAdminLine />
-              </button>
-            </th>
-            <th>
-              <button className="btn btn-ghost btn-lg">
-                <FaRegTrashAlt />
-              </button>
-            </th>
-          </tr>
-          {/* row 2 */}
-          <tr className="border-b-2 border-slate-100">
-            <td className="text-lg font-bold text-[#253D4E]">Emon Khan</td>
-            <td className="text-xl font-bold text-[#253D4E]">khdilo47@gmail.com</td>
-            <th>
-              <button className="btn btn-ghost btn-lg">
-              <RiAdminLine />
-              </button>
-            </th>
-            <th>
-              <button className="btn btn-ghost btn-lg">
-                <FaRegTrashAlt />
-              </button>
-            </th>
-          </tr>
-          {/* row 3 */}
-          <tr className="border-b-2 border-slate-100">
-            <td className="text-lg font-bold text-[#253D4E]">Emon Khan</td>
-            <td className="text-xl font-bold text-[#253D4E]">khdilo47@gmail.com</td>
-            <th>
-              <button className="btn btn-ghost btn-lg">
-              <RiAdminLine />
-              </button>
-            </th>
-            <th>
-              <button className="btn btn-ghost btn-lg">
-                <FaRegTrashAlt />
-              </button>
-            </th>
-          </tr>
-          {/* row 4 */}
-          <tr className="border-b-2 border-slate-100">
-            <td className="text-lg font-bold text-[#253D4E]">Emon Khan</td>
-            <td className="text-xl font-bold text-[#253D4E]">khdilo47@gmail.com</td>
-            <th>
-              <button className="btn btn-ghost btn-lg">
-              <RiAdminLine />
-              </button>
-            </th>
-            <th>
-              <button className="btn btn-ghost btn-lg">
-                <FaRegTrashAlt />
-              </button>
-            </th>
-          </tr>
-          {/* row 5 */}
-          <tr className="border-b-2 border-slate-100">
-            <td className="text-lg font-bold text-[#253D4E]">Emon Khan</td>
-            <td className="text-xl font-bold text-[#253D4E]">khdilo47@gmail.com</td>
-            <th>
-              <button className="btn btn-ghost btn-lg">
-              <RiAdminLine />
-              </button>
-            </th>
-            <th>
-              <button className="btn btn-ghost btn-lg">
-                <FaRegTrashAlt />
-              </button>
-            </th>
-          </tr>
+
+{
+  users?.map(user=><tr className="border-b-2 border-slate-100">
+  <td className="text-lg font-bold text-[#253D4E]">{user.name}</td>
+  <td className="text-xl font-bold text-[#253D4E]">{user.email}</td>
+  
+  <th>
+    <button className="btn btn-ghost btn-lg">
+    <RiAdminLine />
+    </button>
+  </th>
+  <th>
+    <button className="btn btn-ghost btn-lg">
+      <FaRegTrashAlt />
+    </button>
+  </th>
+</tr>)
+}
+
+
          
           
         </tbody>
