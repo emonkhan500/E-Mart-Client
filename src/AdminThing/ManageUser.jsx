@@ -18,7 +18,7 @@ const ManageUser = () => {
 //  console.log(users);
 
 // make admin
-const handleAdmin =(id)=>{
+const handleAdmin =(user)=>{
   Swal.fire({
     title: "Are you sure?",
     text: "You won't be able to revert this!",
@@ -28,7 +28,21 @@ const handleAdmin =(id)=>{
     cancelButtonColor: "#d33",
     confirmButtonText: "Yes, Make Admin!"
   }).then((result) => {
-    
+    if (result.isConfirmed) {
+      axiosSecure.patch(`/users/admin/${user?._id}`)
+      .then(res=>{
+          if(res.data.modifiedCount>0){
+              refetch()
+              Swal.fire({
+                  title: "Congratulations!",
+                  text: `${user?.name
+                  } is now Admin`,
+                  icon: "success"
+                });
+          }
+      })
+  
+  }
   });
   
 }
@@ -86,11 +100,12 @@ const handleDelete=id=>{
   <td className="text-lg font-bold text-[#253D4E]">{index+1}</td>
   <td className="text-lg font-bold text-[#253D4E]">{user.name}</td>
   <td className="text-xl font-bold text-[#253D4E]">{user.email}</td>
-  
-  <th>
-    <button className="btn btn-ghost btn-lg">
+  <th className="text-lg font-bold">
+  {user?.role === 'admin'? 'Admin':
+    <button onClick={()=>handleAdmin(user)} className="btn text-center items-center btn-ghost btn-lg">
     <RiAdminLine />
     </button>
+  }
   </th>
   <th>
     <button onClick={()=>handleDelete(user?._id)} className="btn btn-ghost btn-lg">
