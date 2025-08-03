@@ -11,6 +11,7 @@ import {
 } from "firebase/auth";
 import app from "../Authentication/Firebase/firebase.config";
 import Swal from "sweetalert2";
+import useAxiosPublic from "../Axios/useAxiosPublic";
 
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
@@ -18,6 +19,7 @@ const googleProvider = new GoogleAuthProvider();
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(false);
+  const axiosPublic = useAxiosPublic();
 
   // user Create
   const createUser = (email, pass) => {
@@ -32,36 +34,44 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, googleProvider);
   };
 
-  
-
   // update user
-  const updateUser =(name,email)=>updateProfile(auth.currentUser,{
-    displayName:name, email:email 
-  })
+  const updateUser = (name, email) =>
+    updateProfile(auth.currentUser, {
+      displayName: name,
+      email: email,
+    });
   // user manage
-  useEffect(()=>{
-    const unSubscribe=  onAuthStateChanged(auth,(currentUser)=>{
-      console.log('inside ',currentUser)
-      setUser(currentUser)
-      setLoading(false)
-    })
-    return ()=>{
-      unSubscribe()
-    }
-  },[])
-  
-  
+  useEffect(() => {
+    const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+      console.log("inside ", currentUser);
+      setUser(currentUser);
+      if (currentUser) {
+        const userInfo = { email: currentUser?.email };
+        axiosPublic.post("/jwt", userInfo).then((res) => {
+          if (res.data.token) {
+            localStorage.setItem("access-token", res.data.token);
+          }
+        });
+      } else {
+        localStorage.removeItem("access-token");
+        setLoading(false)
+      }
+    });
+    return () => {
+      unSubscribe();
+    };
+  }, []);
+
   // login
-  const login=(email,pass)=>{
+  const login = (email, pass) => {
     setLoading(true);
-   return signInWithEmailAndPassword(auth,email,pass)
-  }
+    return signInWithEmailAndPassword(auth, email, pass);
+  };
   // logout
-  const logOut=()=>{
-   return signOut(auth)
-    
-  }
-  
+  const logOut = () => {
+    return signOut(auth);
+  };
+
   const authData = {
     createUser,
     user,
@@ -69,7 +79,7 @@ const AuthProvider = ({ children }) => {
     googleLogin,
     login,
     logOut,
-    updateUser
+    updateUser,
   };
 
   return (
