@@ -1,17 +1,20 @@
-import axios from 'axios';
+import axios from "axios";
 
 const axiosSecure = axios.create({
-    baseURL: 'http://localhost:5000',
-})
+  baseURL: "http://localhost:5000",
+});
 
 const useAxiosSecure = () => {
-   axios.interceptors.request.use(function(config){
-  return config;
-   },
-   function (error) {
-   return Promise.reject(error);
-  }
-   )
+  axios.interceptors.request.use(function (config) {
+      const token =localStorage.getItem('access-token')
+      config.headers.authorization = `Bearer ${token}`
+      console.log(' stopped by interceptors',token);
+      return config;
+    },
+    function (error) {
+      return Promise.reject(error);
+    })
+    return axiosSecure;
 };
 
 export default useAxiosSecure;
