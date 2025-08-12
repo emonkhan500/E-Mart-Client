@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Nav from "../Shared/Nav/Nav";
 import Footer from "../Shared/Footer/Footer";
 import ShareHead from "../Shared/ShareHead";
@@ -8,9 +8,11 @@ import { NavLink, Outlet } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
 import { AiOutlineUnorderedList } from "react-icons/ai";
 import { IoIosLogOut } from "react-icons/io";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Dashboard = () => {
  
+  const{loading}= useContext(AuthContext())
 
   return (
     <div className="w-full  px-3 mx-auto">
