@@ -26,7 +26,7 @@ const{logOut} = useContext(AuthContext)
         return response;
       }, async function (error) {
         const status= error.response.status
-        // console.log('stutas in inter' ,status)
+        console.log('stutas in inter' ,status)
         if(status===401||status===403){
          
         await logOut()
