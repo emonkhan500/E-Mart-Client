@@ -12,7 +12,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 
 const Dashboard = () => {
  
-  const{loading}= useContext(AuthContext())
+  const{loading}= useContext(AuthContext)
 
   return (
     <div className="w-full  px-3 mx-auto">
