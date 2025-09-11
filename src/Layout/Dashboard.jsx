@@ -14,10 +14,10 @@ const Dashboard = () => {
   const { loading } = useContext(AuthContext);
 
   if (loading) {
-    <h1>Loading ..</h1>;
+   return  <div className="w-24 h-24 mx-auto mt-10 border-4 border-dashed  rounded-full animate-spin dark:border-violet-600"></div>;
   }
 
-  const isAdmin = false;
+  const isAdmin =true;
 
   return (
     <div className="w-full  px-3 mx-auto">
