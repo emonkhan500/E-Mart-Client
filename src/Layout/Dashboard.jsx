@@ -9,6 +9,7 @@ import { CgProfile } from "react-icons/cg";
 import { AiOutlineUnorderedList } from "react-icons/ai";
 import { IoIosLogOut } from "react-icons/io";
 import { AuthContext } from "../Provider/AuthProvider";
+import useAdmin from "../AdminThing/useAdmin";
 
 const Dashboard = () => {
   const { loading } = useContext(AuthContext);
@@ -17,7 +18,8 @@ const Dashboard = () => {
    return  <div className="w-24 h-24 mx-auto mt-10 border-4 border-dashed  rounded-full animate-spin dark:border-violet-600"></div>;
   }
 
-  const isAdmin =true;
+  const [isAdmin] =useAdmin();
+  console.log(isAdmin);
 
   return (
     <div className="w-full  px-3 mx-auto">

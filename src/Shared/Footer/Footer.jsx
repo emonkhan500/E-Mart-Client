@@ -107,30 +107,30 @@ const Footer = () => {
           
           <div className="flex items-center justify-center gap-3 md:gap-1 lg:gap-3"> 
           <h1 className="text-lg font-bold">Follow Us :</h1>
-          <div class="flex justify-center    space-x-2 ">
+          <div className="flex justify-center    space-x-2 ">
    {/* Icon 1  */}
-  <a href="https://github.com/emonkhan500"  class=" rounded-lg p-2 ">
+  <a href="https://github.com/emonkhan500"  className=" rounded-lg p-2 ">
    
        <FaGithub className="w-6 h-6 text-[#3BB77E]"></FaGithub>
     
   </a>
   
  {/* Icon 2  */}
-  <a href="https://www.linkedin.com/in/md-emon-khan"  class=" rounded-lg p-2 ">
+  <a href="https://www.linkedin.com/in/md-emon-khan"  className=" rounded-lg p-2 ">
    
      <FaLinkedin className="w-6 h-6 text-[#3BB77E]"></FaLinkedin>
     
   </a>
   
   {/* Icon 3  */}
-  <a href="https://www.facebook.com/profile.php?id=100025282659899&mibextid=ZbWKwL"  class=" rounded-lg p-2 ">
+  <a href="https://www.facebook.com/profile.php?id=100025282659899&mibextid=ZbWKwL"  className=" rounded-lg p-2 ">
     
     <FaFacebookF className="w-6 h-6 text-[#3BB77E]"/>
    
   </a>
   
    {/* Icon 4 */}
-  <a href="https://www.instagram.com/em0_n/"  class=" rounded-lg p-2 ">
+  <a href="https://www.instagram.com/em0_n/"  className=" rounded-lg p-2 ">
     
   <FaInstagram  className="w-6 h-6 text-[#3BB77E]"/>
    
