@@ -15,7 +15,7 @@ const{logOut} = useContext(AuthContext)
   axiosSecure.interceptors.request.use(function (config) {
       const token =localStorage.getItem('access-token')
       config.headers.authorization = `Bearer ${token}`
-      console.log(' stopped by interceptors',token);
+      // console.log(' stopped by interceptors',token);
       return config;
     },
     function (error) {
@@ -24,9 +24,9 @@ const{logOut} = useContext(AuthContext)
     axiosSecure.interceptors.response.use(function (response) {
     
         return response;
-      }, async function (error) {
+      }, async (error)=> {
         const status= error.response.status
-        console.log('stutas in inter' ,status)
+        // console.log('stutas in inter' ,status)
         if(status===401||status===403){
          
         await logOut()
