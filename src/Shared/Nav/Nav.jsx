@@ -11,6 +11,7 @@ import SabNav from "./SabNav";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import { CiHeart, CiLocationOn } from "react-icons/ci";
 
 const Nav = () => {
   const { logOut, user } = useContext(AuthContext);
@@ -139,15 +140,16 @@ const Nav = () => {
         </div>
 
         {/* Location div */}
-        {/* <div className="border rounded px-7 xl:px-9 py-3 shadow hidden lg:flex gap-2 items-center justify-center">
-          <CiLocationOn className="text-2xl" />
+        <div className=" border-2 border-[#3BB77E]  outline-none rounded px-7 xl:px-9 py-3 shadow hidden 2xl:flex gap-2 items-center justify-center">
+          <CiLocationOn className="text-2xl text-[#3BB77E]" />
           <h1 className="text-[#3BB77E]">Your Location</h1>
-        </div> */}
+        </div>
 
         {/* Icons Section */}
-        <div className="flex items-center gap-1 md:gap-1 lg:gap-8">
+        <div className="flex items-center gap-1 md:gap-1 lg:gap-3">
           {/* Wishlist icon */}
-          {/* <div className="flex gap-2 items-center">
+         <Link to='/wish'>
+         <div className="flex gap-2  bg-[#F2FCE4] px-3 md:px-2 lg:px-3 py-1 md:py-2 rounded-md  lg:gap-2 items-center shadow-md">
             <div className="indicator">
               <span className="indicator-item rounded-full bg-green-500 text-xs px-1 text-white">
                 6
@@ -156,10 +158,10 @@ const Nav = () => {
                 <CiHeart className="text-2xl font-extrabold text-[#253D4E] hover:text-[#3BB77E] transition-all duration-500" />
               </button>
             </div>
-            <h1 className="mt-1 text-sm text-[#7E7E7E] hidden md:flex">
+            <h1 className="mt-1 text-sm text-[#7E7E7E] hidden lg:flex">
               Wishlist
             </h1>
-          </div> */}
+          </div></Link>
 
           {/* Cart icon */}
           <Link to="/cart">
@@ -172,7 +174,7 @@ const Nav = () => {
                   <IoCartOutline className="text-2xl font-extrabold text-[#253D4E] hover:text-[#3BB77E] transition-all duration-500" />
                 </button>
               </div>
-              <h1 className="mt-1 text-sm text-[#7E7E7E] hidden md:flex">
+              <h1 className="mt-1 text-sm text-[#7E7E7E] hidden lg:flex">
                 Cart
               </h1>
             </div>

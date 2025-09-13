@@ -24,6 +24,7 @@ import AddProduct from "./AdminThing/AddProduct";
 import ManageUser from "./AdminThing/ManageUser";
 import AdminProfile from "./AdminThing/AdminProfile";
 import PrivateRoute from "./Private&Admin/PrivateRoute";
+import Wish from "./Wishlist/Wish";
 
 export const router = createBrowserRouter([
     {
@@ -67,6 +68,10 @@ export const router = createBrowserRouter([
         {
           path:'/cart',
           element:<MyCart></MyCart>
+        },
+        {
+          path:'/wish',
+          element:<Wish></Wish>
         },
       ]
     },

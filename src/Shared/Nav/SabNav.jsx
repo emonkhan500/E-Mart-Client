@@ -69,8 +69,8 @@ const SabNav = () => {
   );
 
   return (
-    <div className="border-[#ECECEC] border-t-2 border-b-2 w-full mx-auto px-4">
-      <div className="flex justify-between items-center py-3 md:px-6 lg:px-0 ">
+    <div className="border-[#ECECEC] border-t-2 border-b-2 w-full  px-4">
+      <div className="flex justify-between items-center py-3 md:px-6 lg:px-0 max-w-7xl mx-auto">
         {/* All Categories Button */}
         <div className="px-5 py-2 md:mr-4  bg-[#3BB77E] text-white rounded quick">
           <Link to='/shop'>All Categories</Link>

@@ -6,10 +6,12 @@ import SabNav from '../Shared/Nav/SabNav';
 
 const Main = () => {
     return (
-        <div className='dark:bg-white w-full  px-3 md:px-8 lg:px-12 xl:px-16 mx-auto mb-9'>
+        <div className='dark:bg-white w-full  '>
             <Nav></Nav>
-           
-            <Outlet></Outlet>
+           <div className='px-3  lg:px-12 xl:px-16 mx-auto mb-9'>
+
+            <Outlet ></Outlet>
+           </div>
            <Footer></Footer>
             
         </div>
