@@ -74,6 +74,64 @@ const AddProduct = () => {
       readOnly
     />
   </div>
+  {/* tag */}
+  <div className="form-control w-full">
+    <label className="label">
+      <span className="label-text">Tag</span>
+    </label>
+    <input
+      defaultValue=""
+      name="tag"
+      type="text"
+      placeholder="Enter Vendor Name"
+      className="input input-bordered w-full"
+      readOnly
+    />
+  </div>
+
+  {/*dis  Price */}
+  <div className="form-control w-full">
+    <label className="label">
+      <span className="label-text">Price</span>
+    </label>
+    <input
+      name="price"
+      defaultValue=""
+      type="text"
+      placeholder="Enter Product Price"
+      className="input input-bordered w-full"
+      readOnly
+    />
+  </div>
+  {/* sold */}
+  <div className="form-control w-full">
+    <label className="label">
+      <span className="label-text">Vendor</span>
+    </label>
+    <input
+      defaultValue=""
+      name="vendor"
+      type="text"
+      placeholder="Enter Vendor Name"
+      className="input input-bordered w-full"
+      readOnly
+    />
+  </div>
+
+  {/*available */}
+  <div className="form-control w-full">
+    <label className="label">
+      <span className="label-text">Price</span>
+    </label>
+    <input
+      name="price"
+      defaultValue=""
+      type="text"
+      placeholder="Enter Product Price"
+      className="input input-bordered w-full"
+      readOnly
+    />
+  </div>
 
   {/* Description */}
   <div className="form-control w-full col-span-2">
