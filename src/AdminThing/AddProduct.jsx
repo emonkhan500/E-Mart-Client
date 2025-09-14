@@ -1,6 +1,23 @@
 import React from "react";
 
 const AddProduct = () => {
+  const handleSubmit=(e)=>{
+  e.preventDefault()
+
+const Product= {
+  title:e.target.title.value,
+  category:e.target.category.value,
+  vendor:e.target.vendor.value,
+  price:e.target.price.value,
+  tag:e.target.tag.value,
+  disPrice:e.target.disPrice.value,
+  sold:e.target.sold.value,
+  available:e.target.available.value,
+  description:e.target.description.value,
+  rating:e.target.rating.value,
+}
+console.log(Product);
+  }
   return (
     <div>
       <div className="text-center ">
@@ -16,7 +33,7 @@ const AddProduct = () => {
         </div>
       </div>
       <form
-        onSubmit=""
+        onSubmit={handleSubmit}
         className="mx-auto md:m-6 md:p-2 grid grid-cols-2 justify-items-center gap-x-6 gap-y-2"
       >
         {/* Product Title */}
@@ -39,11 +56,11 @@ const AddProduct = () => {
             <span className="label-text">Category</span>
           </label>
           <select
-            name="rating"
+            name="category"
             className="select select-bordered w-full"
             required
           >
-            <option value="">Select Vendor</option>
+            <option value="">Select category</option>
             <option value="1"> Totino's Pizza</option>
             <option value="2"> USA Noodle Soup</option>
             <option value="3">Hambger Hel</option>
@@ -57,7 +74,7 @@ const AddProduct = () => {
             <span className="label-text">Vendor</span>
           </label>
           <select
-            name="rating"
+            name="vendor"
             className="select select-bordered w-full"
             required
           >
@@ -120,17 +137,17 @@ const AddProduct = () => {
             type="number"
             placeholder="Sold Out"
             className="input input-bordered w-full"
-            readOnly
+          
           />
         </div>
 
         {/*available */}
         <div className="form-control w-full">
           <label className="label">
-            <span className="label-text">Price</span>
+            <span className="label-text">Available</span>
           </label>
           <input
-            name="price"
+            name="available"
             defaultValue=""
             type="number"
             placeholder="Enter Product Price"
@@ -146,7 +163,7 @@ const AddProduct = () => {
           <textarea
             rows={3}
             cols={30}
-            name="des"
+            name="description"
             placeholder="Description"
             className="input input-bordered w-full"
           />
@@ -179,10 +196,10 @@ const AddProduct = () => {
         />
 
         {/* Submit Button */}
-        <input
+        <input  
           type="submit"
           className="font-bold py-3 text-lg col-span-2 my-5 min-w-full text-white bg-[#3BB77E]"
-          value="Add Property"
+          value="Add Product"
         />
       </form>
     </div>

@@ -19,7 +19,7 @@ const Dashboard = () => {
   }
 
   const [isAdmin] =useAdmin();
-  console.log(isAdmin);
+  // console.log(isAdmin);
 
   return (
     <div className="w-full  px-3 mx-auto">
