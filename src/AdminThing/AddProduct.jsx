@@ -1,10 +1,13 @@
+import Swal from "sweetalert2";
 import useAxiosPublic from "../Axios/useAxiosPublic";
+import useAxiosSecure from "../Axios/useAxiosSecure";
 
 const img_hosting_key =import.meta.env.VITE_IMAGE;
 const img_hosting_api = `https://api.imgbb.com/1/upload?key=${img_hosting_key}`;
 
 const AddProduct = () => {
   const axiosPublic = useAxiosPublic();
+  const axiosSecure =useAxiosSecure();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -30,7 +33,17 @@ const AddProduct = () => {
         photo:res.data.data.display_url,
         rating: e.target.rating.value,
       };
-      console.log(Product);
+       
+      const productRes=await axiosSecure.post('/product',Product)
+      console.log(productRes.data);
+      if(productRes.data){
+        Swal.fire({
+          title: "Product Added !",
+          icon: "success",
+          draggable: true
+        });
+        e.target.reset();
+      }
     }
     
     
@@ -100,13 +113,13 @@ const AddProduct = () => {
             required
           >
             <option value="">Select Vendor</option>
-            <option value="1">Tech World BD </option>
-            <option value="2">Fresh Fruits BD</option>
-            <option value="3">Shonar Bangla Meat</option>
-            <option value="4">Bangla Bites</option>
-            <option value="4">Trendy Touch BD</option>
-            <option value="4">Home & Kitchen Mart</option>
-            <option value="4">Champion Sports House</option>
+            <option value="Tech World">Tech World</option>
+            <option value="Fresh Fruits">Fresh Fruits</option>
+            <option value="Shonar Bangla Meat">Shonar Bangla Meat</option>
+            <option value="Bangla Bites">Bangla Bites</option>
+            <option value="Trendy Touch">Trendy Touch</option>
+            <option value="Home & Kitchen Mart">Home & Kitchen Mart</option>
+            <option value="Sports House">Sports House</option>
           </select>
         </div>
 
