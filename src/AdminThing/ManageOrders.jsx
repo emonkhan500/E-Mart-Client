@@ -4,7 +4,7 @@ import { CiEdit } from 'react-icons/ci';
 const ManageOrders = () => {
     return (
         <div>
-            <div className='border-2 border-slate-200 flex justify-between mb-2 md:mb-14 rounded-xl py-4  px-2 md:px-20 mt-5'>
+            <div className=' border-2 border-slate-200 flex justify-between mb-2 md:mb-14 rounded-xl py-4  px-2 md:px-20 mt-5'>
                 <h1 className='text-base md:text-3xl font-bold text-[#253D4E]'>Total Order: <span className='text-[#3BB77E] text-lg md:text-4xl'>10</span></h1>
                 <h1 className='text-base md:text-3xl font-bold text-[#253D4E]'>Total: <span className='text-[#3BB77E] text-lg md:text-4xl'>10000 TK</span></h1>
             </div>

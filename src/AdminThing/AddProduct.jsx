@@ -1,23 +1,40 @@
-import React from "react";
+import useAxiosPublic from "../Axios/useAxiosPublic";
+
+const img_hosting_key =import.meta.env.VITE_IMAGE;
+const img_hosting_api = `https://api.imgbb.com/1/upload?key=${img_hosting_key}`;
 
 const AddProduct = () => {
-  const handleSubmit=(e)=>{
-  e.preventDefault()
+  const axiosPublic = useAxiosPublic();
 
-const Product= {
-  title:e.target.title.value,
-  category:e.target.category.value,
-  vendor:e.target.vendor.value,
-  price:e.target.price.value,
-  tag:e.target.tag.value,
-  disPrice:e.target.disPrice.value,
-  sold:e.target.sold.value,
-  available:e.target.available.value,
-  description:e.target.description.value,
-  rating:e.target.rating.value,
-}
-console.log(Product);
-  }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+   const photofile= new FormData()
+    const imageFile = e.target.img.files[0];
+    photofile.append('image',imageFile)
+    const res = await axiosPublic.post(img_hosting_api, photofile, {
+      headers: {
+        "content-type": "multipart/form-data",
+      },
+    });
+    if(res.data.success){
+      const Product = {
+        title: e.target.title.value,
+        category: e.target.category.value,
+        vendor: e.target.vendor.value,
+        price: e.target.price.value,
+        tag: e.target.tag.value,
+        disPrice: e.target.disPrice.value,
+        sold: e.target.sold.value,
+        available: e.target.available.value,
+        description: e.target.description.value,
+        photo:res.data.data.display_url,
+        rating: e.target.rating.value,
+      };
+      console.log(Product);
+    }
+    
+    
+  };
   return (
     <div>
       <div className="text-center ">
@@ -61,11 +78,15 @@ console.log(Product);
             required
           >
             <option value="">Select category</option>
-            <option value="1"> Totino's Pizza</option>
-            <option value="2"> USA Noodle Soup</option>
-            <option value="3">Hambger Hel</option>
-            <option value="4"> Maruchan Ramen</option>
-          </select>
+            <option value="Fruits & Vegetables"> Fruits & Vegetables</option>
+            <option value="Meat & Fish"> Meat & Fish</option>
+            <option value="Snacks & Drinks">Snacks & Drinks</option>
+            <option value="Home & Kitchen">Home & Kitchen</option>
+            <option value="Fashion & Beauty">Fashion & Beauty</option>
+            <option value="Gadgets">Gadgets</option>
+            <option value="Sports">Sports</option>
+            
+          </select>      
         </div>
 
         {/* Vendor */}
@@ -79,10 +100,13 @@ console.log(Product);
             required
           >
             <option value="">Select Vendor</option>
-            <option value="1"> Totino's Pizza</option>
-            <option value="2"> USA Noodle Soup</option>
-            <option value="3">Hambger Hel</option>
-            <option value="4"> Maruchan Ramen</option>
+            <option value="1">Tech World BD </option>
+            <option value="2">Fresh Fruits BD</option>
+            <option value="3">Shonar Bangla Meat</option>
+            <option value="4">Bangla Bites</option>
+            <option value="4">Trendy Touch BD</option>
+            <option value="4">Home & Kitchen Mart</option>
+            <option value="4">Champion Sports House</option>
           </select>
         </div>
 
@@ -137,7 +161,6 @@ console.log(Product);
             type="number"
             placeholder="Sold Out"
             className="input input-bordered w-full"
-          
           />
         </div>
 
@@ -190,13 +213,14 @@ console.log(Product);
 
         {/* Image Upload */}
         <input
+        required
           type="file"
           name="img"
           className="mt-10 text-white bg-[#3BB77E] file-input border-l-0 w-full max-w-xs"
         />
 
         {/* Submit Button */}
-        <input  
+        <input
           type="submit"
           className="font-bold py-3 text-lg col-span-2 my-5 min-w-full text-white bg-[#3BB77E]"
           value="Add Product"
