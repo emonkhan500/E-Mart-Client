@@ -8,12 +8,13 @@ const AdminProfile = () => {
     <div className="px-5">
       <h1 className="text-4xl font-bold mb-10 text-center">Hello <span className="text-[#3BB77E]">{user?.displayName}</span> !</h1>
       <p className="font-medium text-lg">
-  From your account dashboard, you can quickly view recent orders, manage your shipping 
-  and billing information, and update your account details. <br /><br />
+      Welcome as one the Admin. This is Your dashboard . <br /><br />
   As an <span className="font-semibold text-[#3BB77E]">Admin</span>, you have full control over the system — 
   you can <span className="font-semibold">add new products</span>, 
-  <span className="font-semibold"> manage users</span>, and 
-  <span className="font-semibold"> oversee product listings</span> to keep everything running smoothly.
+  <span className="font-semibold text-[#3BB77E]"> manage users</span>,  
+  <span className="font-semibold text-[#3BB77E]"> manage orders</span>,
+  <span className="font-semibold text-[#3BB77E]"> manage products</span>,  
+  <span className="font-semibold text-[#3BB77E]"> oversee product listings</span> to keep everything running smoothly.
 </p>
     </div>
   );

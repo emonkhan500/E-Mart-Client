@@ -1,7 +1,24 @@
 import React from "react";
 import { FaShoppingCart } from "react-icons/fa";
 
+import useAxiosSecure from "../../Axios/useAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
+
+
+
 const Popular = () => {
+const axiosSecure= useAxiosSecure()
+
+const{data:product}=useQuery({
+  queryKey:['product'],
+  queryFn:async ()=>{
+    const data = await axiosSecure.get('/product')
+    return data.data;
+
+  }
+})
+console.log(product);
+
   return (
     <div className="lato">
       <div className="md:my-7 my-4 pt-8 lg:pt-24 text-center">
