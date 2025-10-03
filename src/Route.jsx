@@ -67,11 +67,11 @@ export const router = createBrowserRouter([
         },
         {
           path:'/cart',
-          element:<MyCart></MyCart>
+          element:<PrivateRoute><MyCart></MyCart></PrivateRoute>
         },
         {
           path:'/wish',
-          element:<Wish></Wish>
+          element:<PrivateRoute><Wish></Wish></PrivateRoute>
         },
       ]
     },

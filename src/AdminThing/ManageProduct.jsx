@@ -1,8 +1,22 @@
 import React from "react";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { CiEdit } from "react-icons/ci";
+import useAxiosSecure from "../Axios/useAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
+
 
 const ManageProduct = () => {
+const axiosSecure=useAxiosSecure()
+
+const{data:allProduct}=useQuery({
+  queryKey:['allProduct'],
+  queryFn:async ()=>{
+    const result = await axiosSecure.get('/product')
+    return result.data
+  }
+})
+console.log(allProduct);
+
   return (
     <div className="overflow-x-auto w-full lg:w-2/3 ">
       <table className="table border-2 border-slate-200 p-3">
