@@ -15,6 +15,11 @@ const ManageProduct = () => {
     },
   });
 
+  const handleDelete = (id)=>{
+    console.log(id);
+
+  }
+
   return (
     <div className="w-full overflow-x-auto">
       {/* 👇 this wrapper limits width so table overflows and scrollbar appears */}
@@ -80,7 +85,7 @@ const ManageProduct = () => {
                 </td>
 
                 <td className="px-3 py-4">
-                  <button className="btn btn-ghost btn-sm">
+                  <button onClick={()=>handleDelete(product?._id)} className="btn btn-ghost btn-sm">
                     <FaRegTrashAlt />
                   </button>
                 </td>
