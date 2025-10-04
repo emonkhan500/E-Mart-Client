@@ -18,21 +18,21 @@ const ManageProduct = () => {
   return (
     <div className="w-full overflow-x-auto">
       {/* 👇 this wrapper limits width so table overflows and scrollbar appears */}
-      <div className="max-w-[1200px] mx-auto overflow-x-auto border">
-        <table className="min-w-[1500px] table-auto border-2 border-slate-200 p-3 whitespace-nowrap">
+      <div className="lg:max-w-[750px] xl:max-w-[1100px] 2xl:max-w-[1300px] mx-auto overflow-x-auto ">
+        <table className="min-w-[1400px] table-auto border-2 border-slate-200 p-3 whitespace-nowrap">
           <thead className="text-lg text-white bg-[#3BB77E] quick">
             <tr>
-              <th className="w-[80px] px-3 py-2">#</th>
-              <th className="w-[380px] px-3 py-2">Title</th>
-              <th className="w-[120px] px-3 py-2">Image</th>
-              <th className="w-[180px] px-3 py-2">Vendor</th>
-              <th className="w-[110px] px-3 py-2">Price</th>
-              <th className="w-[120px] px-3 py-2">Tag</th>
-              <th className="w-[90px] px-3 py-2">Sold</th>
-              <th className="w-[110px] px-3 py-2">Available</th>
-              <th className="w-[100px] px-3 py-2">Discount</th>
-              <th className="w-[100px] px-3 py-2">Edit</th>
-              <th className="w-[100px] px-3 py-2">Remove</th>
+              <th className="2">#</th>
+              <th className="2">Title</th>
+              <th className="2">Image</th>
+              <th className="2">Vendor</th>
+              <th className="2">Price</th>
+              <th className="2">Tag</th>
+              <th className="">Sold</th>
+              <th className="2">Available</th>
+              <th className="2">Discount</th>
+              <th className="2">Edit</th>
+              <th className="2">Remove</th>
             </tr>
           </thead>
 

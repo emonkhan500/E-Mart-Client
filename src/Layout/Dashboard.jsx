@@ -29,7 +29,7 @@ const Dashboard = () => {
       </h1>
 
       <div className=" border-t-4 border-b-4 border-[#3BB77E]">
-        <div className=" mt-3  mb-7 flex flex-col lg:flex-row md:gap-4 lg:gap-4   px-2 md:px-5 lg:px-3  xl:px-4">
+        <div className=" mt-3  mb-7 flex flex-col lg:flex-row md:gap-4 lg:gap-4   px-2 md:px-5 lg:px-3 xl:px-6  2xl:px-10">
           <div className=" w-auto  lg:w-80 pt-4  md:pt-10">
             {isAdmin ? (
               <>
