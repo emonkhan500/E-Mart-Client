@@ -3,11 +3,12 @@ import { FaRegTrashAlt } from "react-icons/fa";
 import { CiEdit } from "react-icons/ci";
 import useAxiosSecure from "../Axios/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
+import Swal from "sweetalert2";
 
 const ManageProduct = () => {
   const axiosSecure = useAxiosSecure();
 
-  const { data: allProduct = [] } = useQuery({
+  const { data: allProduct, refetch = [] } = useQuery({
     queryKey: ["allProduct"],
     queryFn: async () => {
       const result = await axiosSecure.get("/product");
@@ -15,10 +16,31 @@ const ManageProduct = () => {
     },
   });
 
-  const handleDelete = (id)=>{
-    console.log(id);
-
-  }
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes,Delete It!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure.delete(`/product/${id}`)
+        .then((result) => {
+          if (result.data.deletedCount > 0) {
+            refetch();
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your file has been deleted.",
+              icon: "success",
+            });
+          }
+        });
+      }
+    });
+  };
 
   return (
     <div className="w-full overflow-x-auto">
@@ -42,7 +64,7 @@ const ManageProduct = () => {
           </thead>
 
           <tbody>
-            {allProduct.map((product, index) => (
+            {allProduct?.map((product, index) => (
               <tr
                 key={product._id ?? index}
                 className="border-b-2 border-slate-100"
@@ -85,7 +107,10 @@ const ManageProduct = () => {
                 </td>
 
                 <td className="px-3 py-4">
-                  <button onClick={()=>handleDelete(product?._id)} className="btn btn-ghost btn-sm">
+                  <button
+                    onClick={() => handleDelete(product?._id)}
+                    className="btn btn-ghost btn-sm"
+                  >
                     <FaRegTrashAlt />
                   </button>
                 </td>
