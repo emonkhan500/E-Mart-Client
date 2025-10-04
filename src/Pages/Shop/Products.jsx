@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
+import useAxiosSecure from "../../Axios/useAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
 
 // Dummy product data
 const products = [
@@ -244,6 +246,18 @@ const product = [
 ];
 
 const Products = () => {
+
+const axiosSecure =useAxiosSecure()
+
+const{data:allProduct}=useQuery({
+  queryKey:['allProduct'],
+  queryFn:async(req,res)=>{
+    const result=await axiosSecure.get('/product')
+    return result.data 
+  }
+})
+console.log(allProduct);
+
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 12;
 
