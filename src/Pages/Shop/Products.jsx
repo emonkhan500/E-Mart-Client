@@ -273,27 +273,85 @@ console.log(allProduct);
         {/* Sidebar */}
         <div className="w-full md:w-1/4 space-y-10">
           {/* Categories */}
-          <div className="max-w-sm mx-auto border bg-white shadow-lg rounded-xl p-6">
-            <h2 className="text-xl font-semibold text-[#253D4E]">Category</h2>
-            <div className="mt-4 space-y-3">
-              {categories.map((cat, index) => (
-                <div
-                  key={index}
-                  className="flex items-center justify-between bg-gray-50 p-3 rounded-lg hover:bg-green-100"
-                >
-                  <div className="flex lg:gap-7 items-center">
-                    <img src={cat.icon} alt="" />
-                    <span className="text-[#253D4E] font-medium">
-                      {cat.name}
-                    </span>
-                  </div>
-                  <span className="bg-[#BCE3C9] text-[#253D4E] text-sm px-2 py-1 rounded-full font-semibold">
-                    {cat.count}
-                  </span>
-                </div>
-              ))}
+          <div className="bg-white rounded-2xl shadow-sm p-6 w-full max-w-sm">
+      {/* Header */}
+      <div className="mb-6">
+        <h2 className="text-2xl font-bold text-gray-800">Category</h2>
+        <div className="w-16 h-1 bg-teal-500 mt-2 rounded-full"></div>
+      </div>
+
+      {/* Category List */}
+      <div className="space-y-3">
+        {/* Milks & Dairies */}
+        <div className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer group">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 flex-shrink-0">
+              <img src="/milk-dairy-icon.jpg" alt="Milks & Dairies" className="w-full h-full object-contain" />
             </div>
+            <span className="text-gray-700 font-medium group-hover:text-teal-600 transition-colors">
+              Milks & Dairies
+            </span>
           </div>
+          <div className="bg-teal-100 text-teal-700 font-semibold text-sm w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
+            3
+          </div>
+        </div>
+
+        {/* Clothing */}
+        <div className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer group">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 flex-shrink-0">
+              <img src="/clothing-shirt-icon.jpg" alt="Clothing" className="w-full h-full object-contain" />
+            </div>
+            <span className="text-gray-700 font-medium group-hover:text-teal-600 transition-colors">Clothing</span>
+          </div>
+          <div className="bg-teal-100 text-teal-700 font-semibold text-sm w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
+            4
+          </div>
+        </div>
+
+        {/* Pet Foods */}
+        <div className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer group">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 flex-shrink-0">
+              <img src="/pet-food-icon.jpg" alt="Pet Foods" className="w-full h-full object-contain" />
+            </div>
+            <span className="text-gray-700 font-medium group-hover:text-teal-600 transition-colors">Pet Foods</span>
+          </div>
+          <div className="bg-teal-100 text-teal-700 font-semibold text-sm w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
+            5
+          </div>
+        </div>
+
+        {/* Baking material */}
+        <div className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer group">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 flex-shrink-0">
+              <img src="/baking-flour-icon.jpg" alt="Baking material" className="w-full h-full object-contain" />
+            </div>
+            <span className="text-gray-700 font-medium group-hover:text-teal-600 transition-colors">
+              Baking material
+            </span>
+          </div>
+          <div className="bg-teal-100 text-teal-700 font-semibold text-sm w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
+            8
+          </div>
+        </div>
+
+        {/* Fresh Fruit */}
+        <div className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer group">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 flex-shrink-0">
+              <img src="/fresh-fruit-icon.jpg" alt="Fresh Fruit" className="w-full h-full object-contain" />
+            </div>
+            <span className="text-gray-700 font-medium group-hover:text-teal-600 transition-colors">Fresh Fruit</span>
+          </div>
+          <div className="bg-teal-100 text-teal-700 font-semibold text-sm w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
+            10
+          </div>
+        </div>
+      </div>
+    </div>
           {/* sort */}
           <div className="p-6 bg-white shadow-lg rounded-lg max-w-sm">
             {/* Title */}
