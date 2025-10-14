@@ -60,7 +60,7 @@ const axiosSecure =useAxiosSecure()
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 12;
   
-  const{data:allProduct}=useQuery({
+  const{data:allProduct=[]}=useQuery({
     queryKey:['allProduct'],
     queryFn:async()=>{
       const data= await axiosSecure.get('/product')
