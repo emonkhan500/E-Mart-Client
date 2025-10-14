@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        '3xl': '1500px', 
+      },
       colors: {
         // regular colors
         pink: "#FB2E86",
