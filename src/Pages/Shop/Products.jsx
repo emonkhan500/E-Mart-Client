@@ -4,6 +4,7 @@ import { IoCartOutline } from "react-icons/io5";
 import { TbDetails } from "react-icons/tb";
 import useAxiosSecure from "../../Axios/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
+import { Link } from "react-router-dom";
 
 // Dummy product data
 const products = [
@@ -98,7 +99,7 @@ const axiosSecure =useAxiosSecure()
         <div className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer group">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 flex-shrink-0">
-              <img src="/milk-dairy-icon.jpg" alt="Milks & Dairies" className="w-full h-full object-contain" />
+              <img src="../../../src/assets/category-2.svg.png" alt="Milks & Dairies" className="w-full h-full object-contain" />
             </div>
             <span className="text-gray-700 font-medium group-hover:text-teal-600 transition-colors">
               Milks & Dairies
@@ -113,7 +114,7 @@ const axiosSecure =useAxiosSecure()
         <div className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer group">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 flex-shrink-0">
-              <img src="/clothing-shirt-icon.jpg" alt="Clothing" className="w-full h-full object-contain" />
+              <img src="../../../src/assets/icon-1.svg.png" alt="Clothing" className="w-full h-full object-contain" />
             </div>
             <span className="text-gray-700 font-medium group-hover:text-teal-600 transition-colors">Clothing</span>
           </div>
@@ -126,7 +127,7 @@ const axiosSecure =useAxiosSecure()
         <div className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer group">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 flex-shrink-0">
-              <img src="/pet-food-icon.jpg" alt="Pet Foods" className="w-full h-full object-contain" />
+              <img src="../../../src/assets/category-4.svg.png" alt="Pet Foods" className="w-full h-full object-contain" />
             </div>
             <span className="text-gray-700 font-medium group-hover:text-teal-600 transition-colors">Pet Foods</span>
           </div>
@@ -139,7 +140,7 @@ const axiosSecure =useAxiosSecure()
         <div className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer group">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 flex-shrink-0">
-              <img src="/baking-flour-icon.jpg" alt="Baking material" className="w-full h-full object-contain" />
+              <img src="../../../src/assets/category-5.svg.png" alt="Baking material" className="w-full h-full object-contain" />
             </div>
             <span className="text-gray-700 font-medium group-hover:text-teal-600 transition-colors">
               Baking material
@@ -154,7 +155,7 @@ const axiosSecure =useAxiosSecure()
         <div className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer group">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 flex-shrink-0">
-              <img src="/fresh-fruit-icon.jpg" alt="Fresh Fruit" className="w-full h-full object-contain" />
+              <img src="../../../src/assets/category-1.svg.png" alt="Fresh Fruit" className="w-full h-full object-contain" />
             </div>
             <span className="text-gray-700 font-medium group-hover:text-teal-600 transition-colors">Fresh Fruit</span>
           </div>
@@ -223,7 +224,7 @@ const axiosSecure =useAxiosSecure()
           </div>
 
           {/* New Products */}
-          <div className="max-w-sm mx-auto bg-white shadow-lg rounded-xl p-6">
+          <div className="w-full mx-auto bg-white shadow-lg rounded-xl p-6">
             <h2 className="text-xl font-semibold text-[#253D4E]">
               New Products
             </h2>
@@ -297,10 +298,10 @@ const axiosSecure =useAxiosSecure()
 
             {/* Details */}
             <div className="relative  tooltip" data-tip="Show Details">
-              <button className="bg-white text-2xl p-2 text-[#3BB77E] hover:bg-[#3BB77E] hover:text-white transition border border-[#3BB77E]">
+             <button  className="bg-white text-2xl p-2 text-[#3BB77E] hover:bg-[#3BB77E] hover:text-white transition border border-[#3BB77E]"> <Link to={`/details/${item?._id}`}>
                 <TbDetails />
+              </Link>
               </button>
-              
             </div>
 
           </div>

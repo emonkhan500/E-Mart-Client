@@ -25,6 +25,7 @@ import ManageUser from "./AdminThing/ManageUser";
 import AdminProfile from "./AdminThing/AdminProfile";
 import PrivateRoute from "./Private&Admin/PrivateRoute";
 import Wish from "./Wishlist/Wish";
+import Details from "./Pages/Shop/Details/Details";
 
 export const router = createBrowserRouter([
     {
@@ -72,6 +73,10 @@ export const router = createBrowserRouter([
         {
           path:'/wish',
           element:<PrivateRoute><Wish></Wish></PrivateRoute>
+        },
+        {
+          path:'/details/:id',
+          element:<PrivateRoute><Details></Details></PrivateRoute>
         },
       ]
     },
