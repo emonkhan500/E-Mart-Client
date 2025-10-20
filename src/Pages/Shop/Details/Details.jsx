@@ -1,5 +1,8 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import ShareHead from '../../../Shared/ShareHead';
+import { useQuery } from '@tanstack/react-query';
+import useAxiosSecure from '../../../Axios/useAxiosSecure';
 
 const Details = () => {
     const products = [
@@ -23,9 +26,21 @@ const Details = () => {
         },
       ];
     const { id } = useParams();
-    console.log(id);
+    const axiosSecure=useAxiosSecure()
+
+    const {data:SingleProduct}=useQuery({
+      queryKey:['product', id],
+      queryFn:async ()=>{
+const data= await axiosSecure.get(`/product/${id}`)
+return data.data;
+      }
+    })
+    console.log(SingleProduct);
     return (
-        <div className='flex gap-4'>
+        <div >
+          <ShareHead pageTitle='Product Details'></ShareHead>
+
+          <div className='flex gap-4 mt-3 md:mt-8'>
            <div className='md:w-3/4'>
            <h1>This is Details page</h1>
            </div>
@@ -141,6 +156,7 @@ const Details = () => {
               ))}
             </div>
           </div>
+        </div>
         </div>
         </div>
     );
