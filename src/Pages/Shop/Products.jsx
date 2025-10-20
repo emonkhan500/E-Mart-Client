@@ -224,7 +224,7 @@ const axiosSecure =useAxiosSecure()
           </div>
 
           {/* New Products */}
-          <div className="w-full mx-auto bg-white shadow-lg rounded-xl p-6">
+          <div className="max-w-sm bg-white shadow-lg rounded-xl p-6">
             <h2 className="text-xl font-semibold text-[#253D4E]">
               New Products
             </h2>

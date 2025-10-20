@@ -5,6 +5,7 @@ import useAxiosSecure from "../../Axios/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import { CiHeart } from "react-icons/ci";
 import { IoCartOutline } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 
 
@@ -77,10 +78,10 @@ console.log(product);
 
             {/* Details */}
             <div className="relative  tooltip" data-tip="Show Details">
-              <button className="bg-white text-2xl p-2 text-[#3BB77E] hover:bg-[#3BB77E] hover:text-white transition border border-[#3BB77E]">
+             <button  className="bg-white text-2xl p-2 text-[#3BB77E] hover:bg-[#3BB77E] hover:text-white transition border border-[#3BB77E]"> <Link to={`/details/${item?._id}`}>
                 <TbDetails />
+              </Link>
               </button>
-              
             </div>
 
           </div>
