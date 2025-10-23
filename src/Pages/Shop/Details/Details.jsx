@@ -197,9 +197,12 @@ const Details = () => {
                     <FaShoppingCart size={18} /> Add to cart
                   </button>
 
-                  <button className="border border-[#3BB77E] p-2 rounded relative tooltip"  data-tip="Add To Wishlist">
-                    <CiHeart className="text-2xl text-[#3BB77E]" />
-                  </button>
+                  <div className="relative tooltip" data-tip="Add To Wishlist">
+              <button className="bg-white text-2xl p-2 text-[#3BB77E] hover:bg-[#3BB77E] hover:text-white transition border border-[#3BB77E]">
+                <CiHeart />
+              </button>
+             
+            </div>
                 </div>
               </div>
             </div>

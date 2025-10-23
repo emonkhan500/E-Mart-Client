@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { TbDetails } from "react-icons/tb";
 
 import useAxiosSecure from "../../Axios/useAxiosSecure";
@@ -6,12 +6,14 @@ import { useQuery } from "@tanstack/react-query";
 import { CiHeart } from "react-icons/ci";
 import { IoCartOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
+import { toast } from "react-toastify";
 
 
 
 const Popular = () => {
 const axiosSecure= useAxiosSecure()
-
+const{user}=useContext(AuthContext)
 const{data:product=[]}=useQuery({
   queryKey:['product'],
   queryFn:async ()=>{
@@ -20,7 +22,14 @@ const{data:product=[]}=useQuery({
 
   }
 })
-console.log(product);
+
+const handleWish=async (item)=>{
+const wishedProduct = { userEmail: user?.email, ...item };
+const wishRes = await axiosSecure.post('/wishlist',wishedProduct)
+if(wishRes.data.insertedId){
+  toast.success('Added to WishList')
+} 
+}
 
   return (
     <div className="lato">
@@ -62,7 +71,7 @@ console.log(product);
             
             {/* Wishlist */}
             <div className="relative tooltip" data-tip="Add To Wishlist">
-              <button className="bg-white text-2xl p-2 text-[#3BB77E] hover:bg-[#3BB77E] hover:text-white transition border border-[#3BB77E]">
+              <button onClick={()=>handleWish(item)} className="bg-white text-2xl p-2 text-[#3BB77E] hover:bg-[#3BB77E] hover:text-white transition border border-[#3BB77E]">
                 <CiHeart />
               </button>
              
