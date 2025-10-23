@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { CiHeart } from "react-icons/ci";
 import { IoCartOutline } from "react-icons/io5";
 import { TbDetails } from "react-icons/tb";
 import useAxiosSecure from "../../Axios/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 // Dummy product data
 const products = [
@@ -58,7 +59,7 @@ const categories = [
 const Products = () => {
 
 const axiosSecure =useAxiosSecure()
-
+const{user}=useContext(AuthContext)
 
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 12;
@@ -72,6 +73,10 @@ const axiosSecure =useAxiosSecure()
   })
   console.log(allProduct);
   
+
+  const handleWish =(item)=>{
+console.log(item);
+  }
   
 
   // Pagination logic
@@ -281,8 +286,8 @@ const axiosSecure =useAxiosSecure()
           <div className="bg-white flex justify-center items-center rounded-2xl">
             
             {/* Wishlist */}
-            <div className="relative tooltip" data-tip="Add To Wishlist">
-              <button className="bg-white text-2xl p-2 text-[#3BB77E] hover:bg-[#3BB77E] hover:text-white transition border border-[#3BB77E]">
+            <div  className="relative tooltip" data-tip="Add To Wishlist">
+              <button onClick={()=>handleWish(item)} className="bg-white text-2xl p-2 text-[#3BB77E] hover:bg-[#3BB77E] hover:text-white transition border border-[#3BB77E]">
                 <CiHeart />
               </button>
              
