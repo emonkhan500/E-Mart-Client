@@ -1,8 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import ShareHead from '../Shared/ShareHead';
 import { FaRegTrashAlt } from 'react-icons/fa';
+import { AuthContext } from '../Provider/AuthProvider';
+import useAxiosSecure from '../Axios/useAxiosSecure';
+import { useQuery } from '@tanstack/react-query';
 
 const Wish = () => {
+  const{user}=useContext(AuthContext)
+  const axiosSecure = useAxiosSecure()
+
+const {refetch, data: wishedProduct=[]}=useQuery({
+  queryKey:['wishedProduct', user?.email],
+  queryFn:async ()=>{
+const res =await axiosSecure.get(`/wishlists/${user.email}`)
+return res.data
+  }
+})
+console.log(wishedProduct);
+
     return (
         <div className=''>
              <ShareHead pageTitle={"My Wishlist"}></ShareHead>
@@ -40,29 +55,7 @@ const Wish = () => {
                   <button className="btn btn-ghost btn-lg"><FaRegTrashAlt /></button>
                 </th>
               </tr>
-              {/* row 2 */}
-              <tr className="border-b-2 border-slate-100">
-                <td>
-                  <div className="flex items-center gap-3">
-                    <div className="avatar">
-                      <div className=" h-24 w-24 border-2 border-slate-100 p-3">
-                        <img
-                          src="https://img.daisyui.com/images/profile/demo/2@94.webp"
-                          alt="Avatar Tailwind CSS Component"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </td>
-                <td className="text-lg font-bold text-[#253D4E]">
-                  Field Roast Chao Cheese Creamy Original
-                </td>
-                <td className="text-xl font-bold text-[#3BB77E]">$2.5</td>
-                <th>
-                  <button className="btn btn-ghost btn-lg"><FaRegTrashAlt /></button>
-                </th>
-              </tr>
-                 
+                
             </tbody>
           </table>
         </div>   
