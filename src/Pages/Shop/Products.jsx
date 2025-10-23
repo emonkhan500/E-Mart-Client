@@ -6,6 +6,8 @@ import useAxiosSecure from "../../Axios/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
+import useAxiosPublic from "../../Axios/useAxiosPublic";
+import { toast } from "react-toastify";
 
 // Dummy product data
 const products = [
@@ -55,29 +57,33 @@ const categories = [
 
 // Corrected Product List (Flattened Structure)
 
-
 const Products = () => {
-
-const axiosSecure =useAxiosSecure()
-const{user}=useContext(AuthContext)
+  const axiosSecure = useAxiosSecure();
+  const axiosPublic = useAxiosPublic();
+  const { user } = useContext(AuthContext);
+  console.log(user);
 
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 12;
-  
-  const{data:allProduct=[]}=useQuery({
-    queryKey:['allProduct'],
-    queryFn:async()=>{
-      const data= await axiosSecure.get('/product')
-      return data.data 
-    }
-  })
-  console.log(allProduct);
-  
 
-  const handleWish =(item)=>{
-console.log(item);
-  }
-  
+  const { data: allProduct = [] } = useQuery({
+    queryKey: ["allProduct"],
+    queryFn: async () => {
+      const data = await axiosSecure.get("/product");
+      return data.data;
+    },
+  });
+  console.log(allProduct);
+
+  const handleWish = async (item) => {
+    const wishedProduct = { userEmail: user?.email, ...item };
+
+    const wishRes = await axiosSecure.post("/wishlist", wishedProduct);
+
+    if (wishRes.data.insertedId) {
+      toast.success('Added to WishList')
+    }
+  };
 
   // Pagination logic
   const indexOfLastPost = currentPage * postsPerPage;
@@ -92,84 +98,110 @@ console.log(item);
         <div className="w-full md:w-1/4 space-y-10">
           {/* Categories */}
           <div className="bg-white rounded-2xl shadow-sm p-2 w-full max-w-sm">
-      {/* Header */}
-      <div className="mb-6">
-        <h2 className="text-2xl font-bold text-gray-800">Category</h2>
-        <div className="w-16 h-1 bg-teal-500 mt-2 rounded-full"></div>
-      </div>
-
-      {/* Category List */}
-      <div className="space-y-3">
-        {/* Milks & Dairies */}
-        <div className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer group">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 flex-shrink-0">
-              <img src="../../../src/assets/category-2.svg.png" alt="Milks & Dairies" className="w-full h-full object-contain" />
+            {/* Header */}
+            <div className="mb-6">
+              <h2 className="text-2xl font-bold text-gray-800">Category</h2>
+              <div className="w-16 h-1 bg-teal-500 mt-2 rounded-full"></div>
             </div>
-            <span className="text-gray-700 font-medium group-hover:text-teal-600 transition-colors">
-              Milks & Dairies
-            </span>
-          </div>
-          <div className="bg-teal-100 text-teal-700 font-semibold text-sm w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
-            3
-          </div>
-        </div>
 
-        {/* Clothing */}
-        <div className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer group">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 flex-shrink-0">
-              <img src="../../../src/assets/icon-1.svg.png" alt="Clothing" className="w-full h-full object-contain" />
-            </div>
-            <span className="text-gray-700 font-medium group-hover:text-teal-600 transition-colors">Clothing</span>
-          </div>
-          <div className="bg-teal-100 text-teal-700 font-semibold text-sm w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
-            4
-          </div>
-        </div>
+            {/* Category List */}
+            <div className="space-y-3">
+              {/* Milks & Dairies */}
+              <div className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer group">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 flex-shrink-0">
+                    <img
+                      src="../../../src/assets/category-2.svg.png"
+                      alt="Milks & Dairies"
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <span className="text-gray-700 font-medium group-hover:text-teal-600 transition-colors">
+                    Milks & Dairies
+                  </span>
+                </div>
+                <div className="bg-teal-100 text-teal-700 font-semibold text-sm w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
+                  3
+                </div>
+              </div>
 
-        {/* Pet Foods */}
-        <div className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer group">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 flex-shrink-0">
-              <img src="../../../src/assets/category-4.svg.png" alt="Pet Foods" className="w-full h-full object-contain" />
-            </div>
-            <span className="text-gray-700 font-medium group-hover:text-teal-600 transition-colors">Pet Foods</span>
-          </div>
-          <div className="bg-teal-100 text-teal-700 font-semibold text-sm w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
-            5
-          </div>
-        </div>
+              {/* Clothing */}
+              <div className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer group">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 flex-shrink-0">
+                    <img
+                      src="../../../src/assets/icon-1.svg.png"
+                      alt="Clothing"
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <span className="text-gray-700 font-medium group-hover:text-teal-600 transition-colors">
+                    Clothing
+                  </span>
+                </div>
+                <div className="bg-teal-100 text-teal-700 font-semibold text-sm w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
+                  4
+                </div>
+              </div>
 
-        {/* Baking material */}
-        <div className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer group">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 flex-shrink-0">
-              <img src="../../../src/assets/category-5.svg.png" alt="Baking material" className="w-full h-full object-contain" />
-            </div>
-            <span className="text-gray-700 font-medium group-hover:text-teal-600 transition-colors">
-              Baking material
-            </span>
-          </div>
-          <div className="bg-teal-100 text-teal-700 font-semibold text-sm w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
-            8
-          </div>
-        </div>
+              {/* Pet Foods */}
+              <div className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer group">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 flex-shrink-0">
+                    <img
+                      src="../../../src/assets/category-4.svg.png"
+                      alt="Pet Foods"
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <span className="text-gray-700 font-medium group-hover:text-teal-600 transition-colors">
+                    Pet Foods
+                  </span>
+                </div>
+                <div className="bg-teal-100 text-teal-700 font-semibold text-sm w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
+                  5
+                </div>
+              </div>
 
-        {/* Fresh Fruit */}
-        <div className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer group">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 flex-shrink-0">
-              <img src="../../../src/assets/category-1.svg.png" alt="Fresh Fruit" className="w-full h-full object-contain" />
+              {/* Baking material */}
+              <div className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer group">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 flex-shrink-0">
+                    <img
+                      src="../../../src/assets/category-5.svg.png"
+                      alt="Baking material"
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <span className="text-gray-700 font-medium group-hover:text-teal-600 transition-colors">
+                    Baking material
+                  </span>
+                </div>
+                <div className="bg-teal-100 text-teal-700 font-semibold text-sm w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
+                  8
+                </div>
+              </div>
+
+              {/* Fresh Fruit */}
+              <div className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer group">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 flex-shrink-0">
+                    <img
+                      src="../../../src/assets/category-1.svg.png"
+                      alt="Fresh Fruit"
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <span className="text-gray-700 font-medium group-hover:text-teal-600 transition-colors">
+                    Fresh Fruit
+                  </span>
+                </div>
+                <div className="bg-teal-100 text-teal-700 font-semibold text-sm w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
+                  10
+                </div>
+              </div>
             </div>
-            <span className="text-gray-700 font-medium group-hover:text-teal-600 transition-colors">Fresh Fruit</span>
           </div>
-          <div className="bg-teal-100 text-teal-700 font-semibold text-sm w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
-            10
-          </div>
-        </div>
-      </div>
-    </div>
           {/* sort */}
           <div className="p-6 bg-white shadow-lg rounded-lg max-w-sm">
             {/* Title */}
@@ -261,85 +293,117 @@ console.log(item);
         {/* Product List */}
         <div className="md:w-3/4">
           <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 md:gap-1 lg:gap-2 px-3 md:px-0">
-          {currentItem?.slice(0, 12).map((item, index) => (
-    <div
-      key={index}
-      className="group relative border border-[#ECECEC] rounded-lg shadow mx-auto w-full md:w-auto overflow-hidden transition-all duration-300"
-    >
-      {/* Tag Label */}
-      {item?.tag && (
-        <span className="absolute top-0 right-0 bg-offPurple text-white px-4 py-1 rounded-bl-lg text-lg z-10">
-          {item.tag}
-        </span>
-      )}
+            {currentItem?.slice(0, 12).map((item, index) => (
+              <div
+                key={index}
+                className="group relative border border-[#ECECEC] rounded-lg shadow mx-auto w-full md:w-auto overflow-hidden transition-all duration-300"
+              >
+                {/* Tag Label */}
+                {item?.tag && (
+                  <span className="absolute top-0 right-0 bg-offPurple text-white px-4 py-1 rounded-bl-lg text-lg z-10">
+                    {item.tag}
+                  </span>
+                )}
 
-      {/* Image Wrapper */}
-      <div className="relative flex justify-center items-center overflow-hidden px-3">
-        <img
-          src={item?.photo}
-          alt={item?.title}
-          className="w-72 h-72 object-cover transform transition-transform duration-500 group-hover:scale-110"
-        />
+                {/* Image Wrapper */}
+                <div className="relative flex justify-center items-center overflow-hidden px-3">
+                  <img
+                    src={item?.photo}
+                    alt={item?.title}
+                    className="w-72 h-72 object-cover transform transition-transform duration-500 group-hover:scale-110"
+                  />
 
-        {/* Hover Icons */}
-        <div className="absolute inset-0 flex justify-center items-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-black/30">
-          <div className="bg-white flex justify-center items-center rounded-2xl">
-            
-            {/* Wishlist */}
-            <div  className="relative tooltip" data-tip="Add To Wishlist">
-              <button onClick={()=>handleWish(item)} className="bg-white text-2xl p-2 text-[#3BB77E] hover:bg-[#3BB77E] hover:text-white transition border border-[#3BB77E]">
-                <CiHeart />
-              </button>
-             
-            </div>
+                  {/* Hover Icons */}
+                  <div className="absolute inset-0 flex justify-center items-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-black/30">
+                    <div className="bg-white flex justify-center items-center rounded-2xl">
+                      {/* Wishlist */}
+                      <div
+                        className="relative tooltip"
+                        data-tip="Add To Wishlist"
+                      >
+                        <button
+                          onClick={() => handleWish(item)}
+                          className="bg-white text-2xl p-2 text-[#3BB77E] hover:bg-[#3BB77E] hover:text-white transition border border-[#3BB77E]"
+                        >
+                          <CiHeart />
+                        </button>
+                      </div>
 
-            {/* Cart */}
-            <div className="relative tooltip" data-tip="Add To Cart">
-              <button className="bg-white text-2xl p-2 text-[#3BB77E] hover:bg-[#3BB77E] hover:text-white transition border border-[#3BB77E]">
-                <IoCartOutline />
-              </button>
-             
-            </div>
+                      {/* Cart */}
+                      <div className="relative tooltip" data-tip="Add To Cart">
+                        <button className="bg-white text-2xl p-2 text-[#3BB77E] hover:bg-[#3BB77E] hover:text-white transition border border-[#3BB77E]">
+                          <IoCartOutline />
+                        </button>
+                      </div>
 
-            {/* Details */}
-            <div className="relative  tooltip" data-tip="Show Details">
-             <button  className="bg-white text-2xl p-2 text-[#3BB77E] hover:bg-[#3BB77E] hover:text-white transition border border-[#3BB77E]"> <Link to={`/details/${item?._id}`}>
-                <TbDetails />
-              </Link>
-              </button>
-            </div>
+                      {/* Details */}
+                      <div
+                        className="relative  tooltip"
+                        data-tip="Show Details"
+                      >
+                        <button className="bg-white text-2xl p-2 text-[#3BB77E] hover:bg-[#3BB77E] hover:text-white transition border border-[#3BB77E]">
+                          {" "}
+                          <Link to={`/details/${item?._id}`}>
+                            <TbDetails />
+                          </Link>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
-          </div>
-        </div>
-      </div>
+                {/* Info Section */}
+                <div className="space-y-2 mt-3 px-3">
+                  <p className="text-[#ADADAD]">{item?.category}</p>
+                  <h1 className="quick text-xl font-bold text-[#253D4E]">
+                    {item?.title}
+                  </h1>
+                  <p>
+                    By <span className="text-[#3BB77E]">{item?.vendor}</span>
+                  </p>
 
-      {/* Info Section */}
-      <div className="space-y-2 mt-3 px-3">
-        <p className="text-[#ADADAD]">{item?.category}</p>
-        <h1 className="quick text-xl font-bold text-[#253D4E]">{item?.title}</h1>
-        <p>
-          By <span className="text-[#3BB77E]">{item?.vendor}</span>
-        </p>
+                  {/* Rating */}
+                  <div className="rating mt-2">
+                    <input
+                      type="radio"
+                      name="rating-1"
+                      className="mask mask-star bg-orange-400"
+                    />
+                    <input
+                      type="radio"
+                      name="rating-1"
+                      className="mask mask-star bg-orange-400"
+                      defaultChecked
+                    />
+                    <input
+                      type="radio"
+                      name="rating-1"
+                      className="mask mask-star"
+                    />
+                    <input
+                      type="radio"
+                      name="rating-1"
+                      className="mask mask-star"
+                    />
+                    <input
+                      type="radio"
+                      name="rating-1"
+                      className="mask mask-star"
+                    />
+                  </div>
 
-        {/* Rating */}
-        <div className="rating mt-2">
-          <input type="radio" name="rating-1" className="mask mask-star bg-orange-400" />
-          <input type="radio" name="rating-1" className="mask mask-star bg-orange-400" defaultChecked />
-          <input type="radio" name="rating-1" className="mask mask-star" />
-          <input type="radio" name="rating-1" className="mask mask-star" />
-          <input type="radio" name="rating-1" className="mask mask-star" />
-        </div>
-
-        {/* Price + Button */}
-        <div className="flex justify-between px-3 pb-4 items-center">
-          <h1 className="text-[#3BB77E] text-lg font-semibold">${item?.price}</h1>
-          <button className="flex items-center gap-2 px-3 py-2 rounded bg-[#DEF9EC] text-[#3BB77E] hover:bg-[#3BB77E] hover:text-white transition">
-            <IoCartOutline /> Add
-          </button>
-        </div>
-      </div>
-    </div>
-  ))}
+                  {/* Price + Button */}
+                  <div className="flex justify-between px-3 pb-4 items-center">
+                    <h1 className="text-[#3BB77E] text-lg font-semibold">
+                      ${item?.price}
+                    </h1>
+                    <button className="flex items-center gap-2 px-3 py-2 rounded bg-[#DEF9EC] text-[#3BB77E] hover:bg-[#3BB77E] hover:text-white transition">
+                      <IoCartOutline /> Add
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
 
           {/* Pagination */}
