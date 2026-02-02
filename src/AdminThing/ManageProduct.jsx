@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { FaRegTrashAlt } from "react-icons/fa";
-import { CiEdit } from "react-icons/ci";
-import useAxiosSecure from "../Axios/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
+import { CiEdit } from "react-icons/ci";
+import { FaRegTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../Axios/useAxiosSecure";
 
 const ManageProduct = () => {
   const axiosSecure = useAxiosSecure();
@@ -21,7 +21,7 @@ const ManageProduct = () => {
   const totalPages = Math.ceil(allProduct.length / itemsPerPage);
   const currentProducts = allProduct.slice(
     (currentPage - 1) * itemsPerPage,
-    currentPage * itemsPerPage
+    currentPage * itemsPerPage,
   );
 
   const handleDelete = (id) => {
@@ -55,7 +55,7 @@ const ManageProduct = () => {
       <div className="overflow-x-auto">
         <div className="lg:max-w-[750px] xl:max-w-[1100px] 2xl:max-w-[1300px] mx-auto overflow-x-auto">
           <table className="min-w-[1200px] w-full table-auto border border-slate-200 text-sm text-center">
-            <thead className="bg-[#3BB77E] text-white uppercase text-[14px]">
+            <thead className="bg-primary-green text-white uppercase text-[14px]">
               <tr>
                 <th className="py-3 px-4">#</th>
                 <th className="py-3 px-4">Title</th>
@@ -71,7 +71,7 @@ const ManageProduct = () => {
               </tr>
             </thead>
 
-            <tbody className="text-[#253D4E]">
+            <tbody className="text-primary-text">
               {currentProducts.map((product, index) => (
                 <tr
                   key={product._id || index}
@@ -94,7 +94,7 @@ const ManageProduct = () => {
                     />
                   </td>
                   <td className="py-3 px-4">{product.vendor || "—"}</td>
-                  <td className="py-3 px-4 font-bold text-[#3BB77E]">
+                  <td className="py-3 px-4 font-bold text-primary-green">
                     {product.price || "—"}
                   </td>
                   <td className="py-3 px-4">{product.tag || "—"}</td>
@@ -125,7 +125,7 @@ const ManageProduct = () => {
       {totalPages > 1 && (
         <div className="flex justify-center mt-10 flex-wrap gap-2">
           <button
-            className="mx-1 px-4 py-2 rounded bg-[#3BB77E] text-white disabled:opacity-50"
+            className="mx-1 px-4 py-2 rounded bg-primary-green text-white disabled:opacity-50"
             onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
             disabled={currentPage === 1}
           >
@@ -137,7 +137,7 @@ const ManageProduct = () => {
               key={i}
               className={`mx-1 px-3 py-2 rounded ${
                 currentPage === i + 1
-                  ? "bg-[#3BB77E] text-white"
+                  ? "bg-primary-green text-white"
                   : "bg-gray-200"
               }`}
               onClick={() => setCurrentPage(i + 1)}
@@ -147,7 +147,7 @@ const ManageProduct = () => {
           ))}
 
           <button
-            className="mx-1 px-4 py-2 rounded bg-[#3BB77E] text-white disabled:opacity-50"
+            className="mx-1 px-4 py-2 rounded bg-primary-green text-white disabled:opacity-50"
             onClick={() =>
               setCurrentPage((prev) => Math.min(prev + 1, totalPages))
             }

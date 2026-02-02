@@ -2,24 +2,24 @@ import Swal from "sweetalert2";
 import useAxiosPublic from "../Axios/useAxiosPublic";
 import useAxiosSecure from "../Axios/useAxiosSecure";
 
-const img_hosting_key =import.meta.env.VITE_IMAGE;
+const img_hosting_key = import.meta.env.VITE_IMAGE;
 const img_hosting_api = `https://api.imgbb.com/1/upload?key=${img_hosting_key}`;
 
 const AddProduct = () => {
   const axiosPublic = useAxiosPublic();
-  const axiosSecure =useAxiosSecure();
+  const axiosSecure = useAxiosSecure();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-   const photofile= new FormData()
+    const photofile = new FormData();
     const imageFile = e.target.img.files[0];
-    photofile.append('image',imageFile)
+    photofile.append("image", imageFile);
     const res = await axiosPublic.post(img_hosting_api, photofile, {
       headers: {
         "content-type": "multipart/form-data",
       },
     });
-    if(res.data.success){
+    if (res.data.success) {
       const Product = {
         title: e.target.title.value,
         category: e.target.category.value,
@@ -30,28 +30,26 @@ const AddProduct = () => {
         sold: e.target.sold.value,
         available: e.target.available.value,
         description: e.target.description.value,
-        photo:res.data.data.display_url,
+        photo: res.data.data.display_url,
         rating: e.target.rating.value,
       };
-       
-      const productRes=await axiosSecure.post('/product',Product)
+
+      const productRes = await axiosSecure.post("/product", Product);
       console.log(productRes.data);
-      if(productRes.data){
+      if (productRes.data) {
         Swal.fire({
           title: "Product Added !",
           icon: "success",
-          draggable: true
+          draggable: true,
         });
         e.target.reset();
       }
     }
-    
-    
   };
   return (
     <div>
       <div className="text-center ">
-        <h1 className=" text-2xl md:text-4xl font-bold text-[#3BB77E]">
+        <h1 className=" text-2xl md:text-4xl font-bold text-primary-green">
           Add Your Product
         </h1>
         <div className="flex justify-center  pr-7 mb-8">
@@ -98,8 +96,7 @@ const AddProduct = () => {
             <option value="Fashion & Beauty">Fashion & Beauty</option>
             <option value="Gadgets">Gadgets</option>
             <option value="Sports">Sports</option>
-            
-          </select>      
+          </select>
         </div>
 
         {/* Vendor */}
@@ -226,16 +223,16 @@ const AddProduct = () => {
 
         {/* Image Upload */}
         <input
-        required
+          required
           type="file"
           name="img"
-          className="mt-10 text-white bg-[#3BB77E] file-input border-l-0 w-full max-w-xs"
+          className="mt-10 text-white bg-primary-green file-input border-l-0 w-full max-w-xs"
         />
 
         {/* Submit Button */}
         <input
           type="submit"
-          className="font-bold py-3 text-lg col-span-2 my-5 min-w-full text-white bg-[#3BB77E]"
+          className="font-bold py-3 text-lg col-span-2 my-5 min-w-full text-white bg-primary-green"
           value="Add Product"
         />
       </form>

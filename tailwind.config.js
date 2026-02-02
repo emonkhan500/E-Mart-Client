@@ -1,3 +1,5 @@
+import { green } from '@mui/material/colors'
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -10,7 +12,21 @@ export default {
         '3xl': '1500px', 
       },
       colors: {
-        // regular colors
+        'primary-green': "#3BB77E",
+        'primary-text': "#253D4E",
+        'secondary-text': "#424242",
+        'primary-gray': "#7E7E7E",
+        'secondary-gray': "#ADADAD",
+        'bg-honeydew': "#F2FCE4",
+        'glory': "#658878",
+        'pinks': "#FFF3FF",
+        'light-gray': "#F4F6FA",
+        'cream': "#FFFCEB",
+        'orangee': "#FEEFEA",
+        'orange': "#fb923c",
+        'primary-border': "#DEF9EC",
+        'border': "#ECECEC",
+        'border-gray': "#383844",
         pink: "#FB2E86",
         offNavyBlue: "#3F509E",
         navyBlue: "#151875",

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { IoIosSearch } from "react-icons/io";
 
 const blogPosts = [
@@ -88,16 +88,16 @@ const BlogContent = () => {
   const totalPages = Math.ceil(blogPosts.length / postsPerPage);
 
   return (
-    <div className="quick mt-10">    
+    <div className="quick mt-10">
       <div>
         {/* Header */}
-        <div className="border-t-4 mt-8 border-[#3BB77E] flex flex-col md:flex-row items-center justify-between md:px-12 lg:px-16 xl:px-32">
+        <div className="border-t-4 mt-8 border-primary-green flex flex-col md:flex-row items-center justify-between md:px-12 lg:px-16 xl:px-32">
           <div className="flex items-center gap-6 mt-10">
             <img
               src="https://i.ibb.co.com/fV6RhZjz/category-1-svg.png"
               alt="category"
             />
-            <h1 className="text-3xl md:text-4xl lg:text-5xl text-[#253D4E] font-bold">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl text-primary-text font-bold">
               Recipes Articles
             </h1>
           </div>
@@ -106,7 +106,7 @@ const BlogContent = () => {
               className="w-[250px] md:w-[250px] lg:w-[380px] py-5 pl-12 border-2 outline-none"
               placeholder="Search For Items..."
             />
-            <IoIosSearch className="relative top-[1px] -left-[55px] md:-left-[65px] lg:-left-[90px] text-[#424242] text-[1.3rem]" />
+            <IoIosSearch className="relative top-[1px] -left-[55px] md:-left-[65px] lg:-left-[90px] text-secondary-text text-[1.3rem]" />
           </div>
         </div>
 
@@ -118,11 +118,11 @@ const BlogContent = () => {
               className="space-y-1 md:space-y-2 lg:space-y-3 flex flex-col justify-center text-center md:px-3"
             >
               <img src={post.img} alt="blog post" />
-              <p className="text-[#B6B6B6]">{post.category}</p>
-              <h1 className="text-[#253D4E] text-xl font-extrabold hover:text-[#3BB77E]">
+              <p className="text-secondary-gray">{post.category}</p>
+              <h1 className="text-primary-text text-xl font-extrabold hover:text-primary-green">
                 {post.title}
               </h1>
-              <div className="flex justify-between px-6 text-[#7E7E7E]">
+              <div className="flex justify-between px-6 text-primary-gray">
                 <h1>{post.date}</h1>
                 <h1>{post.views}</h1>
                 <h1>{post.readTime}</h1>
@@ -135,7 +135,9 @@ const BlogContent = () => {
         <div className="flex justify-center mt-10">
           <button
             className={`mx-2 px-4 py-2 rounded ${
-              currentPage === 1 ? "bg-gray-300 cursor-not-allowed" : "bg-[#3BB77E] text-white"
+              currentPage === 1
+                ? "bg-gray-300 cursor-not-allowed"
+                : "bg-primary-green text-white"
             }`}
             onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
             disabled={currentPage === 1}
@@ -147,7 +149,7 @@ const BlogContent = () => {
               key={i}
               className={`mx-1 px-3 py-2 rounded ${
                 currentPage === i + 1
-                  ? "bg-[#3BB77E] text-white"
+                  ? "bg-primary-green text-white"
                   : "bg-gray-200 text-black"
               }`}
               onClick={() => setCurrentPage(i + 1)}
@@ -157,9 +159,13 @@ const BlogContent = () => {
           ))}
           <button
             className={`mx-2 px-4 py-2 rounded ${
-              currentPage === totalPages ? "bg-gray-300 cursor-not-allowed" : "bg-[#3BB77E] text-white"
+              currentPage === totalPages
+                ? "bg-gray-300 cursor-not-allowed"
+                : "bg-primary-green text-white"
             }`}
-            onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+            onClick={() =>
+              setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+            }
             disabled={currentPage === totalPages}
           >
             Next

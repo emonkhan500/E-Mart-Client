@@ -1,34 +1,31 @@
-import React, { useContext, useState } from "react";
-import Nav from "../Shared/Nav/Nav";
-import Footer from "../Shared/Footer/Footer";
-import ShareHead from "../Shared/ShareHead";
-import Newsletter from "../Shared/SharedNewsletter";
-import UpFooter from "../Pages/Home/UpFooter";
-import { NavLink, Outlet } from "react-router-dom";
-import { CgProfile } from "react-icons/cg";
+import { useContext } from "react";
 import { AiOutlineUnorderedList } from "react-icons/ai";
+import { CgProfile } from "react-icons/cg";
 import { IoIosLogOut } from "react-icons/io";
+import { NavLink, Outlet } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
-import useAdmin from "../AdminThing/useAdmin";
 
 const Dashboard = () => {
   const { loading } = useContext(AuthContext);
 
   if (loading) {
-   return  <div className="w-24 h-24 mx-auto mt-10 border-4 border-dashed  rounded-full animate-spin dark:border-violet-600"></div>;
+    return (
+      <div className="w-24 h-24 mx-auto mt-10 border-4 border-dashed  rounded-full animate-spin "></div>
+    );
   }
 
-  const [isAdmin] =useAdmin();
+  // const [isAdmin] =useAdmin();
   // console.log(isAdmin);
+  const isAdmin = true;
 
   return (
     <div className="w-full  px-3 mx-auto">
-      <Nav></Nav>
-      <h1 className="text-4xl font-bold mt-16 text-[#3BB77E] text-center quick mb-7">
+      {/* <Nav></Nav> */}
+      <h1 className="text-4xl font-bold mt-16 text-primary-green text-center quick mb-7">
         DASHBOARD
       </h1>
 
-      <div className=" border-t-4 border-b-4 border-[#3BB77E]">
+      <div className=" border-t-4 border-b-4 border-primary-green">
         <div className=" mt-3  mb-7 flex flex-col lg:flex-row md:gap-4 lg:gap-4   px-2 md:px-5 lg:px-3 xl:px-6  2xl:px-10">
           <div className=" w-auto  lg:w-80 pt-4  md:pt-10">
             {isAdmin ? (
@@ -40,9 +37,9 @@ const Dashboard = () => {
                       className={({ isActive }) =>
                         `text-lg  font-bold border rounded-md px-3 py-3 transition ${
                           isActive
-                            ? "bg-[#3BB77E] text-white"
-                            : "bg-white border-slate-300"
-                        } hover:bg-[#3BB77E] hover:text-white`
+                            ? "bg-primary-green text-white"
+                            : "bg-white border-border"
+                        } hover:bg-primary-green hover:text-white`
                       }
                     >
                       <CgProfile /> Profile
@@ -55,9 +52,9 @@ const Dashboard = () => {
                       className={({ isActive }) =>
                         `text-lg border font-bold rounded-md px-3 py-3 transition ${
                           isActive
-                            ? "bg-[#3BB77E] text-white"
-                            : "bg-white border-slate-300"
-                        } hover:bg-[#3BB77E] hover:text-white`
+                            ? "bg-primary-green text-white"
+                            : "bg-white border-border"
+                        } hover:bg-primary-green hover:text-white`
                       }
                     >
                       <AiOutlineUnorderedList />
@@ -70,9 +67,9 @@ const Dashboard = () => {
                       className={({ isActive }) =>
                         `text-lg border font-bold rounded-md px-3 py-3 transition ${
                           isActive
-                            ? "bg-[#3BB77E] text-white"
-                            : "bg-white border-slate-300"
-                        } hover:bg-[#3BB77E] hover:text-white`
+                            ? "bg-primary-green text-white"
+                            : "bg-white border-border"
+                        } hover:bg-primary-green hover:text-white`
                       }
                     >
                       <AiOutlineUnorderedList />
@@ -85,9 +82,9 @@ const Dashboard = () => {
                       className={({ isActive }) =>
                         `text-lg border font-bold rounded-md px-3 py-3 transition ${
                           isActive
-                            ? "bg-[#3BB77E] text-white"
-                            : "bg-white border-slate-300"
-                        } hover:bg-[#3BB77E] hover:text-white`
+                            ? "bg-primary-green text-white"
+                            : "bg-white border-border"
+                        } hover:bg-primary-green hover:text-white`
                       }
                     >
                       <AiOutlineUnorderedList />
@@ -100,9 +97,9 @@ const Dashboard = () => {
                       className={({ isActive }) =>
                         `text-lg border font-bold rounded-md px-3 py-3 transition ${
                           isActive
-                            ? "bg-[#3BB77E] text-white"
-                            : "bg-white border-slate-300"
-                        } hover:bg-[#3BB77E] hover:text-white`
+                            ? "bg-primary-green text-white"
+                            : "bg-white border-border"
+                        } hover:bg-primary-green hover:text-white`
                       }
                     >
                       <AiOutlineUnorderedList />
@@ -110,7 +107,7 @@ const Dashboard = () => {
                     </NavLink>
                   </li>
                   <li className="text-center">
-                    <button className="text-lg border font-bold rounded-md px-3 py-3 transition bg-white border-slate-300 hover:bg-[#3BB77E] hover:text-white">
+                    <button className="text-lg border font-bold rounded-md px-3 py-3 transition bg-white border-border hover:bg-primary-green hover:text-white">
                       <IoIosLogOut /> Logout
                     </button>
                   </li>
@@ -125,9 +122,9 @@ const Dashboard = () => {
                       className={({ isActive }) =>
                         `text-lg  font-bold border rounded-md px-3 py-3 transition ${
                           isActive
-                            ? "bg-[#3BB77E] text-white"
-                            : "bg-white border-slate-300"
-                        } hover:bg-[#3BB77E] hover:text-white`
+                            ? "bg-primary-green text-white"
+                            : "bg-white border-border"
+                        } hover:bg-primary-green hover:text-white`
                       }
                     >
                       <CgProfile /> Profile
@@ -140,9 +137,9 @@ const Dashboard = () => {
                       className={({ isActive }) =>
                         `text-lg border font-bold rounded-md px-3 py-3 transition ${
                           isActive
-                            ? "bg-[#3BB77E] text-white"
-                            : "bg-white border-slate-300"
-                        } hover:bg-[#3BB77E] hover:text-white`
+                            ? "bg-primary-green text-white"
+                            : "bg-white border-border"
+                        } hover:bg-primary-green hover:text-white`
                       }
                     >
                       <AiOutlineUnorderedList />
@@ -150,7 +147,7 @@ const Dashboard = () => {
                     </NavLink>
                   </li>
                   <li className="text-center">
-                    <button className="text-lg border font-bold rounded-md px-3 py-3 transition bg-white border-slate-300 hover:bg-[#3BB77E] hover:text-white">
+                    <button className="text-lg border font-bold rounded-md px-3 py-3 transition bg-white border-border hover:bg-primary-green hover:text-white">
                       <IoIosLogOut /> Logout
                     </button>
                   </li>

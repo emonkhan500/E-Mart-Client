@@ -1,11 +1,11 @@
-import React, { useState, useRef } from "react";
-import { useParams } from "react-router-dom";
-import ShareHead from "../../../Shared/ShareHead";
 import { useQuery } from "@tanstack/react-query";
-import useAxiosSecure from "../../../Axios/useAxiosSecure";
-import { FaSearch, FaShoppingCart } from "react-icons/fa";
+import { useRef, useState } from "react";
 import { CiHeart } from "react-icons/ci";
-import Newsletter from '../../Home/Newsletter';
+import { FaSearch, FaShoppingCart } from "react-icons/fa";
+import { useParams } from "react-router-dom";
+import useAxiosSecure from "../../../Axios/useAxiosSecure";
+import ShareHead from "../../../Shared/ShareHead";
+import Newsletter from "../../Home/Newsletter";
 
 const Details = () => {
   const products = [
@@ -86,12 +86,12 @@ const Details = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-8">
               {/* Left Side - Product Image */}
               <div
-                className="flex items-center justify-center border border-[#F1F1F1] rounded-xl relative overflow-hidden"
+                className="flex items-center justify-center border border-border rounded-xl relative overflow-hidden"
                 onMouseMove={handleMouseMove}
                 onMouseLeave={handleMouseLeave}
               >
                 <button className="absolute top-4 xl:top-14 right-4 xl:right-24 transition">
-                  <FaSearch className="text-[#7E7E7E] text-2xl" />
+                  <FaSearch className="text-primary-gray text-2xl" />
                 </button>
                 <img
                   ref={imgRef}
@@ -103,13 +103,13 @@ const Details = () => {
 
               {/* Right Side - Product Details */}
               <div className="flex flex-col justify-start">
-                <div className="inline-flex w-fit mb-4">
-                  <span className="bg-[#FDE0E9] text-[#F74B81] text-base font-semibold px-3 py-2 rounded-md">
+                <div className="inline-flex  mb-4">
+                  <span className="bg-primary-border text-primary-green text-base font-semibold px-5 py-1.5 rounded">
                     {SingleProduct?.tag}
                   </span>
                 </div>
 
-                <h1 className="lato text-3xl font-bold text-[#253D4E] mb-2">
+                <h1 className="lato text-3xl font-bold text-primary-text mb-2">
                   {SingleProduct?.title}
                 </h1>
 
@@ -130,7 +130,7 @@ const Details = () => {
                 {/* Dynamic Price Section */}
                 <div className="flex items-center gap-4 mb-6">
                   <div className="flex items-baseline gap-2">
-                    <span className="text-4xl font-bold text-[#3BB77E]">
+                    <span className="text-4xl font-bold text-primary-green">
                       ${(SingleProduct?.disPrice * quantity).toFixed(2)}
                     </span>
                     <span className="text-xl text-gray-400 line-through">
@@ -156,8 +156,8 @@ const Details = () => {
                         onClick={() => setSelectedSize(size)}
                         className={`px-4 py-2 rounded-lg font-medium transition ${
                           selectedSize === size
-                            ? "bg-[#3BB77E] text-white"
-                            : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                            ? "bg-primary-green text-white"
+                            : "bg-gray-100 text-primary-gray hover:bg-gray-200"
                         }`}
                       >
                         {size}
@@ -168,10 +168,10 @@ const Details = () => {
 
                 {/* Quantity and Add to Cart */}
                 <div className="flex gap-4 items-center mb-6 lato">
-                  <div className="flex items-center border border-[#3BB77E] rounded-lg">
+                  <div className="flex items-center border border-primary-green rounded-lg">
                     <button
                       onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                      className="px-3 py-2 text-[#3BB77E] hover:bg-gray-100"
+                      className="px-3 py-2 text-primary-green hover:bg-gray-100"
                     >
                       −
                     </button>
@@ -184,7 +184,7 @@ const Details = () => {
                     />
                     <button
                       onClick={() => setQuantity(quantity + 1)}
-                      className="px-3 py-2 text-[#3BB77E] hover:bg-gray-100"
+                      className="px-3 py-2 text-primary-green hover:bg-gray-100"
                     >
                       +
                     </button>
@@ -192,17 +192,16 @@ const Details = () => {
 
                   <button
                     onClick={handleAddToCart}
-                    className="bg-[#3BB77E] hover:bg-green-600 text-white font-semibold py-3 px-2 md:px-6 rounded-lg transition flex items-center justify-center gap-2"
+                    className="bg-primary-green hover:bg-primary-green text-white font-semibold py-3 px-2 md:px-6 rounded-lg transition flex items-center justify-center gap-2"
                   >
                     <FaShoppingCart size={18} /> Add to cart
                   </button>
 
                   <div className="relative tooltip" data-tip="Add To Wishlist">
-              <button className="bg-white text-2xl p-2 text-[#3BB77E] hover:bg-[#3BB77E] hover:text-white transition border border-[#3BB77E]">
-                <CiHeart />
-              </button>
-             
-            </div>
+                    <button className="bg-white text-2xl p-2 text-primary-green hover:bg-primary-green hover:text-white transition border border-primary-green">
+                      <CiHeart />
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -212,130 +211,102 @@ const Details = () => {
 
         {/* Sidebar remains unchanged */}
         <div className="w-full flex flex-col justify-center md:flex-row gap-5 xl:flex-col xl:w-1/4 space-y-10">
-          
           {/* Categories */}
           <div className="bg-white rounded-2xl shadow-lg p-2 w-full max-w-sm mx-auto">
-            
             {/* Header */}
             <div className="mb-6">
-              
-              <h2 className="text-2xl font-bold text-gray-800">
-                Category
-              </h2>
+              <h2 className="text-2xl font-bold text-gray-800">Category</h2>
               <div className="w-16 h-1 bg-teal-500 mt-2 rounded-full"></div>
             </div>
             {/* Category List */}
             <div className="space-y-3">
-              
               {/* Milks & Dairies */}
               <div className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer group">
-                
                 <div className="flex items-center gap-3">
-                  
                   <div className="w-10 h-10 flex-shrink-0">
-                    
                     <img
                       src="../../../src/assets/category-2.svg.png"
                       alt="Milks & Dairies"
                       className="w-full h-full object-contain"
                     />
                   </div>
-                  <span className="text-gray-700 font-medium group-hover:text-teal-600 transition-colors">
-                    
+                  <span className="text-primary-gray font-medium group-hover:text-primary-green transition-colors">
                     Milks & Dairies
                   </span>
                 </div>
-                <div className="bg-teal-100 text-teal-700 font-semibold text-sm w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
-                  
+                <div className="bg-bg-honeydew text-primary-green font-semibold text-sm w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
                   3
                 </div>
               </div>
               {/* Clothing */}
               <div className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer group">
-                
                 <div className="flex items-center gap-3">
-                  
                   <div className="w-10 h-10 flex-shrink-0">
-                    
                     <img
                       src="../../../src/assets/icon-1.svg.png"
                       alt="Clothing"
                       className="w-full h-full object-contain"
                     />
                   </div>
-                  <span className="text-gray-700 font-medium group-hover:text-teal-600 transition-colors">
+                  <span className="text-primary-gray font-medium group-hover:text-primary-green transition-colors">
                     Clothing
                   </span>
                 </div>
-                <div className="bg-teal-100 text-teal-700 font-semibold text-sm w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
-                  
+                <div className="bg-bg-honeydew text-primary-green font-semibold text-sm w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
                   4
                 </div>
               </div>
               {/* Pet Foods */}
               <div className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer group">
-                
                 <div className="flex items-center gap-3">
-                  
                   <div className="w-10 h-10 flex-shrink-0">
-                    
                     <img
                       src="../../../src/assets/category-4.svg.png"
                       alt="Pet Foods"
                       className="w-full h-full object-contain"
                     />
                   </div>
-                  <span className="text-gray-700 font-medium group-hover:text-teal-600 transition-colors">
+                  <span className="text-primary-gray font-medium group-hover:text-primary-green transition-colors">
                     Pet Foods
                   </span>
                 </div>
-                <div className="bg-teal-100 text-teal-700 font-semibold text-sm w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
-                  
+                <div className="bg-bg-honeydew text-primary-green font-semibold text-sm w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
                   5
                 </div>
               </div>
               {/* Baking material */}
               <div className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer group">
-                
                 <div className="flex items-center gap-3">
-                  
                   <div className="w-10 h-10 flex-shrink-0">
-                    
                     <img
                       src="../../../src/assets/category-5.svg.png"
                       alt="Baking material"
                       className="w-full h-full object-contain"
                     />
                   </div>
-                  <span className="text-gray-700 font-medium group-hover:text-teal-600 transition-colors">
-                    
+                  <span className="text-primary-gray font-medium group-hover:text-primary-green transition-colors">
                     Baking material
                   </span>
                 </div>
-                <div className="bg-teal-100 text-teal-700 font-semibold text-sm w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
-                  
+                <div className="bg-bg-honeydew text-primary-green font-semibold text-sm w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
                   8
                 </div>
               </div>
               {/* Fresh Fruit */}
               <div className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer group">
-                
                 <div className="flex items-center gap-3">
-                  
                   <div className="w-10 h-10 flex-shrink-0">
-                    
                     <img
                       src="../../../src/assets/category-1.svg.png"
                       alt="Fresh Fruit"
                       className="w-full h-full object-contain"
                     />
                   </div>
-                  <span className="text-gray-700 font-medium group-hover:text-teal-600 transition-colors">
+                  <span className="text-primary-gray font-medium group-hover:text-primary-green transition-colors">
                     Fresh Fruit
                   </span>
                 </div>
-                <div className="bg-teal-100 text-teal-700 font-semibold text-sm w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
-                  
+                <div className="bg-bg-honeydew text-primary-green font-semibold text-sm w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
                   10
                 </div>
               </div>
@@ -343,32 +314,25 @@ const Details = () => {
           </div>
           {/* New Products */}
           <div className="w-full max-w-sm bg-white shadow-lg rounded-xl p-6  mx-auto">
-            
-            <h2 className="text-xl font-semibold text-[#253D4E]">
-              
+            <h2 className="text-xl font-semibold text-primary-text">
               New Products
             </h2>
             <div className="mt-4 space-y-4">
-              
               {products.map((product) => (
                 <div
                   key={product.id}
                   className="flex items-center space-x-4 border-b pb-3 last:border-b-0"
                 >
-                  
                   <img
                     src={product.image}
                     alt={product.name}
                     className="w-14 h-14 rounded-md"
                   />
                   <div>
-                    
-                    <h3 className="text-[#3BB77E] font-semibold">
-                      
+                    <h3 className="text-primary-green font-semibold">
                       {product.name}
                     </h3>
-                    <p className="text-gray-700 font-medium">
-                      
+                    <p className="text-primary-gray font-medium">
                       ${product.price.toFixed(2)}
                     </p>
                   </div>

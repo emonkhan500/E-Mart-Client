@@ -23,7 +23,7 @@ const Glory = () => {
         }}
       >
         {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-[#4B675A] bg-opacity-85"></div>
+        <div className="absolute inset-0 bg-glory bg-opacity-85"></div>
 
         {/* Stats Container */}
         <div className="relative z-10 flex justify-around w-full text-white text-center px-5">

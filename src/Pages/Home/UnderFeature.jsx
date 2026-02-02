@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
 const UnderFeature = () => {
@@ -16,10 +15,10 @@ const UnderFeature = () => {
             <h2 className="text-lg font-semibold text-gray-800">
               Everyday Fresh & Clean with Our Products
             </h2>
-            <Link to='/shop'>
-            <button  className="mt-4 px-4 py-2 bg-[#3BB77E]  text-white rounded hover:bg-green-600">
-              Shop Now →
-            </button>
+            <Link to="/shop">
+              <button className="mt-4 px-4 py-2 bg-primary-green  text-white rounded hover:bg-primary-green">
+                Shop Now →
+              </button>
             </Link>
           </div>
         </div>
@@ -34,10 +33,10 @@ const UnderFeature = () => {
             <h2 className="text-lg font-semibold text-gray-800">
               Make your Breakfast Healthy and Easy
             </h2>
-            <Link to='/shop'>
-            <button  className="mt-4  px-4 py-2 bg-[#3BB77E]  text-white rounded hover:bg-green-600">
-              Shop Now →
-            </button>
+            <Link to="/shop">
+              <button className="mt-4  px-4 py-2 bg-primary-green  text-white rounded hover:bg-primary-green">
+                Shop Now →
+              </button>
             </Link>
           </div>
         </div>
@@ -52,10 +51,10 @@ const UnderFeature = () => {
             <h2 className="text-lg font-semibold text-gray-800">
               The best Organic Products Online
             </h2>
-            <Link to='/shop'> 
-            <button  className="mt-4  px-4 py-2 bg-[#3BB77E]  text-white rounded hover:bg-green-600">
-              Shop Now →
-            </button>
+            <Link to="/shop">
+              <button className="mt-4  px-4 py-2 bg-primary-green  text-white rounded hover:bg-primary-green">
+                Shop Now →
+              </button>
             </Link>
           </div>
         </div>

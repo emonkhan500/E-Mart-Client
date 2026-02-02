@@ -1,5 +1,3 @@
-import React from "react";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
@@ -47,16 +45,16 @@ const Featured = () => {
         }}
       >
         <SwiperSlide>
-          <div className="w-40 h-56 lg:py-3 bg-[#F2FCE4] flex flex-col items-center rounded-lg ">
+          <div className="w-40 h-56 lg:py-3 bg-bg-honeydew   flex flex-col items-center rounded-lg ">
             <img
               className="w-24 h-24 object-contain"
               src="https://i.ibb.co/QvGkSQvq/Link-cat-13-png.png"
               alt="Cake & Milk"
             />
-            <h1 className="text-base text-[#253D4E] font-semibold px-4">
+            <h1 className="text-base text-primary-text font-semibold px-4">
               Cake & Milk
             </h1>
-            <h1 className="text-[#7E7E7E]">26 items</h1>
+            <h1 className="text-primary-gray">26 items</h1>
           </div>
         </SwiperSlide>
 
@@ -67,24 +65,24 @@ const Featured = () => {
               src="https://i.ibb.co/XxNXLFTs/Link-cat-2-png.png"
               alt="Vegetables"
             />
-            <h1 className="text-base text-[#253D4E] font-semibold px-4">
+            <h1 className="text-base text-primary-text font-semibold px-4">
               Vegetables
             </h1>
-            <h1 className="text-[#7E7E7E]">26 items</h1>
+            <h1 className="text-primary-gray">26 items</h1>
           </div>
         </SwiperSlide>
 
         <SwiperSlide>
-          <div className="w-40 h-56 lg:py-3 bg-[#F2FCE4] flex flex-col items-center rounded-lg ">
+          <div className="w-40 h-56 lg:py-3 bg-bg-honeydew   flex flex-col items-center rounded-lg ">
             <img
               className="w-24 h-24 object-contain"
               src="https://i.ibb.co/xSVvX39n/Link-cat-3-png.png"
               alt="Strawberry"
             />
-            <h1 className="text-base text-[#253D4E] font-semibold px-4">
+            <h1 className="text-base text-primary-text font-semibold px-4">
               Strawberry
             </h1>
-            <h1 className="text-[#7E7E7E]">26 items</h1>
+            <h1 className="text-primary-gray">26 items</h1>
           </div>
         </SwiperSlide>
 
@@ -95,10 +93,10 @@ const Featured = () => {
               src="https://i.ibb.co/hJksmk92/Link-cat-4-png.png"
               alt="Snack"
             />
-            <h1 className="text-base text-[#253D4E] font-semibold px-4">
+            <h1 className="text-base text-primary-text font-semibold px-4">
               Snack
             </h1>
-            <h1 className="text-[#7E7E7E]">26 items</h1>
+            <h1 className="text-primary-gray">26 items</h1>
           </div>
         </SwiperSlide>
 
@@ -109,10 +107,10 @@ const Featured = () => {
               src="https://i.ibb.co/tMyBpB6y/Link-cat-9-png.png"
               alt="Black Plum"
             />
-            <h1 className="text-base text-[#253D4E] font-semibold px-4">
+            <h1 className="text-base text-primary-text font-semibold px-4">
               Black Plum
             </h1>
-            <h1 className="text-[#7E7E7E]">26 items</h1>
+            <h1 className="text-primary-gray">26 items</h1>
           </div>
         </SwiperSlide>
 
@@ -123,10 +121,10 @@ const Featured = () => {
               src="https://i.ibb.co/MDcVTkCv/Link-cat-5-png.png"
               alt="Custard"
             />
-            <h1 className="text-base text-[#253D4E] font-semibold px-4">
+            <h1 className="text-base text-primary-text font-semibold px-4">
               Custard
             </h1>
-            <h1 className="text-[#7E7E7E]">26 items</h1>
+            <h1 className="text-primary-gray">26 items</h1>
           </div>
         </SwiperSlide>
 
@@ -137,10 +135,10 @@ const Featured = () => {
               src="https://i.ibb.co/8FY0bdJ/Link-cat-11-png.png"
               alt="Peach"
             />
-            <h1 className="text-base text-[#253D4E] font-semibold px-4">
+            <h1 className="text-base text-primary-text font-semibold px-4">
               Peach
             </h1>
-            <h1 className="text-[#7E7E7E]">26 items</h1>
+            <h1 className="text-primary-gray">26 items</h1>
           </div>
         </SwiperSlide>
 
@@ -151,23 +149,23 @@ const Featured = () => {
               src="https://i.ibb.co.com/MDcVTkCv/Link-cat-5-png.png"
               alt=""
             />
-            <h1 className="text-base text-[#253D4E] font-semibold px-4">
+            <h1 className="text-base text-primary-text font-semibold px-4">
               Custard
             </h1>
-            <h1 className="text-[#7E7E7E]">26 items</h1>
+            <h1 className="text-primary-gray">26 items</h1>
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="w-40 h-56 lg:py-3  bg-[#F2FCE4] flex flex-col items-center rounded-lg ">
+          <div className="w-40 h-56 lg:py-3  bg-bg-honeydew   flex flex-col items-center rounded-lg ">
             <img
               className=""
               src="https://i.ibb.co.com/QvGkSQvq/Link-cat-13-png.png"
               alt=""
             />
-            <h1 className="text-base text-[#253D4E] font-semibold px-4">
+            <h1 className="text-base text-primary-text font-semibold px-4">
               Cake & Milk
             </h1>
-            <h1 className="text-[#7E7E7E]">26 items</h1>
+            <h1 className="text-primary-gray">26 items</h1>
           </div>
         </SwiperSlide>
         <SwiperSlide>
@@ -177,10 +175,10 @@ const Featured = () => {
               src="https://i.ibb.co.com/tMyBpB6y/Link-cat-9-png.png"
               alt=""
             />
-            <h1 className="text-base text-[#253D4E] font-semibold px-4">
+            <h1 className="text-base text-primary-text font-semibold px-4">
               Red Apple
             </h1>
-            <h1 className="text-[#7E7E7E]">26 items</h1>
+            <h1 className="text-primary-gray">26 items</h1>
           </div>
         </SwiperSlide>
         <SwiperSlide>
@@ -190,10 +188,10 @@ const Featured = () => {
               src="https://i.ibb.co.com/8FY0bdJ/Link-cat-11-png.png"
               alt=""
             />
-            <h1 className="text-base text-[#253D4E] font-semibold px-4">
+            <h1 className="text-base text-primary-text font-semibold px-4">
               Peach
             </h1>
-            <h1 className="text-[#7E7E7E]">26 items</h1>
+            <h1 className="text-primary-gray">26 items</h1>
           </div>
         </SwiperSlide>
         <SwiperSlide>
@@ -203,23 +201,23 @@ const Featured = () => {
               src="https://i.ibb.co.com/xqhXcMGT/Link-cat-14-png.png"
               alt="Custard"
             />
-            <h1 className="text-base text-[#253D4E] font-semibold px-4">
-            Coffe & Tea
+            <h1 className="text-base text-primary-text font-semibold px-4">
+              Coffe & Tea
             </h1>
-            <h1 className="text-[#7E7E7E]">26 items</h1>
+            <h1 className="text-primary-gray">26 items</h1>
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="w-40 h-56 lg:py-3 bg-[#F2FCE4] flex flex-col items-center rounded-lg ">
+          <div className="w-40 h-56 lg:py-3 bg-bg-honeydew   flex flex-col items-center rounded-lg ">
             <img
               className="w-24 h-24 object-contain"
               src="https://i.ibb.co/xSVvX39n/Link-cat-3-png.png"
               alt="Strawberry"
             />
-            <h1 className="text-base text-[#253D4E] font-semibold px-4">
+            <h1 className="text-base text-primary-text font-semibold px-4">
               Strawberry
             </h1>
-            <h1 className="text-[#7E7E7E]">26 items</h1>
+            <h1 className="text-primary-gray">26 items</h1>
           </div>
         </SwiperSlide>
       </Swiper>

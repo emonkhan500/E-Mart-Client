@@ -1,13 +1,13 @@
-import React, { useContext, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { useContext, useState } from "react";
 import { CiHeart } from "react-icons/ci";
 import { IoCartOutline } from "react-icons/io5";
 import { TbDetails } from "react-icons/tb";
-import useAxiosSecure from "../../Axios/useAxiosSecure";
-import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../../Provider/AuthProvider";
-import useAxiosPublic from "../../Axios/useAxiosPublic";
 import { toast } from "react-toastify";
+import useAxiosPublic from "../../Axios/useAxiosPublic";
+import useAxiosSecure from "../../Axios/useAxiosSecure";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 // Dummy product data
 const products = [
@@ -81,7 +81,7 @@ const Products = () => {
     const wishRes = await axiosSecure.post("/wishlist", wishedProduct);
 
     if (wishRes.data.insertedId) {
-      toast.success('Added to WishList')
+      toast.success("Added to WishList");
     }
   };
 
@@ -116,11 +116,11 @@ const Products = () => {
                       className="w-full h-full object-contain"
                     />
                   </div>
-                  <span className="text-gray-700 font-medium group-hover:text-teal-600 transition-colors">
+                  <span className="text-secondary-text font-medium group-hover:text-primary-green transition-colors">
                     Milks & Dairies
                   </span>
                 </div>
-                <div className="bg-teal-100 text-teal-700 font-semibold text-sm w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
+                <div className="bg-bg-honeydew text-primary-green font-semibold text-sm w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
                   3
                 </div>
               </div>
@@ -135,11 +135,11 @@ const Products = () => {
                       className="w-full h-full object-contain"
                     />
                   </div>
-                  <span className="text-gray-700 font-medium group-hover:text-teal-600 transition-colors">
+                  <span className="text-secondary-text font-medium group-hover:text-primary-green transition-colors">
                     Clothing
                   </span>
                 </div>
-                <div className="bg-teal-100 text-teal-700 font-semibold text-sm w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
+                <div className="bg-bg-honeydew text-primary-green font-semibold text-sm w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
                   4
                 </div>
               </div>
@@ -154,11 +154,11 @@ const Products = () => {
                       className="w-full h-full object-contain"
                     />
                   </div>
-                  <span className="text-gray-700 font-medium group-hover:text-teal-600 transition-colors">
+                  <span className="text-secondary-text font-medium group-hover:text-primary-green transition-colors">
                     Pet Foods
                   </span>
                 </div>
-                <div className="bg-teal-100 text-teal-700 font-semibold text-sm w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
+                <div className="bg-bg-honeydew text-primary-green font-semibold text-sm w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
                   5
                 </div>
               </div>
@@ -173,11 +173,11 @@ const Products = () => {
                       className="w-full h-full object-contain"
                     />
                   </div>
-                  <span className="text-gray-700 font-medium group-hover:text-teal-600 transition-colors">
+                  <span className="text-secondary-text font-medium group-hover:text-primary-green transition-colors">
                     Baking material
                   </span>
                 </div>
-                <div className="bg-teal-100 text-teal-700 font-semibold text-sm w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
+                <div className="bg-bg-honeydew text-primary-green font-semibold text-sm w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
                   8
                 </div>
               </div>
@@ -192,11 +192,11 @@ const Products = () => {
                       className="w-full h-full object-contain"
                     />
                   </div>
-                  <span className="text-gray-700 font-medium group-hover:text-teal-600 transition-colors">
+                  <span className="text-secondary-text font-medium group-hover:text-primary-green transition-colors">
                     Fresh Fruit
                   </span>
                 </div>
-                <div className="bg-teal-100 text-teal-700 font-semibold text-sm w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
+                <div className="bg-bg-honeydew text-primary-green font-semibold text-sm w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
                   10
                 </div>
               </div>
@@ -210,11 +210,11 @@ const Products = () => {
             {/* Price Slider */}
             <div>
               <div className="relative w-full h-1 bg-gray-300 rounded-full">
-                <div className="absolute left-1/4 right-1/2 h-1 bg-green-600 rounded-full"></div>
-                <div className="absolute left-1/4 w-4 h-4 bg-white border-2 border-green-600 rounded-full -top-1"></div>
-                <div className="absolute left-1/2 w-4 h-4 bg-white border-2 border-green-600 rounded-full -top-1"></div>
+                <div className="absolute left-1/4 right-1/2 h-1 bg-primary-green rounded-full"></div>
+                <div className="absolute left-1/4 w-4 h-4 bg-white border-2 border-primary-green rounded-full -top-1"></div>
+                <div className="absolute left-1/2 w-4 h-4 bg-white border-2 border-primary-green rounded-full -top-1"></div>
               </div>
-              <div className="flex justify-between text-sm text-green-600 mt-2">
+              <div className="flex justify-between text-sm text-primary-green mt-2">
                 <span>From: $500</span>
                 <span>To: $1,000</span>
               </div>
@@ -255,14 +255,14 @@ const Products = () => {
             </div>
 
             {/* Filter Button */}
-            <button className="mt-6 w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-2 rounded-lg">
+            <button className="mt-6 w-full bg-primary-green hover:bg-green-700 text-white font-semibold py-2 rounded-lg">
               Filter
             </button>
           </div>
 
           {/* New Products */}
           <div className="max-w-sm bg-white shadow-lg rounded-xl p-6">
-            <h2 className="text-xl font-semibold text-[#253D4E]">
+            <h2 className="text-xl font-semibold text-primary-text">
               New Products
             </h2>
             <div className="mt-4 space-y-4">
@@ -277,10 +277,10 @@ const Products = () => {
                     className="w-14 h-14 rounded-md"
                   />
                   <div>
-                    <h3 className="text-green-600 font-semibold">
+                    <h3 className="text-primary-green font-semibold">
                       {product.name}
                     </h3>
-                    <p className="text-gray-700 font-medium">
+                    <p className="text-secondary-text font-medium">
                       ${product.price.toFixed(2)}
                     </p>
                   </div>
@@ -296,7 +296,7 @@ const Products = () => {
             {currentItem?.slice(0, 12).map((item, index) => (
               <div
                 key={index}
-                className="group relative border border-[#ECECEC] rounded-lg shadow mx-auto w-full md:w-auto overflow-hidden transition-all duration-300"
+                className="group relative border border-border rounded-lg shadow mx-auto w-full md:w-auto overflow-hidden transition-all duration-300"
               >
                 {/* Tag Label */}
                 {item?.tag && (
@@ -323,7 +323,7 @@ const Products = () => {
                       >
                         <button
                           onClick={() => handleWish(item)}
-                          className="bg-white text-2xl p-2 text-[#3BB77E] hover:bg-[#3BB77E] hover:text-white transition border border-[#3BB77E]"
+                          className="bg-white text-2xl p-2 text-primary-green hover:bg-primary-green hover:text-white transition border border-primary-green"
                         >
                           <CiHeart />
                         </button>
@@ -331,7 +331,7 @@ const Products = () => {
 
                       {/* Cart */}
                       <div className="relative tooltip" data-tip="Add To Cart">
-                        <button className="bg-white text-2xl p-2 text-[#3BB77E] hover:bg-[#3BB77E] hover:text-white transition border border-[#3BB77E]">
+                        <button className="bg-white text-2xl p-2 text-primary-green hover:bg-primary-green hover:text-white transition border border-primary-green">
                           <IoCartOutline />
                         </button>
                       </div>
@@ -341,7 +341,7 @@ const Products = () => {
                         className="relative  tooltip"
                         data-tip="Show Details"
                       >
-                        <button className="bg-white text-2xl p-2 text-[#3BB77E] hover:bg-[#3BB77E] hover:text-white transition border border-[#3BB77E]">
+                        <button className="bg-white text-2xl p-2 text-primary-green hover:bg-primary-green hover:text-white transition border border-primary-green">
                           {" "}
                           <Link to={`/details/${item?._id}`}>
                             <TbDetails />
@@ -354,12 +354,13 @@ const Products = () => {
 
                 {/* Info Section */}
                 <div className="space-y-2 mt-3 px-3">
-                  <p className="text-[#ADADAD]">{item?.category}</p>
-                  <h1 className="quick text-xl font-bold text-[#253D4E]">
+                  <p className="text-secondary-gray">{item?.category}</p>
+                  <h1 className="quick text-xl font-bold text-primary-text">
                     {item?.title}
                   </h1>
                   <p>
-                    By <span className="text-[#3BB77E]">{item?.vendor}</span>
+                    By{" "}
+                    <span className="text-primary-green">{item?.vendor}</span>
                   </p>
 
                   {/* Rating */}
@@ -367,12 +368,12 @@ const Products = () => {
                     <input
                       type="radio"
                       name="rating-1"
-                      className="mask mask-star bg-orange-400"
+                      className="mask mask-star bg-orange"
                     />
                     <input
                       type="radio"
                       name="rating-1"
-                      className="mask mask-star bg-orange-400"
+                      className="mask mask-star bg-orange"
                       defaultChecked
                     />
                     <input
@@ -394,10 +395,10 @@ const Products = () => {
 
                   {/* Price + Button */}
                   <div className="flex justify-between px-3 pb-4 items-center">
-                    <h1 className="text-[#3BB77E] text-lg font-semibold">
+                    <h1 className="text-primary-green text-lg font-semibold">
                       ${item?.price}
                     </h1>
-                    <button className="flex items-center gap-2 px-3 py-2 rounded bg-[#DEF9EC] text-[#3BB77E] hover:bg-[#3BB77E] hover:text-white transition">
+                    <button className="flex items-center gap-2 px-3 py-2 rounded bg-primary-border text-primary-green hover:bg-primary-green hover:text-white transition">
                       <IoCartOutline /> Add
                     </button>
                   </div>
@@ -409,7 +410,7 @@ const Products = () => {
           {/* Pagination */}
           <div className="flex justify-center mt-10">
             <button
-              className="mx-2 px-4 py-2 rounded bg-[#3BB77E] text-white"
+              className="mx-2 px-4 py-2 rounded bg-primary-green text-white"
               onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
               disabled={currentPage === 1}
             >
@@ -420,7 +421,7 @@ const Products = () => {
                 key={i}
                 className={`mx-1 px-3 py-2 rounded ${
                   currentPage === i + 1
-                    ? "bg-[#3BB77E] text-white"
+                    ? "bg-primary-green text-white"
                     : "bg-gray-200"
                 }`}
                 onClick={() => setCurrentPage(i + 1)}
@@ -429,7 +430,7 @@ const Products = () => {
               </button>
             ))}
             <button
-              className="mx-2 px-4 py-2 rounded bg-[#3BB77E] text-white"
+              className="mx-2 px-4 py-2 rounded bg-primary-green text-white"
               onClick={() =>
                 setCurrentPage((prev) => Math.min(prev + 1, totalPages))
               }

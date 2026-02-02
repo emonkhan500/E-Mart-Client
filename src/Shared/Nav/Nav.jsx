@@ -1,27 +1,39 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import logo from "../../assets/logo.svg";
 
 // React icons
 import { IoIosSearch } from "react-icons/io";
 
-import { IoCartOutline } from "react-icons/io5";
-import { VscAccount } from "react-icons/vsc";
-import { MdClose, MdMenu, MdOutlineDashboard } from "react-icons/md";
-import SabNav from "./SabNav";
-import { Link, NavLink, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../Provider/AuthProvider";
-import Swal from "sweetalert2";
+import { useQuery } from "@tanstack/react-query";
 import { CiHeart, CiLocationOn } from "react-icons/ci";
+import { IoCartOutline } from "react-icons/io5";
+import { MdClose, MdMenu, MdOutlineDashboard } from "react-icons/md";
+import { VscAccount } from "react-icons/vsc";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import useAxiosSecure from "../../Axios/useAxiosSecure";
+import { AuthContext } from "../../Provider/AuthProvider";
+import SabNav from "./SabNav";
 
 const Nav = () => {
   const { logOut, user } = useContext(AuthContext);
   console.log(user);
   const [isOpen, setIsOpen] = useState(false);
-  const navigate = useNavigate();   
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+
+  const axiosSecure = useAxiosSecure();
+
+  const { refetch, data: wishedProduct = [] } = useQuery({
+    queryKey: ["wishedProduct", user?.email],
+    queryFn: async () => {
+      const res = await axiosSecure.get(`/wishlists/${user.email}`);
+      return res.data;
+    },
+  });
 
   const handleLogout = () => {
     logOut()
@@ -41,8 +53,8 @@ const Nav = () => {
           to="/"
           className={({ isActive }) =>
             isActive
-              ? "quick font-extrabold text-[#3BB77E]"
-              : "quick font-bold text-[#424242]"
+              ? "quick font-extrabold text-primary-green"
+              : "quick font-bold text-secondary-text"
           }
         >
           Home
@@ -53,8 +65,8 @@ const Nav = () => {
           to="/about"
           className={({ isActive }) =>
             isActive
-              ? "quick font-extrabold text-[#3BB77E]"
-              : "quick font-bold text-[#424242]"
+              ? "quick font-extrabold text-primary-green"
+              : "quick font-bold text-secondary-text"
           }
         >
           About
@@ -65,8 +77,8 @@ const Nav = () => {
           to="/shop"
           className={({ isActive }) =>
             isActive
-              ? "quick font-extrabold text-[#3BB77E]"
-              : "quick font-bold text-[#424242]"
+              ? "quick font-extrabold text-primary-green"
+              : "quick font-bold text-secondary-text"
           }
         >
           Shop
@@ -77,8 +89,8 @@ const Nav = () => {
           to="/vendors"
           className={({ isActive }) =>
             isActive
-              ? "quick font-extrabold text-[#3BB77E]"
-              : "quick font-bold text-[#424242]"
+              ? "quick font-extrabold text-primary-green"
+              : "quick font-bold text-secondary-text"
           }
         >
           Vendors
@@ -89,8 +101,8 @@ const Nav = () => {
           to="/blogs"
           className={({ isActive }) =>
             isActive
-              ? "quick font-extrabold text-[#3BB77E]"
-              : "quick font-bold text-[#424242]"
+              ? "quick font-extrabold text-primary-green"
+              : "quick font-bold text-secondary-text"
           }
         >
           Blogs
@@ -102,8 +114,8 @@ const Nav = () => {
           to="/contact"
           className={({ isActive }) =>
             isActive
-              ? "quick font-extrabold text-[#3BB77E]"
-              : "quick font-bold text-[#424242]"
+              ? "quick font-extrabold text-primary-green"
+              : "quick font-bold text-secondary-text"
           }
         >
           Contact
@@ -117,7 +129,7 @@ const Nav = () => {
       <nav className="w-full  px-2 lato flex justify-between items-center gap-3 md:px-2 xl:px-20 mx-auto h-auto mt-10 mb-6">
         {/* Small menu */}
         <button
-          className="md:hidden text-3xl text-[#3BB77E]"
+          className="md:hidden text-3xl text-primary-green"
           onClick={toggleMenu}
         >
           {isOpen ? <MdClose /> : <MdMenu />}
@@ -132,49 +144,50 @@ const Nav = () => {
           {/* Search bar */}
           <div className="relative hidden md:flex items-center justify-center md:ml-2  xl:ml-8">
             <input
-              className="md:w-[270px] lg:w-[300px] xl:w-[600px] py-3 pl-2 lg:pl-10 xl:pl-20  border-2 border-[#3BB77E]  outline-none"
+              className="md:w-[270px] lg:w-[300px] xl:w-[600px] py-3 pl-2 lg:pl-10 xl:pl-20  border-2 border-primary-green  outline-none"
               placeholder="Search For Items..."
             />
-            <IoIosSearch className="hidden lg:flex absolute top-[14px] lg:left-[250px] xl:left-[480px] text-[#424242] text-[1.3rem]" />
+            <IoIosSearch className="hidden lg:flex absolute top-[14px] lg:left-[250px] xl:left-[480px] text-secondary-text text-[1.3rem]" />
           </div>
         </div>
 
         {/* Location div */}
-        <div className=" border-2 border-[#3BB77E]  outline-none rounded px-7 xl:px-9 py-3 shadow hidden 2xl:flex gap-2 items-center justify-center">
-          <CiLocationOn className="text-2xl text-[#3BB77E]" />
-          <h1 className="text-[#3BB77E]">Your Location</h1>
+        <div className=" border-2 border-primary-green  outline-none rounded px-7 xl:px-9 py-3 shadow hidden 2xl:flex gap-2 items-center justify-center">
+          <CiLocationOn className="text-2xl text-primary-green" />
+          <h1 className="text-primary-green">Your Location</h1>
         </div>
 
         {/* Icons Section */}
         <div className="flex items-center gap-1 md:gap-1 lg:gap-3">
           {/* Wishlist icon */}
-         <Link to='/wish'>
-         <div className="flex gap-2  bg-[#F2FCE4] px-3 md:px-2 lg:px-3 py-1 md:py-2 rounded-md  lg:gap-2 items-center shadow-md">
-            <div className="indicator">
-              <span className="indicator-item rounded-full bg-green-500 text-xs px-1 text-white">
-                6
-              </span>
-              <button>
-                <CiHeart className="text-2xl font-extrabold text-[#253D4E] hover:text-[#3BB77E] transition-all duration-500" />
-              </button>
+          <Link to="/wish">
+            <div className="flex gap-2  bg-bg-honeydew   px-3 md:px-2 lg:px-3 py-1 md:py-2 rounded-md  lg:gap-2 items-center shadow-md">
+              <div className="indicator">
+                <span className="indicator-item rounded-full bg-primary-green text-xs px-1 text-white">
+                  {wishedProduct?.length || 0}
+                </span>
+                <button>
+                  <CiHeart className="text-2xl font-extrabold text-primary-text hover:text-primary-green transition-all duration-500" />
+                </button>
+              </div>
+              <h1 className="mt-1 text-sm text-primary-gray hidden lg:flex">
+                Wishlist
+              </h1>
             </div>
-            <h1 className="mt-1 text-sm text-[#7E7E7E] hidden lg:flex">
-              Wishlist
-            </h1>
-          </div></Link>
+          </Link>
 
           {/* Cart icon */}
           <Link to="/cart">
-            <div className="flex gap-2  bg-[#F2FCE4] px-3 md:px-2 lg:px-3 py-1 md:py-2 rounded-md  lg:gap-2 items-center shadow-md">
+            <div className="flex gap-2  bg-bg-honeydew   px-3 md:px-2 lg:px-3 py-1 md:py-2 rounded-md  lg:gap-2 items-center shadow-md">
               <div className="indicator">
-                <span className="indicator-item rounded-full bg-green-500 text-xs px-1 text-white">
+                <span className="indicator-item rounded-full bg-primary-green text-xs px-1 text-white">
                   6
                 </span>
                 <button>
-                  <IoCartOutline className="text-2xl font-extrabold text-[#253D4E] hover:text-[#3BB77E] transition-all duration-500" />
+                  <IoCartOutline className="text-2xl font-extrabold text-primary-text hover:text-primary-green transition-all duration-500" />
                 </button>
               </div>
-              <h1 className="mt-1 text-sm text-[#7E7E7E] hidden lg:flex">
+              <h1 className="mt-1 text-sm text-primary-gray hidden lg:flex">
                 Cart
               </h1>
             </div>
@@ -182,14 +195,13 @@ const Nav = () => {
 
           {/* Dashboard */}
           <Link to="/dashboard">
-            <div className="flex gap-2  bg-[#F2FCE4] px-3 md:px-2 lg:px-3 py-1 md:py-2 rounded-md  lg:gap-2 items-center shadow-md">
+            <div className="flex gap-2  bg-bg-honeydew   px-3 md:px-2 lg:px-3 py-1 md:py-2 rounded-md  lg:gap-2 items-center shadow-md">
               <div className="indicator">
-                
                 <button>
-                  <MdOutlineDashboard  className="text-2xl font-extrabold text-[#253D4E] hover:text-[#3BB77E] transition-all duration-500" />
+                  <MdOutlineDashboard className="text-2xl font-extrabold text-primary-text hover:text-primary-green transition-all duration-500" />
                 </button>
               </div>
-              <h1 className="mt-1 text-sm text-[#7E7E7E] hidden md:flex">
+              <h1 className="mt-1 text-sm text-primary-gray hidden md:flex">
                 DashBoard
               </h1>
             </div>
@@ -199,19 +211,23 @@ const Nav = () => {
             <>
               <button
                 onClick={handleLogout}
-                className="bg-[#F2FCE4] flex gap-1 items-center px-3 md:px-2 lg:px-3 py-1 md:py-2 rounded-md relative shadow-md before:absolute before:top-0 before:left-0 before:w-0 before:h-0 before:border-l-[4px] before:border-t-[4px] before:border-transparent hover:before:w-full hover:before:h-full hover:before:border-[#3BB77E] hover:before:transition-all hover:before:duration-500 after:border-r-[4px] after:border-b-[4px] after:border-transparent hover:after:border-[#3BB77E] after:absolute after:bottom-0 after:right-0 after:w-0 after:h-0 hover:after:w-full hover:after:h-full hover:after:transition-all hover:after:duration-500"
+                className="bg-bg-honeydew   flex gap-1 items-center px-3 md:px-2 lg:px-3 py-1 md:py-2 rounded-md relative shadow-md before:absolute before:top-0 before:left-0 before:w-0 before:h-0 before:border-l-[4px] before:border-t-[4px] before:border-transparent hover:before:w-full hover:before:h-full hover:before:border-primary-green hover:before:transition-all hover:before:duration-500 after:border-r-[4px] after:border-b-[4px] after:border-transparent hover:after:border-primary-green after:absolute after:bottom-0 after:right-0 after:w-0 after:h-0 hover:after:w-full hover:after:h-full hover:after:transition-all hover:after:duration-500"
               >
-                <VscAccount className="  text-2xl font-extrabold text-[#253D4E]  transition-all duration-500" />
-                <h1 className="mt-1 text-sm text-[#7E7E7E] hidden md:flex">SignOut</h1>
+                <VscAccount className="  text-2xl font-extrabold text-primary-text  transition-all duration-500" />
+                <h1 className="mt-1 text-sm text-primary-gray hidden md:flex">
+                  SignOut
+                </h1>
               </button>
             </>
           ) : (
             <>
               {/* Account icon */}
               <Link to="/signin">
-                <button className="bg-[#F2FCE4] flex gap-1 items-center px-3 md:px-2 lg:px-3 py-1 md:py-2 rounded-md relative shadow-md before:absolute before:top-0 before:left-0 before:w-0 before:h-0 before:border-l-[4px] before:border-t-[4px] before:border-transparent hover:before:w-full hover:before:h-full hover:before:border-[#3BB77E] hover:before:transition-all hover:before:duration-500 after:border-r-[4px] after:border-b-[4px] after:border-transparent hover:after:border-[#3BB77E] after:absolute after:bottom-0 after:right-0 after:w-0 after:h-0 hover:after:w-full hover:after:h-full hover:after:transition-all hover:after:duration-500">
-                  <VscAccount className=" text-2xl font-extrabold text-[#253D4E] hover:text-[#3B9DF8] transition-all duration-500" />
-                  <h1 className="mt-1 text-sm text-[#7E7E7E] hidden md:flex">SignIn</h1>
+                <button className="bg-bg-honeydew flex gap-1 items-center px-3 md:px-2 lg:px-3 py-1 md:py-2 rounded-md relative shadow-md before:absolute before:top-0 before:left-0 before:w-0 before:h-0 before:border-l-[4px] before:border-t-[4px] before:border-transparent hover:before:w-full hover:before:h-full hover:before:border-primary-green hover:before:transition-all hover:before:duration-500 after:border-r-[4px] after:border-b-[4px] after:border-transparent hover:after:border-primary-green after:absolute after:bottom-0 after:right-0 after:w-0 after:h-0 hover:after:w-full hover:after:h-full hover:after:transition-all hover:after:duration-500">
+                  <VscAccount className=" text-2xl font-extrabold text-primary-text " />
+                  <h1 className="mt-1 text-sm text-primary-gray hidden md:flex">
+                    SignIn
+                  </h1>
                 </button>
               </Link>
             </>
