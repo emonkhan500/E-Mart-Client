@@ -9,7 +9,8 @@ export default {
   theme: {
     extend: {
       screens: {
-        '3xl': '1500px', 
+        'xxl': '1400px', 
+        '3xl': '1800px', 
       },
       colors: {
         'primary-green': "#3BB77E",
