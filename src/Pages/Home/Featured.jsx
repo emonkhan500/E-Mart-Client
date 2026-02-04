@@ -3,133 +3,143 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
 import "../Home/Style.css";
-import { FreeMode, Pagination } from "swiper/modules";
+import { FreeMode, Autoplay } from "swiper/modules";
 import SharedHeading from "../../Shared/ui/SharedHeading";
 
 const Featured = () => {
   return (
-    <div className="mb-3 pl-">
+    <div className="mb-0 md:mb-10 lg:mb-16 xl:mb-20 ">
       <SharedHeading title="Featured Categories" />
       <Swiper
         slidesPerView={7}
-        
         freeMode={true}
-        pagination={{
-          clickable: true,
-        }}
-        modules={[FreeMode, Pagination]}
-        className=" w-full lg:max-w-[1600px] mx-auto "
+        autoplay={{ delay: 1000, disableOnInteraction: false }}
+        modules={[FreeMode, Autoplay]}
+        loop={true}
+        className=" w-full lg:max-w-[1600px] mx-auto mt-5 lg:mt-16"
         breakpoints={{
-          320: { slidesPerView: 1.5},
-          550: { slidesPerView: 1.5}, 
-          640: { slidesPerView: 2}, 
-          770: { slidesPerView: 2.5}, 
-          1024: { slidesPerView: 4 }, 
-          1280: { slidesPerView: 4.5}, 
-          1550: { slidesPerView: 5.5 }, 
-        }}   
+          320: { slidesPerView: 1.7 },
+          375: { slidesPerView: 2 },
+          405: { slidesPerView: 2.3 },
+          470: { slidesPerView: 2.6 },
+          530: { slidesPerView: 2.9 },
+          620: { slidesPerView: 3.7 },
+          740: { slidesPerView: 3.9 },
+          765: { slidesPerView: 3 },
+          820: { slidesPerView: 3.2},
+          860: { slidesPerView: 3.5},
+          932: { slidesPerView: 3.8 },
+          1024: { slidesPerView: 4 },
+          1280: { slidesPerView: 4.5 },
+          1500: { slidesPerView: 5 },
+          1700: { slidesPerView: 6 },
+        }}
       >
         <SwiperSlide>
-          <div className="py-8 px-8 bg-bg-honeydew flex flex-col  rounded-lg ">
-            <div className="w-42 xl:w-48 h-36">
+          <div className="py-6 px-8 md:px-12 lg:px-6 xl:h-full bg-bg-honeydew flex flex-col  rounded-lg ">
+            <div className="w-42 xl:w-48 h-20 md:h-28 lg:h-48">
               <img
-              className="w-full h-full object-contain"
-              src="https://i.ibb.co/QvGkSQvq/Link-cat-13-png.png"
-              alt="Cake & Milk"
-            />
+                className="w-full h-full object-contain"
+                src="https://i.ibb.co/r2ZJTpgk/removebg-download-7.png"
+                alt="Fruits & Vegetables"
+              />
             </div>
-            <h1 className="text-base text-primary-text font-semibold px-4">
-              Cake & Milk
+            <h1 className="text-[12px] md:text-[14px] lg:text-base text-primary-text font-semibold md:px-3 lg:px-4">
+             Fruit & Vegetable
             </h1>
-            <h1 className="text-primary-gray">26 items</h1>
+            <h1 className="text-[12px] md:text-[14px] lg:text-base text-primary-gray">26 items</h1>
           </div>
         </SwiperSlide>
-       
-        
-
-        {/* <SwiperSlide>
-          <div className="  lg:py-3 bg-[#FFF3FF] flex flex-col items-center rounded-lg ">
-            <img
-              className="w-24 h-24 object-contain"
-              src="https://i.ibb.co/XxNXLFTs/Link-cat-2-png.png"
-              alt="Vegetables"
-            />
-            <h1 className="text-base text-primary-text font-semibold px-4">
-              Vegetables
-            </h1>
-            <h1 className="text-primary-gray">26 items</h1>
-          </div>
-        </SwiperSlide>
-
         <SwiperSlide>
-          <div className="  lg:py-3 bg-bg-honeydew   flex flex-col items-center rounded-lg ">
-            <img
-              className="w-24 h-24 object-contain"
-              src="https://i.ibb.co/xSVvX39n/Link-cat-3-png.png"
-              alt="Strawberry"
-            />
-            <h1 className="text-base text-primary-text font-semibold px-4">
-              Strawberry
+          <div className="py-6 px-8 md:px-12 lg:px-6 xl:px-8 xl:h-full bg-pinks flex flex-col  rounded-lg ">
+            <div className="w-42 xl:w-48 h-20 md:h-28 lg:h-48">
+              <img
+                className="w-full h-full object-contain"
+                src="https://i.ibb.co/QvGkSQvq/Link-cat-13-png.png"
+                alt="Meat & Fish"
+              />
+            </div>
+            <h1 className="text-[12px] md:text-[14px] lg:text-base text-primary-text font-semibold md:px-3 lg:px-4">
+              Meat & Fish
             </h1>
-            <h1 className="text-primary-gray">26 items</h1>
+            <h1 className="text-[12px] md:text-[14px] lg:text-base text-primary-gray">26 items</h1>
           </div>
         </SwiperSlide>
-
         <SwiperSlide>
-          <div className="  lg:py-3 bg-[#FFF3EB] flex flex-col items-center rounded-lg ">
-            <img
-              className="w-24 h-24 object-contain"
-              src="https://i.ibb.co/hJksmk92/Link-cat-4-png.png"
-              alt="Snack"
-            />
-            <h1 className="text-base text-primary-text font-semibold px-4">
-              Snack
+          <div className="py-6 px-8 md:px-12 lg:px-6 xl:px-8 xl:h-full bg-orangee flex flex-col  rounded-lg ">
+            <div className="w-42 xl:w-48 h-20 md:h-28 lg:h-48">
+              <img
+                className="w-full h-full object-contain"
+                src="https://i.ibb.co/QvGkSQvq/Link-cat-13-png.png"
+                alt="Snacks & Drinks"
+              />
+            </div>
+            <h1 className="text-[12px] md:text-[14px] lg:text-base text-primary-text font-semibold md:px-3 lg:px-4">
+              Snacks & Drinks
             </h1>
-            <h1 className="text-primary-gray">26 items</h1>
+            <h1 className="text-[12px] md:text-[14px] lg:text-base text-primary-gray">26 items</h1>
           </div>
         </SwiperSlide>
-
         <SwiperSlide>
-          <div className="  lg:py-3 bg-[#FEEFEA] flex flex-col items-center rounded-lg ">
-            <img
-              className="w-24 h-24 object-contain"
-              src="https://i.ibb.co/tMyBpB6y/Link-cat-9-png.png"
-              alt="Black Plum"
-            />
-            <h1 className="text-base text-primary-text font-semibold px-4">
-              Black Plum
+          <div className="py-6 px-8 md:px-12 lg:px-6 xl:px-8 xl:h-full bg-cream flex flex-col  rounded-lg ">
+            <div className="w-42 xl:w-48 h-20 md:h-28 lg:h-48">
+              <img
+                className="w-full h-full object-contain"
+                src="https://i.ibb.co/QvGkSQvq/Link-cat-13-png.png"
+                alt="Home & Kitchen"
+              />
+            </div>
+            <h1 className="text-[12px] md:text-[14px] lg:text-base text-primary-text font-semibold md:px-3 lg:px-4">
+              Home & Kitchen
             </h1>
-            <h1 className="text-primary-gray">26 items</h1>
+            <h1 className="text-[12px] md:text-[14px] lg:text-base text-primary-gray">26 items</h1>
           </div>
         </SwiperSlide>
-
         <SwiperSlide>
-          <div className="  lg:py-3 bg-[#FFFCEB] flex flex-col items-center rounded-lg ">
-            <img
-              className="w-24 h-24 object-contain"
-              src="https://i.ibb.co/MDcVTkCv/Link-cat-5-png.png"
-              alt="Custard"
-            />
-            <h1 className="text-base text-primary-text font-semibold px-4">
-              Custard
+          <div className="py-6 px-8 md:px-12 lg:px-6 xl:px-8 xl:h-full bg-bg-honeydew flex flex-col  rounded-lg ">
+            <div className="w-42 xl:w-48 h-20 md:h-28 lg:h-48">
+              <img
+                className="w-full h-full object-contain"
+                src="https://i.ibb.co/QvGkSQvq/Link-cat-13-png.png"
+                alt="Fashion & Beauty"
+              />
+            </div>
+            <h1 className="text-[12px] md:text-[14px] lg:text-base text-primary-text font-semibold md:px-3 lg:px-4">
+              Fashions
             </h1>
-            <h1 className="text-primary-gray">26 items</h1>
+            <h1 className="text-[12px] md:text-[14px] lg:text-base text-primary-gray">26 items</h1>
           </div>
         </SwiperSlide>
-
         <SwiperSlide>
-          <div className="  lg:py-3 bg-[#ECFFEC] flex flex-col items-center rounded-lg ">
-            <img
-              className="w-24 h-24 object-contain"
-              src="https://i.ibb.co/8FY0bdJ/Link-cat-11-png.png"
-              alt="Peach"
-            />
-            <h1 className="text-base text-primary-text font-semibold px-4">
-              Peach
+          <div className="py-6 px-8 md:px-12 lg:px-6 xl:px-8 xl:h-full bg-pinks flex flex-col  rounded-lg ">
+            <div className="w-42 xl:w-48 h-20 md:h-28 lg:h-48">
+              <img
+                className="w-full h-full object-contain"
+                src="https://i.ibb.co.com/nMGdN0qs/gadget-vendor-removebg-preview.png"
+                alt="Gadgets"
+              />
+            </div>
+            <h1 className="text-[12px] md:text-[14px] lg:text-base text-primary-text font-semibold md:px-3 lg:px-4">
+              Gadgets
             </h1>
-            <h1 className="text-primary-gray">26 items</h1>
+            <h1 className="text-[12px] md:text-[14px] lg:text-base text-primary-gray">26 items</h1>
           </div>
-        </SwiperSlide> */}
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="py-6 px-8 md:px-12 lg:px-6 xl:px-8 xl:h-full bg-cream flex flex-col  rounded-lg ">
+            <div className="w-42 xl:w-48 h-20 md:h-28 lg:h-48">
+              <img
+                className="w-full h-full object-contain"
+                src="https://i.ibb.co/wrbvHNcw/removebg-imagess.png"
+                alt="Sports"
+              />
+            </div>
+            <h1 className="text-[12px] md:text-[14px] lg:text-base text-primary-text font-semibold md:px-3 lg:px-4">
+              Sports
+            </h1>
+            <h1 className="text-[12px] md:text-[14px] lg:text-base text-primary-gray">26 items</h1>
+          </div>
+        </SwiperSlide>
       </Swiper>
     </div>
   );
