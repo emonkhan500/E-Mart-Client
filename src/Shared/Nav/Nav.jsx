@@ -1,9 +1,6 @@
 import { useContext, useState } from "react";
 import logo from "../../assets/logo.svg";
-
-// React icons
 import { IoIosSearch } from "react-icons/io";
-
 import { useQuery } from "@tanstack/react-query";
 import { CiHeart, CiLocationOn } from "react-icons/ci";
 import { IoCartOutline } from "react-icons/io5";
@@ -144,10 +141,10 @@ const Nav = () => {
           {/* Search bar */}
           <div className="relative hidden md:flex items-center justify-center md:ml-2  xl:ml-8">
             <input
-              className="md:w-[270px] lg:w-[300px] xl:w-[600px] py-3 pl-2 lg:pl-10 xl:pl-20  border-2 border-primary-green  outline-none"
+              className="md:w-[270px] lg:w-[300px] xxl:w-[600px] py-3 pl-2 lg:pl-10 xl:pl-20  border-2 border-primary-green  outline-none"
               placeholder="Search For Items..."
             />
-            <IoIosSearch className="hidden lg:flex absolute top-[14px] lg:left-[250px] xl:left-[480px] text-secondary-text text-[1.3rem]" />
+            <IoIosSearch className="hidden lg:flex absolute top-[14px] lg:left-[250px] xxl:left-[480px] text-secondary-text text-[1.3rem]" />
           </div>
         </div>
 
@@ -161,13 +158,13 @@ const Nav = () => {
         <div className="flex items-center gap-1 md:gap-1 lg:gap-3">
           {/* Wishlist icon */}
           <Link to="/wish">
-            <div className="flex gap-2  bg-bg-honeydew   px-3 md:px-2 lg:px-3 py-1 md:py-2 rounded-md  lg:gap-2 items-center shadow-md">
+            <div className="flex gap-2  bg-bg-honeydew  px-2 small:px-3 md:px-2 lg:px-3 py-1 md:py-2 rounded-md  lg:gap-2 items-center shadow-md">
               <div className="indicator">
                 <span className="indicator-item rounded-full bg-primary-green text-xs px-1 text-white">
                   {wishedProduct?.length || 0}
                 </span>
                 <button>
-                  <CiHeart className="text-2xl font-extrabold text-primary-text hover:text-primary-green transition-all duration-500" />
+                  <CiHeart className="text-xl small:text-2xl font-extrabold text-primary-text hover:text-primary-green" />
                 </button>
               </div>
               <h1 className="mt-1 text-sm text-primary-gray hidden lg:flex">
@@ -178,13 +175,13 @@ const Nav = () => {
 
           {/* Cart icon */}
           <Link to="/cart">
-            <div className="flex gap-2  bg-bg-honeydew   px-3 md:px-2 lg:px-3 py-1 md:py-2 rounded-md  lg:gap-2 items-center shadow-md">
+            <div className="flex gap-2  bg-bg-honeydew px-2 small:px-3 md:px-2 lg:px-3 py-1 md:py-2 rounded-md  lg:gap-2 items-center shadow-md">
               <div className="indicator">
                 <span className="indicator-item rounded-full bg-primary-green text-xs px-1 text-white">
                   6
                 </span>
                 <button>
-                  <IoCartOutline className="text-2xl font-extrabold text-primary-text hover:text-primary-green transition-all duration-500" />
+                  <IoCartOutline className="text-xl small:text-2xl font-extrabold text-primary-text hover:text-primary-green" />
                 </button>
               </div>
               <h1 className="mt-1 text-sm text-primary-gray hidden lg:flex">
@@ -195,10 +192,10 @@ const Nav = () => {
 
           {/* Dashboard */}
           <Link to="/dashboard">
-            <div className="flex gap-2  bg-bg-honeydew   px-3 md:px-2 lg:px-3 py-1 md:py-2 rounded-md  lg:gap-2 items-center shadow-md">
+            <div className="flex gap-2  bg-bg-honeydew px-2 small:px-3 md:px-2 lg:px-3 py-1 md:py-2 rounded-md  lg:gap-2 items-center shadow-md">
               <div className="indicator">
                 <button>
-                  <MdOutlineDashboard className="text-2xl font-extrabold text-primary-text hover:text-primary-green transition-all duration-500" />
+                  <MdOutlineDashboard className="text-xl small:text-2xl font-extrabold text-primary-text hover:text-primary-green" />
                 </button>
               </div>
               <h1 className="mt-1 text-sm text-primary-gray hidden md:flex">
