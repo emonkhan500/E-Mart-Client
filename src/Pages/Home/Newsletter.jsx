@@ -2,12 +2,12 @@ import news from "../../assets/banner-9.png.png";
 
 const Newsletter = () => {
   return (
-    <div className="mt-3 rounded md:my-7 px-3  md:px-6 md:h-[400px]  md:flex items-center lg:gap-14 justify-center quick bg-primary-border">
+    <div className="mt-16 md:mt-3 rounded md:my-7 px-3  md:px-6 md:h-[400px]  md:flex items-center lg:gap-14 justify-center quick bg-primary-border">
       <div className="lg:w-3/4 pt-3 md:pt-0 md:px-4 space-y-3">
-        <h1 className="font-bold text-center md:text-start text-2xl md:text-3xl lg:text-5xl text-primary-text ">
+        <h1 className="font-bold text-center md:text-start text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-primary-text ">
           Stay home & get your daily needs from our shop
         </h1>
-        <p className="text-primary-gray lg:text-lg text-center md:text-start">
+        <p className="text-primary-gray text-sm md:text-lg text-center md:text-start">
           Start You'r Daily Shopping with{" "}
           <span className="text-primary-green">E-Mart</span>
         </p>
@@ -17,7 +17,7 @@ const Newsletter = () => {
             type="text"
             placeholder=" Enter Your Email"
           />
-          <button className="bg-primary-green text-white rounded-r-3xl py-1 md:py-2 lg:py-4 text-base px-1 lg:px-4">
+          <button className="bg-primary-green text-white rounded-r-3xl py-1 md:py-2 lg:py-4 text-base px-2 lg:px-4">
             Subscribe
           </button>
         </div>
