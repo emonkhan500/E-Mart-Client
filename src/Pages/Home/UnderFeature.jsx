@@ -1,63 +1,49 @@
 import { Link } from "react-router-dom";
 
+const underFeatureBanners = [
+  {
+    id: 1,
+    title: "Everyday Fresh & Clean with Our Products",
+    image: "https://i.ibb.co.com/WvNkDjHd/banner-1-png.png",
+    link: "/shop",
+  },
+  {
+    id: 2,
+    title: "Make your Breakfast Healthy and Easy",
+    image: "https://i.ibb.co.com/jvvLydBd/banner-2-png.png",
+    link: "/shop",
+  },
+  {
+    id: 3,
+    title: "The best Organic Products Online",
+    image: "https://i.ibb.co.com/pjCwt3KD/banner-3-png.png",
+    link: "/shop",
+  },
+];
+
 const UnderFeature = () => {
   return (
-    <div>
-      <div className="quick grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-3 mt-2">
-        <div
-          className="relative w-full  h-[250px]  bg-cover bg-center flex items-center p-2  rounded-lg shadow-md"
-          style={{
-            backgroundImage:
-              "url('https://i.ibb.co.com/WvNkDjHd/banner-1-png.png')",
-          }}
-        >
-          <div className="bg-white bg-opacity-5 p-4 rounded-lg w-1/2 ">
-            <h2 className="text-lg font-semibold text-gray-800">
-              Everyday Fresh & Clean with Our Products
-            </h2>
-            <Link to="/shop">
-              <button className="mt-4 px-4 py-2 bg-primary-green  text-white rounded hover:bg-primary-green">
-                Shop Now →
-              </button>
-            </Link>
+    <div className="mt-2">
+      <div className="quick grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+        {underFeatureBanners.map((item) => (
+          <div
+            key={item.id}
+            className="relative w-full h-[250px] bg-cover bg-center flex items-center p-2 rounded-lg shadow-md"
+            style={{ backgroundImage: `url(${item.image})` }}
+          >
+            <div className="bg-white/5 xl:p-4 rounded-lg w-1/2">
+              <h2 className="text-sm small:text-lg font-semibold text-gray-800">
+                {item.title}
+              </h2>
+
+              <Link to={item.link}>
+                <button className="mt-4 px-2 small:px-4 py-2 text-sm small:text-base bg-primary-green text-white rounded hover:bg-primary-green">
+                  Shop Now →
+                </button>
+              </Link>
+            </div>
           </div>
-        </div>
-        <div
-          className="relative w-full h-[250px]  bg-cover bg-center flex items-center p-2 rounded-lg shadow-md"
-          style={{
-            backgroundImage:
-              "url('https://i.ibb.co.com/jvvLydBd/banner-2-png.png')",
-          }}
-        >
-          <div className="bg-white bg-opacity-5 p-4 rounded-lg w-1/2">
-            <h2 className="text-lg font-semibold text-gray-800">
-              Make your Breakfast Healthy and Easy
-            </h2>
-            <Link to="/shop">
-              <button className="mt-4  px-4 py-2 bg-primary-green  text-white rounded hover:bg-primary-green">
-                Shop Now →
-              </button>
-            </Link>
-          </div>
-        </div>
-        <div
-          className="relative w-full h-[250px]  bg-cover bg-center flex items-center p-2  rounded-lg shadow-md"
-          style={{
-            backgroundImage:
-              "url('https://i.ibb.co.com/pjCwt3KD/banner-3-png.png')",
-          }}
-        >
-          <div className="bg-white bg-opacity-5 p-4 rounded-lg w-1/2">
-            <h2 className="text-lg font-semibold text-gray-800">
-              The best Organic Products Online
-            </h2>
-            <Link to="/shop">
-              <button className="mt-4  px-4 py-2 bg-primary-green  text-white rounded hover:bg-primary-green">
-                Shop Now →
-              </button>
-            </Link>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );
