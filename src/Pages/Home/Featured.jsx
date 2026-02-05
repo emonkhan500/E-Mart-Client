@@ -85,7 +85,7 @@ const Featured = () => {
             <div className="w-42 xl:w-48 h-20 md:h-28 lg:h-48">
               <img
                 className="w-full h-full object-contain"
-                src="https://i.ibb.co/QvGkSQvq/Link-cat-13-png.png"
+                src="https://i.ibb.co/gZqpnq8y/removebg-download-7-1.png"
                 alt="Home & Kitchen"
               />
             </div>
