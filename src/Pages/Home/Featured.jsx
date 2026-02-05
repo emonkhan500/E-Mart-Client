@@ -31,7 +31,7 @@ const featuredCategories = [
     img: "https://i.ibb.co/d095bCFW/removebg-images-2.png",
     alt: "Snacks & Drinks",
   },
-    {
+  {
     id: 4,
     title: "Fashions",
     items: "26 items",
@@ -80,7 +80,7 @@ const Featured = () => {
           disableOnInteraction: false,
         }}
         modules={[FreeMode, Autoplay]}
-        className="w-full lg:max-w-[1600px] mx-auto mt-5 lg:mt-16"
+        className="w-full lg:max-w-[1650px] mx-auto mt-5 lg:mt-16 "
         breakpoints={{
           320: { slidesPerView: 1.7 },
           375: { slidesPerView: 2 },

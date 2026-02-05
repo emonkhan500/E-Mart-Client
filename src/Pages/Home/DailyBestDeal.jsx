@@ -1,355 +1,158 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-
 import { Link } from "react-router-dom";
-// Import Swiper styles
+import { Autoplay, FreeMode} from "swiper/modules";
+import { FaShoppingCart } from "react-icons/fa";
+
 import "swiper/css";
 import "swiper/css/free-mode";
-import "swiper/css/pagination";
+import "./DealStyle.css";
 
-import "../Home/Style.css";
+import SharedHeading from "../../Shared/ui/SharedHeading";
 
-// import required modules
-import { FaShoppingCart } from "react-icons/fa";
-import { FreeMode, Pagination } from "swiper/modules";
+const products = [
+  {
+    id: 1,
+    img: "https://i.ibb.co.com/LXM7jQh1/Link-product-3-1-jpg.png",
+    category: "Snack",
+    title: "Seeds of Change Organic Quinoa, Brown & Rice",
+    brand: "NestFood",
+    price: "$28.85",
+    rating: 2,
+  },
+  {
+    id: 2,
+    img: "https://i.ibb.co.com/XGHHcq9/Link-product-6-1-jpg.png",
+    category: "Snack",
+    title: "Chobani Complete Vanilla Greek Yogurt",
+    brand: "NestFood",
+    price: "$28.85",
+    rating: 3,
+  },
+  {
+    id: 3,
+    img: "https://i.ibb.co.com/wFYG567R/Link-product-7-1-jpg.png",
+    category: "Snack",
+    title: "Seeds of Change Organic Quinoa, Brown & Rice",
+    brand: "NestFood",
+    price: "$28.85",
+    rating: 4,
+  },
+  {
+    id: 4,
+    img: "https://i.ibb.co.com/LdyQtCbZ/Link-product-8-1-jpg.png",
+    category: "Snack",
+    title: "Canada Dry Ginger Ale – 2 L Bottle",
+    brand: "NestFood",
+    price: "$28.85",
+    rating: 5,
+  },
+  {
+    id: 5,
+    img: "https://i.ibb.co.com/F4BntgjP/Link-product-9-1-jpg.png",
+    category: "Snack",
+    title: "Gorton’s Beer Battered Fish Fillets",
+    brand: "Old El Paso",
+    price: "$28.85",
+    rating: 3,
+  },
+];
 
 const DailyBestDeal = () => {
   return (
-    <div className="">
-      <div className=" my-4  pt-8 lg:pt-24 text-center">
-        <h1 className="text-primary-text text-2xl md:text-4xl font-bold">
-          Daily Best Sells
-        </h1>
-      </div>
-      <div className="flex justify-center mt-3 pr-7 mb-8">
-        <img
-          className=""
-          src="https://i.ibb.co.com/1JBhBjNq/underheading.png "
-          alt=""
-        />
-      </div>
-      {/* main */}
-      <div className="flex justify-center gap-4">
+    <div className="mt-10">
+      <SharedHeading title="Daily Best Deals" />
+
+      <div className="flex gap-4">
+        {/* Left Banner */}
         <div
-          className="  hidden md:flex relative  w-[450px] md:h-[500px] lg:h-[552px]  bg-cover bg-center items-center p-2  rounded-lg shadow-md"
+          className="hidden md:flex relative w-[450px] md:h-[500px] lg:h-[502px] bg-cover bg-center items-center p-6 rounded-lg"
           style={{
             backgroundImage: "url('https://i.ibb.co.com/DHppj7Yn/leaf.png')",
           }}
         >
-          <div className="bg-white bg-opacity-0 rounded-lg  ">
-            <h2 className="lato md:text-4xl lg:text-5xl font-semibold text-primary-text -mt-16">
+          <div>
+            <h2 className="lato md:text-4xl lg:text-5xl font-semibold text-primary-text">
               Bring nature into your home
             </h2>
+
             <Link to="/shop">
-              <button className="mt-32 px-4 py-2 ml-6 bg-primary-green  text-white rounded hover:bg-primary-green">
+              <button className="mt-10 px-4 py-2 bg-primary-green text-white rounded">
                 Shop Now →
               </button>
             </Link>
           </div>
         </div>
+
+        {/* Swiper */}
         <Swiper
-          slidesPerView={10}
-          spaceBetween={1}
-          freeMode={true}
-          pagination={{
-            clickable: true,
-          }}
-          modules={[FreeMode, Pagination]}
-          className="mySwiper w-full  mx-auto lg:pl-7"
+          freeMode
+          modules={[FreeMode,Autoplay]}
+          autoplay={{ delay: 1000, disableOnInteraction: false }}
+          loop={true}
+          className="w-full lg:pl-6 h-full"
           breakpoints={{
-            320: { slidesPerView: 1, spaceBetween: 2 }, // Mobile (sm)
-            550: { slidesPerView: 1, spaceBetween: 3 }, // Small tablets
-            640: { slidesPerView: 2, spaceBetween: 4 }, // Tablets
-            770: { slidesPerView: 2, spaceBetween: 5 }, // Small laptops
-            1024: { slidesPerView: 3, spaceBetween: 10 }, // Standard laptops (adjusted)
-            1280: { slidesPerView: 4, spaceBetween: 12 }, // Large laptops
-            1440: { slidesPerView: 4, spaceBetween: 10 }, // Widescreen monitors
+            320: { slidesPerView: 1 },
+            640: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+            1280: { slidesPerView: 4 },
           }}
         >
-          <SwiperSlide>
-            <div className="text-start w-full border border-border rounded-lg  shadow mx-auto">
-              <div className="flex ">
-                <img
-                  src="https://i.ibb.co.com/LXM7jQh1/Link-product-3-1-jpg.png"
-                  alt="Product"
-                />
-              </div>
-              <div>
-                <div className="px-4">
-                  <p className="text-secondary-gray">Snack</p>
-                  <h1 className="quick md:text-lg lg:text-xl font-bold text-primary-text mt-1 mb-2">
-                    Seeds of Change Organic Quinoa, Brown & Rice
-                  </h1>
-                  <p>
-                    By <span className="text-primary-green">NestFood</span>
+          {products.map((item) => (
+            <SwiperSlide key={item.id} className="h-full flex">
+              <div className="h-full w-full rounded-lg flex flex-col bg-white shadow-sm">
+
+                {/* Image */}
+                <div className="h-60 flex items-center justify-center p-2">
+                  <img
+                    src={item.img}
+                    alt={item.title}
+                    className="max-h-full object-contain"
+                  />
+                </div>
+
+                {/* Content */}
+                <div className="px-4 py-2 flex flex-col flex-1">
+                  <p className="text-secondary-gray text-sm">
+                    {item.category}
                   </p>
-                  <div className="rating mt-2">
-                    <input
-                      type="radio"
-                      name="rating-1"
-                      className="mask mask-star bg-orange"
-                    />
-                    <input
-                      type="radio"
-                      name="rating-1"
-                      className="mask mask-star bg-orange"
-                      defaultChecked
-                    />
-                    <input
-                      type="radio"
-                      name="rating-1"
-                      className="mask mask-star"
-                    />
-                    <input
-                      type="radio"
-                      name="rating-1"
-                      className="mask mask-star"
-                    />
-                    <input
-                      type="radio"
-                      name="rating-1"
-                      className="mask mask-star"
-                    />
-                  </div>
-                  <h1 className="text-primary-green text-lg font-semibold">
-                    $28.85
-                  </h1>
-                </div>
-                <div className="  mt-2 ">
-                  <button className="w-full flex items-center justify-center gap-2 px-3 py-2 rounded bg-primary-green text-white">
-                    <FaShoppingCart /> Add To cart
-                  </button>
-                </div>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="text-start w-full border border-border rounded-lg  shadow mx-auto">
-              <div className="flex ">
-                <img
-                  src="https://i.ibb.co.com/XGHHcq9/Link-product-6-1-jpg.png"
-                  alt="Product"
-                />
-              </div>
-              <div>
-                <div className="px-4">
-                  <p className="text-secondary-gray">Snack</p>
-                  <h1 className="quick text-xl font-bold text-primary-text mt-1 mb-2">
-                    Chobani Complete Vanilla Greek Yogurt
-                  </h1>
-                  <p>
-                    By <span className="text-primary-green">NestFood</span>
+
+                  <h2 className="quick text-lg font-bold text-primary-text mt-1 mb-2">
+                    {item.title}
+                  </h2>
+
+                  <p className="text-sm">
+                    By{" "}
+                    <span className="text-primary-green font-medium">
+                      {item.brand}
+                    </span>
                   </p>
+
+                  {/* Rating */}
                   <div className="rating mt-2">
-                    <input
-                      type="radio"
-                      name="rating-1"
-                      className="mask mask-star bg-orange"
-                    />
-                    <input
-                      type="radio"
-                      name="rating-1"
-                      className="mask mask-star bg-orange"
-                      defaultChecked
-                    />
-                    <input
-                      type="radio"
-                      name="rating-1"
-                      className="mask mask-star"
-                    />
-                    <input
-                      type="radio"
-                      name="rating-1"
-                      className="mask mask-star"
-                    />
-                    <input
-                      type="radio"
-                      name="rating-1"
-                      className="mask mask-star"
-                    />
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <input
+                        key={star}
+                        type="radio"
+                        name={`rating-${item.id}`}
+                        className="mask mask-star bg-orange w-4 h-4"
+                        defaultChecked={star === item.rating}
+                      />
+                    ))}
                   </div>
-                  <h1 className="text-primary-green text-lg font-semibold">
-                    $28.85
-                  </h1>
+
+                  <h3 className="text-primary-green text-lg font-semibold mt-2">
+                    {item.price}
+                  </h3>
                 </div>
-                <div className="  mt-2 ">
-                  <button className="w-full flex items-center justify-center gap-2 px-3 py-2 rounded bg-primary-green text-white">
-                    <FaShoppingCart /> Add To cart
-                  </button>
-                </div>
+
+                {/* Button */}
+                <button className="mt-auto w-full flex items-center justify-center gap-2 px-3 py-2 rounded-b-lg bg-primary-green text-white">
+                  <FaShoppingCart /> Add To Cart
+                </button>
+
               </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="text-start w-full border border-border rounded-lg  shadow mx-auto">
-              <div className="flex ">
-                <img
-                  src="https://i.ibb.co.com/wFYG567R/Link-product-7-1-jpg.png"
-                  alt="Product"
-                />
-              </div>
-              <div>
-                <div className="px-4">
-                  <p className="text-secondary-gray">Snack</p>
-                  <h1 className="quick text-xl font-bold text-primary-text mt-1 mb-2">
-                    Seeds of Change Organic Quinoa, Brown & Rice
-                  </h1>
-                  <p>
-                    By <span className="text-primary-green">NestFood</span>
-                  </p>
-                  <div className="rating mt-2">
-                    <input
-                      type="radio"
-                      name="rating-1"
-                      className="mask mask-star bg-orange"
-                    />
-                    <input
-                      type="radio"
-                      name="rating-1"
-                      className="mask mask-star bg-orange"
-                      defaultChecked
-                    />
-                    <input
-                      type="radio"
-                      name="rating-1"
-                      className="mask mask-star"
-                    />
-                    <input
-                      type="radio"
-                      name="rating-1"
-                      className="mask mask-star"
-                    />
-                    <input
-                      type="radio"
-                      name="rating-1"
-                      className="mask mask-star"
-                    />
-                  </div>
-                  <h1 className="text-primary-green text-lg font-semibold">
-                    $28.85
-                  </h1>
-                </div>
-                <div className="  mt-2 ">
-                  <button className="w-full flex items-center justify-center gap-2 px-3 py-2 rounded bg-primary-green text-white">
-                    <FaShoppingCart /> Add To cart
-                  </button>
-                </div>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="text-start w-full border border-border rounded-lg  shadow mx-auto">
-              <div className="flex ">
-                <img
-                  src="https://i.ibb.co.com/LdyQtCbZ/Link-product-8-1-jpg.png"
-                  alt="Product"
-                />
-              </div>
-              <div>
-                <div className="px-4">
-                  <p className="text-secondary-gray">Snack</p>
-                  <h1 className="quick text-xl font-bold text-primary-text mt-1 mb-2">
-                    Canada Dry Ginger Ale – 2 L Bottle - 200ml - 400g
-                  </h1>
-                  <p>
-                    By <span className="text-primary-green">NestFood</span>
-                  </p>
-                  <div className="rating mt-2">
-                    <input
-                      type="radio"
-                      name="rating-1"
-                      className="mask mask-star bg-orange"
-                    />
-                    <input
-                      type="radio"
-                      name="rating-1"
-                      className="mask mask-star bg-orange"
-                      defaultChecked
-                    />
-                    <input
-                      type="radio"
-                      name="rating-1"
-                      className="mask mask-star"
-                    />
-                    <input
-                      type="radio"
-                      name="rating-1"
-                      className="mask mask-star"
-                    />
-                    <input
-                      type="radio"
-                      name="rating-1"
-                      className="mask mask-star"
-                    />
-                  </div>
-                  <h1 className="text-primary-green text-lg font-semibold">
-                    $28.85
-                  </h1>
-                </div>
-                <div className="  mt-2 ">
-                  <button className="w-full flex items-center justify-center gap-2 px-3 py-2 rounded bg-primary-green text-white">
-                    <FaShoppingCart /> Add To cart
-                  </button>
-                </div>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="text-start w-full border border-border rounded-lg  shadow mx-auto">
-              <div className="flex ">
-                <img
-                  src="https://i.ibb.co.com/F4BntgjP/Link-product-9-1-jpg.png"
-                  alt="Product"
-                />
-              </div>
-              <div>
-                <div className="px-4">
-                  <p className="text-secondary-gray">Snack</p>
-                  <h1 className="quick text-xl font-bold text-primary-text mt-1 mb-2">
-                    Gorton’s Beer Battered Fish Fillets with soft paper
-                  </h1>
-                  <p>
-                    By <span className="text-primary-green">Old El Paso</span>
-                  </p>
-                  <div className="rating mt-2">
-                    <input
-                      type="radio"
-                      name="rating-1"
-                      className="mask mask-star bg-orange"
-                    />
-                    <input
-                      type="radio"
-                      name="rating-1"
-                      className="mask mask-star bg-orange"
-                      defaultChecked
-                    />
-                    <input
-                      type="radio"
-                      name="rating-1"
-                      className="mask mask-star"
-                    />
-                    <input
-                      type="radio"
-                      name="rating-1"
-                      className="mask mask-star"
-                    />
-                    <input
-                      type="radio"
-                      name="rating-1"
-                      className="mask mask-star"
-                    />
-                  </div>
-                  <h1 className="text-primary-green text-lg font-semibold">
-                    $28.85
-                  </h1>
-                </div>
-                <div className="  mt-2 ">
-                  <button className="w-full flex items-center justify-center gap-2 px-3 py-2 rounded bg-primary-green text-white">
-                    <FaShoppingCart /> Add To cart
-                  </button>
-                </div>
-              </div>
-            </div>
-          </SwiperSlide>
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
     </div>

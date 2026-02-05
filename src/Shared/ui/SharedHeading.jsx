@@ -5,7 +5,7 @@ const SharedHeading = ({ title }) => {
         {title}
       </h1>
 
-      <div className="flex justify-center mt-3 pr-7 mb-0 md:mb-8 z-10">
+      <div className="flex justify-center mt-3 pr-7 mb-0 md:mb-8 ">
         <img
           src="https://i.ibb.co.com/1JBhBjNq/underheading.png"
           alt="heading underline"

@@ -48,11 +48,7 @@ const DealsOfDay = () => {
           <div className="relative" key={item.id}>
             <img src={item.banner} alt={item.title} className="w-full" />
 
-            <div
-              className="absolute bg-white rounded shadow px-3 py-1
-                  -bottom-12 left-1/2 -translate-x-1/2 
-                  w-[90%]"
-            >
+            <div className="absolute bg-white rounded shadow px-3 py-1 -bottom-12 left-1/2 -translate-x-1/2 w-[90%]">
               <h1 className="quick text-base md:text-xl font-bold text-primary-text mt-1 mb-2">
                 {item.title}
               </h1>
