@@ -1,178 +1,93 @@
 import { FaShoppingCart } from "react-icons/fa";
+import SharedHeading from "../../Shared/ui/SharedHeading";
+
+const dealsData = [
+  {
+    id: 1,
+    banner: "https://i.ibb.co.com/fzsPYRrY/banner-5-png.png",
+    title: "Seeds of Change Organic Quinoa, Brown & Rice",
+    brand: "NestFood",
+    price: "$28.85",
+    rating: 2,
+  },
+  {
+    id: 2,
+    banner: "https://i.ibb.co.com/B5fR598G/banner-6-png.png",
+    title: "Seeds of Change Organic Quinoa, Brown & Rice",
+    brand: "NestFood",
+    price: "$28.85",
+    rating: 2,
+  },
+  {
+    id: 3,
+    banner: "https://i.ibb.co.com/fzsPYRrY/banner-5-png.png",
+    title: "Seeds of Change Organic Quinoa, Brown, & Red Rice",
+    brand: "NestFood",
+    price: "$28.85",
+    rating: 2,
+  },
+  {
+    id: 4,
+    banner: "https://i.ibb.co.com/wF3gMBGG/banner-8-png.png",
+    title: "Seeds of Change Organic Quinoa, Brown, & Red Rice",
+    brand: "NestFood",
+    price: "$28.85",
+    rating: 2,
+  },
+];
 
 const DealsOfDay = () => {
   return (
-    <div className="mt-16">
-      <div className="md:my-7 my-4 pt-8 lg:pt-24 text-center">
-        <h1 className="text-primary-text text-2xl md:text-4xl font-bold">
-          Deals Of The Day
-        </h1>
-        <div className="flex justify-center mt-3 pr-7 mb-10">
-          <img
-            className=""
-            src="https://i.ibb.co.com/1JBhBjNq/underheading.png "
-            alt=""
-          />
-        </div>
-      </div>
-      {/* deals div */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 ">
-        {/* 1 */}
-        <div>
-          <div>
-            <img src="https://i.ibb.co.com/fzsPYRrY/banner-5-png.png" alt="" />
-          </div>
-          {/* relative div */}
-          <div className="relative w-11/12 md:w-10/12 lg:w-[280px] xl:w-[320px] bg-white rounded shadow px-3 py-1 -top-24 left-3">
-            <h1 className="quick text-xl font-bold text-primary-text mt-1 mb-2">
-              Seeds of Change Organic Quinoa, Brown & Rice
-            </h1>
-            <p>
-              By <span className="text-primary-green">NestFood</span>
-            </p>
-            <div className="rating mt-2">
-              <input
-                type="radio"
-                name="rating-1"
-                className="mask mask-star bg-orange"
-              />
-              <input
-                type="radio"
-                name="rating-1"
-                className="mask mask-star bg-orange"
-                defaultChecked
-              />
-              <input type="radio" name="rating-1" className="mask mask-star " />
-              <input type="radio" name="rating-1" className="mask mask-star " />
-              <input type="radio" name="rating-1" className="mask mask-star " />
-            </div>
-            <div className="flex justify-between items-center px-6 mt-2 mb-2">
-              <h1 className="text-primary-green text-lg font-semibold">
-                $28.85
+    <div className="my-10 md:my-20 ">
+      {/* Heading */}
+      <SharedHeading title="Deals Of The Day" />
+
+      {/* Deals Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-4 gap-y-20 mt-6">
+        {dealsData.map((item) => (
+          <div className="relative" key={item.id}>
+            <img src={item.banner} alt={item.title} className="w-full" />
+
+            <div
+              className="absolute bg-white rounded shadow px-3 py-1
+                  -bottom-12 left-1/2 -translate-x-1/2 
+                  w-[90%]"
+            >
+              <h1 className="quick text-base md:text-xl font-bold text-primary-text mt-1 mb-2">
+                {item.title}
               </h1>
-              <button className="flex items-center justify-center gap-2 px-3 py-2 rounded bg-primary-border text-primary-green">
-                <FaShoppingCart /> Add
-              </button>
+
+              <div className="flex justify-between items-center">
+                <p className="text-sm md:text-base">
+                  By <span className="text-primary-green">{item.brand}</span>
+                </p>
+
+                <div className="rating ">
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <input
+                      key={star}
+                      type="radio"
+                      name={`rating-${item.id}`}
+                      className="mask mask-star bg-orange 
+                 w-4 h-4 md:w-5 md:h-5"
+                      defaultChecked={star === item.rating}
+                    />
+                  ))}
+                </div>
+              </div>
+
+              <div className="flex justify-between items-center px-6 mt-4 mb-2">
+                <h1 className="text-primary-green text-lg font-semibold">
+                  {item.price}
+                </h1>
+
+                <button className="flex items-center gap-2 px-3 py-2 rounded bg-primary-border text-primary-green">
+                  <FaShoppingCart /> Add
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-        {/* 2 */}
-        <div>
-          <div>
-            <img src="https://i.ibb.co.com/B5fR598G/banner-6-png.png" alt="" />
-          </div>
-          {/* relative div */}
-          <div className="relative w-11/12 lg:w-[280px] xl:w-[320px] bg-white rounded shadow px-3 py-1 -top-24 left-3">
-            <h1 className="quick text-xl font-bold text-primary-text mt-1 mb-2">
-              Seeds of Change Organic Quinoa, Brown & Rice
-            </h1>
-            <p>
-              By <span className="text-primary-green">NestFood</span>
-            </p>
-            <div className="rating mt-2">
-              <input
-                type="radio"
-                name="rating-1"
-                className="mask mask-star bg-orange"
-              />
-              <input
-                type="radio"
-                name="rating-1"
-                className="mask mask-star bg-orange"
-                defaultChecked
-              />
-              <input type="radio" name="rating-1" className="mask mask-star " />
-              <input type="radio" name="rating-1" className="mask mask-star " />
-              <input type="radio" name="rating-1" className="mask mask-star " />
-            </div>
-            <div className="flex justify-between items-center px-6 mt-2 mb-2">
-              <h1 className="text-primary-green text-lg font-semibold">
-                $28.85
-              </h1>
-              <button className="flex items-center justify-center gap-2 px-3 py-2 rounded bg-primary-border text-primary-green">
-                <FaShoppingCart /> Add
-              </button>
-            </div>
-          </div>
-        </div>
-        {/* 3 */}
-        <div>
-          <div>
-            <img src="https://i.ibb.co.com/fzsPYRrY/banner-5-png.png" alt="" />
-          </div>
-          {/* relative div */}
-          <div className="relative w-11/12 lg:w-[280px] xl:w-[320px] bg-white rounded shadow px-3 py-1 -top-24 left-3">
-            <h1 className="quick text-xl font-bold text-primary-text mt-1 mb-2">
-              Seeds of Change Organic Quinoa, Brown, & Red Rice
-            </h1>
-            <p>
-              By <span className="text-primary-green">NestFood</span>
-            </p>
-            <div className="rating mt-2">
-              <input
-                type="radio"
-                name="rating-1"
-                className="mask mask-star bg-orange"
-              />
-              <input
-                type="radio"
-                name="rating-1"
-                className="mask mask-star bg-orange"
-                defaultChecked
-              />
-              <input type="radio" name="rating-1" className="mask mask-star " />
-              <input type="radio" name="rating-1" className="mask mask-star " />
-              <input type="radio" name="rating-1" className="mask mask-star " />
-            </div>
-            <div className="flex justify-between items-center px-6 mt-2 mb-2">
-              <h1 className="text-primary-green text-lg font-semibold">
-                $28.85
-              </h1>
-              <button className="flex items-center justify-center gap-2 px-3 py-2 rounded bg-primary-border text-primary-green">
-                <FaShoppingCart /> Add
-              </button>
-            </div>
-          </div>
-        </div>
-        {/* 4 */}
-        <div>
-          <div>
-            <img src="https://i.ibb.co.com/wF3gMBGG/banner-8-png.png" alt="" />
-          </div>
-          {/* relative div */}
-          <div className="relative w-11/12 lg:w-[280px] xl:w-[320px] bg-white rounded shadow px-3 py-1 -top-24 left-3">
-            <h1 className="quick text-xl font-bold text-primary-text mt-1 mb-2">
-              Seeds of Change Organic Quinoa, Brown, & Red Rice
-            </h1>
-            <p>
-              By <span className="text-primary-green">NestFood</span>
-            </p>
-            <div className="rating mt-2">
-              <input
-                type="radio"
-                name="rating-1"
-                className="mask mask-star bg-orange"
-              />
-              <input
-                type="radio"
-                name="rating-1"
-                className="mask mask-star bg-orange"
-                defaultChecked
-              />
-              <input type="radio" name="rating-1" className="mask mask-star " />
-              <input type="radio" name="rating-1" className="mask mask-star " />
-              <input type="radio" name="rating-1" className="mask mask-star " />
-            </div>
-            <div className="flex justify-between items-center px-6 mt-2 mb-2">
-              <h1 className="text-primary-green text-lg font-semibold">
-                $28.85
-              </h1>
-              <button className="flex items-center justify-center gap-2 px-3 py-2 rounded bg-primary-border text-primary-green">
-                <FaShoppingCart /> Add
-              </button>
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );
