@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 const ShareHead = ({ pageTitle }) => {
   return (
-    <div>
+    
       <div
-        className="quick relative bg-cover bg-center h-[150px] md:h-[200px]  items-center p-2 rounded-lg shadow-md"
+        className="quick relative bg-cover bg-center h-[150px] md:h-[200px]  items-center p-2 rounded-lg shadow-md mb-4"
         style={{
           backgroundImage: "url('https://i.ibb.co.com/rfsYk1jf/header-bg.png')",
         }}
@@ -26,7 +26,7 @@ const ShareHead = ({ pageTitle }) => {
           </h1>
         </div>
       </div>
-    </div>
+ 
   );
 };
 

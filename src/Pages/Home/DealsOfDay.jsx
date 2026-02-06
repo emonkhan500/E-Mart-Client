@@ -1,5 +1,5 @@
 import { FaShoppingCart } from "react-icons/fa";
-import SharedHeading from "../../Shared/ui/SharedHeading";
+import SharedHeading from "../../Shared/ui/SharedTitle";
 
 const dealsData = [
   {

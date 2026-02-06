@@ -1,9 +1,9 @@
-import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import "swiper/css/free-mode";
 import "swiper/css/autoplay";
-import { FreeMode, Autoplay } from "swiper/modules";
-import SharedHeading from "../../Shared/ui/SharedHeading";
+import "swiper/css/free-mode";
+import { Autoplay, FreeMode } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import SharedHeading from "../../Shared/ui/SharedTitle";
 import "../Home/Style.css";
 
 const featuredCategories = [
@@ -68,7 +68,7 @@ const featuredCategories = [
 
 const Featured = () => {
   return (
-    <div className="mb-0 md:mb-10 lg:mb-16 xl:mb-20">
+    <div className="mb-5 md:mb-10 lg:mb-16 xl:mb-20">
       <SharedHeading title="Featured Categories" />
 
       <Swiper
@@ -80,7 +80,7 @@ const Featured = () => {
           disableOnInteraction: false,
         }}
         modules={[FreeMode, Autoplay]}
-        className="w-full lg:max-w-[1650px] mx-auto mt-5 lg:mt-16 "
+        className="w-full lg:max-w-[1700px] mx-auto mt-5 lg:mt-16 "
         breakpoints={{
           320: { slidesPerView: 1.7 },
           375: { slidesPerView: 2 },
@@ -91,7 +91,7 @@ const Featured = () => {
           740: { slidesPerView: 3.9 },
           765: { slidesPerView: 3 },
           820: { slidesPerView: 3.2 },
-          860: { slidesPerView: 3.5 },
+          860: { slidesPerView: 3.3 },
           932: { slidesPerView: 3.8 },
           1024: { slidesPerView: 4 },
           1280: { slidesPerView: 4.5 },
@@ -102,7 +102,7 @@ const Featured = () => {
         {featuredCategories.map((item) => (
           <SwiperSlide key={item.id}>
             <div
-              className={`py-6 px-8 md:px-12 lg:px-6 xl:px-8 xl:h-full ${item.bg} flex flex-col rounded-lg`}
+              className={`py-6 px-8 md:px-12 lg:px-6 xl:px-8 xl:h-full ${item.bg} flex flex-col rounded-lg w-[95%]`}
             >
               <div className="w-42 xl:w-48 h-20 md:h-28 lg:h-48">
                 <img
