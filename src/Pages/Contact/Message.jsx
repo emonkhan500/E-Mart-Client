@@ -1,26 +1,15 @@
+import SharedTitle from "../../Shared/ui/SharedTitle";
+
 const Message = () => {
   return (
-    <div className=" mt-16">
-      <div>
-        <h1 className="text-4xl text-center font-bold mt-3 text-primary-green">
-          {" "}
-          Contact Here ..
-        </h1>
-
-        <div className="flex justify-center mt-3 pr-7">
-          <img
-            className=""
-            src="https://i.ibb.co.com/1JBhBjNq/underheading.png "
-            alt=""
-          />
-        </div>
-      </div>
+    <div className="lg:mt-16">
+      <SharedTitle title={"Contact Here "}></SharedTitle>
       <section className="w-full mb-8 lg:flex-row flex items-center gap-3 flex-col  lg:p-[40px] rounded-xl">
         {/* form area */}
-        <form className="lg:w-[60%] w-full">
-          <div className="lg:w-[80%] w-full mx-auto">
+        <form className=" w-full lg:w-1/2">
+          <div className=" w-full mx-auto">
             <div className="text-primary-text text-center md:text-start">
-              <h1 className="text-xl md:text-3xl font-bold ">Drop Us a Line</h1>
+              <h1 className="text-xl md:text-3xl font-bold mt-3">Drop Us a Line</h1>
               <p className="text-primary-gray text-[0.9rem] mt-2 mb-2">
                 Your email address will not be published. Required fields are
                 marked *
@@ -79,11 +68,11 @@ const Message = () => {
         </form>
 
         {/*  image  */}
-        <div className="">
+        <div className="flex-1 ">
           <img
             src="https://i.ibb.co.com/JW8TGVwS/contact.png"
             alt="image"
-            className="rounded lg:w-4/5 "
+            className="rounded w-full xl:max-h-[450px] xxl:max-h-[500px] object-cover"
           />
         </div>
       </section>
