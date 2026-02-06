@@ -10,6 +10,7 @@ export default {
     extend: {
       screens: {
         'small': '375px', 
+        'tab': '580px', 
         'xxl': '1400px', 
         '3xl': '1800px', 
       },

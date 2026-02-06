@@ -3,431 +3,153 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import { IoIosSearch } from "react-icons/io";
 import { TfiHeadphoneAlt } from "react-icons/tfi";
 import { Link } from "react-router-dom";
+
+const vendors = [
+  {
+    id: 1,
+    name: "Tech World BD",
+    since: 2010,
+    type: "Mall",
+    products: 380,
+    address: "Savar Bazar, Savar, Dhaka Division",
+    phone: "(+880) - 1300-778899",
+    img: "https://i.ibb.co.com/nMGdN0qs/gadget-vendor-removebg-preview.png",
+  },
+  {
+    id: 2,
+    name: "Fresh Fruits BD",
+    since: 2014,
+    type: "Preferred",
+    products: 63,
+    address: "Kazi Nazrul Ave, Dhaka",
+    phone: "(+880) - 1712-456789",
+    img: "https://i.ibb.co.com/8n5mXmgW/vendor-2.png",
+  },
+  {
+    id: 3,
+    name: "Shonar Bangla Meat",
+    since: 2013,
+    type: "Mall",
+    products: 310,
+    address: "Agrani Road, Narayanganj, Dhaka Division",
+    phone: "(+880) - 1911-223344",
+    img: "https://i.ibb.co.com/G6wNv9J/fish.jpg",
+  },
+  {
+    id: 4,
+    name: "Bangla Bites",
+    since: 2017,
+    type: "Mall",
+    products: 120,
+    address: "Block C, Bashundhara R/A, Dhaka",
+    phone: "(+880) - 1611-889977",
+    img: "https://i.ibb.co.com/CKNYRqCj/vendor-8.png",
+  },
+  {
+    id: 5,
+    name: "Trendy Touch BD",
+    since: 2018,
+    type: "Mall",
+    products: 380,
+    address: "Zila Sadar, Manikganj, Dhaka Division",
+    phone: "(+880) - 1700-112233",
+    img: "https://i.ibb.co.com/yBSNLzQf/fashion.png",
+  },
+  {
+    id: 6,
+    name: "Home & Kitchen Mart",
+    since: 2014,
+    type: "Preferred",
+    products: 63,
+    address: "Station Road, Gazipur, Dhaka Division",
+    phone: "(+880) - 1555-443322",
+    img: "https://i.ibb.co.com/4ndVDcHm/kitchen.png",
+  },
+  {
+    id: 7,
+    name: "Bangla Bites",
+    since: 2018,
+    type: "Mall",
+    products: 120,
+    address: "Block C, Bashundhara R/A, Dhaka",
+    phone: "(+880) - 1611-889977",
+    img: "https://i.ibb.co.com/CKNYRqCj/vendor-8.png",
+  },
+  {
+    id: 8,
+    name: "Champion Sports House",
+    since: 2013,
+    type: "Mall",
+    products: 310,
+    address: "Court Road, Narsingdi, Dhaka Division",
+    phone: "(+880) - 1400-334455",
+    img: "https://i.ibb.co.com/KcFD4wCY/sports-logo.png",
+  },
+];
+
 const VendorList = () => {
   return (
     <div>
-      <div className="text-center mt-8 ">
-        <h1 className="text-6xl  md:text-7xl text-primary-text font-bold">
+      <div className="text-center mt-8">
+        <h1 className="text-4xl md:text-4xl lg:text-5xl text-primary-text font-bold">
           Vendors List
         </h1>
-        <div className="flex items-center justify-center mt-8 ">
+        <div className="flex items-center justify-center mt-3 md:mt-5 lg:mt-8">
           <input
-            className="w-full md:w-3/6 py-5 pl-8 md:pl-12 border-2 outline-none rounded-full shadow-lg"
+            className="w-full md:w-3/6 py-3 xl:py-4  px-10 border border-border outline-none rounded-full shadow-lg"
             placeholder="Search For Vendors..."
           />
           <IoIosSearch className="relative top-[1px] -left-[50px] md:-left-[65px] lg:-left-[90px] text-secondary-text text-2xl" />
         </div>
       </div>
-      {/* list */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-4 lg:gap-5 xl:gap-6 space-y-3 lg:space-y-10 mt-10">
-        {/* 1 */}
-        <div className=" lg:mt-10 relative border rounded-lg px-2 py-6 hover:shadow-xl hover:border-primary-green">
-          <span className="absolute top-0 right-0 bg-pink-500 text-white  px-9 py-1 rounded-bl-lg text-lg">
-            Mall
-          </span>
-          <div className="py-6">
-            <img
-              className="h-56 w-56"
-              src="https://i.ibb.co.com/nMGdN0qs/gadget-vendor-removebg-preview.png"
-              alt=""
-            />
-          </div>
-          <h1 className="text-secondary-gray">Since 2010</h1>
-          <div className="px-1 flex my-4 items-center justify-between gap-3 md:gap-8 lg:gap-4">
-            <div>
-              <h1 className="text-primary-text text-xl md:text-2xl lg:text-2xl">
-                Tech World BD
-              </h1>
-            </div>
-            <div className="px-1 py-1 text-sm lg:text-base bg-primary-border text-primary-green rounded">
-              380 products
-            </div>
-          </div>
-          <div className="space-y-3">
-            <div className="text-secondary-gray flex items-center gap-1">
-              <CiLocationOn className="text-primary-green text-xl font-bold" />
-              <span className="text-sm font-bold text-primary-text">
-                Address:
-              </span>
-              Savar Bazar, Savar, Dhaka Division
-            </div>
-            <div className="text-secondary-gray flex items-center gap-3">
-              <TfiHeadphoneAlt className="text-primary-green text-lg font-bold" />
-              <span className="text-sm font-bold text-primary-text">
-                Call Us:
-              </span>
-              (+880) - 1300-778899
-            </div>
-          </div>
-          <div className="mt-7">
-            <Link className="inline-block">
-              <button
-                t
-                className="px-4 text-white py-1 text-base md:text-lg lato  bg-primary-green rounded flex justify-center items-center gap-2"
-              >
-                Visit
-                <FaArrowRightLong />
-              </button>
-            </Link>
-          </div>
-        </div>
-        {/* 2 */}
-        <div className="relative border rounded-lg px-2 py-6 hover:shadow-xl hover:border-primary-green">
-          <span className="absolute top-0 right-0 bg-pink-500 text-white  px-9 py-1 rounded-bl-lg text-lg">
-            Preferred
-          </span>
-          <div className="py-6">
-            <img
-              className="h-56 w-56"
-              src="https://i.ibb.co.com/8n5mXmgW/vendor-2.png"
-              alt=""
-            />
-          </div>
-          <h1 className="text-secondary-gray">Since 2014</h1>
-          <div className="px-1 flex my-4 items-center justify-between gap-3 md:gap-8 lg:gap-4">
-            <div>
-              <h1 className="text-primary-text text-xl md:text-2xl lg:text-2xl">
-                Fresh Fruits BD
-              </h1>
-            </div>
-            <div className="px-1 py-1 text-sm lg:text-base bg-primary-border text-primary-green rounded">
-              63 products
-            </div>
-          </div>
-          <div className="space-y-3">
-            <div className="text-secondary-gray flex items-center gap-1">
-              <CiLocationOn className="text-primary-green text-xl font-bold" />
-              <span className="text-sm font-bold text-primary-text">
-                Address:
-              </span>
-              Kazi Nazrul Ave, Dhaka
-            </div>
-            <div className="text-secondary-gray flex items-center gap-3">
-              <TfiHeadphoneAlt className="text-primary-green text-lg font-bold" />
-              <span className="text-sm font-bold text-primary-text">
-                Call Us:
-              </span>
-              (+880) - 1712-456789
-            </div>
-          </div>
-          <div className="mt-7">
-            <Link className="inline-block">
-              <button
-                t
-                className="px-4 text-white py-1 text-base md:text-lg lato  bg-primary-green rounded flex justify-center items-center gap-2"
-              >
-                Visit
-                <FaArrowRightLong />
-              </button>
-            </Link>
-          </div>
-        </div>
-        {/* 3 */}
-        <div className="relative border rounded-lg px-2 py-6 hover:shadow-xl hover:border-primary-green">
-          <span className="absolute top-0 right-0 bg-pink-500 text-white  px-9 py-1 rounded-bl-lg text-lg">
-            Mall
-          </span>
-          <div className="py-6">
-            <img
-              className="h-56 w-56"
-              src="https://i.ibb.co.com/G6wNv9J/fish.jpg"
-              alt=""
-            />
-          </div>
-          <h1 className="text-secondary-gray">Since 2013</h1>
-          <div className="px-1 flex my-4 items-center justify-between gap-3 md:gap-8 lg:gap-4">
-            <div>
-              <h1 className="text-primary-text text-xl md:text-2xl lg:text-2xl">
-                Shonar Bangla Meat
-              </h1>
-            </div>
-            <div className="px-1 py-1 text-sm lg:text-base bg-primary-border text-primary-green rounded">
-              310 products
-            </div>
-          </div>
-          <div className="space-y-3">
-            <div className="text-secondary-gray flex items-center gap-1">
-              <CiLocationOn className="text-primary-green text-xl font-bold" />
-              <span className="text-sm font-bold text-primary-text">
-                Address:
-              </span>
-              Agrani Road, Narayanganj, Dhaka Division
-            </div>
-            <div className="text-secondary-gray flex items-center gap-3">
-              <TfiHeadphoneAlt className="text-primary-green text-lg font-bold" />
-              <span className="text-sm font-bold text-primary-text">
-                Call Us:
-              </span>
-              (+880) - 1911-223344
-            </div>
-          </div>
-          <div className="mt-7">
-            <Link className="inline-block">
-              <button
-                t
-                className="px-4 text-white py-1 text-base md:text-lg lato  bg-primary-green rounded flex justify-center items-center gap-2"
-              >
-                Visit
-                <FaArrowRightLong />
-              </button>
-            </Link>
-          </div>
-        </div>
-        {/* 4 */}
-        <div className="relative border rounded-lg px-2 py-6 hover:shadow-xl hover:border-primary-green">
-          <span className="absolute top-0 right-0 bg-pink-500 text-white  px-9 py-1 rounded-bl-lg text-lg">
-            Mall
-          </span>
-          <div className="py-6">
-            <img
-              className="h-56 w-56"
-              src="https://i.ibb.co.com/CKNYRqCj/vendor-8.png"
-              alt=""
-            />
-          </div>
-          <h1 className="text-secondary-gray">Since 2017</h1>
-          <div className="px-1 flex my-4 items-center justify-between gap-3 md:gap-8 lg:gap-4">
-            <div>
-              <h1 className="text-primary-text text-xl md:text-2xl lg:text-2xl">
-                Bangla Bites
-              </h1>
-            </div>
-            <div className="px-1 py-1 text-sm lg:text-base bg-primary-border text-primary-green rounded">
-              120 products
-            </div>
-          </div>
-          <div className="space-y-3">
-            <div className="text-secondary-gray flex items-center gap-1">
-              <CiLocationOn className="text-primary-green text-xl font-bold" />
-              <span className="text-sm font-bold text-primary-text">
-                Address:
-              </span>
-              Block C, Bashundhara R/A, Dhaka
-            </div>
-            <div className="text-secondary-gray flex items-center gap-3">
-              <TfiHeadphoneAlt className="text-primary-green text-lg font-bold" />
-              <span className="text-sm font-bold text-primary-text">
-                Call Us:
-              </span>
-              (+880) - 1611-889977
-            </div>
-          </div>
-          <div className="mt-7">
-            <Link className="inline-block">
-              <button
-                t
-                className="px-4 text-white py-1 text-base md:text-lg lato  bg-primary-green rounded flex justify-center items-center gap-2"
-              >
-                Visit
-                <FaArrowRightLong />
-              </button>
-            </Link>
-          </div>
-        </div>
-        {/* 5 */}
-        <div className="relative border rounded-lg px-2 py-6 hover:shadow-xl hover:border-primary-green">
-          <span className="absolute top-0 right-0 bg-pink-500 text-white  px-9 py-1 rounded-bl-lg text-lg">
-            Mall
-          </span>
-          <div className="py-6">
-            <img
-              className="h-56 w-56"
-              src="https://i.ibb.co.com/yBSNLzQf/fashion.png"
-              alt=""
-            />
-          </div>
-          <h1 className="text-secondary-gray">Since 2018</h1>
-          <div className="px-1 flex my-4 items-center justify-between gap-3 md:gap-8 lg:gap-4">
-            <div>
-              <h1 className="text-primary-text text-xl md:text-2xl lg:text-2xl">
-                Trendy Touch BD
-              </h1>
-            </div>
-            <div className="px-1 py-1 text-sm lg:text-base bg-primary-border text-primary-green rounded">
-              380 products
-            </div>
-          </div>
-          <div className="space-y-3">
-            <div className="text-secondary-gray flex items-center gap-1">
-              <CiLocationOn className="text-primary-green text-xl font-bold" />
-              <span className="text-sm font-bold text-primary-text">
-                Address:
-              </span>
-              Zila Sadar, Manikganj, Dhaka Division
-            </div>
-            <div className="text-secondary-gray flex items-center gap-3">
-              <TfiHeadphoneAlt className="text-primary-green text-lg font-bold" />
-              <span className="text-sm font-bold text-primary-text">
-                Call Us:
-              </span>
-              (+880) - 1700-112233
-            </div>
-          </div>
-          <div className="mt-7">
-            <Link className="inline-block">
-              <button
-                t
-                className="px-4 text-white py-1 text-base md:text-lg lato  bg-primary-green rounded flex justify-center items-center gap-2"
-              >
-                Visit
-                <FaArrowRightLong />
-              </button>
-            </Link>
-          </div>
-        </div>
-        {/* 6 */}
-        <div className="relative border rounded-lg px-2 py-6 hover:shadow-xl hover:border-primary-green">
-          <span className="absolute top-0 right-0 bg-pink-500 text-white  px-9 py-1 rounded-bl-lg text-lg">
-            Preferred
-          </span>
-          <div className="py-6">
-            <img
-              className="h-56 w-56"
-              src="https://i.ibb.co.com/4ndVDcHm/kitchen.png"
-              alt=""
-            />
-          </div>
-          <h1 className="text-secondary-gray">Since 2014</h1>
-          <div className="px-1 flex my-4 items-center justify-between gap-3 md:gap-8 lg:gap-4">
-            <div>
-              <h1 className="text-primary-text text-xl md:text-2xl lg:text-2xl">
-                Home & Kitchen Mart
-              </h1>
-            </div>
-            <div className="px-1 py-1 text-sm lg:text-base bg-primary-border text-primary-green rounded">
-              63 products
-            </div>
-          </div>
-          <div className="space-y-3">
-            <div className="text-secondary-gray flex items-center gap-1">
-              <CiLocationOn className="text-primary-green text-xl font-bold" />
-              <span className="text-sm font-bold text-primary-text">
-                Address:
-              </span>
-              Station Road, Gazipur, Dhaka Division
-            </div>
-            <div className="text-secondary-gray flex items-center gap-3">
-              <TfiHeadphoneAlt className="text-primary-green text-lg font-bold" />
-              <span className="text-sm font-bold text-primary-text">
-                Call Us:
-              </span>
-              (+880) - 1555-443322
-            </div>
-          </div>
-          <div className="mt-7">
-            <Link className="inline-block">
-              <button
-                t
-                className="px-4 text-white py-1 text-base md:text-lg lato  bg-primary-green rounded flex justify-center items-center gap-2"
-              >
-                Visit
-                <FaArrowRightLong />
-              </button>
-            </Link>
-          </div>
-        </div>
-        {/* 7 */}
-        <div className="relative border rounded-lg px-2 py-6 hover:shadow-xl hover:border-primary-green">
-          <span className="absolute top-0 right-0 bg-pink-500 text-white  px-9 py-1 rounded-bl-lg text-lg">
-            Mall
-          </span>
-          <div className="py-6">
-            <img
-              className="h-56 w-56"
-              src="https://i.ibb.co.com/CKNYRqCj/vendor-8.png"
-              alt=""
-            />
-          </div>
-          <h1 className="text-secondary-gray">Since 2018</h1>
-          <div className="px-1 flex my-4 items-center justify-between gap-3 md:gap-8 lg:gap-4">
-            <div>
-              <h1 className="text-primary-text text-xl md:text-2xl lg:text-2xl">
-                Bangla Bites
-              </h1>
-            </div>
-            <div className="px-1 py-1 text-sm lg:text-base bg-primary-border text-primary-green rounded">
-              120 products
-            </div>
-          </div>
-          <div className="space-y-3">
-            <div className="text-secondary-gray flex items-center gap-1">
-              <CiLocationOn className="text-primary-green text-xl font-bold" />
-              <span className="text-sm font-bold text-primary-text">
-                Address:
-              </span>
-              Block C, Bashundhara R/A, Dhaka
-            </div>
-            <div className="text-secondary-gray flex items-center gap-3">
-              <TfiHeadphoneAlt className="text-primary-green text-lg font-bold" />
-              <span className="text-sm font-bold text-primary-text">
-                Call Us:
-              </span>
-              (+880) - 1611-889977
-            </div>
-          </div>
-          <div className="mt-7">
-            <Link className="inline-block">
-              <button className="px-4 text-white py-1 text-base md:text-lg lato  bg-primary-green rounded flex justify-center items-center gap-2">
-                Visit
-                <FaArrowRightLong />
-              </button>
-            </Link>
-          </div>
-        </div>
 
-        {/* 8 */}
-        <div className="relative border rounded-lg px-2 py-6 hover:shadow-xl hover:border-primary-green">
-          <span className="absolute top-0 right-0 bg-pink-500 text-white  px-9 py-1 rounded-bl-lg text-lg">
-            Mall
-          </span>
-          <div className="py-6">
-            <img
-              className="h-56 w-56"
-              src="https://i.ibb.co.com/KcFD4wCY/sports-logo.png"
-              alt=""
-            />
-          </div>
-          <h1 className="text-secondary-gray">Since 2013</h1>
-          <div className="px-1 flex my-4 items-center justify-between gap-3 md:gap-8 lg:gap-4">
-            <div>
-              <h1 className="text-primary-text text-xl md:text-2xl lg:text-2xl">
-                Champion Sports House
+      {/* Vendor cards */}
+      <div className="grid grid-cols-1 tab:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-4 lg:gap-5 xl:gap-6  mt-10">
+        {vendors.map((vendor) => (
+          <div
+            key={vendor.id}
+            className="relative border rounded-lg px-2 py-2 md:py-3 hover:shadow-xl hover:border-primary-green"
+          >
+            <span className="absolute top-0 right-0 bg-pink-500 text-white px-9 py-1 rounded-bl-lg text-lg">
+              {vendor.type}
+            </span>
+            
+              <img className="h-48 w-[90%] small:w-auto " src={vendor.img} alt={vendor.name} />
+          
+            <h1 className="text-secondary-gray">Since {vendor.since}</h1>
+            <div className="px-1 flex my-2 md:my-4 items-center justify-between gap-3 md:gap-8 lg:gap-4">
+              <h1 className="text-primary-text text-lg md:text-2xl lg:text-2xl">
+                {vendor.name}
               </h1>
+              <div className="px-1 py-1 text-[12px] lg:text-base bg-primary-border text-primary-green rounded">
+                {vendor.products} products
+              </div>
             </div>
-            <div className="px-1 py-1 text-sm lg:text-base bg-primary-border text-primary-green rounded">
-              310 products
+            <div className="space-y-3 mt-4">
+              <div className="text-secondary-gray flex items-center gap-1 text-[12px] md:text-sm">
+                <CiLocationOn className="text-primary-green text-xl font-bold" />
+                <span className="text-sm font-bold text-primary-text">Address:</span>
+                {vendor.address}
+              </div>
+              <div className="text-secondary-gray flex items-center gap-3 text-[12px] md:text-sm">
+                <TfiHeadphoneAlt className="text-primary-green text-lg font-bold" />
+                <span className="text-sm font-bold text-primary-text">Call Us:</span>
+                {vendor.phone}
+              </div>
+            </div>
+            <div className="mt-5 md:mt-7">
+              <Link className="inline-block">
+                <button className="px-4 text-white py-1 text-base md:text-lg lato bg-primary-green rounded flex justify-center items-center gap-2">
+                  Visit
+                  <FaArrowRightLong />
+                </button>
+              </Link>
             </div>
           </div>
-          <div className="space-y-3">
-            <div className="text-secondary-gray flex items-center gap-1">
-              <CiLocationOn className="text-primary-green text-xl font-bold" />
-              <span className="text-sm font-bold text-primary-text">
-                Address:
-              </span>
-              Court Road, Narsingdi, Dhaka Division
-            </div>
-            <div className="text-secondary-gray flex items-center gap-3">
-              <TfiHeadphoneAlt className="text-primary-green text-lg font-bold" />
-              <span className="text-sm font-bold text-primary-text">
-                Call Us:
-              </span>
-              (+880) - 1400-334455
-            </div>
-          </div>
-          <div className="mt-7">
-            <Link className="inline-block">
-              <button className="px-4 text-white py-1 text-base md:text-lg lato  bg-primary-green rounded flex justify-center items-center gap-2">
-                Visit
-                <FaArrowRightLong />
-              </button>
-            </Link>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );
 };
 
 export default VendorList;
-
-// w-[250px] md:w-[250px] lg:w-[380px]
