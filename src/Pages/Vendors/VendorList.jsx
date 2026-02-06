@@ -11,7 +11,7 @@ const vendors = [
     since: 2010,
     type: "Mall",
     products: 380,
-    address: "Savar Bazar, Savar, Dhaka Division",
+    address: "Savar Bazar, Savar, Dhaka ",
     phone: "(+880) - 1300-778899",
     img: "https://i.ibb.co.com/nMGdN0qs/gadget-vendor-removebg-preview.png",
   },
@@ -31,7 +31,7 @@ const vendors = [
     since: 2013,
     type: "Mall",
     products: 310,
-    address: "Agrani Road, Narayanganj, Dhaka Division",
+    address: "Agrani Road, Narayanganj, Dhaka ",
     phone: "(+880) - 1911-223344",
     img: "https://i.ibb.co.com/G6wNv9J/fish.jpg",
   },
@@ -51,7 +51,7 @@ const vendors = [
     since: 2018,
     type: "Mall",
     products: 380,
-    address: "Zila Sadar, Manikganj, Dhaka Division",
+    address: "Zila Sadar, Manikganj, Dhaka ",
     phone: "(+880) - 1700-112233",
     img: "https://i.ibb.co.com/yBSNLzQf/fashion.png",
   },
@@ -61,7 +61,7 @@ const vendors = [
     since: 2014,
     type: "Preferred",
     products: 63,
-    address: "Station Road, Gazipur, Dhaka Division",
+    address: "Station Road, Gazipur, Dhaka ",
     phone: "(+880) - 1555-443322",
     img: "https://i.ibb.co.com/4ndVDcHm/kitchen.png",
   },
@@ -77,11 +77,11 @@ const vendors = [
   },
   {
     id: 8,
-    name: "Champion Sports House",
+    name: "Sports House",
     since: 2013,
     type: "Mall",
     products: 310,
-    address: "Court Road, Narsingdi, Dhaka Division",
+    address: "Court Road, Narsingdi, Dhaka ",
     phone: "(+880) - 1400-334455",
     img: "https://i.ibb.co.com/KcFD4wCY/sports-logo.png",
   },
@@ -104,7 +104,7 @@ const VendorList = () => {
       </div>
 
       {/* Vendor cards */}
-      <div className="grid grid-cols-1 tab:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-4 lg:gap-5 xl:gap-6  mt-10">
+      <div className="grid grid-cols-1 tab:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-4 lg:gap-5 xl:gap-6 xxl:gap-4  mt-10">
         {vendors.map((vendor) => (
           <div
             key={vendor.id}
@@ -117,11 +117,11 @@ const VendorList = () => {
               <img className="h-48 w-[90%] small:w-auto " src={vendor.img} alt={vendor.name} />
           
             <h1 className="text-secondary-gray">Since {vendor.since}</h1>
-            <div className="px-1 flex my-2 md:my-4 items-center justify-between gap-3 md:gap-8 lg:gap-4">
-              <h1 className="text-primary-text text-lg md:text-2xl lg:text-2xl">
+            <div className="px-1 flex my-2 md:my-4 items-center justify-between ">
+              <h1 className="text-primary-text text-lg md:text-2xl lg:text-xl xl:text-2xl">
                 {vendor.name}
               </h1>
-              <div className="px-1 py-1 text-[12px] lg:text-base bg-primary-border text-primary-green rounded">
+              <div className="px-1 py-1 text-[12px] lg:text-sm xl:text-base bg-primary-border text-primary-green rounded">
                 {vendor.products} products
               </div>
             </div>
