@@ -4,7 +4,7 @@ const Message = () => {
   return (
     <div className="lg:mt-16">
       <SharedTitle title={"Contact Here "}></SharedTitle>
-      <section className="w-full mb-8 lg:flex-row flex items-center gap-3 flex-col  lg:p-[40px] rounded-xl">
+      <section className="w-full lg:mb-8 lg:flex-row flex items-center gap-3 flex-col lg:p-[40px] rounded-xl">
         {/* form area */}
         <form className=" w-full lg:w-1/2">
           <div className=" w-full mx-auto">
