@@ -31,7 +31,7 @@ const Team = () => {
     <div className="lg:mt-16 quick">
       <SharedTitle title="Meet Our Team" />
 
-      <div className="grid grid-cols-1 tab:grid-cols-2 md:grid-cols-3 gap-2 lg:gap-4 mt-4 lg:mt-16">
+      <div className="grid grid-cols-1 tab:grid-cols-2 md:grid-cols-3 gap-2 lg:gap-4 mt-4 lg:mt-16 xxl:px-24">
         {/* Left Content */}
         <div className=" md:mt-10 block tab:hidden md:block">
           <p className="text-primary-green">Our Team</p>
