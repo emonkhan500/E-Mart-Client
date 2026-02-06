@@ -61,7 +61,7 @@ const blogPosts = [
   {
     img: "https://i.ibb.co.com/hR2zPjqD/Link-blog-10-png.png",
     category: "Salad",
-    title: "The Absolute Easiest Spinach and Pizza",
+    title: "The Absolute Easiest Spinach and Pizza Pizza",
     date: "25 April 2022",
     views: "126k Views",
     readTime: "4 mins read",
@@ -88,22 +88,22 @@ const BlogContent = () => {
   const totalPages = Math.ceil(blogPosts.length / postsPerPage);
 
   return (
-    <div className="quick mt-10">
-      <div>
+    <div className="quick mt-5 md:mt-10">
+     
         {/* Header */}
-        <div className="border-t-4 mt-8 border-primary-green flex flex-col md:flex-row items-center justify-between md:px-12 lg:px-16 xl:px-32">
-          <div className="flex items-center gap-6 mt-10">
+        <div className="border-t-2 mt-1 md:mt-8 border-primary-green flex flex-col tab:flex-row items-center justify-between tab:px-6 md:px-12 lg:px-12 xl:px-32">
+          <div className="flex items-center gap-6 mt-3 md:mt-10">
             <img
               src="https://i.ibb.co.com/fV6RhZjz/category-1-svg.png"
               alt="category"
             />
-            <h1 className="text-3xl md:text-4xl lg:text-5xl text-primary-text font-bold">
+            <h1 className="text-xl md:text-3xl lg:text-5xl text-primary-text font-bold">
               Recipes Articles
             </h1>
           </div>
-          <div className="flex items-center justify-center mt-5 md:mt-10">
+          <div className="flex items-center justify-center mt-5 md:mt-7 lg:mt-10 ">
             <input
-              className="w-[250px] md:w-[250px] lg:w-[380px] py-5 pl-12 border-2 outline-none"
+              className=" py-2 md:py-3 lg:py-5 pl-12 border-2 outline-none w-full lg:w-96"
               placeholder="Search For Items..."
             />
             <IoIosSearch className="relative top-[1px] -left-[55px] md:-left-[65px] lg:-left-[90px] text-secondary-text text-[1.3rem]" />
@@ -111,19 +111,21 @@ const BlogContent = () => {
         </div>
 
         {/* Blog Grid */}
-        <div className="mt-4 md:mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 xl:gap-16">
+        <div className="mt-8 md:mt-10 lg:mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-8 lg:gap-x-2 xl:gap-x-0 md:gap-y-16" >
           {currentPosts.map((post, index) => (
             <div
               key={index}
-              className="space-y-1 md:space-y-2 lg:space-y-3 flex flex-col justify-center text-center md:px-3"
+              className=" flex flex-col justify-center text-center md:px-3"
             >
-              <img src={post.img} alt="blog post" />
+              <div className="h-full w-full xl:max-h-[286.69px]">
+                <img src={post.img} alt="blog post"  className="h-full w-full" />
+              </div>
               <p className="text-secondary-gray">{post.category}</p>
               <h1 className="text-primary-text text-xl font-extrabold hover:text-primary-green">
                 {post.title}
               </h1>
-              <div className="flex justify-between px-6 text-primary-gray">
-                <h1>{post.date}</h1>
+              <div className="flex justify-between px-2 small:px-6 md:px-3 text-primary-gray text-sm small:text-base md:text-lg lg:text-base space-y-1">
+                <h1 className="mt-1">{post.date}</h1>
                 <h1>{post.views}</h1>
                 <h1>{post.readTime}</h1>
               </div>
@@ -171,7 +173,7 @@ const BlogContent = () => {
             Next
           </button>
         </div>
-      </div>
+     
     </div>
   );
 };
