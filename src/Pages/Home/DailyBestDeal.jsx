@@ -7,7 +7,7 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "./DealStyle.css";
 
-import SharedHeading from "../../Shared/ui/SharedTitle";
+import SharedTitle from "../../Shared/ui/SharedTitle";
 
 const products = [
   {
@@ -60,7 +60,7 @@ const products = [
 const DailyBestDeal = () => {
   return (
     <div className="mt-10">
-      <SharedHeading title="Daily Best Deals" />
+      <SharedTitle title="Daily Best Deals" />
 
       <div className="flex gap-4 mt-6 lg:mt-10">
         {/* Left Banner */}

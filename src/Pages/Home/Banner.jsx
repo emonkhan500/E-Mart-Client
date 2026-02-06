@@ -47,7 +47,7 @@ const Banner = () => {
                 </p>
 
                 <Link to="/shop" className="inline-block">
-                  <button className="px-2 md:px-3 py-1 md:py-2 text-xs md:text-xl lato bg-primary-green rounded flex items-center gap-2">
+                  <button className="px-2 md:px-3 py-1 md:py-2 text-xs md:text-xl lato bg-primary-green rounded flex items-center gap-2 mt-2">
                     Shop Now <FaArrowRightLong />
                   </button>
                 </Link>

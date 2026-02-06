@@ -5,23 +5,23 @@ const ShareHead = ({ pageTitle }) => {
   return (
     
       <div
-        className="quick relative bg-cover bg-center h-[150px] md:h-[200px]  items-center p-2 rounded-lg shadow-md mb-4"
+        className="quick relative bg-cover bg-center h-[100px] small:h-[130px] md:h-[170px]  items-center p-2 rounded-lg shadow-md mb-4"
         style={{
           backgroundImage: "url('https://i.ibb.co.com/rfsYk1jf/header-bg.png')",
         }}
       >
-        <h1 className="text-4xl text-center font-bold text-primary-text mt-6">
+        <h1 className="text-2xl md:text-4xl text-center font-bold text-primary-text mt-3 md:mt-6">
           {pageTitle}
         </h1>
 
-        <div className="flex items-center gap-4 justify-center mt-6  font-medium">
+        <div className="flex items-center gap-4 justify-center mt-3 md:mt-6 font-medium">
           <Link
             to="/"
-            className="flex justify-center items-center gap-2 text-xl"
+            className="flex justify-center items-center gap-2 text-lg md:text-xl"
           >
             <IoMdHome className="text-primary-green " /> Home
           </Link>
-          <h1 className="text-primary-gray  flex justify-center items-center gap-2 text-xl">
+          <h1 className="text-primary-gray  flex justify-center items-center gap-2 text-lg md:text-xl">
             <IoIosArrowForward /> {pageTitle}
           </h1>
         </div>

@@ -1,32 +1,40 @@
-// Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
 
-// Import Swiper styles
+import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
-
 import "../About/Style.css";
-
-// import required modules
 import { EffectCoverflow, Pagination } from "swiper/modules";
+
+const sliderImages = [
+  "https://i.ibb.co.com/LXM7jQh1/Link-product-3-1-jpg.png",
+  "https://i.ibb.co.com/FbmYkT4h/Link-product-2-1-jpg.png",
+  "https://i.ibb.co.com/Pv8THjRB/Link-product-1-1-jpg.png",
+  "https://i.ibb.co.com/XGHHcq9/Link-product-6-1-jpg.png",
+  "https://i.ibb.co.com/LdyQtCbZ/Link-product-8-1-jpg.png",
+  "https://i.ibb.co.com/QjJKgt40/Link-product-4-1-jpg.png",
+  "https://i.ibb.co.com/F4BntgjP/Link-product-9-1-jpg.png",
+];
+
 const Welcome = () => {
   return (
-    <div className="quick flex items-center justify-center flex-col gap-9 md:flex-row ">
-      <div className="rounded  md::w-1/2">
+    <div className="quick flex items-center justify-center flex-col gap-3 lg:gap-9 md:flex-row md:mt-8">
+      {/* image */}
+      <div className="rounded ">
         <img
-          className=" md:h-[600px]"
+          className="md:h-[480px] lg:h-[520px] xl:h-[580px]"
           src="https://i.ibb.co.com/ch9pJ2fX/Section-about-1-png.png"
-          alt=""
+          alt="E-Mart About Section"
         />
       </div>
-      {/* content and slider */}
-      <div className="  mt-7 md:w-1/2">
+
+      {/* content + slider */}
+      <div className="md:w-1/2">
         <div className="text-center px-2 lato md:space-y-6">
-          <h1 className="mt-6  text-2xl md:text-4xl font-bold text-primary-text">
-            Welcome to <span className="  text-primary-green">E-MART</span>
+          <h1 className="mt-4 text-2xl md:text-4xl font-bold text-primary-text">
+            Welcome to <span className="text-primary-green">E-MART</span>
           </h1>
-          <p className="lg:text-lg mt-5">
+          <p className="lg:text-base xl:text-lg mt-3">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -34,12 +42,13 @@ const Welcome = () => {
             reprehenderit in voluptate id est laborum.
           </p>
         </div>
-        <div className="text-center w-[320px] md:w-full">
+
+        <div className="text-center w-[320px] small:w-[400px] md:w-full mx-auto">
           <Swiper
-            effect={"coverflow"}
-            grabCursor={true}
-            centeredSlides={true}
-            slidesPerView={"auto"}
+            effect="coverflow"
+            grabCursor
+            centeredSlides
+            slidesPerView="auto"
             coverflowEffect={{
               rotate: 50,
               stretch: 0,
@@ -47,34 +56,15 @@ const Welcome = () => {
               modifier: 1,
               slideShadows: true,
             }}
-            pagination={true}
+            pagination
             modules={[EffectCoverflow, Pagination]}
             className="mySwiper lg:mt-4"
           >
-            <SwiperSlide>
-              <img src="https://i.ibb.co.com/LXM7jQh1/Link-product-3-1-jpg.png" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src="https://i.ibb.co.com/xqhXcMGT/Link-cat-14-png.png" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src="https://i.ibb.co.com/FbmYkT4h/Link-product-2-1-jpg.png" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src="https://i.ibb.co.com/Pv8THjRB/Link-product-1-1-jpg.png" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src="https://i.ibb.co.com/XGHHcq9/Link-product-6-1-jpg.png" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src="https://i.ibb.co.com/LdyQtCbZ/Link-product-8-1-jpg.png" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src="https://i.ibb.co.com/QjJKgt40/Link-product-4-1-jpg.png" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src="https://i.ibb.co.com/F4BntgjP/Link-product-9-1-jpg.png" />
-            </SwiperSlide>
+            {sliderImages.map((img, index) => (
+              <SwiperSlide key={index}>
+                <img src={img} alt={`Product ${index + 1}`} />
+              </SwiperSlide>
+            ))}
           </Swiper>
         </div>
       </div>
@@ -83,3 +73,4 @@ const Welcome = () => {
 };
 
 export default Welcome;
+ 

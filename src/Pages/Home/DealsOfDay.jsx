@@ -1,5 +1,5 @@
 import { FaShoppingCart } from "react-icons/fa";
-import SharedHeading from "../../Shared/ui/SharedTitle";
+import SharedTitle from "../../Shared/ui/SharedTitle";
 
 const dealsData = [
   {
@@ -40,7 +40,7 @@ const DealsOfDay = () => {
   return (
     <div className="my-10 md:my-20 ">
       {/* Heading */}
-      <SharedHeading title="Deals Of The Day" />
+      <SharedTitle title="Deals Of The Day" />
 
       {/* Deals Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-4 gap-y-20 mt-6">

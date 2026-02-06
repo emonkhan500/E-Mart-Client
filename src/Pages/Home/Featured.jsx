@@ -3,7 +3,7 @@ import "swiper/css/autoplay";
 import "swiper/css/free-mode";
 import { Autoplay, FreeMode } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SharedHeading from "../../Shared/ui/SharedTitle";
+import SharedTitle from "../../Shared/ui/SharedTitle";
 import "../Home/Style.css";
 
 const featuredCategories = [
@@ -69,7 +69,7 @@ const featuredCategories = [
 const Featured = () => {
   return (
     <div className="mb-5 md:mb-10 lg:mb-16 xl:mb-20">
-      <SharedHeading title="Featured Categories" />
+      <SharedTitle title="Featured Categories" />
 
       <Swiper
         slidesPerView={7}
