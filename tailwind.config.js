@@ -52,6 +52,14 @@ export default {
   },
   plugins: [
     require('daisyui'),
+      function ({ addBase }) {
+      addBase({
+        '.table th, .table td': {
+          padding: '6px',
+          verticalAlign: 'middle',
+        },
+      });
+    },
   ],   
 }
 

@@ -37,7 +37,7 @@ const Team = () => {
           <p className="text-primary-green">Our Team</p>
           <h1 className="text-primary-text text-2xl md:text-3xl lg:text-5xl font-bold pb-2 md:pb-5 lg:pb-7 pt-3">
             Meet Our Expert Team
-          </h1>
+          </h1>    
           <p className="text-primary-gray md:text-lg">
             Our team is made up of passionate professionals dedicated to
             delivering high-quality solutions. With strong expertise and a
