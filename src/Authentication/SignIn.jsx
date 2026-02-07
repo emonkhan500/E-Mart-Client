@@ -52,20 +52,20 @@ const SignIn = () => {
   };
 
   return (
-    <div className="flex  items-center py-6 md:py-10 lg:py-16 justify-center ">
-      <div className=" lg:w-full lg:max-w-7xl flex flex-col-reverse md:flex-row bg-white rounded-lg  ">
+    <div className=" py-1 md:py-10 lg:py-16">
+      <div className=" lg:w-full lg:max-w-7xl flex flex-col-reverse md:flex-row bg-white rounded-lg mx-auto ">
         {/* Form Section */}
-        <div className="w-full md:w-1/2 p-8 bg-primary-green bg-opacity-5">
-          <h2 className="animate__animated animate__bounceIn animate__slow text-3xl font-bold text-primary-green lg:mt-8 mb-2">
+        <div className="w-full md:w-1/2 p-2 lg:p-8 bg-primary-green bg-opacity-5">
+          <h2 className="animate__animated animate__bounceIn animate__slow text- text-2xl lg:text-3xl font-bold text-primary-green lg:mt-8 mb-2">
             Welcome back!
           </h2>
-          <p className="text-primary-text text-lg font-semibold">
+          <p className="text-primary-text text-base lg:text-lg font-semibold">
             Experience The Best E-Commerce Platform !
           </p>
-          <form onSubmit={handleLogin} className="mt-6">
+          <form onSubmit={handleLogin} className="mt-3 lg:mt-6">
             <div className="mb-4 animate__animated animate__lightSpeedInLeft animate__slow">
               <label
-                className="text-primary-text block  text-sm font-bold mb-2"
+                className="text-primary-text block text-sm font-semibold lg:font-bold mb-1 lg:mb-2"
                 htmlFor="email"
               >
                 Email
@@ -81,7 +81,7 @@ const SignIn = () => {
             </div>
             <div className="mb-4 animate__animated animate__lightSpeedInRight animate__slow">
               <label
-                className=" text-primary-text block  text-sm font-bold mb-2"
+                className="text-primary-text block text-sm font-semibold lg:font-bold mb-1 lg:mb-2"
                 htmlFor="password"
               >
                 Password
@@ -135,10 +135,10 @@ const SignIn = () => {
         </div>
 
         {/* Lottie Animation Section */}
-        <div className="animate__animated animate__bounceIn animate__slow w-full md:w-1/2  p-6 lg:p-10 bg-primary-green bg-opacity-5">
+        <div className="animate__animated animate__bounceIn animate__slow w-full md:w-1/2  p-2 lg:p-10 bg-primary-green bg-opacity-5">
           <Lottie
             animationData={signinAnimation}
-            className="w-full h-full max-h-[400px] md:max-h-[500px] lg:max-h-[600px]"
+            className="w-full h-full max-h-[300px] small:h-[400px] tab:h-[500px] md:max-h-[500px] lg:max-h-[600px]"
           />
         </div>
       </div>
