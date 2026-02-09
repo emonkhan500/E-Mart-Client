@@ -14,7 +14,8 @@ import Contact from "./Pages/Contact/Contact";
 import About from "./Pages/About/About";
 import Blog from "./Pages/Blogs/Blog";
 import Shop from "./Pages/Shop/Shop";
-import Dashboard from "./Layout/Dashboard";
+// import Dashboard from "./Layout/Dashboard";
+import PDashboard from "./Layout/PDashBoard";
 import UserProfile from "./UserThing/UserProfile";
 import Orders from "./UserThing/Orders";
 import MyCart from "./MyCart/MyCart";
@@ -82,7 +83,7 @@ export const router = createBrowserRouter([
     },
     {
       path:'/dashboard',
-      element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+      element:<PrivateRoute><PDashboard></PDashboard></PrivateRoute>,
       children:[
         // admin
         {
