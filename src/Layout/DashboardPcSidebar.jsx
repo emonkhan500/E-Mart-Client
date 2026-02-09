@@ -34,7 +34,7 @@ const DashboardPcSidebar = () => {
   const { pathname } = useLocation();
 
   return (
-    <div className="hidden bg-primary-bg lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col shadow-md">
+    <div className="hidden bg-cream lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col shadow-md">
       <div className="flex grow flex-col gap-y-5 overflow-y-auto border-r border-white/10 px-6 pb-4">
         <div className="flex h-16 shrink-0 items-center mt-4">
           <img src={logo} alt="Logo" className="h-10 xl:h-12 w-auto" />

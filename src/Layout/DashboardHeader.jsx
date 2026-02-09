@@ -12,7 +12,7 @@ const userNavigation = [
 
 const DashboardHeader = ({ setSidebarOpen }) => {
   return (
-    <div className="lg:pl-72 bg-primary-bg py-4 shadow-2xs">
+    <div className="lg:pl-72 bg-cream py-4 shadow-2xs">
       <div className="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border-white/10 px-4 sm:gap-x-6 sm:px-6 lg:px-8">
         <button
           type="button"

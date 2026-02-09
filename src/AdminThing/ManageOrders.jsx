@@ -2,8 +2,8 @@ import { CiEdit } from "react-icons/ci";
 
 const ManageOrders = () => {
   return (
-    <div>
-      <div className=" border-2 border-slate-200 flex justify-between mb-2 md:mb-14 rounded-xl py-4  px-2 md:px-20 mt-5">
+    <div className="pt-10">
+      <div className=" border-2 border-slate-200 flex justify-between mb-2 md:mb-14 rounded-xl py-4  px-2 md:px-20 ">
         <h1 className="text-base md:text-3xl font-bold text-primary-text">
           Total Order:{" "}
           <span className="text-primary-green text-lg md:text-4xl">10</span>

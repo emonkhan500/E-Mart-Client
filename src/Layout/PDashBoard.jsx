@@ -25,7 +25,7 @@ export default function DashboardLayout() {
         >
           <DialogBackdrop
             transition
-            className="fixed inset-0 bg-cream transition-opacity duration-300 ease-linear data-closed:opacity-0"
+            className="fixed inset-0 transition-opacity duration-300 ease-linear data-closed:opacity-0"
           />
 
           <div className="fixed inset-0 flex">
@@ -34,7 +34,7 @@ export default function DashboardLayout() {
               className="relative mr-16 flex w-full max-w-xs flex-1 transform transition duration-300 ease-in-out data-closed:-translate-x-full"
             >
               <TransitionChild>
-                <div className="absolute top-0 left-full flex w-16 justify-center pt-5 duration-300 ease-in-out data-closed:opacity-0">
+                <div className="absolute top-0 left-3/4 flex w-16 justify-center pt-5 duration-300 ease-in-out data-closed:opacity-0 z-10">
                   <button
                     type="button"
                     onClick={() => setSidebarOpen(false)}
@@ -58,7 +58,7 @@ export default function DashboardLayout() {
 
         <DashboardHeader setSidebarOpen={setSidebarOpen} />
 
-        <div className="">
+        <div className="bg-bg-honeydew h-screen">
           <main className="px-4 lg:pl-80 "> <Outlet /></main>
         </div>
       </div>
