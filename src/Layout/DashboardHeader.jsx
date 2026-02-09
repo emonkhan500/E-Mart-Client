@@ -6,7 +6,7 @@ import {
 } from "@heroicons/react/20/solid";
 
 const userNavigation = [
-  { name: "Your profile", href: "#" },
+  { name: "Your profile", href: "/dashboard/adminprofile" },
   { name: "Sign out", href: "#" },
 ];
 
