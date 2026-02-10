@@ -1,61 +1,69 @@
 import { CiEdit } from "react-icons/ci";
+import SharedTitle from "../Shared/ui/SharedTitle";
 
 const ManageOrders = () => {
   return (
-    <div className="pt-10">
-      <div className=" border-2 border-slate-200 flex justify-between mb-2 md:mb-14 rounded-xl py-4  px-2 md:px-20 ">
-        <h1 className="text-base md:text-3xl font-bold text-primary-text">
-          Total Order:{" "}
-          <span className="text-primary-green text-lg md:text-4xl">10</span>
+    <div className="">
+      <SharedTitle title={"Manage Orders"} />
+      <div className=" border-2 border-border flex justify-between mb-6 lg:mb-10 rounded-lg py-2 lg:py-3  px-2 md:px-12 ld:px-20  mt-6">
+        <h1 className="text-base md:text-2xl font-bold text-primary-text">
+          Total Order:
+          <span className="text-primary-green text-lg md:text-2xl  font-bold">10</span>
         </h1>
-        <h1 className="text-base md:text-3xl font-bold text-primary-text">
-          Total:{" "}
-          <span className="text-primary-green text-lg md:text-4xl">
+        <h1 className="text-base md:text-2xl font-bold text-primary-text">
+          Total:
+          <span className="text-primary-green text-lg md:text-2xl  font-bold">
             10000 TK
           </span>
         </h1>
       </div>
-      <div className="overflow-x-auto w-full ">
-        <table className="table border-2 border-slate-200 p-3">
-          {/* head */}
-          <thead className="text-2xl text-white bg-primary-green quick">
+      <div className="overflow-x-auto w-full">
+        <table className="table border-2 border-border p-3 w-full">
+          <thead className="text-sm small:text-base md:text-base lg:text-lg xxl:text-xl bg-primary-green text-white">
             <tr>
-              <th>Product-Image</th>
-              <th>Product-Name</th>
+              <th>Product</th>
+              <th>Name</th>
               <th>Price</th>
-              <th>Bought-By</th>
-
+              <th>Bought By</th>
               <th>Edit</th>
             </tr>
           </thead>
-          <tbody>
-            {/* row 1 */}
-            <tr className="border-b-2 border-border">
+
+          <tbody className="bg-border">
+            <tr className="border-b-2 border-border ">
+              {/* Product Image */}
               <td>
-                <div className="flex items-center gap-3">
-                  <div className="avatar">
-                    <div className=" h-24 w-24 border-2 border-border p-3">
-                      <img
-                        src="https://img.daisyui.com/images/profile/demo/2@94.webp"
-                        alt="Avatar Tailwind CSS Component"
-                      />
-                    </div>
+                <div className="avatar">
+                  <div className="h-10 w-10 border-2 border-border">
+                    <img
+                      src="https://img.daisyui.com/images/profile/demo/2@94.webp"
+                      alt="product"
+                    />
                   </div>
                 </div>
               </td>
-              <td className="text-lg font-bold text-primary-text">
+
+              {/* Name */}
+              <td className="text-xs small:text-sm lg:text-base font-medium text-primary-text max-w-[140px] truncate">
                 Field Roast Chao Cheese Creamy Original
               </td>
-              <td className="text-xl font-bold text-primary-green">$2.5</td>
-              <td className="text-xl font-bold text-primary-green">
+
+              {/* Price */}
+              <td className="text-sm xl:text-base font-bold text-primary-green">
+                $2.5
+              </td>
+
+              {/* Buyer */}
+              <td className="text-xs small:text-sm lg:text-base font-medium text-primary-text max-w-[165px] truncate">
                 Md Emon Khan
               </td>
-              {/* edit */}
-              <th>
-                <button className="btn btn-ghost btn-xl">
-                  <CiEdit />
+
+              {/* Edit */}
+              <td>
+                <button className="btn-md text-blue-600">
+                  <CiEdit size={18} />
                 </button>
-              </th>
+              </td>
             </tr>
           </tbody>
         </table>

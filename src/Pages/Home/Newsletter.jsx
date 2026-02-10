@@ -2,7 +2,7 @@ import news from "../../assets/banner-9.png.png";
 
 const Newsletter = () => {
   return (
-    <div className="mt-16 md:mt-3 rounded md:my-7 px-3  md:px-6 md:h-[400px]  md:flex items-center lg:gap-14 justify-center quick bg-primary-border">
+    <div className=" md:mt-3 lg:mt-8 rounded md:my-7 px-3  md:px-6 md:h-[400px] md:flex items-center lg:gap-14 justify-center quick bg-primary-border">
       <div className="lg:w-3/4 pt-3 md:pt-0 md:px-4 space-y-3">
         <h1 className="font-bold text-center md:text-start text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-primary-text ">
           Stay home & get your daily needs from our shop

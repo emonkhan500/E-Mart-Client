@@ -21,7 +21,7 @@ const Message = () => {
                 <input
                   type="text"
                   placeholder="Your Name"
-                  className="peer border-border-gray border rounded-md outline-none px-4 py-2 lg:py-4 w-full  text-black transition-colors duration-300"
+                  className=" border-border-gray border rounded-md outline-none px-4 py-2 lg:py-4 w-full  text-black transition-colors duration-300"
                 />
               </div>
 
@@ -29,7 +29,7 @@ const Message = () => {
                 <input
                   type="email"
                   placeholder="Your Email"
-                  className="peer border-border-gray border rounded-md outline-none px-4 py-2 lg:py-4 w-full text-black transition-colors duration-300"
+                  className=" border-border-gray border rounded-md outline-none px-4 py-2 lg:py-4 w-full text-black transition-colors duration-300"
                 />
               </div>
             </div>
@@ -38,7 +38,7 @@ const Message = () => {
                 <input
                   type="number"
                   placeholder="Phone"
-                  className="peer border-border-gray border rounded-md outline-none px-4 py-2 lg:py-4 w-full  text-black transition-colors duration-300"
+                  className=" border-border-gray border rounded-md outline-none px-4 py-2 lg:py-4 w-full  text-black transition-colors duration-300"
                 />
               </div>
 
@@ -46,7 +46,7 @@ const Message = () => {
                 <input
                   type="text"
                   placeholder="Subject"
-                  className="peer border-border-gray border rounded-md outline-none px-4 py-2 lg:py-4 w-full text-black transition-colors duration-300"
+                  className=" border-border-gray border rounded-md outline-none px-4 py-2 lg:py-4 w-full text-black transition-colors duration-300"
                 />
               </div>
             </div>
@@ -54,7 +54,7 @@ const Message = () => {
             <div className="flex flex-col gap-[5px] w-full mt-[20px]">
               <textarea
                 placeholder="Write message"
-                className="peer min-h-28 md:min-h-[200px] border-border-gray border rounded-md outline-none px-4 py-3 w-full text-black transition-colors duration-300"
+                className=" min-h-28 md:min-h-[220px] border-border-gray border rounded-md outline-none px-4 py-3 w-full text-black transition-colors duration-300"
               ></textarea>
             </div>
 
@@ -72,7 +72,7 @@ const Message = () => {
           <img
             src="https://i.ibb.co.com/JW8TGVwS/contact.png"
             alt="image"
-            className="rounded w-full xl:max-h-[450px] xxl:max-h-[500px] object-cover"
+            className="rounded w-full xl:max-h-[450px] xxl:max-h-[500px] object-fill"
           />
         </div>
       </section>

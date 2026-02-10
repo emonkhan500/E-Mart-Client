@@ -28,7 +28,7 @@ const UnderFeature = () => {
         {underFeatureBanners.map((item) => (
           <div
             key={item.id}
-            className="relative w-full h-[250px] bg-cover bg-center flex items-center p-2 rounded-lg shadow-md"
+            className="relative w-full h-[150px] md:h-[250px] bg-cover bg-center flex items-center p-2 rounded-lg shadow-md"
             style={{ backgroundImage: `url(${item.image})` }}
           >
             <div className="bg-white/5 xl:p-4 rounded-lg w-1/2">
@@ -37,7 +37,7 @@ const UnderFeature = () => {
               </h2>
 
               <Link to={item.link}>
-                <button className="mt-4 px-2 small:px-4 py-2 text-sm small:text-base bg-primary-green text-white rounded hover:bg-primary-green">
+                <button className="mt-4 px-2 small:px-4 py-1 md:py-2 text-sm small:text-base bg-primary-green text-white rounded hover:bg-primary-green">
                   Shop Now →
                 </button>
               </Link>

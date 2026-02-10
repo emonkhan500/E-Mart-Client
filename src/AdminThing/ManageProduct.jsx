@@ -74,7 +74,7 @@ const ManageProduct = () => {
       {currentProducts.map((product, index) => (
         <tr
           key={product._id || index}
-          className="border-b-2 border-border"
+          className="border-b-2 border-bg-honeydew bg-border"
         >
           <td className="text-sm xl:text-base font-medium">
             {(currentPage - 1) * itemsPerPage + index + 1}
@@ -104,7 +104,7 @@ const ManageProduct = () => {
             {product.vendor || "—"}
           </td>
 
-          <td className="text-sm xl:text-base font-bold text-primary-green">
+          <td className="text-sm xl:text-base font-medium text-primary-green">
             ${product.price || "—"}
           </td>
 
