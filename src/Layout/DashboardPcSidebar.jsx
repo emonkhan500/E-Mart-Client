@@ -2,25 +2,22 @@ import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/logo.svg";
 import cn from "../utils/cn";
 import {
-  CalendarIcon,
+  
   ChartPieIcon,
   Cog6ToothIcon,
-  DocumentDuplicateIcon,
-  HomeIcon,
+  ClipboardDocumentIcon,
+  ArrowUturnLeftIcon,
   UsersIcon,
-  UserIcon
+  PlusCircleIcon
 } from "@heroicons/react/24/outline";
 
-
 const navigation = [
-
-  { name: "Home", href: "/", icon: HomeIcon},
- 
-  { name: "Add Product", href: "/dashboard/addproducts", icon: CalendarIcon },
+  { name: "Back To Home", href: "/", icon: ArrowUturnLeftIcon },
+  { name: "Add Product", href: "/dashboard/addproducts", icon: PlusCircleIcon },
   {
     name: "Manage Products",
     href: "/dashboard/manageproducts",
-    icon: DocumentDuplicateIcon,
+    icon: ClipboardDocumentIcon,
   },
   {
     name: "Manage Orders",
@@ -55,17 +52,17 @@ const DashboardPcSidebar = () => {
                     to={item.href}
                     className={cn(
                       isActive
-                        ? "bg-primary-bg text-custom-green"
-                        : "text-sidebar-text hover:bg-primary-bg hover:text-custom-green",
-                      "group flex gap-x-3 rounded-md p-2 text-sm font-semibold"
+                        ? "bg-primary-green text-white"
+                        : "text-primary-text hover:bg-primary-green hover:text-white",
+                      "group flex items-center gap-x-3 rounded-md p-2 text-sm font-semibold",
                     )}
                   >
                     <item.icon
                       className={cn(
                         isActive
-                          ? "text-custom-green"
-                          : "text-sidebar-text group-hover:text-custom-green",
-                        "size-6 shrink-0"
+                          ? "text-white"
+                          : "text-primary-text group-hover:text-white",
+                        "size-6 shrink-0",
                       )}
                     />
                     {item.name}
@@ -75,7 +72,7 @@ const DashboardPcSidebar = () => {
             })}
 
             <li className="mt-auto">
-              <button className="group flex gap-x-3 rounded-md p-2 text-sm font-semibold text-sidebar-text hover:text-custom-green">
+              <button className="group flex gap-x-3 rounded-md p-2 text-sm font-semibold text-primary-text hover:text-white">
                 <Cog6ToothIcon className="size-6 shrink-0" />
                 Settings
               </button>

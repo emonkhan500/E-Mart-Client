@@ -56,7 +56,7 @@ const DashboardHeader = ({ setSidebarOpen }) => {
                   className="size-8 rounded-full"
                 />
                 <span className="hidden lg:flex lg:items-center">
-                  <span className="ml-4 text-sm/6 font-semibold text-sidebar-text">
+                  <span className="ml-4 text-sm/6 font-semibold text-primary-text">
                     Tom Cook
                   </span>
                   <ChevronDownIcon
@@ -74,7 +74,7 @@ const DashboardHeader = ({ setSidebarOpen }) => {
                   <MenuItem key={item.name}>
                     <a
                       href={item.href}
-                      className="block px-3 py-1 text-sm/6 text-sidebar-text hover:text-custom-green hover:bg-white/5"
+                      className="block px-3 py-1 text-sm/6 text-primary-text hover:text-custom-green hover:bg-white/5"
                     >
                       {item.name}
                     </a>
