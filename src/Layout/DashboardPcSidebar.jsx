@@ -2,13 +2,12 @@ import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/logo.svg";
 import cn from "../utils/cn";
 import {
-  
   ChartPieIcon,
   Cog6ToothIcon,
   ClipboardDocumentIcon,
   ArrowUturnLeftIcon,
   UsersIcon,
-  PlusCircleIcon
+  PlusCircleIcon,
 } from "@heroicons/react/24/outline";
 
 const navigation = [
@@ -72,10 +71,17 @@ const DashboardPcSidebar = () => {
             })}
 
             <li className="mt-auto">
-              <button className="group flex gap-x-3 rounded-md p-2 text-sm font-semibold text-primary-text hover:text-white">
-                <Cog6ToothIcon className="size-6 shrink-0" />
-                Settings
-              </button>
+              <div className="flex items-center ">
+                <img
+                  alt=""
+                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e"
+                  className="size-8 rounded-full"
+                />
+
+                <span className="ml-4 text-sm/6 font-semibold text-primary-text">
+                  Tom Cook
+                </span>
+              </div>
             </li>
           </ul>
         </nav>
