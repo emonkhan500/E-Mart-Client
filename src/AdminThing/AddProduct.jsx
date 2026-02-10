@@ -1,7 +1,7 @@
 import Swal from "sweetalert2";
 import useAxiosPublic from "../Axios/useAxiosPublic";
 import useAxiosSecure from "../Axios/useAxiosSecure";
-
+import SharedTitle from "../Shared/ui/SharedTitle";
 const img_hosting_key = import.meta.env.VITE_IMAGE;
 const img_hosting_api = `https://api.imgbb.com/1/upload?key=${img_hosting_key}`;
 
@@ -47,45 +47,33 @@ const AddProduct = () => {
     }
   };
   return (
-    <div>
-      <div className="text-center ">
-        <h1 className=" text-2xl md:text-4xl font-bold text-primary-green">
-          Add Your Product
-        </h1>
-        <div className="flex justify-center  pr-7 mb-8">
-          <img
-            className=""
-            src="https://i.ibb.co.com/1JBhBjNq/underheading.png "
-            alt=""
-          />
-        </div>
-      </div>
+    <div className="quick">
+      <SharedTitle title="Add Your Product" />
       <form
         onSubmit={handleSubmit}
-        className="mx-auto md:m-6 md:p-2 grid grid-cols-2 justify-items-center gap-x-6 gap-y-2"
+        className="mx-auto grid grid-cols-2 justify-items-center gap-x-2 small:gap-x-6 gap-y-2 mt-8"
       >
         {/* Product Title */}
-        <div className="form-control w-full">
-          <label className="label">
-            <span className="label-text">Product Title</span>
-          </label>
+        <div className="form-control w-full ">
+          <span className="label-text text-sm small:text-base">
+            Product Title
+          </span>
           <input
             name="title"
             type="text"
             placeholder="Enter Product Title"
-            className="input input-bordered w-full"
+            className="py-3 focus:outline-none rounded-md border select-bordered w-full text-xs px-1 text-primary-text placeholder:text-primary-text"
             required
           />
         </div>
 
         {/* Category */}
         <div className="form-control w-full">
-          <label className="label">
-            <span className="label-text">Category</span>
-          </label>
+          <span className="label-text text-sm small:text-base">Category</span>
+
           <select
             name="category"
-            className="select select-bordered w-full"
+            className=" py-3 focus:outline-none rounded-md border  select-bordered w-full text-xs px-1 text-primary-text"
             required
           >
             <option value="">Select category</option>
@@ -101,12 +89,11 @@ const AddProduct = () => {
 
         {/* Vendor */}
         <div className="form-control w-full">
-          <label className="label">
-            <span className="label-text">Vendor</span>
-          </label>
+          <span className="label-text text-sm small:text-base">Vendor</span>
+
           <select
             name="vendor"
-            className="select select-bordered w-full"
+            className=" py-3 focus:outline-none rounded-md border  select-bordered w-full text-xs px-1 text-primary-text"
             required
           >
             <option value="">Select Vendor</option>
@@ -122,94 +109,86 @@ const AddProduct = () => {
 
         {/* Price */}
         <div className="form-control w-full">
-          <label className="label">
-            <span className="label-text">Price</span>
-          </label>
+          <span className="label-text text-sm small:text-base">Price</span>
+
           <input
             name="price"
             defaultValue=""
             type="number"
             placeholder="Enter Product Price"
-            className="input input-bordered w-full"
+            className="py-3 focus:outline-none rounded-md border select-bordered w-full text-xs px-1 text-primary-text placeholder:text-primary-text"
           />
         </div>
         {/* tag */}
         <div className="form-control w-full">
-          <label className="label">
-            <span className="label-text">Tag</span>
-          </label>
+          <span className="label-text text-sm small:text-base">Tag</span>
+
           <input
             defaultValue=""
             name="tag"
             type="text"
             placeholder="Tag"
-            className="input input-bordered w-full"
+            className="py-3 focus:outline-none rounded-md border select-bordered w-full text-xs px-1 text-primary-text placeholder:text-primary-text"
           />
         </div>
 
         {/*dis  Price */}
         <div className="form-control w-full">
-          <label className="label">
-            <span className="label-text">Discount Price</span>
-          </label>
+          <span className="label-text text-sm small:text-base">
+            Discount Price
+          </span>
           <input
             name="disPrice"
             defaultValue=""
             type="number"
             placeholder="Enter Discount Price"
-            className="input input-bordered w-full"
+            className="py-3 focus:outline-none rounded-md border select-bordered w-full text-xs px-1 text-primary-text placeholder:text-primary-text"
           />
         </div>
         {/* sold */}
         <div className="form-control w-full">
-          <label className="label">
-            <span className="label-text">Sold</span>
-          </label>
+          <span className="label-text text-sm small:text-base">Sold</span>
           <input
             defaultValue=""
             name="sold"
             type="number"
             placeholder="Sold Out"
-            className="input input-bordered w-full"
+            className="py-3 focus:outline-none rounded-md border select-bordered w-full text-xs px-1 text-primary-text placeholder:text-primary-text"
           />
         </div>
 
         {/*available */}
         <div className="form-control w-full">
-          <label className="label">
-            <span className="label-text">Available</span>
-          </label>
+          <span className="label-text text-sm small:text-base">Available</span>
           <input
             name="available"
             defaultValue=""
             type="number"
             placeholder="Enter Product Price"
-            className="input input-bordered w-full"
+            className="py-3 focus:outline-none rounded-md border select-bordered w-full text-xs px-1 text-primary-text placeholder:text-primary-text"
           />
         </div>
 
         {/* Description */}
         <div className="form-control w-full col-span-2">
-          <label className="label">
-            <span className="label-text">Description</span>
-          </label>
+          <span className="label-text text-sm small:text-base">
+            Description
+          </span>
           <textarea
             rows={3}
             cols={30}
             name="description"
             placeholder="Description"
-            className="input input-bordered w-full"
+            className="py-3 focus:outline-none rounded-md border select-bordered w-full text-xs px-1 text-primary-text placeholder:text-primary-text"
           />
         </div>
 
         {/* Rating Dropdown */}
         <div className="form-control w-full">
-          <label className="label">
-            <span className="label-text">Rating</span>
-          </label>
+          <span className="label-text text-sm small:text-base">Rating</span>
           <select
             name="rating"
-            className="select select-bordered w-full"
+            className=" py-3 focus:outline-none rounded-md border  select-bordered w-full text-xs px-1 text-primary-text"
             required
           >
             <option value="">Select Rating</option>
@@ -226,7 +205,7 @@ const AddProduct = () => {
           required
           type="file"
           name="img"
-          className="mt-10 text-white bg-primary-green file-input border-l-0 w-full max-w-xs"
+          className="mt-5 w-full max-w-[280px] md:max-w-xs text-xs small:text-sm md:text-base text-white bg-primary-green rounded file:bg-secondary-text file:text-white file:border file:px-1 md:file:px-6 file:py-3"
         />
 
         {/* Submit Button */}

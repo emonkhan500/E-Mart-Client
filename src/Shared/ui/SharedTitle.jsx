@@ -1,7 +1,7 @@
 const SharedTitle = ({ title }) => {
   return (
-    <div className="w-full lato  pt-6 lg:pt-10">
-      <h1 className="text-center mt-4  font-bold text-2xl md:text-4xl">
+    <div className="w-full lato pt-4 small:pt-6 lg:pt-10">
+      <h1 className="text-center mt-4 font-bold text-2xl md:text-4xl">
         {title}
       </h1>
 

@@ -2,11 +2,9 @@ import { FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { Autoplay, FreeMode } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-
 import "swiper/css";
 import "swiper/css/free-mode";
 import "./DealStyle.css";
-
 import SharedTitle from "../../Shared/ui/SharedTitle";
 
 const products = [
@@ -74,7 +72,6 @@ const DailyBestDeal = () => {
             <h2 className="lato md:text-3xl lg:text-4xl xl:text-5xl font-semibold text-primary-text">
               Bring nature into your home
             </h2>
-
             <Link to="/shop">
               <button className="mt-10 px-4 py-2 bg-primary-green text-white rounded">
                 Shop Now →
@@ -82,7 +79,6 @@ const DailyBestDeal = () => {
             </Link>
           </div>
         </div>
-
         {/* Swiper */}
         <Swiper
           freeMode
