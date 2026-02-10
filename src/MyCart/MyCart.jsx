@@ -21,14 +21,14 @@ const MyCart = () => {
   const subTotal = cartItems.reduce((sum, item) => sum + item.price, 0);
 
   return (
-    <div>
+    <div className="quick">
       <ShareHead pageTitle={"My Cart"} />
 
       <div className="flex flex-col lg:flex-row mt-10 gap-8 md:gap-8 lg:gap-5 xxl:gap-10">
         {/* table */}
         <div className="overflow-x-auto w-full lg:w-2/3">
           <table className="table border-2 border-border p-3">
-            <thead className="text-sm small:text-base md:text-base lg:text-lg xxl:text-xl bg-primary-green quick text-white ">
+            <thead className="text-sm small:text-base md:text-base lg:text-lg xxl:text-xl bg-primary-green  text-white ">
               <tr className="!p-2">
                 <th>Product</th>
                 <th>Name</th>
