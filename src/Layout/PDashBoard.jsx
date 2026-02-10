@@ -17,7 +17,7 @@ export default function DashboardLayout() {
 
   return (
     <>
-      <div className=" h-screen">
+      <div className=" min-h-screen flex flex-col">
         <Dialog
           open={sidebarOpen}
           onClose={setSidebarOpen}
@@ -58,7 +58,7 @@ export default function DashboardLayout() {
 
         <DashboardHeader setSidebarOpen={setSidebarOpen} />
 
-        <div className="bg-bg-honeydew h-screen">
+        <div className="bg-bg-honeydew flex-1">
           <main className="px-4 lg:pl-80 "> <Outlet /></main>
         </div>
       </div>

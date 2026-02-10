@@ -1,5 +1,5 @@
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
-import { Bars3Icon, BellIcon } from "@heroicons/react/24/outline";
+import { Bars3Icon } from "@heroicons/react/24/outline";
 import {
   ChevronDownIcon,
   MagnifyingGlassIcon,
@@ -12,8 +12,8 @@ const userNavigation = [
 
 const DashboardHeader = ({ setSidebarOpen }) => {
   return (
-    <div className="lg:pl-72 bg-cream py-4 shadow-2xs">
-      <div className="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border-white/10 px-4 sm:gap-x-6 sm:px-6 lg:px-8">
+    <div className="lg:pl-72 bg-cream py-3 md:py-4 shadow-2xs">
+      <div className="sticky top-0 z-40 flex h-14 md:h-16 shrink-0 items-center gap-x-0 small:gap-x-2 border-b border-white/10 px-4 sm:gap-x-6 sm:px-6 lg:px-8">
         <button
           type="button"
           onClick={() => setSidebarOpen(true)}
@@ -30,35 +30,21 @@ const DashboardHeader = ({ setSidebarOpen }) => {
           <form
             action="#"
             method="GET"
-            className="grid flex-1 min-w-0 my-2 max-w-xl"
+            className="grid flex-1 min-w-0 my-2 mx-2 max-w-xl relative "
           >
             <input
               name="search"
               placeholder="Search"
               aria-label="Search"
-              className="col-start-1 row-start-1 block size-full border border-border-gray px-18 text-base text-sidebar-text outline-hidden placeholder:text-sidebar-text sm:text-sm/6 rounded-xl bg-sidebar-bg"
+              className="col-start-1 row-start-1 block size-full border border-border-gray  text-base text-primary-text focus:outline-none outline-hidden placeholder:text-primary-gray sm:text-sm/6 rounded-xl bg-white pl-4"
             />
             <MagnifyingGlassIcon
               aria-hidden="true"
-              className="pointer-events-none col-start-1 row-start-1 size-5 self-center text-sidebar-text ml-8"
+              className="pointer-events-none col-start-1 row-start-1 size-5 self-center text-primary-text absolute right-5 md:right-10"
             />
           </form>
 
           <div className="flex items-center gap-x-4 lg:gap-x-6">
-            <button
-              type="button"
-              className="-m-2.5 p-2.5 text-sidebar-text hover:text-custom-green"
-            >
-              <span className="sr-only">View notifications</span>
-              <BellIcon aria-hidden="true" className="size-6" />
-            </button>
-
-            {/* Separator */}
-            <div
-              aria-hidden="true"
-              className="hidden lg:block lg:h-6 lg:w-px lg:bg-white/10"
-            />
-
             {/* Profile dropdown */}
             <Menu as="div" className="relative">
               <MenuButton className="relative flex items-center">
@@ -75,14 +61,14 @@ const DashboardHeader = ({ setSidebarOpen }) => {
                   </span>
                   <ChevronDownIcon
                     aria-hidden="true"
-                    className="ml-2 size-5 text-gray-500"
+                    className="ml-2 size-5 text-primary-text"
                   />
                 </span>
               </MenuButton>
 
               <MenuItems
                 transition
-                className="absolute right-0 z-10 mt-2.5 w-32 origin-top-right rounded-md bg-sidebar-bg py-2 outline-1 -outline-offset-1 outline-white/10 transition data-closed:scale-95 data-closed:opacity-0"
+                className="absolute right-0 z-10 mt-2.5 w-32 origin-top-right rounded-md bg-cream py-2 outline-1 -outline-offset-1 outline-white/10 transition data-closed:scale-95 data-closed:opacity-0"
               >
                 {userNavigation.map((item) => (
                   <MenuItem key={item.name}>
