@@ -17,7 +17,7 @@ const DashboardHeader = ({ setSidebarOpen }) => {
         <button
           type="button"
           onClick={() => setSidebarOpen(true)}
-          className="-m-2.5 p-2.5 text-gray-400 hover:text-white lg:hidden"
+          className="-m-2.5 p-2.5 text-primary-green lg:hidden"
         >
           <span className="sr-only">Open sidebar</span>
           <Bars3Icon aria-hidden="true" className="size-6" />
@@ -36,11 +36,11 @@ const DashboardHeader = ({ setSidebarOpen }) => {
               name="search"
               placeholder="Search"
               aria-label="Search"
-              className="col-start-1 row-start-1 block size-full border border-border-gray  text-base text-primary-text focus:outline-none outline-hidden placeholder:text-primary-gray sm:text-sm/6 rounded-xl bg-white pl-4"
+              className="col-start-1 row-start-1 block size-full border border-primary-green  text-base text-primary-text focus:outline-none outline-hidden placeholder:text-primary-gray sm:text-sm/6 rounded-xl bg-white pl-4"
             />
             <MagnifyingGlassIcon
               aria-hidden="true"
-              className="pointer-events-none col-start-1 row-start-1 size-5 self-center text-primary-text absolute right-5 md:right-10"
+              className="pointer-events-none col-start-1 row-start-1 size-5 self-center text-primary-green absolute right-5 md:right-10"
             />
           </form>
 
