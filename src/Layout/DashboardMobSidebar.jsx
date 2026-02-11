@@ -3,7 +3,6 @@ import logo from "../assets/logo.svg";
 import cn from "../utils/cn";
 import {
   ChartPieIcon,
-  Cog6ToothIcon,
   ClipboardDocumentIcon,
   ArrowUturnLeftIcon,
   UsersIcon,
@@ -11,8 +10,9 @@ import {
 } from "@heroicons/react/24/outline";
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
+import useAdmin from "../AdminThing/useAdmin";
 
-const navigation = [
+const adminNavigation = [
   { name: "Back To Home", href: "/", icon: ArrowUturnLeftIcon },
   { name: "Add Product", href: "/dashboard/addproducts", icon: PlusCircleIcon },
   {
@@ -31,9 +31,38 @@ const navigation = [
     icon: UsersIcon,
   },
 ];
+
+const userNavigation = [
+  { name: "Back To Home", href: "/", icon: ArrowUturnLeftIcon },
+  {
+    name: "My Orders",
+    href: "/dashboard/orders",
+    icon: ChartPieIcon,
+  },
+  {
+    name: "Profile",
+    href: "/dashboard/userprofile",
+    icon: UsersIcon,
+  },
+];
+
 const DashboardMobSidebar = () => {
   const { pathname } = useLocation();
   const { user } = useContext(AuthContext);
+  const [isAdmin, isLoading] = useAdmin();
+
+  if (isLoading) {
+    return (
+      <div className="flex items-center justify-center h-full">
+        <span className="text-primary-text font-semibold">
+          Loading...
+        </span>
+      </div>
+    );
+  }
+
+  const navigation = isAdmin ? adminNavigation : userNavigation;
+
   return (
     <div className="relative flex grow flex-col gap-y-5 overflow-y-auto bg-cream px-6 pb-4">
       {/* Logo */}
@@ -53,7 +82,7 @@ const DashboardMobSidebar = () => {
                     isActive
                       ? "bg-primary-green text-white"
                       : "text-primary-text hover:bg-primary-green hover:text-white",
-                    "group flex gap-x-3 rounded-md p-2 text-sm font-semibold",
+                    "group flex gap-x-3 rounded-md p-2 text-sm font-semibold"
                   )}
                 >
                   <item.icon
@@ -61,7 +90,7 @@ const DashboardMobSidebar = () => {
                       isActive
                         ? "text-white"
                         : "text-primary-text group-hover:text-white",
-                      "size-6 shrink-0",
+                      "size-6 shrink-0"
                     )}
                   />
                   {item.name}
@@ -70,9 +99,9 @@ const DashboardMobSidebar = () => {
             );
           })}
 
-          {/* Bottom */}
+          {/* Bottom User Info */}
           <li className="mt-auto">
-            <div className="flex items-center ">
+            <div className="flex items-center">
               <img
                 alt="user"
                 src={
@@ -81,7 +110,6 @@ const DashboardMobSidebar = () => {
                 }
                 className="size-8 rounded-full"
               />
-
               <span className="ml-4 text-sm/6 font-semibold text-primary-text">
                 {user?.displayName}
               </span>

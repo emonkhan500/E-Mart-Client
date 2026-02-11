@@ -211,7 +211,7 @@ const AddProduct = () => {
         {/* Submit Button */}
         <input
           type="submit"
-          className="font-bold py-3 text-lg col-span-2 my-5 min-w-full text-white bg-primary-green"
+          className="font-bold py-1.5 md:py-2.5 lg:py-3 text-base md:text-lg col-span-2 my-4 min-w-full text-white bg-primary-green"
           value="Add Product"
         />
       </form>

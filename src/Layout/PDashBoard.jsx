@@ -59,7 +59,10 @@ export default function DashboardLayout() {
         <DashboardHeader setSidebarOpen={setSidebarOpen} />
 
         <div className="bg-bg-honeydew flex-1">
-          <main className="px-4 lg:pl-80 "> <Outlet /></main>
+          <main className="px-4 lg:pl-80 ">
+            {" "}
+            <Outlet />
+          </main>
         </div>
       </div>
     </>

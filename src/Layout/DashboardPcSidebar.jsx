@@ -3,7 +3,6 @@ import logo from "../assets/logo.svg";
 import cn from "../utils/cn";
 import {
   ChartPieIcon,
-  Cog6ToothIcon,
   ClipboardDocumentIcon,
   ArrowUturnLeftIcon,
   UsersIcon,
@@ -11,8 +10,9 @@ import {
 } from "@heroicons/react/24/outline";
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
+import useAdmin from "../AdminThing/useAdmin";
 
-const navigation = [
+const adminNavigation = [
   { name: "Back To Home", href: "/", icon: ArrowUturnLeftIcon },
   { name: "Add Product", href: "/dashboard/addproducts", icon: PlusCircleIcon },
   {
@@ -32,9 +32,37 @@ const navigation = [
   },
 ];
 
+const userNavigation = [
+  { name: "Back To Home", href: "/", icon: ArrowUturnLeftIcon },
+  {
+    name: "My Orders",
+    href: "/dashboard/orders",
+    icon: ChartPieIcon,
+  },
+  {
+    name: "Profile",
+    href: "/dashboard/userprofile",
+    icon: UsersIcon,
+  },
+];
+
 const DashboardPcSidebar = () => {
   const { pathname } = useLocation();
   const { user } = useContext(AuthContext);
+  const [isAdmin, isLoading] = useAdmin();
+
+  if (isLoading) {
+    return (
+      <div className="hidden lg:flex lg:w-72 lg:items-center lg:justify-center bg-cream">
+        <span className="text-primary-text font-semibold">
+          Loading...
+        </span>
+      </div>
+    );
+  }
+
+  const navigation = isAdmin ? adminNavigation : userNavigation;
+
   return (
     <div className="hidden bg-cream lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col shadow-md">
       <div className="flex grow flex-col gap-y-5 overflow-y-auto border-r border-white/10 px-6 pb-4">
@@ -55,7 +83,7 @@ const DashboardPcSidebar = () => {
                       isActive
                         ? "bg-primary-green text-white"
                         : "text-primary-text hover:bg-primary-green hover:text-white",
-                      "group flex items-center gap-x-3 rounded-md p-2 text-sm font-semibold",
+                      "group flex items-center gap-x-3 rounded-md p-2 text-sm font-semibold"
                     )}
                   >
                     <item.icon
@@ -63,7 +91,7 @@ const DashboardPcSidebar = () => {
                         isActive
                           ? "text-white"
                           : "text-primary-text group-hover:text-white",
-                        "size-6 shrink-0",
+                        "size-6 shrink-0"
                       )}
                     />
                     {item.name}
@@ -73,7 +101,7 @@ const DashboardPcSidebar = () => {
             })}
 
             <li className="mt-auto">
-              <div className="flex items-center ">
+              <div className="flex items-center">
                 <img
                   alt="user"
                   src={
@@ -82,7 +110,6 @@ const DashboardPcSidebar = () => {
                   }
                   className="size-8 rounded-full"
                 />
-
                 <span className="ml-4 text-sm/6 font-semibold text-primary-text">
                   {user?.displayName}
                 </span>
