@@ -9,6 +9,8 @@ import {
   UsersIcon,
   PlusCircleIcon,
 } from "@heroicons/react/24/outline";
+import { useContext } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const navigation = [
   { name: "Back To Home", href: "/", icon: ArrowUturnLeftIcon },
@@ -31,7 +33,7 @@ const navigation = [
 ];
 const DashboardMobSidebar = () => {
   const { pathname } = useLocation();
-
+  const { user } = useContext(AuthContext);
   return (
     <div className="relative flex grow flex-col gap-y-5 overflow-y-auto bg-cream px-6 pb-4">
       {/* Logo */}
@@ -72,13 +74,16 @@ const DashboardMobSidebar = () => {
           <li className="mt-auto">
             <div className="flex items-center ">
               <img
-                alt=""
-                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e"
+                alt="user"
+                src={
+                  user?.photoURL ||
+                  "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e"
+                }
                 className="size-8 rounded-full"
               />
 
               <span className="ml-4 text-sm/6 font-semibold text-primary-text">
-                Tom Cook
+                {user?.displayName}
               </span>
             </div>
           </li>

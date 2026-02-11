@@ -4,6 +4,9 @@ import {
   ChevronDownIcon,
   MagnifyingGlassIcon,
 } from "@heroicons/react/20/solid";
+import { useContext } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
+
 
 const userNavigation = [
   { name: "Your profile", href: "/dashboard/adminprofile" },
@@ -11,6 +14,7 @@ const userNavigation = [
 ];
 
 const DashboardHeader = ({ setSidebarOpen }) => {
+  const {user}= useContext(AuthContext);
   return (
     <div className="lg:pl-72 bg-cream py-3 md:py-4 shadow-2xs">
       <div className="sticky top-0 z-40 flex h-14 md:h-16 shrink-0 items-center gap-x-0 small:gap-x-2 border-b border-white/10 px-4 sm:gap-x-6 sm:px-6 lg:px-8">
@@ -52,12 +56,12 @@ const DashboardHeader = ({ setSidebarOpen }) => {
                 <span className="sr-only">Open user menu</span>
                 <img
                   alt=""
-                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e"
+                  src= {user?.photoURL || "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e"}
                   className="size-8 rounded-full"
                 />
                 <span className="hidden lg:flex lg:items-center">
                   <span className="ml-4 text-sm/6 font-semibold text-primary-text">
-                    Tom Cook
+                    {user?.displayName}
                   </span>
                   <ChevronDownIcon
                     aria-hidden="true"
