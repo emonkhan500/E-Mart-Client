@@ -149,9 +149,9 @@ const Nav = () => {
         </div>
 
         {/* Location div */}
-        <div className=" border-2 border-primary-green  outline-none rounded px-7 xl:px-9 py-3 shadow hidden 2xl:flex gap-2 items-center justify-center">
+        <div className=" border-2 border-primary-green  outline-none rounded px-7 xl:px-9 py-2.5 shadow hidden xl:flex gap-2 items-center justify-center">
           <CiLocationOn className="text-2xl text-primary-green" />
-          <h1 className="text-primary-green">Your Location</h1>
+          <h1 className="text-primary-green ">Location</h1>
         </div>
 
         {/* Icons Section */}

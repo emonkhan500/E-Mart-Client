@@ -12,6 +12,7 @@ export default {
         'small': '375px', 
         'tab': '580px', 
         'xxl': '1400px', 
+        '2xl': '1540px', 
         '3xl': '1800px', 
       },
       colors: {
