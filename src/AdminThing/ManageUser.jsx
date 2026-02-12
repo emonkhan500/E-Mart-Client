@@ -69,51 +69,59 @@ const ManageUser = () => {
   };
 
   return (
-    <div className="overflow-x-auto w-full  ">
-      <table className="table border-2 border-slate-200 p-3">
-        {/* head */}
-        <thead className="text-2xl bg-primary-green text-white quick">
+    <div className="overflow-x-auto w-full">
+      <table className="table border-2 border-border p-3 w-full">
+        <thead className="text-sm small:text-base md:text-base lg:text-lg xxl:text-xl bg-primary-green text-white">
           <tr>
             <th>No.</th>
             <th>Name</th>
             <th>Email</th>
             <th>Make Admin</th>
-
             <th>Remove</th>
           </tr>
         </thead>
-        <tbody>
+
+        <tbody className="bg-border">
           {users?.map((user, index) => (
-            <tr className="border-b-2 border-border">
-              <td className="text-lg font-bold text-primary-text">
+            <tr key={user._id} className="border-b-2 border-bg-honeydew">
+              {/* Number */}
+              <td className="text-sm xl:text-base font-medium text-primary-text">
                 {index + 1}
               </td>
-              <td className="text-lg font-bold text-primary-text">
+
+              {/* Name */}
+              <td className="text-sm xl:text-base font-medium text-primary-text small:max-w-[160px] truncate">
                 {user.name}
               </td>
-              <td className="text-xl font-bold text-primary-text">
+
+              {/* Email */}
+              <td className="text-sm xl:text-base font-medium text-primary-text small:max-w-[200px] truncate">
                 {user.email}
               </td>
-              <th className="text-lg font-bold">
+
+              {/* Make Admin */}
+              <td className="text-sm xl:text-base font-medium">
                 {user?.role === "admin" ? (
-                  "Admin"
+                  <span className="text-primary-text font-bold">Admin</span>
                 ) : (
                   <button
                     onClick={() => handleAdmin(user)}
-                    className="btn text-center items-center btn-ghost btn-lg"
+                    className="btn-md text-primary-green"
                   >
-                    <RiAdminLine />
+                    <RiAdminLine size={18} />
                   </button>
                 )}
-              </th>
-              <th>
+              </td>
+
+              {/* Remove */}
+              <td>
                 <button
                   onClick={() => handleDelete(user?._id)}
-                  className="btn btn-ghost btn-lg"
+                  className="btn-md text-red"
                 >
                   <FaRegTrashAlt />
                 </button>
-              </th>
+              </td>
             </tr>
           ))}
         </tbody>
