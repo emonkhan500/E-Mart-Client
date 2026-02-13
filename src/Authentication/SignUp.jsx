@@ -59,7 +59,13 @@ const SignUp = () => {
           time: result.user?.metadata?.creationTime,
         };
         axiosPublic.post("/users", userInfo).then((res) => {
-          Swal.fire(`Welcome ${result.user.displayName}`);
+          Swal.fire({
+            icon: "success",
+            title: `Welcome ${result.user.displayName}`,
+            showConfirmButton: false,
+            timer: 1000,
+          });
+
           console.log(result.user);
           navigate(location?.state ? location?.state : "/");
         });

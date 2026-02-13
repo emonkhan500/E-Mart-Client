@@ -35,7 +35,12 @@ const Nav = () => {
   const handleLogout = () => {
     logOut()
       .then(() => {
-        Swal.fire("Sign Out");
+        Swal.fire({
+          icon: "success",
+          title: "Signed Out Successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
         navigate("/signin");
       })
       .catch((error) => {

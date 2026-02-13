@@ -25,7 +25,12 @@ const SignIn = () => {
     login(email, pass)
       .then((result) => {
         console.log(result.user);
-        Swal.fire("Login Successful !");
+        Swal.fire({
+          icon: "success",
+          title: "Signed In Successfully",
+          showConfirmButton: false,
+          timer: 1000,
+        });
         navigate(location?.state ? location?.state : "/");
       })
       .catch((error) => {
