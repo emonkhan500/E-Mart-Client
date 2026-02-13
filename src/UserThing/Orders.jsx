@@ -1,51 +1,78 @@
-import React from 'react';
+
+
+const ordersData = [
+  {
+    id: "1",
+    date: "March 45, 2020",
+    status: "Processing",
+    total: "$125.00",
+  },
+  {
+    id: "2",
+    date: "June 29, 2020",
+    status: "Completed",
+    total: "$364.00",
+  },
+  {
+    id: "3",
+    date: "August 02, 2020",
+    status: "Completed",
+    total: "$280.00",
+  },
+];
 
 const Orders = () => {
-    return (
-        <div className='quick'>
-             <h1 className='text-4xl font-bold pb-5'> Your Orders</h1>
-            <div className="overflow-x-auto rounded-box border border-base-content/5 bg-base-100">
-           
-  <table className="table">
-    
-    {/* head */}
-    <thead>
-      <tr>
-        <th>Order</th>
-        <th>Date</th>
-        <th>Status</th>
-        <th>Total</th>
-        
-      </tr>
-    </thead>
-    <tbody>
-      {/* row 1 */}
-      <tr>
-        <th>#1357</th>
-        <td>March 45, 2020</td>
-        <td>Processing</td>
-        <td>$125.00</td>
-        
-      </tr>
-      {/* row 2 */}
-      <tr>
-      <th>#2467</th>
-        <td>June 29, 2020</td>
-        <td>Completed</td>
-        <td>$364.00</td>
-      </tr>
-      {/* row 3 */}
-      <tr>
-        <th>#2366</th>
-        <td>August 02, 2020</td>
-        <td>Completed</td>
-        <td>$280.00</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-        </div>
-    );
+  return (
+    <div className="quick mt-10">
+      <h1 className="text-2xl md:text-4xl font-bold pb-5 text-primary-text">
+        Your Orders
+      </h1>
+
+      <div className="overflow-x-auto w-full">
+        <table className="table border-2 border-border p-3 w-full min-w-[450px]">
+          <thead className="text-sm small:text-base md:text-base lg:text-lg xxl:text-xl bg-primary-green text-white">
+            <tr>
+              <th>Order</th>
+              <th>Date</th>
+              <th>Status</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+
+          <tbody className="">
+            {ordersData.map((order, index) => (
+              <tr
+                key={index}
+                className=" border-b-2 border-border"
+              >
+                <td className="text-sm xl:text-base font-medium text-primary-text">
+                  {order.id}
+                </td>
+
+                <td className="text-sm xl:text-base font-medium text-primary-text">
+                  {order.date}
+                </td>
+
+                <td
+                  className={`text-sm xl:text-base font-medium ${
+                    order.status === "Completed"
+                      ? "text-primary-green"
+                      : "text-orange"
+                  }`}
+                >
+                  {order.status}
+                </td>
+
+                <td className="text-sm xl:text-base font-bold text-primary-green">
+                  {order.total}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
 };
 
 export default Orders;
