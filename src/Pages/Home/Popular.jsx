@@ -61,7 +61,7 @@ const Popular = () => {
               <img
                 src={item?.photo}
                 alt={item?.title}
-                className="w-72 h-72 object-cover transform transition-transform duration-500 group-hover:scale-110"
+                className="w-72 h-60 object-cover transform transition-transform duration-500 group-hover:scale-110"
               />
 
               {/* Hover Icons */}
@@ -98,51 +98,53 @@ const Popular = () => {
             </div>
 
             {/* Info Section */}
-            <div className="space-y-2 mt-3 px-3">
+            <div className="space-y-1.5 pt-3 px-3 bg-softGreen">
               <p className="text-secondary-gray">{item?.category}</p>
               <h1 className="quick text-xl font-bold text-primary-text">
                 {item?.title}
               </h1>
-              <p>
+              <div className="flex justify-between ">
+                <p>
                 By <span className="text-primary-green">{item?.vendor}</span>
               </p>
 
               {/* Rating */}
-              <div className="rating mt-2">
+              <div className="rating ">
                 <input
                   type="radio"
                   name="rating-1"
-                  className="mask mask-star bg-orange"
+                  className="mask mask-star bg-orange w-4 h-4"
                 />
                 <input
                   type="radio"
                   name="rating-1"
-                  className="mask mask-star bg-orange"
+                  className="mask mask-star bg-orange w-4 h-4"
                   defaultChecked
                 />
                 <input
                   type="radio"
                   name="rating-1"
-                  className="mask mask-star"
+                  className="mask mask-star w-4 h-4"
                 />
                 <input
                   type="radio"
                   name="rating-1"
-                  className="mask mask-star"
+                  className="mask mask-star w-4 h-4"
                 />
                 <input
                   type="radio"
                   name="rating-1"
-                  className="mask mask-star"
+                  className="mask mask-star w-4 h-4"
                 />
+              </div>
               </div>
 
               {/* Price + Button */}
-              <div className="flex justify-between px-3 pb-4 items-center">
+              <div className="flex justify-between pt-2 pb-4 items-center ">
                 <h1 className="text-primary-green text-lg font-semibold">
                   ${item?.price}
                 </h1>
-                <button className="flex items-center gap-2 px-3 py-2 rounded bg-primary-border text-primary-green hover:bg-primary-green hover:text-white transition">
+                <button className="flex items-center gap-2 px-4 py-[5px] rounded bg-primary-green text-white hover:bg-primary-green hover:text-white transition">
                   <IoCartOutline /> Add
                 </button>
               </div>
