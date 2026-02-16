@@ -3,45 +3,18 @@ import { useContext, useState } from "react";
 import { CiHeart } from "react-icons/ci";
 import { IoCartOutline } from "react-icons/io5";
 import { TbDetails } from "react-icons/tb";
+import { FiFilter } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
-import useAxiosPublic from "../../Axios/useAxiosPublic";
 import useAxiosSecure from "../../Axios/useAxiosSecure";
 import { AuthContext } from "../../Provider/AuthProvider";
 
-const categories = [
-  {
-    name: "Milks & Dairies",
-    count: 30,
-    icon: "https://i.ibb.co.com/LTcNd90/category-2-svg.png",
-  },
-
-  {
-    name: "Pet Foods",
-    count: 42,
-    icon: "https://i.ibb.co.com/4g2XB5pB/category-4-svg.png",
-  },
-  {
-    name: "Baking material",
-    count: 68,
-    icon: "https://i.ibb.co.com/8nnp9fDT/category-5-svg.png",
-  },
-  {
-    name: "Fresh Fruit",
-    count: 24,
-    icon: "https://i.ibb.co.com/BKy4Xc1v/category-1-svg.png",
-  },
-];
-
-// Corrected Product List (Flattened Structure)
-
 const Products = () => {
   const axiosSecure = useAxiosSecure();
-  const axiosPublic = useAxiosPublic();
   const { user } = useContext(AuthContext);
-  console.log(user);
 
   const [currentPage, setCurrentPage] = useState(1);
+  const [showSidebar, setShowSidebar] = useState(false);
   const postsPerPage = 12;
 
   const { data: allProduct = [] } = useQuery({
@@ -51,11 +24,9 @@ const Products = () => {
       return data.data;
     },
   });
-  console.log(allProduct);
 
   const handleWish = async (item) => {
     const wishedProduct = { userEmail: user?.email, ...item };
-
     const wishRes = await axiosSecure.post("/wishlist", wishedProduct);
 
     if (wishRes.data.insertedId) {
@@ -63,28 +34,68 @@ const Products = () => {
     }
   };
 
-  // Pagination logic
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentItem = allProduct?.slice(indexOfFirstPost, indexOfLastPost);
   const totalPages = Math.ceil(allProduct?.length / postsPerPage);
 
   return (
-    <div className="mt-8 md:mt-20 quick">
-      <div className="flex flex-col md:flex-row gap-6 md:gap-4 lg:gap-3 mx-auto">
+    <div className="mt-8 md:mt-20 quick relative">
+      {/* Mobile / Medium Top Bar */}
+      <div className="flex items-center gap-3 mb-4 px-3 lg:hidden">
+        <input
+          type="text"
+          placeholder="Search products..."
+          className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-green focus:border-primary-green"
+        />
+        <button
+          onClick={() => setShowSidebar(true)}
+          className="p-2 border border-primary-green rounded-lg text-primary-green"
+        >
+          <FiFilter size={20} />
+        </button>
+      </div>
+
+      <div className="flex flex-col lg:flex-row gap-6 mx-auto">
+        {/* Overlay */}
+        {showSidebar && (
+          <div
+            onClick={() => setShowSidebar(false)}
+            className="fixed inset-0 bg-black/40 z-40 lg:hidden"
+          />
+        )}
+
         {/* Sidebar */}
-        <div className="w-full md:w-64">
-          {/* Search Field */}
-          <div className="bg-white p-4 rounded-xl shadow-sm">
+        <div
+          className={`
+            fixed lg:static top-0 left-0 h-full lg:h-auto
+            w-72 bg-white z-50 p-5 space-y-8
+            transform transition-transform duration-300
+            ${showSidebar ? "translate-x-0" : "-translate-x-full"}
+            lg:translate-x-0
+            shadow-lg lg:shadow-none
+          `}
+        >
+          {/* Close Button Mobile */}
+          <div className="flex justify-end lg:hidden">
+            <button
+              onClick={() => setShowSidebar(false)}
+              className="text-2xl text-primary-green"
+            >
+              ✕
+            </button>
+          </div>
+
+          {/* Search (Desktop Only) */}
+          <div className="hidden lg:block bg-white p-4 rounded-xl shadow-sm">
             <h2 className="text-xl font-bold text-gray-800 border-b-2 border-primary-green inline-block pb-1">
               Search
             </h2>
-
             <div className="mt-5">
               <input
                 type="text"
                 placeholder="Search products..."
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-green focus:border-primary-green transition"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-green"
               />
             </div>
           </div>
@@ -150,119 +161,68 @@ const Products = () => {
           </div>
         </div>
 
-        {/* Product List */}
-        <div className="">
-          <div className="grid grid-cols-1 tab:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 md:gap-1 lg:gap-2 px-3 md:px-0">
-            {currentItem?.slice(0, 12).map((item, index) => (
+        {/* Product Grid */}
+        <div className="flex-1">
+          <div className="grid grid-cols-1 tab:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 px-3 lg:px-0">
+            {currentItem?.map((item, index) => (
               <div
                 key={index}
-                className="group relative border border-border rounded-lg shadow mx-auto w-[95%] small:w-[90%] tab:w-full overflow-hidden transition-all duration-300"
+                className="group relative border border-border rounded-lg shadow overflow-hidden transition"
               >
-                {/* Tag Label */}
                 {item?.tag && (
                   <span className="absolute top-0 right-0 bg-orange text-white px-4 py-1 rounded-bl-lg text-lg z-10">
                     {item.tag}
                   </span>
                 )}
 
-                {/* Image Wrapper */}
-                <div className="relative flex justify-center items-center overflow-hidden ">
+                <div className="relative flex justify-center items-center overflow-hidden">
                   <img
                     src={item?.photo}
                     alt={item?.title}
-                    className="w-72 h-52 small:h-60 md:h-52 xl:h-60 object-cover transform transition-transform duration-500 group-hover:scale-110"
+                    className="w-full h-56 object-cover transform transition-transform duration-500 group-hover:scale-110"
                   />
 
-                  {/* Hover Icons */}
-                  <div className="absolute inset-0 flex justify-center items-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-black/30">
-                    <div className="bg-white flex justify-center items-center rounded-2xl">
-                      {/* Wishlist */}
-                      <div
-                        className="relative tooltip"
-                        data-tip="Add To Wishlist"
-                      >
-                        <button
-                          onClick={() => handleWish(item)}
-                          className="bg-white text-2xl p-2 text-primary-green hover:bg-primary-green hover:text-white transition border border-primary-green"
-                        >
-                          <CiHeart />
-                        </button>
-                      </div>
+                  <div className="absolute inset-0 flex justify-center items-center gap-4 opacity-0 group-hover:opacity-100 transition bg-black/30">
+                    <button
+                      onClick={() => handleWish(item)}
+                      className="bg-white text-2xl p-2 text-primary-green hover:bg-primary-green hover:text-white border border-primary-green"
+                    >
+                      <CiHeart />
+                    </button>
 
-                      {/* Cart */}
-                      <div className="relative tooltip" data-tip="Add To Cart">
-                        <button className="bg-white text-2xl p-2 text-primary-green hover:bg-primary-green hover:text-white transition border border-primary-green">
-                          <IoCartOutline />
-                        </button>
-                      </div>
+                    <button className="bg-white text-2xl p-2 text-primary-green hover:bg-primary-green hover:text-white border border-primary-green">
+                      <IoCartOutline />
+                    </button>
 
-                      {/* Details */}
-                      <div
-                        className="relative  tooltip"
-                        data-tip="Show Details"
-                      >
-                        <button className="bg-white text-2xl p-2 text-primary-green hover:bg-primary-green hover:text-white transition border border-primary-green">
-                          {" "}
-                          <Link to={`/details/${item?._id}`}>
-                            <TbDetails />
-                          </Link>
-                        </button>
-                      </div>
-                    </div>
+                    <Link
+                      to={`/details/${item?._id}`}
+                      className="bg-white text-2xl p-2 text-primary-green hover:bg-primary-green hover:text-white border border-primary-green"
+                    >
+                      <TbDetails />
+                    </Link>
                   </div>
                 </div>
 
-                {/* Info Section */}
-                <div className="space-y-1 md:space-y-1.5 pt-3 px-3 bg-softGreen">
-                  <p className="text-secondary-gray text-xs md:text-base">
+                <div className="space-y-2 pt-3 px-3 bg-softGreen">
+                  <p className="text-secondary-gray text-sm">
                     {item?.category}
                   </p>
-                  <h1 className="quick text-lg md:text-xl font-bold text-primary-text">
+                  <h1 className="text-lg font-bold text-primary-text">
                     {item?.title}
                   </h1>
-                  <div className="flex justify-between ">
-                    <p className="text-sm md:text-base">
+
+                  <div className="flex justify-between items-center">
+                    <p>
                       By{" "}
                       <span className="text-primary-green">{item?.vendor}</span>
                     </p>
-
-                    {/* Rating */}
-                    <div className="rating ">
-                      <input
-                        type="radio"
-                        name="rating-1"
-                        className="mask mask-star bg-orange w-4 h-4"
-                      />
-                      <input
-                        type="radio"
-                        name="rating-1"
-                        className="mask mask-star bg-orange w-4 h-4"
-                        defaultChecked
-                      />
-                      <input
-                        type="radio"
-                        name="rating-1"
-                        className="mask mask-star w-4 h-4"
-                      />
-                      <input
-                        type="radio"
-                        name="rating-1"
-                        className="mask mask-star w-4 h-4"
-                      />
-                      <input
-                        type="radio"
-                        name="rating-1"
-                        className="mask mask-star w-4 h-4"
-                      />
-                    </div>
                   </div>
 
-                  {/* Price + Button */}
-                  <div className="flex justify-between pt-1 md:pt-2 pb-4 items-center ">
+                  <div className="flex justify-between pb-4 items-center">
                     <h1 className="text-primary-green text-lg font-semibold">
                       $ {item?.price}
                     </h1>
-                    <button className="flex items-center gap-2 px-4 py-[5px] rounded bg-primary-green text-white hover:bg-primary-green hover:text-white transition">
+                    <button className="flex items-center gap-2 px-4 py-1 rounded bg-primary-green text-white">
                       <IoCartOutline /> Add
                     </button>
                   </div>
@@ -280,6 +240,7 @@ const Products = () => {
             >
               Previous
             </button>
+
             {Array.from({ length: totalPages }, (_, i) => (
               <button
                 key={i}
@@ -293,6 +254,7 @@ const Products = () => {
                 {i + 1}
               </button>
             ))}
+
             <button
               className="mx-2 px-4 py-2 rounded bg-primary-green text-white"
               onClick={() =>
