@@ -43,11 +43,11 @@ const Popular = () => {
         </div>
       </div>
       {/* product div */}
-      <div className="grid gap-4 md:gap-2 lg:gap-2 xl:gap-6 grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5 justify-center items-center 2xl:px-16">
+      <div className="grid gap-x-4 md:gap-x-3 lg:gap-x-1.5 gap-y-8 md:gap-y-6 lg:gap-y-8 xl:gap-x-6 xxl:gap-x-4 2xl:gap-x-6 grid-cols-1 tab:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 xxl:grid-cols-5 2xl:grid-cols-5 justify-center items-center 2xl:px-16">
         {product?.slice(0, 12).map((item, index) => (
           <div
             key={index}
-            className="group relative border border-border rounded-lg shadow mx-auto w-full md:w-auto overflow-hidden transition-all duration-300"
+            className="group relative border border-border rounded-lg shadow mx-auto w-[95%] small:w-[90%] tab:w-full overflow-hidden transition-all duration-300"
           >
             {/* Tag Label */}
             {item?.tag && (
@@ -57,11 +57,11 @@ const Popular = () => {
             )}
 
             {/* Image Wrapper */}
-            <div className="relative flex justify-center items-center overflow-hidden px-3">
+            <div className="relative flex justify-center items-center overflow-hidden ">
               <img
                 src={item?.photo}
                 alt={item?.title}
-                className="w-72 h-60 object-cover transform transition-transform duration-500 group-hover:scale-110"
+                className="w-72 h-52 small:h-60 md:h-52 xl:h-60 object-cover transform transition-transform duration-500 group-hover:scale-110"
               />
 
               {/* Hover Icons */}
