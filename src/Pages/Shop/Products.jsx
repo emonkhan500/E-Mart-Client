@@ -71,74 +71,88 @@ const Products = () => {
 
   return (
     <div className="mt-8 md:mt-20 quick">
-      <div className="flex flex-col md:flex-row gap-6 md:gap-2 lg:gap-3 mx-auto">
+      <div className="flex flex-col md:flex-row gap-6 md:gap-4 lg:gap-3 mx-auto">
         {/* Sidebar */}
-<div className="w-full md:w-72 space-y-8">
+        <div className="w-full md:w-64">
+          {/* Search Field */}
+          <div className="bg-white p-4 rounded-xl shadow-sm">
+            <h2 className="text-xl font-bold text-gray-800 border-b-2 border-primary-green inline-block pb-1">
+              Search
+            </h2>
 
-  {/* Product Category */}
-  <div className="bg-white p-6 rounded-xl shadow-sm">
-    <h2 className="text-xl font-bold text-gray-800 border-b-2 border-primary-green inline-block pb-1">
-      Product Category
-    </h2>
+            <div className="mt-5">
+              <input
+                type="text"
+                placeholder="Search products..."
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-green focus:border-primary-green transition"
+              />
+            </div>
+          </div>
 
-    <div className="mt-5 space-y-3 text-secondary-text">
+          {/* Product Category */}
+          <div className="bg-white p-4 rounded-xl shadow-sm">
+            <h2 className="text-xl font-bold text-gray-800 border-b-2 border-primary-green inline-block pb-1">
+              Product Category
+            </h2>
 
-      {[
-        "Tech World",
-        "Fresh Fruits",
-        "Shonar Bangla Meat",
-        "Bangla Bites",
-        "Trendy Touch",
-        "Home & Kitchen Mart",
-        "Sports House",
-      ].map((vendor, index) => (
-        <label key={index} className="flex items-center gap-3 cursor-pointer group">
-          <input
-            type="checkbox"
-            value={vendor}
-            className="w-4 h-4 accent-primary-green"
-          />
-          <span className="group-hover:text-primary-green transition">
-            {vendor}
-          </span>
-        </label>
-      ))}
-    </div>
-  </div>
+            <div className="mt-5 space-y-3 text-secondary-text">
+              {[
+                "Tech World",
+                "Fresh Fruits",
+                "Shonar Bangla Meat",
+                "Bangla Bites",
+                "Trendy Touch",
+                "Home & Kitchen Mart",
+                "Sports House",
+              ].map((vendor, index) => (
+                <label
+                  key={index}
+                  className="flex items-center gap-3 cursor-pointer group"
+                >
+                  <input
+                    type="checkbox"
+                    value={vendor}
+                    className="w-4 h-4 accent-primary-green"
+                  />
+                  <span className="group-hover:text-primary-green transition">
+                    {vendor}
+                  </span>
+                </label>
+              ))}
+            </div>
+          </div>
 
-  {/* Price Filter */}
-  <div className="bg-white p-6 rounded-xl shadow-sm">
-    <h2 className="text-xl font-bold text-gray-800 border-b-2 border-primary-green inline-block pb-1">
-      Price Filter
-    </h2>
+          {/* Price Filter */}
+          <div className="bg-white p-4 rounded-xl shadow-sm">
+            <h2 className="text-xl font-bold text-gray-800 border-b-2 border-primary-green inline-block pb-1">
+              Price Filter
+            </h2>
 
-    <div className="mt-5 space-y-3 text-secondary-text">
-      {[
-        "$0 - $100",
-        "$101 - $200",
-        "$201 - $300",
-        "$301 - $500",
-      ].map((price, index) => (
-        <label key={index} className="flex items-center gap-3 cursor-pointer group">
-          <input
-            type="checkbox"
-            value={price}
-            className="w-4 h-4 accent-primary-green"
-          />
-          <span className="group-hover:text-primary-green transition">
-            {price}
-          </span>
-        </label>
-      ))}
-    </div>
-  </div>
-
-</div>
-
+            <div className="mt-5 space-y-3 text-secondary-text">
+              {["$0 - $100", "$101 - $200", "$201 - $300", "$301 - $500"].map(
+                (price, index) => (
+                  <label
+                    key={index}
+                    className="flex items-center gap-3 cursor-pointer group"
+                  >
+                    <input
+                      type="checkbox"
+                      value={price}
+                      className="w-4 h-4 accent-primary-green"
+                    />
+                    <span className="group-hover:text-primary-green transition">
+                      {price}
+                    </span>
+                  </label>
+                ),
+              )}
+            </div>
+          </div>
+        </div>
 
         {/* Product List */}
         <div className="">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 md:gap-1 lg:gap-2 px-3 md:px-0">
+          <div className="grid grid-cols-1 tab:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 md:gap-1 lg:gap-2 px-3 md:px-0">
             {currentItem?.slice(0, 12).map((item, index) => (
               <div
                 key={index}
