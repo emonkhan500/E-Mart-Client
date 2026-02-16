@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useContext, useState } from "react";
 import { CiHeart } from "react-icons/ci";
 import { IoCartOutline } from "react-icons/io5";
+import { RxCross2 } from "react-icons/rx";
 import { TbDetails } from "react-icons/tb";
 import { FiFilter } from "react-icons/fi";
 import { Link } from "react-router-dom";
@@ -12,10 +13,9 @@ import { AuthContext } from "../../Provider/AuthProvider";
 const Products = () => {
   const axiosSecure = useAxiosSecure();
   const { user } = useContext(AuthContext);
-
   const [currentPage, setCurrentPage] = useState(1);
   const [showSidebar, setShowSidebar] = useState(false);
-  const postsPerPage = 12;
+  const postsPerPage = 15;
 
   const { data: allProduct = [] } = useQuery({
     queryKey: ["allProduct"],
@@ -40,13 +40,13 @@ const Products = () => {
   const totalPages = Math.ceil(allProduct?.length / postsPerPage);
 
   return (
-    <div className="mt-8 md:mt-20 quick relative">
+    <div className="mt-8 md:mt-10 quick relative">
       {/* Mobile / Medium Top Bar */}
-      <div className="flex items-center gap-3 mb-4 px-3 lg:hidden">
+      <div className="flex items-center mx-auto gap-3 mb-4 md:mb-8 px-3 lg:hidden w-full tab:w-[70%]">
         <input
           type="text"
           placeholder="Search products..."
-          className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-green focus:border-primary-green"
+          className="flex-1 px-4 py-2 border border-primary-green rounded-lg focus:outline-none focus:ring-1 focus:ring-primary-green focus:border-primary-green "
         />
         <button
           onClick={() => setShowSidebar(true)}
@@ -68,8 +68,8 @@ const Products = () => {
         {/* Sidebar */}
         <div
           className={`
-            fixed lg:static top-0 left-0 h-full lg:h-auto
-            w-72 bg-white z-50 p-5 space-y-8
+            fixed lg:static top-0 left-0 h-auto
+            w-72 tab:w-[70%] lg:w-72 mt-24 md:mt-28 lg:mt-0 bg-white z-50 lg:z-10  
             transform transition-transform duration-300
             ${showSidebar ? "translate-x-0" : "-translate-x-full"}
             lg:translate-x-0
@@ -77,12 +77,12 @@ const Products = () => {
           `}
         >
           {/* Close Button Mobile */}
-          <div className="flex justify-end lg:hidden">
+          <div className=" lg:hidden absolute top-4 right-8">
             <button
               onClick={() => setShowSidebar(false)}
-              className="text-2xl text-primary-green"
+              className="text-3xl text-primary-green"
             >
-              ✕
+              <RxCross2 />
             </button>
           </div>
 
@@ -95,7 +95,7 @@ const Products = () => {
               <input
                 type="text"
                 placeholder="Search products..."
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-green"
+                className="w-full px-4 py-2 border border-primary-green rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-green"
               />
             </div>
           </div>
@@ -163,7 +163,7 @@ const Products = () => {
 
         {/* Product Grid */}
         <div className="flex-1">
-          <div className="grid grid-cols-1 tab:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 px-3 lg:px-0">
+          <div className="grid grid-cols-1 tab:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 px-3 lg:px-0">
             {currentItem?.map((item, index) => (
               <div
                 key={index}
@@ -213,7 +213,7 @@ const Products = () => {
 
                   <div className="flex justify-between items-center">
                     <p>
-                      By{" "}
+                      By
                       <span className="text-primary-green">{item?.vendor}</span>
                     </p>
                   </div>
