@@ -73,176 +73,73 @@ const Products = () => {
     <div className="mt-8 md:mt-20 quick">
       <div className="flex flex-col md:flex-row gap-6 md:gap-2 lg:gap-3 mx-auto">
         {/* Sidebar */}
-        <div className="w-full md:w-72 space-y-10">
-          {/* Categories */}
-          <div className="bg-white rounded-2xl shadow-sm p-2 w-full max-w-sm">
-            {/* Header */}
-            <div className="mb-6">
-              <h2 className="text-2xl font-bold text-gray-800">Category</h2>
-              <div className="w-16 h-1 bg-teal-500 mt-2 rounded-full"></div>
-            </div>
+<div className="w-full md:w-72 space-y-8">
 
-            {/* Category List */}
-            <div className="space-y-3">
-              {/* Milks & Dairies */}
-              <div className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer group">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 flex-shrink-0">
-                    <img
-                      src="../../../src/assets/category-2.svg.png"
-                      alt="Milks & Dairies"
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                  <span className="text-secondary-text font-medium group-hover:text-primary-green transition-colors">
-                    Milks & Dairies
-                  </span>
-                </div>
-                <div className="bg-bg-honeydew text-primary-green font-semibold text-sm w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
-                  3
-                </div>
-              </div>
+  {/* Product Category */}
+  <div className="bg-white p-6 rounded-xl shadow-sm">
+    <h2 className="text-xl font-bold text-gray-800 border-b-2 border-primary-green inline-block pb-1">
+      Product Category
+    </h2>
 
-              {/* Clothing */}
-              <div className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer group">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 flex-shrink-0">
-                    <img
-                      src="../../../src/assets/icon-1.svg.png"
-                      alt="Clothing"
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                  <span className="text-secondary-text font-medium group-hover:text-primary-green transition-colors">
-                    Clothing
-                  </span>
-                </div>
-                <div className="bg-bg-honeydew text-primary-green font-semibold text-sm w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
-                  4
-                </div>
-              </div>
+    <div className="mt-5 space-y-3 text-secondary-text">
 
-              {/* Pet Foods */}
-              <div className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer group">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 flex-shrink-0">
-                    <img
-                      src="../../../src/assets/category-4.svg.png"
-                      alt="Pet Foods"
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                  <span className="text-secondary-text font-medium group-hover:text-primary-green transition-colors">
-                    Pet Foods
-                  </span>
-                </div>
-                <div className="bg-bg-honeydew text-primary-green font-semibold text-sm w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
-                  5
-                </div>
-              </div>
+      {[
+        "Tech World",
+        "Fresh Fruits",
+        "Shonar Bangla Meat",
+        "Bangla Bites",
+        "Trendy Touch",
+        "Home & Kitchen Mart",
+        "Sports House",
+      ].map((vendor, index) => (
+        <label key={index} className="flex items-center gap-3 cursor-pointer group">
+          <input
+            type="checkbox"
+            value={vendor}
+            className="w-4 h-4 accent-primary-green"
+          />
+          <span className="group-hover:text-primary-green transition">
+            {vendor}
+          </span>
+        </label>
+      ))}
+    </div>
+  </div>
 
-              {/* Baking material */}
-              <div className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer group">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 flex-shrink-0">
-                    <img
-                      src="../../../src/assets/category-5.svg.png"
-                      alt="Baking material"
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                  <span className="text-secondary-text font-medium group-hover:text-primary-green transition-colors">
-                    Baking material
-                  </span>
-                </div>
-                <div className="bg-bg-honeydew text-primary-green font-semibold text-sm w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
-                  8
-                </div>
-              </div>
+  {/* Price Filter */}
+  <div className="bg-white p-6 rounded-xl shadow-sm">
+    <h2 className="text-xl font-bold text-gray-800 border-b-2 border-primary-green inline-block pb-1">
+      Price Filter
+    </h2>
 
-              {/* Fresh Fruit */}
-              <div className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer group">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 flex-shrink-0">
-                    <img
-                      src="../../../src/assets/category-1.svg.png"
-                      alt="Fresh Fruit"
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                  <span className="text-secondary-text font-medium group-hover:text-primary-green transition-colors">
-                    Fresh Fruit
-                  </span>
-                </div>
-                <div className="bg-bg-honeydew text-primary-green font-semibold text-sm w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
-                  10
-                </div>
-              </div>
-            </div>
-          </div>
-          {/* sort */}
-          <div className="p-6 bg-white shadow-lg rounded-lg max-w-sm">
-            {/* Title */}
-            <h3 className="text-lg font-semibold mb-4">Filter by price</h3>
+    <div className="mt-5 space-y-3 text-secondary-text">
+      {[
+        "$0 - $100",
+        "$101 - $200",
+        "$201 - $300",
+        "$301 - $500",
+      ].map((price, index) => (
+        <label key={index} className="flex items-center gap-3 cursor-pointer group">
+          <input
+            type="checkbox"
+            value={price}
+            className="w-4 h-4 accent-primary-green"
+          />
+          <span className="group-hover:text-primary-green transition">
+            {price}
+          </span>
+        </label>
+      ))}
+    </div>
+  </div>
 
-            {/* Price Slider */}
-            <div>
-              <div className="relative w-full h-1 bg-gray-300 rounded-full">
-                <div className="absolute left-1/4 right-1/2 h-1 bg-primary-green rounded-full"></div>
-                <div className="absolute left-1/4 w-4 h-4 bg-white border-2 border-primary-green rounded-full -top-1"></div>
-                <div className="absolute left-1/2 w-4 h-4 bg-white border-2 border-primary-green rounded-full -top-1"></div>
-              </div>
-              <div className="flex justify-between text-sm text-primary-green mt-2">
-                <span>From: $500</span>
-                <span>To: $1,000</span>
-              </div>
-            </div>
+</div>
 
-            {/* Color Filters */}
-            <h4 className="text-md font-medium mt-6">Color</h4>
-            <div className="space-y-2">
-              <label className="flex items-center gap-2">
-                <input type="checkbox" className="w-4 h-4" />
-                <span>Red (56)</span>
-              </label>
-              <label className="flex items-center gap-2">
-                <input type="checkbox" className="w-4 h-4" />
-                <span>Green (78)</span>
-              </label>
-              <label className="flex items-center gap-2">
-                <input type="checkbox" className="w-4 h-4" />
-                <span>Blue (54)</span>
-              </label>
-            </div>
-
-            {/* Item Condition Filters */}
-            <h4 className="text-md font-medium mt-6">Item Condition</h4>
-            <div className="space-y-2">
-              <label className="flex items-center gap-2">
-                <input type="checkbox" className="w-4 h-4" />
-                <span>New (1506)</span>
-              </label>
-              <label className="flex items-center gap-2">
-                <input type="checkbox" className="w-4 h-4" />
-                <span>Refurbished (27)</span>
-              </label>
-              <label className="flex items-center gap-2">
-                <input type="checkbox" className="w-4 h-4" />
-                <span>Used (45)</span>
-              </label>
-            </div>
-
-            {/* Filter Button */}
-            <button className="mt-6 w-full bg-primary-green hover:bg-green-700 text-white font-semibold py-2 rounded-lg">
-              Filter
-            </button>
-          </div>
-        </div>
 
         {/* Product List */}
         <div className="">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 md:gap-1 lg:gap-2 px-3 md:px-0">
-            {allProduct?.slice(0, 12).map((item, index) => (
+            {currentItem?.slice(0, 12).map((item, index) => (
               <div
                 key={index}
                 className="group relative border border-border rounded-lg shadow mx-auto w-[95%] small:w-[90%] tab:w-full overflow-hidden transition-all duration-300"
