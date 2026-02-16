@@ -9,28 +9,6 @@ import useAxiosPublic from "../../Axios/useAxiosPublic";
 import useAxiosSecure from "../../Axios/useAxiosSecure";
 import { AuthContext } from "../../Provider/AuthProvider";
 
-// Dummy product data
-const products = [
-  {
-    id: 1,
-    name: "Chen Cardigan",
-    price: 99.5,
-    image: "https://i.ibb.co/mCFXymfH/thumbnail-4-jpg.png",
-  },
-  {
-    id: 2,
-    name: "Chen Sweater",
-    price: 89.5,
-    image: "https://i.ibb.co/4RJ5nQ0v/thumbnail-5-jpg.png",
-  },
-  {
-    id: 3,
-    name: "Colorful Jacket",
-    price: 25,
-    image: "https://i.ibb.co/ZR9JHp3b/thumbnail-6-jpg.png",
-  },
-];
-
 const categories = [
   {
     name: "Milks & Dairies",
@@ -93,9 +71,9 @@ const Products = () => {
 
   return (
     <div className="mt-8 md:mt-20 quick">
-      <div className="flex flex-col md:flex-row gap-6 md:gap-2 lg:gap-3">
+      <div className="flex flex-col md:flex-row gap-6 md:gap-2 lg:gap-3 mx-auto">
         {/* Sidebar */}
-        <div className="w-full md:w-1/4 space-y-10">
+        <div className="w-full md:w-72 space-y-10">
           {/* Categories */}
           <div className="bg-white rounded-2xl shadow-sm p-2 w-full max-w-sm">
             {/* Header */}
@@ -259,58 +237,29 @@ const Products = () => {
               Filter
             </button>
           </div>
-
-          {/* New Products */}
-          <div className="max-w-sm bg-white shadow-lg rounded-xl p-6">
-            <h2 className="text-xl font-semibold text-primary-text">
-              New Products
-            </h2>
-            <div className="mt-4 space-y-4">
-              {products.map((product) => (
-                <div
-                  key={product.id}
-                  className="flex items-center space-x-4 border-b pb-3 last:border-b-0"
-                >
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-14 h-14 rounded-md"
-                  />
-                  <div>
-                    <h3 className="text-primary-green font-semibold">
-                      {product.name}
-                    </h3>
-                    <p className="text-secondary-text font-medium">
-                      ${product.price.toFixed(2)}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
 
         {/* Product List */}
-        <div className="md:w-3/4">
-          <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 md:gap-1 lg:gap-2 px-3 md:px-0">
-            {currentItem?.slice(0, 12).map((item, index) => (
+        <div className="">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 md:gap-1 lg:gap-2 px-3 md:px-0">
+            {allProduct?.slice(0, 12).map((item, index) => (
               <div
                 key={index}
-                className="group relative border border-border rounded-lg shadow mx-auto w-full md:w-auto overflow-hidden transition-all duration-300"
+                className="group relative border border-border rounded-lg shadow mx-auto w-[95%] small:w-[90%] tab:w-full overflow-hidden transition-all duration-300"
               >
                 {/* Tag Label */}
                 {item?.tag && (
-                  <span className="absolute top-0 right-0 bg-offPurple text-white px-4 py-1 rounded-bl-lg text-lg z-10">
+                  <span className="absolute top-0 right-0 bg-orange text-white px-4 py-1 rounded-bl-lg text-lg z-10">
                     {item.tag}
                   </span>
                 )}
 
                 {/* Image Wrapper */}
-                <div className="relative flex justify-center items-center overflow-hidden px-3">
+                <div className="relative flex justify-center items-center overflow-hidden ">
                   <img
                     src={item?.photo}
                     alt={item?.title}
-                    className="w-72 h-72 object-cover transform transition-transform duration-500 group-hover:scale-110"
+                    className="w-72 h-52 small:h-60 md:h-52 xl:h-60 object-cover transform transition-transform duration-500 group-hover:scale-110"
                   />
 
                   {/* Hover Icons */}
@@ -353,52 +302,56 @@ const Products = () => {
                 </div>
 
                 {/* Info Section */}
-                <div className="space-y-2 mt-3 px-3">
-                  <p className="text-secondary-gray">{item?.category}</p>
-                  <h1 className="quick text-xl font-bold text-primary-text">
+                <div className="space-y-1 md:space-y-1.5 pt-3 px-3 bg-softGreen">
+                  <p className="text-secondary-gray text-xs md:text-base">
+                    {item?.category}
+                  </p>
+                  <h1 className="quick text-lg md:text-xl font-bold text-primary-text">
                     {item?.title}
                   </h1>
-                  <p>
-                    By{" "}
-                    <span className="text-primary-green">{item?.vendor}</span>
-                  </p>
+                  <div className="flex justify-between ">
+                    <p className="text-sm md:text-base">
+                      By{" "}
+                      <span className="text-primary-green">{item?.vendor}</span>
+                    </p>
 
-                  {/* Rating */}
-                  <div className="rating mt-2">
-                    <input
-                      type="radio"
-                      name="rating-1"
-                      className="mask mask-star bg-orange"
-                    />
-                    <input
-                      type="radio"
-                      name="rating-1"
-                      className="mask mask-star bg-orange"
-                      defaultChecked
-                    />
-                    <input
-                      type="radio"
-                      name="rating-1"
-                      className="mask mask-star"
-                    />
-                    <input
-                      type="radio"
-                      name="rating-1"
-                      className="mask mask-star"
-                    />
-                    <input
-                      type="radio"
-                      name="rating-1"
-                      className="mask mask-star"
-                    />
+                    {/* Rating */}
+                    <div className="rating ">
+                      <input
+                        type="radio"
+                        name="rating-1"
+                        className="mask mask-star bg-orange w-4 h-4"
+                      />
+                      <input
+                        type="radio"
+                        name="rating-1"
+                        className="mask mask-star bg-orange w-4 h-4"
+                        defaultChecked
+                      />
+                      <input
+                        type="radio"
+                        name="rating-1"
+                        className="mask mask-star w-4 h-4"
+                      />
+                      <input
+                        type="radio"
+                        name="rating-1"
+                        className="mask mask-star w-4 h-4"
+                      />
+                      <input
+                        type="radio"
+                        name="rating-1"
+                        className="mask mask-star w-4 h-4"
+                      />
+                    </div>
                   </div>
 
                   {/* Price + Button */}
-                  <div className="flex justify-between px-3 pb-4 items-center">
+                  <div className="flex justify-between pt-1 md:pt-2 pb-4 items-center ">
                     <h1 className="text-primary-green text-lg font-semibold">
-                      ${item?.price}
+                      $ {item?.price}
                     </h1>
-                    <button className="flex items-center gap-2 px-3 py-2 rounded bg-primary-border text-primary-green hover:bg-primary-green hover:text-white transition">
+                    <button className="flex items-center gap-2 px-4 py-[5px] rounded bg-primary-green text-white hover:bg-primary-green hover:text-white transition">
                       <IoCartOutline /> Add
                     </button>
                   </div>

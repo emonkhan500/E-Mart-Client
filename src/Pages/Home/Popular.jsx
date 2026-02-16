@@ -98,13 +98,13 @@ const Popular = () => {
             </div>
 
             {/* Info Section */}
-            <div className="space-y-1.5 pt-3 px-3 bg-softGreen">
-              <p className="text-secondary-gray">{item?.category}</p>
-              <h1 className="quick text-xl font-bold text-primary-text">
+            <div className="space-y-1 md:space-y-1.5 pt-3 px-3 bg-softGreen">
+              <p className="text-secondary-gray text-xs md:text-base">{item?.category}</p>
+              <h1 className="quick text-lg md:text-xl font-bold text-primary-text">
                 {item?.title}
               </h1>
               <div className="flex justify-between ">
-                <p>
+                <p className="text-sm md:text-base">
                 By <span className="text-primary-green">{item?.vendor}</span>
               </p>
 
@@ -140,9 +140,9 @@ const Popular = () => {
               </div>
 
               {/* Price + Button */}
-              <div className="flex justify-between pt-2 pb-4 items-center ">
+              <div className="flex justify-between pt-1 md:pt-2 pb-4 items-center ">
                 <h1 className="text-primary-green text-lg font-semibold">
-                  ${item?.price}
+                  $ {item?.price}
                 </h1>
                 <button className="flex items-center gap-2 px-4 py-[5px] rounded bg-primary-green text-white hover:bg-primary-green hover:text-white transition">
                   <IoCartOutline /> Add
