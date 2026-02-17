@@ -17,7 +17,7 @@ const Products = () => {
   const [showSidebar, setShowSidebar] = useState(false);
   const postsPerPage = 15;
 
-  // ✅ Lock background scroll when sidebar open
+  
   useEffect(() => {
     if (showSidebar) {
       document.body.style.overflow = "hidden";
