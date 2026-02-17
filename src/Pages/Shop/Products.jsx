@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { CiHeart } from "react-icons/ci";
 import { IoCartOutline } from "react-icons/io5";
 import { RxCross2 } from "react-icons/rx";
@@ -16,6 +16,19 @@ const Products = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [showSidebar, setShowSidebar] = useState(false);
   const postsPerPage = 15;
+
+  // ✅ Lock background scroll when sidebar open
+  useEffect(() => {
+    if (showSidebar) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [showSidebar]);
 
   const { data: allProduct = [] } = useQuery({
     queryKey: ["allProduct"],
@@ -41,12 +54,12 @@ const Products = () => {
 
   return (
     <div className="mt-8 md:mt-10 quick relative">
-      {/* Mobile / Medium Top Bar */}
+      {/* Mobile Top Bar */}
       <div className="flex items-center mx-auto gap-3 mb-4 md:mb-8 px-3 lg:hidden w-full tab:w-[70%]">
         <input
           type="text"
           placeholder="Search products..."
-          className="flex-1 px-4 py-2 border border-primary-green rounded-lg focus:outline-none focus:ring-1 focus:ring-primary-green focus:border-primary-green "
+          className="flex-1 px-4 py-2 border border-primary-green rounded-lg focus:outline-none focus:ring-1 focus:ring-primary-green focus:border-primary-green"
         />
         <button
           onClick={() => setShowSidebar(true)}
@@ -68,16 +81,17 @@ const Products = () => {
         {/* Sidebar */}
         <div
           className={`
-            fixed lg:static top-0 left-0 h-auto
-            w-72 tab:w-[70%] lg:w-72 mt-24 md:mt-28 lg:mt-0 bg-white z-50 lg:z-10  
-            transform transition-transform duration-300
-            ${showSidebar ? "translate-x-0" : "-translate-x-full"}
+            fixed lg:static top-0 left-0 h-screen lg:h-auto
+            w-72 tab:w-[70%] lg:w-72 mt-8 lg:mt-0  bg-white z-50 lg:z-10  
+            transform transition-transform duration-300 shadow-xl
+            ${showSidebar ? "translate-x-0 " : "-translate-x-full"}
             lg:translate-x-0
             shadow-lg lg:shadow-none
+            overflow-y-auto
           `}
         >
-          {/* Close Button Mobile */}
-          <div className=" lg:hidden absolute top-4 right-8">
+          {/* Close Button */}
+          <div className="lg:hidden  absolute top-4 right-8">
             <button
               onClick={() => setShowSidebar(false)}
               className="text-3xl text-primary-green"
@@ -86,7 +100,7 @@ const Products = () => {
             </button>
           </div>
 
-          {/* Search (Desktop Only) */}
+          {/* Search */}
           <div className="hidden lg:block bg-white p-4 rounded-xl shadow-sm">
             <h2 className="text-xl font-bold text-gray-800 border-b-2 border-primary-green inline-block pb-1">
               Search
@@ -100,10 +114,43 @@ const Products = () => {
             </div>
           </div>
 
-          {/* Product Category */}
+          {/* Category */}
           <div className="bg-white p-4 rounded-xl shadow-sm">
             <h2 className="text-xl font-bold text-gray-800 border-b-2 border-primary-green inline-block pb-1">
               Product Category
+            </h2>
+
+            <div className="mt-5 space-y-3 text-secondary-text">
+              {[
+                "Fruits & Vegetables",
+                "Meat & Fish",
+                "Snacks & Drinks",
+                "Home & Kitchen",
+                "Fashion & Beauty",
+                "Gadgets",
+                "Sports",
+              ].map((category, index) => (
+                <label
+                  key={index}
+                  className="flex items-center gap-3 cursor-pointer group"
+                >
+                  <input
+                    type="checkbox"
+                    value={category}
+                    className="w-4 h-4 accent-primary-green"
+                  />
+                  <span className="group-hover:text-primary-green transition">
+                    {category}
+                  </span>
+                </label>
+              ))}
+            </div>
+          </div>
+
+          {/* Vendor */}
+          <div className="bg-white p-4 rounded-xl shadow-sm">
+            <h2 className="text-xl font-bold text-gray-800 border-b-2 border-primary-green inline-block pb-1">
+              Product by Vendor
             </h2>
 
             <div className="mt-5 space-y-3 text-secondary-text">
@@ -133,30 +180,35 @@ const Products = () => {
             </div>
           </div>
 
-          {/* Price Filter */}
-          <div className="bg-white p-4 rounded-xl shadow-sm">
+          {/* Price */}
+          <div className="bg-white p-4 rounded-xl shadow-sm mb-10">
             <h2 className="text-xl font-bold text-gray-800 border-b-2 border-primary-green inline-block pb-1">
               Price Filter
             </h2>
 
             <div className="mt-5 space-y-3 text-secondary-text">
-              {["$0 - $100", "$101 - $200", "$201 - $300", "$301 - $500"].map(
-                (price, index) => (
-                  <label
-                    key={index}
-                    className="flex items-center gap-3 cursor-pointer group"
-                  >
-                    <input
-                      type="checkbox"
-                      value={price}
-                      className="w-4 h-4 accent-primary-green"
-                    />
-                    <span className="group-hover:text-primary-green transition">
-                      {price}
-                    </span>
-                  </label>
-                ),
-              )}
+              {[
+                "$0 - $20",
+                "$21 - $40",
+                "$41 - $60",
+                "$61 - $80",
+                "$81 - $100",
+                "$101 - $120",
+              ].map((price, index) => (
+                <label
+                  key={index}
+                  className="flex items-center gap-3 cursor-pointer group"
+                >
+                  <input
+                    type="checkbox"
+                    value={price}
+                    className="w-4 h-4 accent-primary-green"
+                  />
+                  <span className="group-hover:text-primary-green transition">
+                    {price}
+                  </span>
+                </label>
+              ))}
             </div>
           </div>
         </div>
@@ -213,8 +265,10 @@ const Products = () => {
 
                   <div className="flex justify-between items-center">
                     <p>
-                      By
-                      <span className="text-primary-green">{item?.vendor}</span>
+                      By{" "}
+                      <span className="text-primary-green">
+                        {item?.vendor}
+                      </span>
                     </p>
                   </div>
 
