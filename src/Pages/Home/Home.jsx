@@ -6,18 +6,20 @@ import Newsletter from "./Newsletter";
 import Popular from "./Popular";
 import DealsOfDay from "./DealsOfDay";
 import DailyBestDeal from "./DailyBestDeal";
+import LatestProduct from "./LatestProduct";
 
 const Home = () => {
   return (
     <div className=" lg:mt-10   ">
-      <Banner></Banner>
-      <Featured></Featured>
-      <UnderFeature></UnderFeature>
-      <Popular></Popular>
-      <DailyBestDeal></DailyBestDeal>
-      <DealsOfDay></DealsOfDay>
-      <Newsletter></Newsletter>
-      <UpFooter></UpFooter>
+      <Banner/>
+      <Featured/>
+      <UnderFeature/>
+      <Popular/>
+      <DailyBestDeal/>
+      <LatestProduct/>
+      <DealsOfDay/>
+      <Newsletter/>
+      <UpFooter/>
     </div>
   );
 };

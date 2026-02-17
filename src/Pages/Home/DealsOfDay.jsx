@@ -38,7 +38,7 @@ const dealsData = [
 
 const DealsOfDay = () => {
   return (
-    <div className="my-10 md:my-20 ">
+    <div className="my-10 md:my-16 mb-0 md:mb-20 ">
       {/* Heading */}
       <SharedTitle title="Deals Of The Day" />
 

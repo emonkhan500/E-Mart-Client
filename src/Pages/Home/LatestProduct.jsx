@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { TbDetails } from "react-icons/tb";
-import SharedTitle from "../../Shared/ui/SharedTitle";
+
 import { useQuery } from "@tanstack/react-query";
 import { CiHeart } from "react-icons/ci";
 import { IoCartOutline } from "react-icons/io5";
@@ -8,8 +8,9 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import useAxiosSecure from "../../Axios/useAxiosSecure";
 import { AuthContext } from "../../Provider/AuthProvider";
+import SharedTitle from "../../Shared/ui/SharedTitle";
 
-const Popular = () => {
+const LatestProduct = () => {
   const axiosSecure = useAxiosSecure();
   const { user } = useContext(AuthContext);
   const { refetch, data: product = [] } = useQuery({
@@ -27,10 +28,9 @@ const Popular = () => {
       toast.success("Added to WishList");
     }
   };
-
   return (
-    <div className="lato">
-      <SharedTitle title="Popular Product" />
+    <div className="lato my-10 md:my-10">
+      <SharedTitle title="Featured Categories" />
       {/* product div */}
       <div className="grid gap-x-1.5 tab:gap-x-2 md:gap-x-3 lg:gap-x-1.5 gap-y-4 md:gap-y-6 lg:gap-y-8 xl:gap-x-6 xxl:gap-x-4 2xl:gap-x-6 grid-cols-2 tab:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 xxl:grid-cols-5 2xl:grid-cols-5 justify-center items-center 2xl:px-16 mt-5">
         {product?.slice(0, 12).map((item, index) => (
@@ -147,4 +147,4 @@ const Popular = () => {
   );
 };
 
-export default Popular;
+export default LatestProduct;
