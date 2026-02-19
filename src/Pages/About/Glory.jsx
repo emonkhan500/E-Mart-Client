@@ -42,18 +42,13 @@ const Glory = () => {
             {gloryData.map((item, index) => (
               <div key={index} className="flex flex-col">
                 <span className="flex justify-center text-3xl lg:text-4xl font-bold">
-                  <CountUp
-                    start={0}
-                    end={item.end}
-                    delay={1}
-                    enableScrollSpy
-                  >
+                  <CountUp start={0} end={item.end} delay={1} enableScrollSpy>
                     {({ countUpRef }) => (
                       <div>
                         <span ref={countUpRef} />
                       </div>
                     )}
-                  </CountUp>{" "}
+                  </CountUp>
                   +
                 </span>
                 <span className="text-lg lg:text-xl font-semibold">

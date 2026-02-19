@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   Dialog,
   DialogBackdrop,
@@ -6,11 +5,12 @@ import {
   TransitionChild,
 } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
+import { useState } from "react";
 
+import { Outlet } from "react-router-dom";
+import DashboardHeader from "./DashboardHeader";
 import DashboardMobSidebar from "./DashboardMobSidebar";
 import DashboardPcSidebar from "./DashboardPcSidebar";
-import DashboardHeader from "./DashboardHeader";
-import { Outlet } from "react-router-dom";
 
 export default function DashboardLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -60,7 +60,6 @@ export default function DashboardLayout() {
 
         <div className="bg-bg-honeydew flex-1">
           <main className="px-4 lg:pl-80 ">
-            {" "}
             <Outlet />
           </main>
         </div>

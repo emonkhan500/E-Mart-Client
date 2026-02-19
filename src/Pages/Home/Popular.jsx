@@ -1,17 +1,18 @@
-import { useContext } from "react";
-import { TbDetails } from "react-icons/tb";
-import SharedTitle from "../../Shared/ui/SharedTitle";
 import { useQuery } from "@tanstack/react-query";
+import { useContext } from "react";
 import { CiHeart } from "react-icons/ci";
 import { IoCartOutline } from "react-icons/io5";
+import { TbDetails } from "react-icons/tb";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import useAxiosSecure from "../../Axios/useAxiosSecure";
 import { AuthContext } from "../../Provider/AuthProvider";
+import SharedTitle from "../../Shared/ui/SharedTitle";
+import useHooks from "../../hooks/useHooks";
 
 const Popular = () => {
   const axiosSecure = useAxiosSecure();
-  const { user } = useContext(AuthContext);
+  const { handleWish, handleCart } = useHooks();
   const { refetch, data: product = [] } = useQuery({
     queryKey: ["product"],
     queryFn: async () => {
@@ -20,13 +21,6 @@ const Popular = () => {
     },
   });
 
-  const handleWish = async (item) => {
-    const wishedProduct = { userEmail: user?.email, ...item };
-    const wishRes = await axiosSecure.post("/wishlist", wishedProduct);
-    if (wishRes.data.insertedId) {
-      toast.success("Added to WishList");
-    }
-  };
 
   return (
     <div className="lato">
@@ -68,7 +62,10 @@ const Popular = () => {
 
                   {/* Cart */}
                   <div className="relative tooltip" data-tip="Add To Cart">
-                    <button className="bg-white text-lg md:text-2xl p-1.5 md:p-2 text-primary-green hover:bg-primary-green hover:text-white transition border border-primary-green">
+                    <button
+                      onClick={() => handleCart(item)}
+                      className="bg-white text-lg md:text-2xl p-1.5 md:p-2 text-primary-green hover:bg-primary-green hover:text-white transition border border-primary-green"
+                    >
                       <IoCartOutline />
                     </button>
                   </div>
@@ -76,7 +73,6 @@ const Popular = () => {
                   {/* Details */}
                   <div className="relative  tooltip" data-tip="Show Details">
                     <button className="bg-white text-lg md:text-2xl p-1.5 md:p-2 text-primary-green hover:bg-primary-green hover:text-white transition border border-primary-green">
-                      {" "}
                       <Link to={`/details/${item?._id}`}>
                         <TbDetails />
                       </Link>
@@ -135,7 +131,10 @@ const Popular = () => {
                 <h1 className="text-primary-green text-base lg:text-lg font-semibold">
                   $ {item?.price}
                 </h1>
-                <button className="flex items-center gap-2 px-3 md:px-4 py-1 md:py-[5px] text-xs md:text-base rounded bg-primary-green text-white hover:bg-primary-green hover:text-white transition">
+                <button
+                  onClick={() => handleCart(item)}
+                  className="flex items-center gap-2 px-3 md:px-4 py-1 md:py-[5px] text-xs md:text-base rounded bg-primary-green text-white hover:bg-primary-green hover:text-white transition"
+                >
                   <IoCartOutline /> Add
                 </button>
               </div>

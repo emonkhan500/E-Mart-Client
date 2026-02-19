@@ -9,7 +9,7 @@ const Newsletter = () => {
         </h1>
 
         <p className="text-primary-gray text-[12px] small:text-sm  md:text-lg text-center md:text-start">
-          Start You&apos;r Daily Shopping with{" "}
+          Start You&apos;r Daily Shopping with
           <span className="text-primary-green">E-Mart</span>
         </p>
 

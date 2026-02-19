@@ -19,19 +19,19 @@ const Footer = () => {
           <h1 className="text-base md:text-lg">
             <span className="text-base md:text-xl">
               Buy Fresh - Eat Healthy!
-            </span>{" "}
+            </span>
             <br />
-            Buy Your grocery from us.{" "}
+            Buy Your grocery from us.
           </h1>
           <h1 className="flex flex-wrap  items-center ">
-            <CiLocationOn className="flex text-sm md:text-lg text-primary-green font-bold" />{" "}
+            <CiLocationOn className="flex text-sm md:text-lg text-primary-green font-bold" />
             <span className="text-sm md:text-lg text-primary-green">
               Address:
             </span>
             Dhaka,Bangladesh
           </h1>
           <h1 className="flex flex-wrap items-center ">
-            <MdCall className="flex font-bold items-center text-primary-green" />{" "}
+            <MdCall className="flex font-bold items-center text-primary-green" />
             <span className="text-sm md:text-lg text-primary-green">
               Call Us:
             </span>
@@ -43,10 +43,10 @@ const Footer = () => {
             emon562002@gamil.com
           </h1>
           <h1 className="flex items-center ">
-            <IoMdTime className="flex items-center font-bold text-primary-green" />{" "}
+            <IoMdTime className="flex items-center font-bold text-primary-green" />
             <span className="text-sm md:text-lg text-primary-green">
               Hours:
-            </span>{" "}
+            </span>
             24/7
           </h1>
         </div>

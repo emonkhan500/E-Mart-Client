@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
-import { useContext, useState, useEffect, useMemo } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
 import { CiHeart } from "react-icons/ci";
+import { FiFilter } from "react-icons/fi";
 import { IoCartOutline } from "react-icons/io5";
 import { RxCross2 } from "react-icons/rx";
 import { TbDetails } from "react-icons/tb";
-import { FiFilter } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import useAxiosSecure from "../../Axios/useAxiosSecure";
@@ -349,7 +349,7 @@ const Products = () => {
 
                     <div className="flex justify-between items-center mt-1 tab:mt-1.5 lg:mt-2">
                       <p className="text-[11px] small:text-xs tab:text-sm md:text-base xxl:text-sm 2xl:text-base">
-                        By{" "}
+                        By
                         <span className="text-primary-green">
                           {item?.vendor}
                         </span>
