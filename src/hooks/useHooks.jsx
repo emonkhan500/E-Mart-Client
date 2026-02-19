@@ -54,7 +54,7 @@ const useHooks = () => {
       const cartProduct = {
         userEmail: user.email,
         productId: _id,
-        quantity: 1, // default 1
+        quantity: 1,
         ...rest,
       };
 
@@ -75,7 +75,47 @@ const useHooks = () => {
     }
   };
 
-  return { handleWish, handleCart };
+  // Delete from Wishlist
+  const handleDeleteWish = async (id) => {
+    if (!user?.email) {
+      toast.error("Please login first");
+      return;
+    }
+
+    try {
+      const { data } = await axiosSecure.delete(`/wishlist/${id}`);
+      if (data.deletedCount > 0) {
+        toast.success("Removed from WishList");
+      } else {
+        toast.info("Item not found");
+      }
+    } catch (error) {
+      console.error("Delete Wishlist Error:", error);
+      toast.error("Something went wrong");
+    }
+  };
+
+  // Delete from Cart
+  const handleDeleteCart = async (id) => {
+    if (!user?.email) {
+      toast.error("Please login first");
+      return;
+    }
+
+    try {
+      const { data } = await axiosSecure.delete(`/cart/${id}`);
+      if (data.deletedCount > 0) {
+        toast.success("Removed from Cart");
+      } else {
+        toast.info("Item not found");
+      }
+    } catch (error) {
+      console.error("Delete Cart Error:", error);
+      toast.error("Something went wrong");
+    }
+  };
+
+  return { handleWish, handleCart, handleDeleteWish, handleDeleteCart };
 };
 
 export default useHooks;
