@@ -153,7 +153,7 @@ const DailyBestDeal = () => {
                 </div>
 
                 {/* Button */}
-                <button className="text-sm md:text-base w-full flex items-center justify-center gap-2 px-3 py-2 rounded-b-lg bg-primary-green text-white">
+                <button  onClick={() => handleCart(item)} className="text-sm md:text-base w-full flex items-center justify-center gap-2 px-3 py-2 rounded-b-lg bg-primary-green text-white">
                   <FaShoppingCart /> Add To Cart
                 </button>
               </div>

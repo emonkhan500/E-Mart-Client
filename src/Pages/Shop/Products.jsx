@@ -1,18 +1,17 @@
 import { useQuery } from "@tanstack/react-query";
-import { useContext, useEffect, useMemo, useState } from "react";
+import {  useEffect, useMemo, useState } from "react";
 import { CiHeart } from "react-icons/ci";
 import { FiFilter } from "react-icons/fi";
 import { IoCartOutline } from "react-icons/io5";
 import { RxCross2 } from "react-icons/rx";
 import { TbDetails } from "react-icons/tb";
 import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
 import useAxiosSecure from "../../Axios/useAxiosSecure";
-import { AuthContext } from "../../Provider/AuthProvider";
+import useHooks from "../../hooks/useHooks";
 
 const Products = () => {
   const axiosSecure = useAxiosSecure();
-  const { user } = useContext(AuthContext);
+  const { handleWish, handleCart } = useHooks();
 
   const [currentPage, setCurrentPage] = useState(1);
   const [showSidebar, setShowSidebar] = useState(false);
@@ -36,14 +35,6 @@ const Products = () => {
       return res.data;
     },
   });
-
-  const handleWish = async (item) => {
-    const wishedProduct = { userEmail: user?.email, ...item };
-    const wishRes = await axiosSecure.post("/wishlist", wishedProduct);
-    if (wishRes.data.insertedId) {
-      toast.success("Added to WishList");
-    }
-  };
 
   const handleCheckboxChange = (value, state, setState) => {
     if (state.includes(value)) {
@@ -322,7 +313,7 @@ const Products = () => {
                         </button>
 
                         {/* Cart */}
-                        <button className="bg-white text-lg md:text-2xl p-1.5 md:p-2 text-primary-green hover:bg-primary-green hover:text-white transition border border-primary-green">
+                        <button  onClick={() => handleCart(item)} className="bg-white text-lg md:text-2xl p-1.5 md:p-2 text-primary-green hover:bg-primary-green hover:text-white transition border border-primary-green">
                           <IoCartOutline />
                         </button>
 
@@ -362,7 +353,7 @@ const Products = () => {
                         $ {item?.price}
                       </h1>
 
-                      <button className="flex items-center gap-2 px-3 md:px-4 py-1 md:py-[5px] xxl:py-1 2xl:py-[5px] text-xs md:text-base rounded bg-primary-green text-white">
+                      <button  onClick={() => handleCart(item)} className="flex items-center gap-2 px-3 md:px-4 py-1 md:py-[5px] xxl:py-1 2xl:py-[5px] text-xs md:text-base rounded bg-primary-green text-white">
                         <IoCartOutline /> Add
                       </button>
                     </div>
