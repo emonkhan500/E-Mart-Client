@@ -1,7 +1,6 @@
-// hooks/useHooks.js
 import { useContext } from "react";
 import { toast } from "react-toastify";
-import { useQueryClient } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import useAxiosSecure from "../Axios/useAxiosSecure";
 import { AuthContext } from "../Provider/AuthProvider";
 
@@ -10,7 +9,35 @@ const useHooks = () => {
   const { user } = useContext(AuthContext);
   const queryClient = useQueryClient();
 
-  // Wishlist
+  // Wishlist Fetch
+  const {
+    data: wishedProduct = [],
+    refetch: refetchWish,
+    isLoading: wishLoading,
+  } = useQuery({
+    queryKey: ["wishedProduct", user?.email],
+    enabled: !!user?.email,
+    queryFn: async () => {
+      const res = await axiosSecure.get(`/wishlists/${user.email}`);
+      return res.data;
+    },
+  });
+
+  // Cart Fetch
+  const {
+    data: cartProducts = [],
+    refetch: refetchCart,
+    isLoading: cartLoading,
+  } = useQuery({
+    queryKey: ["cartProduct", user?.email],
+    enabled: !!user?.email,
+    queryFn: async () => {
+      const res = await axiosSecure.get(`/carts/${user.email}`);
+      return res.data;
+    },
+  });
+
+  // Add Wishlist
   const handleWish = async (item) => {
     if (!user?.email) {
       toast.error("Please login first");
@@ -30,9 +57,7 @@ const useHooks = () => {
 
       if (data.insertedId) {
         toast.success("Added to WishList");
-        queryClient.invalidateQueries(["wishedProduct"]); 
-      } else if (data.message === "Already added to wishlist") {
-        toast.info("Already in WishList");
+        queryClient.invalidateQueries(["wishedProduct", user?.email]);
       }
     } catch (error) {
       if (error.response?.status === 409) {
@@ -43,7 +68,7 @@ const useHooks = () => {
     }
   };
 
-  // Cart
+  // Add Cart
   const handleCart = async (item) => {
     if (!user?.email) {
       toast.error("Please login first");
@@ -64,9 +89,7 @@ const useHooks = () => {
 
       if (data.insertedId) {
         toast.success("Added to Cart");
-        queryClient.invalidateQueries(["cartProduct"]); 
-      } else if (data.message === "Already added to cart") {
-        toast.info("Already in Cart");
+        queryClient.invalidateQueries(["cartProduct", user?.email]);
       }
     } catch (error) {
       if (error.response?.status === 409) {
@@ -81,9 +104,10 @@ const useHooks = () => {
   const handleDeleteWish = async (id) => {
     try {
       const { data } = await axiosSecure.delete(`/wishlist/${id}`);
+
       if (data.deletedCount > 0) {
         toast.success("Removed from WishList");
-        queryClient.invalidateQueries(["wishedProduct"]); 
+        queryClient.invalidateQueries(["wishedProduct", user?.email]);
       }
     } catch (error) {
       toast.error("Something went wrong");
@@ -94,16 +118,28 @@ const useHooks = () => {
   const handleDeleteCart = async (id) => {
     try {
       const { data } = await axiosSecure.delete(`/cart/${id}`);
+
       if (data.deletedCount > 0) {
         toast.success("Removed from Cart");
-        queryClient.invalidateQueries(["cartProduct"]); 
+        queryClient.invalidateQueries(["cartProduct", user?.email]);
       }
     } catch (error) {
       toast.error("Something went wrong");
     }
   };
 
-  return { handleWish, handleCart, handleDeleteWish, handleDeleteCart };
+  return {
+    wishedProduct,
+    cartProducts,   
+    wishLoading,
+    cartLoading,
+    handleWish,
+    handleCart,
+    handleDeleteWish,
+    handleDeleteCart,
+    refetchWish,
+    refetchCart,
+  };
 };
 
 export default useHooks;

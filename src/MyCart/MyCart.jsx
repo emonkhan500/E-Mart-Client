@@ -1,24 +1,16 @@
 import { FaRegTrashAlt } from "react-icons/fa";
 import ShareHead from "../Shared/ShareHead";
 import SharedNewsletter from "../Shared/SharedNewsletter";
-import { useQuery } from "@tanstack/react-query";
-import useAxiosSecure from "../Axios/useAxiosSecure";
 import { AuthContext } from "../Provider/AuthProvider";
 import { useContext, useState } from "react";
+import useHooks from "../hooks/useHooks";
 
 const MyCart = () => {
   const { user } = useContext(AuthContext);
-  const axiosSecure = useAxiosSecure();
+  
+  const {cartProducts} = useHooks();
 
-  const { refetch, data: cartProducts = [] } = useQuery({
-    queryKey: ["cartProduct"],
-    queryFn: async () => {
-      const data = await axiosSecure.get(`/carts/${user?.email}`);
-      return data.data;
-    },
-  });
-
-  // ✅ Pagination State
+  // Pagination
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
 
@@ -38,13 +30,13 @@ const MyCart = () => {
     <div className="quick">
       <ShareHead pageTitle={"My Cart"} />
 
-      <div className="flex flex-col lg:flex-row mt-10 gap-8 md:gap-8 lg:gap-5 xxl:gap-10">
-        
-        {/* table */}
+      <div className="flex flex-col lg:flex-row mt-10 gap-8 lg:gap-10">
+
+        {/* ================= TABLE ================= */}
         <div className="overflow-x-auto w-full lg:w-2/3">
-          <table className="table border-2 border-border p-3">
-            <thead className="text-sm small:text-base md:text-base lg:text-lg xxl:text-xl bg-primary-green  text-white ">
-              <tr className="!p-2">
+          <table className="table border-2 border-border p-3 w-full">
+            <thead className="text-sm small:text-base md:text-base lg:text-lg xxl:text-xl bg-primary-green text-white">
+              <tr>
                 <th>Product</th>
                 <th>Name</th>
                 <th>Price</th>
@@ -53,36 +45,47 @@ const MyCart = () => {
             </thead>
 
             <tbody>
-              {currentProducts.map((item) => (
-                <tr key={item._id} className="border-b-2 border-border">
-                  <td>
-                    <div className="avatar">
-                      <div className="h-10 w-10 border-2 border-border ">
-                        <img src={item.photo} alt={item.title} />
-                      </div>
-                    </div>
-                  </td>
-                  <td className="text-sm xl:text-base font-medium text-primary-text small:max-w-[120px] truncate">
-                    {item.title}
-                  </td>
-                  <td className="text-sm xl:text-base font-bold text-primary-green">
-                    ${item.price}
-                  </td>
-                  <td>
-                    <button className=" btn-md text-red ">
-                      <FaRegTrashAlt />
-                    </button>
+              {currentProducts.length === 0 ? (
+                <tr>
+                  <td colSpan="4" className="text-center py-10 text-xl  md:text-2xl lg:text-4xl text-primary-text font-medium">
+                    No items in cart
                   </td>
                 </tr>
-              ))}
+              ) : (
+                currentProducts.map((item) => (
+                  <tr key={item._id} className="border-b-2 border-border">
+                    <td>
+                      <div className="avatar">
+                        <div className="h-10 w-10 border-2 border-border">
+                          <img src={item.photo} alt={item.title} />
+                        </div>
+                      </div>
+                    </td>
+
+                    <td className="text-sm xl:text-base font-medium text-primary-text small:max-w-[150px] truncate">
+                      {item.title}
+                    </td>
+
+                    <td className="text-sm xl:text-base font-bold text-primary-green">
+                      ${item.price}
+                    </td>
+
+                    <td>
+                      <button className="btn-md text-red">
+                        <FaRegTrashAlt />
+                      </button>
+                    </td>
+                  </tr>
+                ))
+              )}
             </tbody>
           </table>
 
-          {/* ✅ Pagination (Only under table) */}
+          {/* ================= PAGINATION ================= */}
           {totalPages > 1 && (
-            <div className="flex justify-center mt-10">
+            <div className="flex justify-center mt-8 flex-wrap gap-2">
               <button
-                className="mx-2 px-4 py-2 rounded bg-primary-green text-white"
+                className="px-4 py-2 rounded bg-primary-green text-white disabled:opacity-50"
                 onClick={() =>
                   setCurrentPage((prev) => Math.max(prev - 1, 1))
                 }
@@ -94,7 +97,7 @@ const MyCart = () => {
               {Array.from({ length: totalPages }, (_, i) => (
                 <button
                   key={i}
-                  className={`mx-1 px-3 py-2 rounded ${
+                  className={`px-3 py-2 rounded ${
                     currentPage === i + 1
                       ? "bg-primary-green text-white"
                       : "bg-gray-200"
@@ -106,7 +109,7 @@ const MyCart = () => {
               ))}
 
               <button
-                className="mx-2 px-4 py-2 rounded bg-primary-green text-white"
+                className="px-4 py-2 rounded bg-primary-green text-white disabled:opacity-50"
                 onClick={() =>
                   setCurrentPage((prev) =>
                     Math.min(prev + 1, totalPages)
@@ -120,19 +123,19 @@ const MyCart = () => {
           )}
         </div>
 
-        {/* price box (unchanged) */}
-        <div className="w-full lg:w-1/3 rounded-xl">
-          <div className="border-2 border-border ">
-            <div className="flex justify-between px-10 border-b-2 border-border p-2 text-sm small:text-base md:text-base lg:text-lg font-medium xl:font-semi-bold">
+        {/* ================= PRICE BOX ================= */}
+        <div className="w-full lg:w-1/3">
+          <div className="border-2 border-border rounded-lg">
+            <div className="flex justify-between px-6 py-3 border-b-2 border-border text-sm md:text-base font-medium">
               <h1 className="text-secondary-gray">SubTotal</h1>
-              <h1 className="text-primary-green">
+              <h1 className="text-primary-green font-bold">
                 ${subTotal}
               </h1>
             </div>
 
             <div className="border-b-2 border-border flex">
               <input
-                className="p-2 focus:outline-none text-black w-2/3 pl-10 text-sm"
+                className="p-3 focus:outline-none text-black w-2/3 text-sm"
                 type="text"
                 placeholder="Type Coupon?"
               />
@@ -141,15 +144,15 @@ const MyCart = () => {
               </button>
             </div>
 
-            <div className="flex justify-between px-10 p-2 text-sm font-medium">
+            <div className="flex justify-between px-6 py-3 text-sm md:text-base font-medium">
               <h1 className="text-secondary-gray">Total</h1>
-              <h1 className="text-primary-green">
+              <h1 className="text-primary-green font-bold">
                 ${subTotal}
               </h1>
             </div>
           </div>
 
-          <button className="text-white bg-primary-green w-full p-2 text-sm font-medium">
+          <button className="mt-4 text-white bg-primary-green w-full py-3 rounded text-sm md:text-base font-medium">
             CHECKOUT & PAY
           </button>
         </div>

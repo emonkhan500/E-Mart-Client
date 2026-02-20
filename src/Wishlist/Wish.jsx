@@ -11,17 +11,10 @@ import { Link } from "react-router-dom";
 
 const Wish = () => {
   const { user } = useContext(AuthContext);
-  const { handleDeleteWish, handleCart } = useHooks();
+  const { handleDeleteWish, handleCart , wishedProduct} = useHooks();
   const axiosSecure = useAxiosSecure();
 
-  const { refetch, data: wishedProduct = [] } = useQuery({
-    queryKey: ["wishedProduct", user?.email],
-    queryFn: async () => {
-      const res = await axiosSecure.get(`/wishlists/${user.email}`);
-      return res.data;
-    },
-  });
-  // console.log(wishedProduct);
+ 
 
   return (
     <div className="">
