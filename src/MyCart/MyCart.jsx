@@ -1,6 +1,10 @@
 import { FaRegTrashAlt } from "react-icons/fa";
 import ShareHead from "../Shared/ShareHead";
 import SharedNewsletter from "../Shared/SharedNewsletter";
+import { useQuery } from "@tanstack/react-query";
+import useAxiosSecure from "../Axios/useAxiosSecure";
+import { AuthContext } from "../Provider/AuthProvider";
+import { useContext } from "react";
 
 const cartItems = [
   {
@@ -18,6 +22,17 @@ const cartItems = [
 ];
 
 const MyCart = () => {
+  const {user}= useContext(AuthContext);
+  const axiosSecure = useAxiosSecure();
+  const { refetch, data: cartProducts = [] } = useQuery({
+    queryKey: ["cartProduct"],
+    queryFn: async () => {
+      const data = await axiosSecure.get(`/carts/${user?.email}`);
+      return data.data;
+    },
+  });
+  console.log(cartProducts);
+
   const subTotal = cartItems.reduce((sum, item) => sum + item.price, 0);
 
   return (
@@ -69,7 +84,9 @@ const MyCart = () => {
           <div className="border-2 border-border ">
             <div className="flex justify-between px-10 border-b-2 border-border p-2  text-sm small:text-base md:text-base lg:text-lg font-medium xl:font-semi-bold">
               <h1 className="text-secondary-gray">SubTotal</h1>
-              <h1 className="text-primary-green text-sm small:text-base md:text-base xl:text-lg">${subTotal}</h1>
+              <h1 className="text-primary-green text-sm small:text-base md:text-base xl:text-lg">
+                ${subTotal}
+              </h1>
             </div>
 
             {/* apply coupon */}
@@ -86,13 +103,14 @@ const MyCart = () => {
 
             <div className="flex justify-between px-10 p-2 text-sm small:text-base md:text-base lg:text-lg font-medium xl:font-semi-bold">
               <h1 className="text-secondary-gray">Total</h1>
-              <h1 className="text-primary-green text-sm small:text-base md:text-base xl:text-lg">${subTotal}</h1>
+              <h1 className="text-primary-green text-sm small:text-base md:text-base xl:text-lg">
+                ${subTotal}
+              </h1>
             </div>
           </div>
           <button className="text-white bg-primary-green w-full p-2 text-sm small:text-base md:text-base xl:text-lg font-medium xl:font-semi-bold">
             CHECKOUT & PAY
           </button>
-
         </div>
       </div>
 

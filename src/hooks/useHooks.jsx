@@ -64,7 +64,7 @@ const useHooks = () => {
 
       if (data.insertedId) {
         toast.success("Added to Cart");
-        queryClient.invalidateQueries(["cart"]); 
+        queryClient.invalidateQueries(["cartProduct"]); 
       } else if (data.message === "Already added to cart") {
         toast.info("Already in Cart");
       }
@@ -96,7 +96,7 @@ const useHooks = () => {
       const { data } = await axiosSecure.delete(`/cart/${id}`);
       if (data.deletedCount > 0) {
         toast.success("Removed from Cart");
-        queryClient.invalidateQueries(["cart"]); 
+        queryClient.invalidateQueries(["cartProduct"]); 
       }
     } catch (error) {
       toast.error("Something went wrong");
