@@ -1,12 +1,14 @@
 // hooks/useHooks.js
 import { useContext } from "react";
 import { toast } from "react-toastify";
+import { useQueryClient } from "@tanstack/react-query";
 import useAxiosSecure from "../Axios/useAxiosSecure";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const useHooks = () => {
   const axiosSecure = useAxiosSecure();
   const { user } = useContext(AuthContext);
+  const queryClient = useQueryClient();
 
   // Wishlist
   const handleWish = async (item) => {
@@ -28,6 +30,7 @@ const useHooks = () => {
 
       if (data.insertedId) {
         toast.success("Added to WishList");
+        queryClient.invalidateQueries(["wishedProduct"]); 
       } else if (data.message === "Already added to wishlist") {
         toast.info("Already in WishList");
       }
@@ -35,7 +38,6 @@ const useHooks = () => {
       if (error.response?.status === 409) {
         toast.info("Already in WishList");
       } else {
-        console.error("Wishlist Error:", error);
         toast.error("Something went wrong");
       }
     }
@@ -62,6 +64,7 @@ const useHooks = () => {
 
       if (data.insertedId) {
         toast.success("Added to Cart");
+        queryClient.invalidateQueries(["cart"]); 
       } else if (data.message === "Already added to cart") {
         toast.info("Already in Cart");
       }
@@ -69,48 +72,33 @@ const useHooks = () => {
       if (error.response?.status === 409) {
         toast.info("Already in Cart");
       } else {
-        console.error("Cart Error:", error);
         toast.error("Something went wrong");
       }
     }
   };
 
-  // Delete from Wishlist
+  // Delete Wishlist
   const handleDeleteWish = async (id) => {
-    if (!user?.email) {
-      toast.error("Please login first");
-      return;
-    }
-
     try {
       const { data } = await axiosSecure.delete(`/wishlist/${id}`);
       if (data.deletedCount > 0) {
         toast.success("Removed from WishList");
-      } else {
-        toast.info("Item not found");
+        queryClient.invalidateQueries(["wishedProduct"]); 
       }
     } catch (error) {
-      console.error("Delete Wishlist Error:", error);
       toast.error("Something went wrong");
     }
   };
 
-  // Delete from Cart
+  // Delete Cart
   const handleDeleteCart = async (id) => {
-    if (!user?.email) {
-      toast.error("Please login first");
-      return;
-    }
-
     try {
       const { data } = await axiosSecure.delete(`/cart/${id}`);
       if (data.deletedCount > 0) {
         toast.success("Removed from Cart");
-      } else {
-        toast.info("Item not found");
+        queryClient.invalidateQueries(["cart"]); 
       }
     } catch (error) {
-      console.error("Delete Cart Error:", error);
       toast.error("Something went wrong");
     }
   };
