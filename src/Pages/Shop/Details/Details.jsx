@@ -6,8 +6,10 @@ import { useParams } from "react-router-dom";
 import useAxiosSecure from "../../../Axios/useAxiosSecure";
 import ShareHead from "../../../Shared/ShareHead";
 import Newsletter from "../../Home/Newsletter";
+import useHooks from "../../../hooks/useHooks";
 
 const Details = () => {
+  const { handleWish, handleCart } = useHooks();
   const products = [
     {
       id: 1,
@@ -151,14 +153,14 @@ const Details = () => {
                       </button>
                     ))}
                   </div>
-                </div> 
+                </div>
 
                 {/* Quantity and Add to Cart */}
                 <div className="flex gap-4 items-center mt-3 mb-6 lato w-full ">
-                  <button className="bg-primary-green hover:bg-primary-green text-white font-semibold w-full py-2 rounded-lg transition flex items-center justify-center gap-2">
+                  <button onClick={()=>handleCart(id)} className="bg-primary-green hover:bg-primary-green text-white font-semibold w-full py-2 rounded-lg transition flex items-center justify-center gap-2">
                     <FaShoppingCart size={18} /> Add to cart
                   </button>
-                  <button className="bg-primary-green hover:bg-primary-green text-white font-semibold w-full py-2 rounded-lg transition flex items-center justify-center gap-2">
+                  <button  onClick={()=>handleWish(id)} className="bg-primary-green hover:bg-primary-green text-white font-semibold w-full py-2 rounded-lg transition flex items-center justify-center gap-2">
                     <FaHeart size={18} /> Add to wishlist
                   </button>
                 </div>
