@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { useRef, useState } from "react";
-import { CiHeart } from "react-icons/ci";
+import { FaHeart } from "react-icons/fa";
 import { FaSearch, FaShoppingCart } from "react-icons/fa";
 import { useParams } from "react-router-dom";
 import useAxiosSecure from "../../../Axios/useAxiosSecure";
@@ -29,11 +29,8 @@ const Details = () => {
     },
   ];
 
-  const [quantity, setQuantity] = useState(1);
-  const [selectedSize, setSelectedSize] = useState("60g");
-  const [isWishlisted, setIsWishlisted] = useState(false);
+  const [selectedSize, setSelectedSize] = useState("50g");
   const sizes = ["50g", "60g", "80g", "100g", "150g"];
-
   const { id } = useParams();
   const axiosSecure = useAxiosSecure();
 
@@ -44,15 +41,6 @@ const Details = () => {
       return data.data;
     },
   });
-
-  const handleAddToCart = () => {
-    console.log(`Added ${quantity} x ${selectedSize} to cart`);
-  };
-
-  const handleQuantityChange = (e) => {
-    const value = Number.parseInt(e.target.value);
-    if (value > 0) setQuantity(value);
-  };
 
   //  Image Zoom Logic
   const [zoomStyle, setZoomStyle] = useState({});
@@ -83,10 +71,10 @@ const Details = () => {
         {/* details */}
         <div className="xl:w-3/4">
           <div className="mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-8">
+            <div className="grid grid-cols-1 tab:grid-cols-2 gap-2 md:gap-8">
               {/* Left Side - Product Image */}
               <div
-                className="flex items-center justify-center border border-border rounded-xl relative overflow-hidden"
+                className="flex items-center justify-center border border-border rounded-xl relative overflow-hidden mb-3"
                 onMouseMove={handleMouseMove}
                 onMouseLeave={handleMouseLeave}
               >
@@ -96,65 +84,64 @@ const Details = () => {
                 <img
                   ref={imgRef}
                   src={SingleProduct?.photo}
-                  className="w-full xl:w-96 h-full xl:h-96 object-contain transition-transform duration-300 ease-out"
+                  className="w-full xl:w-96 h-56 object-contain transition-transform duration-300 ease-out"
                   style={zoomStyle}
                 />
               </div>
 
               {/* Right Side - Product Details */}
               <div className="flex flex-col justify-start">
-                <div className="inline-flex  mb-4">
-                  <span className="bg-primary-border text-primary-green text-base font-semibold px-5 py-1.5 rounded">
+                <div className="flex justify-between items-center pr-4 lg:pr-36 mb-2 md:mb-4">
+                  <span className="bg-primary-border text-primary-green text-base font-semibold px-5 py-1 rounded">
                     {SingleProduct?.tag}
                   </span>
+                  {/* Rating */}
+                  <div className="flex items-center gap-2 ">
+                    <div className="flex gap-1">
+                      {[...Array(5)].map((_, i) => (
+                        <span key={i} className="text-orange text-2xl">
+                          ★
+                        </span>
+                      ))}
+                    </div>
+                    <span className="text-primary-text text-sm">
+                      ({SingleProduct?.rating})
+                    </span>
+                  </div>
                 </div>
 
-                <h1 className="lato text-3xl font-bold text-primary-text mb-2">
+                <h1 className="lato text-3xl md:text-5xl font-bold text-primary-text mb-2 md:mb-4">
                   {SingleProduct?.title}
                 </h1>
 
-                {/* Rating */}
-                <div className="flex items-center gap-2 mb-6">
-                  <div className="flex gap-1">
-                    {[...Array(5)].map((_, i) => (
-                      <span key={i} className="text-yellow-400 text-lg">
-                        ★
-                      </span>
-                    ))}
-                  </div>
-                  <span className="text-gray-500 text-sm">
-                    {SingleProduct?.rating}
-                  </span>
-                </div>
-
                 {/* Dynamic Price Section */}
-                <div className="flex items-center gap-4 mb-6">
+                <div className="flex items-center gap-4 mb-1 md:mb-3">
                   <div className="flex items-baseline gap-2">
-                    <span className="text-4xl font-bold text-primary-green">
-                      ${(SingleProduct?.disPrice * quantity).toFixed(2)}
+                    <span className="text-xl md:text-2xl font-bold text-primary-green">
+                      ${SingleProduct?.disPrice}
                     </span>
-                    <span className="text-xl text-gray-400 line-through">
-                      ${(SingleProduct?.price * quantity).toFixed(2)}
+                    <span className="text-sm md:text-lg text-primary-text line-through">
+                      ${SingleProduct?.price}
                     </span>
                   </div>
                 </div>
 
                 {/* Description */}
-                <p className="text-gray-600 text-base leading-relaxed mb-6">
+                <p className="text-primary-text text-sm md:text-base leading-relaxed mb-2 md:mb-6">
                   {SingleProduct?.description}
                 </p>
 
                 {/* Size/Weight Selection */}
-                <div className="mb-6 lato">
-                  <label className="block text-sm font-semibold text-gray-900 mb-3">
+                <div className="mb-3 lato">
+                  <label className="block text-sm font-bold text-primary-text mb-1 md:mb-3">
                     Size / Weight
                   </label>
-                  <div className="flex gap-2 flex-wrap">
+                  <div className="flex gap-1 md:gap-2 flex-wrap">
                     {sizes.map((size) => (
                       <button
                         key={size}
                         onClick={() => setSelectedSize(size)}
-                        className={`px-4 py-2 rounded-lg font-medium transition ${
+                        className={`px-4 py-1 md:py-2 rounded-lg font-medium transition ${
                           selectedSize === size
                             ? "bg-primary-green text-white"
                             : "bg-gray-100 text-primary-gray hover:bg-gray-200"
@@ -164,44 +151,16 @@ const Details = () => {
                       </button>
                     ))}
                   </div>
-                </div>
+                </div> 
 
                 {/* Quantity and Add to Cart */}
-                <div className="flex gap-4 items-center mb-6 lato">
-                  <div className="flex items-center border border-primary-green rounded-lg">
-                    <button
-                      onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                      className="px-3 py-2 text-primary-green hover:bg-gray-100"
-                    >
-                      −
-                    </button>
-                    <input
-                      type="number"
-                      value={quantity}
-                      onChange={handleQuantityChange}
-                      className="w-12 text-center border-0 outline-none"
-                      min="1"
-                    />
-                    <button
-                      onClick={() => setQuantity(quantity + 1)}
-                      className="px-3 py-2 text-primary-green hover:bg-gray-100"
-                    >
-                      +
-                    </button>
-                  </div>
-
-                  <button
-                    onClick={handleAddToCart}
-                    className="bg-primary-green hover:bg-primary-green text-white font-semibold py-3 px-2 md:px-6 rounded-lg transition flex items-center justify-center gap-2"
-                  >
+                <div className="flex gap-4 items-center mt-3 mb-6 lato w-full ">
+                  <button className="bg-primary-green hover:bg-primary-green text-white font-semibold w-full py-2 rounded-lg transition flex items-center justify-center gap-2">
                     <FaShoppingCart size={18} /> Add to cart
                   </button>
-
-                  <div className="relative tooltip" data-tip="Add To Wishlist">
-                    <button className="bg-white text-2xl p-2 text-primary-green hover:bg-primary-green hover:text-white transition border border-primary-green">
-                      <CiHeart />
-                    </button>
-                  </div>
+                  <button className="bg-primary-green hover:bg-primary-green text-white font-semibold w-full py-2 rounded-lg transition flex items-center justify-center gap-2">
+                    <FaHeart size={18} /> Add to wishlist
+                  </button>
                 </div>
               </div>
             </div>
