@@ -6,11 +6,11 @@ import { IoCartOutline } from "react-icons/io5";
 import { RxCross2 } from "react-icons/rx";
 import { TbDetails } from "react-icons/tb";
 import { Link } from "react-router-dom";
-import useAxiosSecure from "../../Axios/useAxiosSecure";
+
 import useHooks from "../../hooks/useHooks";
 
 const Products = () => {
-  const axiosSecure = useAxiosSecure();
+ const { allProduct }=useHooks()
   const { handleWish, handleCart } = useHooks();
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -28,13 +28,7 @@ const Products = () => {
     return () => (document.body.style.overflow = "auto");
   }, [showSidebar]);
 
-  const { data: allProduct = [] } = useQuery({
-    queryKey: ["allProduct"],
-    queryFn: async () => {
-      const res = await axiosSecure.get("/product");
-      return res.data;
-    },
-  });
+
 
   const handleCheckboxChange = (value, state, setState) => {
     if (state.includes(value)) {

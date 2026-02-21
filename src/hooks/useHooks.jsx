@@ -9,6 +9,15 @@ const useHooks = () => {
   const { user } = useContext(AuthContext);
   const queryClient = useQueryClient();
 
+  // All Product Fetch
+    const { data: allProduct = [] } = useQuery({
+    queryKey: ["allProduct"],
+    queryFn: async () => {
+      const res = await axiosSecure.get("/product");
+      return res.data;
+    },
+  });
+
   // Wishlist Fetch
   const {
     data: wishedProduct = [],
@@ -129,6 +138,7 @@ const useHooks = () => {
   };
 
   return {
+    allProduct,    
     wishedProduct,
     cartProducts,   
     wishLoading,
