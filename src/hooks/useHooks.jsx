@@ -10,7 +10,12 @@ const useHooks = () => {
   const queryClient = useQueryClient();
 
   // All Product Fetch
-    const { data: allProduct = [] } = useQuery({
+
+  const {
+    data: allProduct = [],
+    refetch: refetchAllProduct,
+    isLoading: productLoading,
+  } = useQuery({
     queryKey: ["allProduct"],
     queryFn: async () => {
       const res = await axiosSecure.get("/product");
@@ -19,6 +24,7 @@ const useHooks = () => {
   });
 
   // Wishlist Fetch
+
   const {
     data: wishedProduct = [],
     refetch: refetchWish,
@@ -33,6 +39,7 @@ const useHooks = () => {
   });
 
   // Cart Fetch
+
   const {
     data: cartProducts = [],
     refetch: refetchCart,
@@ -46,7 +53,8 @@ const useHooks = () => {
     },
   });
 
-  // Add Wishlist
+  // Add  Wishlist
+
   const handleWish = async (item) => {
     if (!user?.email) {
       toast.error("Please login first");
@@ -56,13 +64,13 @@ const useHooks = () => {
     try {
       const { _id, ...rest } = item;
 
-      const wishedProduct = {
+      const wishedData = {
         userEmail: user.email,
         productId: _id,
         ...rest,
       };
 
-      const { data } = await axiosSecure.post("/wishlist", wishedProduct);
+      const { data } = await axiosSecure.post("/wishlist", wishedData);
 
       if (data.insertedId) {
         toast.success("Added to WishList");
@@ -78,6 +86,7 @@ const useHooks = () => {
   };
 
   // Add Cart
+
   const handleCart = async (item) => {
     if (!user?.email) {
       toast.error("Please login first");
@@ -87,14 +96,14 @@ const useHooks = () => {
     try {
       const { _id, ...rest } = item;
 
-      const cartProduct = {
+      const cartData = {
         userEmail: user.email,
         productId: _id,
         quantity: 1,
         ...rest,
       };
 
-      const { data } = await axiosSecure.post("/cart", cartProduct);
+      const { data } = await axiosSecure.post("/cart", cartData);
 
       if (data.insertedId) {
         toast.success("Added to Cart");
@@ -110,6 +119,7 @@ const useHooks = () => {
   };
 
   // Delete Wishlist
+
   const handleDeleteWish = async (id) => {
     try {
       const { data } = await axiosSecure.delete(`/wishlist/${id}`);
@@ -123,7 +133,8 @@ const useHooks = () => {
     }
   };
 
-  // Delete Cart
+  //  Delete Cart
+
   const handleDeleteCart = async (id) => {
     try {
       const { data } = await axiosSecure.delete(`/cart/${id}`);
@@ -137,16 +148,33 @@ const useHooks = () => {
     }
   };
 
+  // Delete Product
+  const handleDeleteProduct = async (id) => {
+    try {
+      const { data } = await axiosSecure.delete(`/product/${id}`);
+
+      if (data.deletedCount > 0) {
+        toast.success("Product Deleted");
+        queryClient.invalidateQueries(["allProduct"]);
+      }
+    } catch (error) {
+      toast.error("Failed to delete product");
+    }
+  };
+
   return {
-    allProduct,    
+    allProduct,
     wishedProduct,
-    cartProducts,   
+    cartProducts,
+    productLoading,
     wishLoading,
     cartLoading,
     handleWish,
     handleCart,
     handleDeleteWish,
     handleDeleteCart,
+    handleDeleteProduct,
+    refetchAllProduct,
     refetchWish,
     refetchCart,
   };

@@ -5,7 +5,8 @@ import Swal from "sweetalert2";
 import useHooks from "../hooks/useHooks";
 
 const ManageProduct = () => {
-  const{allProduct} = useHooks();
+  const { allProduct, handleDeleteProduct } = useHooks();
+
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 12;
   const totalPages = Math.ceil(allProduct.length / itemsPerPage);
@@ -13,31 +14,6 @@ const ManageProduct = () => {
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage,
   );
-
-  const handleDelete = (id) => {
-    Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        axiosSecure.delete(`/product/${id}`).then((res) => {
-          if (res.data.deletedCount > 0) {
-            refetch();
-            Swal.fire({
-              title: "Deleted!",
-              text: "Product has been deleted.",
-              icon: "success",
-            });
-          }
-        });
-      }
-    });
-  };
 
   return (
     <div className="w-full">
@@ -120,7 +96,7 @@ const ManageProduct = () => {
                 {/* Remove */}
                 <td>
                   <button
-                    onClick={() => handleDelete(product._id)}
+                    onClick={() => handleDeleteProduct(product._id)}
                     className="btn-md text-red"
                   >
                     <FaRegTrashAlt />
