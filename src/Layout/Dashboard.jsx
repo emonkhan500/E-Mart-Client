@@ -4,6 +4,7 @@ import { CgProfile } from "react-icons/cg";
 import { IoIosLogOut } from "react-icons/io";
 import { NavLink, Outlet } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import useAdmin from "../AdminThing/useAdmin";
 
 const Dashboard = () => {
   const { loading } = useContext(AuthContext);
@@ -14,9 +15,9 @@ const Dashboard = () => {
     );
   }
 
-  // const [isAdmin] =useAdmin();
+  const [isAdmin] =useAdmin();
   // console.log(isAdmin);
-  const isAdmin = true;
+  // const isAdmin = true;
 
   return (
     <div className="w-full  px-3 mx-auto">

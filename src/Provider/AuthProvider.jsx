@@ -24,7 +24,7 @@ const AuthProvider = ({ children }) => {
   //  Helper: Request JWT from backend
   const getAndStoreToken = async (email) => {
     try {
-      const res = await axiosPublic.post("/jwt", { email });
+      const res = await axiosPublic.post("/users/jwt", { email });
       if (res.data?.token) {
         localStorage.setItem("access-token", res.data.token);
         console.log(" Token stored:", res.data.token);
@@ -101,7 +101,7 @@ const AuthProvider = ({ children }) => {
 
   if (loading) {
     return (
-      <div className="w-24 h-24 mx-auto mt-10 border-4 border-dashed  rounded-full animate-spin dark:border-primary-green"></div>
+      <div className="w-24 h-24 mx-auto flex justify-center mt-10 items-center border-4 border-dashed  rounded-full animate-spin dark:border-primary-green"></div>
     );
   }
 
