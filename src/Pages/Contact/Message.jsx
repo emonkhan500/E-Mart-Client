@@ -9,7 +9,9 @@ const Message = () => {
         <form className=" w-full lg:w-1/2">
           <div className=" w-full mx-auto">
             <div className="text-primary-text text-center md:text-start">
-              <h1 className="text-xl md:text-3xl font-bold mt-3">Drop Us a Line</h1>
+              <h1 className="text-xl md:text-3xl font-bold mt-3">
+                Drop Us a Line
+              </h1>
               <p className="text-primary-gray text-[0.9rem] mt-2 mb-2">
                 Your email address will not be published. Required fields are
                 marked *

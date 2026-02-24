@@ -1,9 +1,8 @@
-import React from "react";
 import SharedNewsletter from "../../Shared/SharedNewsletter";
+import ShareHead from "../../Shared/ShareHead";
+import Team from "../About/Team";
 import Help from "./Help";
 import Message from "./Message";
-import Team from "../About/Team";
-import ShareHead from "../../Shared/ShareHead";
 
 const Contact = () => {
   return (
