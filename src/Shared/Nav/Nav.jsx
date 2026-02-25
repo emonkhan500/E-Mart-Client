@@ -14,7 +14,7 @@ import useHooks from "../../hooks/useHooks";
 const Nav = () => {
   const { logOut, user } = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
-  const navigate = useNavigate();  
+  const navigate = useNavigate();
 
   const { cartProducts, wishedProduct } = useHooks();
   useEffect(() => {
@@ -203,19 +203,33 @@ const Nav = () => {
               onClick={handleLogout}
               className="bg-bg-honeydew flex gap-1 items-center px-3 md:px-2 lg:px-3 py-1 md:py-2 rounded-md shadow-md"
             >
-              <VscAccount className="text-2xl text-primary-text" />
-              <h1 className="mt-1 text-sm text-primary-gray hidden md:flex">
+              {user?.photoURL ? (
+                <img
+                  src={user.photoURL}
+                  alt="profile"
+                  className="w-6 h-6 rounded-full object-cover"
+                />
+              ) : (
+                <img
+                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e"
+                  alt="default profile"
+                  className="w-6 h-6 rounded-full object-cover"
+                />
+              )}
+
+              <span className="mt-1 text-sm text-primary-gray hidden md:flex">
                 SignOut
-              </h1>
+              </span>
             </button>
           ) : (
-            <Link to="/signin">
-              <button className="bg-bg-honeydew flex gap-1 items-center px-3 md:px-2 lg:px-3 py-1 md:py-2 rounded-md shadow-md">
-                <VscAccount className="text-2xl text-primary-text" />
-                <h1 className="mt-1 text-sm text-primary-gray hidden md:flex">
-                  SignIn
-                </h1>
-              </button>
+            <Link
+              to="/signin"
+              className="bg-bg-honeydew flex gap-1 items-center px-3 md:px-2 lg:px-3 py-1 md:py-2 rounded-md shadow-md"
+            >
+              <VscAccount className="text-2xl text-primary-text" />
+              <span className="mt-1 text-sm text-primary-gray hidden md:flex">
+                SignIn
+              </span>
             </Link>
           )}
         </div>
