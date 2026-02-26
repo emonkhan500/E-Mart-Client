@@ -7,17 +7,48 @@ import { useState } from "react";
 const MyCart = () => {
   const { cartProducts, handleDeleteCart } = useHooks();
 
-  // Pagination
   const [currentPage, setCurrentPage] = useState(1);
+  const [selectedItems, setSelectedItems] = useState([]);
+  const [quantities, setQuantities] = useState({});
+
   const itemsPerPage = 10;
   const totalPages = Math.ceil(cartProducts.length / itemsPerPage);
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentProducts = cartProducts.slice(indexOfFirstItem, indexOfLastItem);
+
+  // checkbox select
+  const handleSelect = (item) => {
+  if (selectedItems.includes(item._id)) {
+    setSelectedItems(selectedItems.filter((id) => id !== item._id));
+  } else {
+    setSelectedItems([...selectedItems, item._id]);
+  }
+};
+
+  // quantity
+  const increaseQty = (id) => {
+    setQuantities((prev) => ({
+      ...prev,
+      [id]: (prev[id] || 1) + 1,
+    }));
+  };
+
+  const decreaseQty = (id) => {
+    setQuantities((prev) => ({
+      ...prev,
+      [id]: prev[id] > 1 ? prev[id] - 1 : 1,
+    }));
+  };
+
+  // subtotal only selected
   const subTotal = cartProducts.reduce((sum, item) => {
-    const price = parseFloat(item.price) || 0;
-    const quantity = item.quantity || 1;
-    return sum + price * quantity;
+    if (selectedItems.includes(item._id)) {
+      const price = parseFloat(item.price) || 0;
+      const qty = quantities[item._id] || 1;
+      return sum + price * qty;
+    }
+    return sum;
   }, 0);
 
   const formattedSubTotal = subTotal.toFixed(2);
@@ -34,6 +65,7 @@ const MyCart = () => {
                 <th>Product</th>
                 <th>Name</th>
                 <th>Price</th>
+                <th>Quantity</th>
                 <th>Remove</th>
               </tr>
             </thead>
@@ -43,7 +75,7 @@ const MyCart = () => {
                 <tr>
                   <td
                     colSpan="4"
-                    className="text-center py-10 text-xl  md:text-2xl lg:text-4xl text-primary-text font-medium"
+                    className="text-center py-10 text-xl md:text-2xl lg:text-4xl text-primary-text font-medium"
                   >
                     No items in cart
                   </td>
@@ -51,10 +83,18 @@ const MyCart = () => {
               ) : (
                 currentProducts.map((item) => (
                   <tr key={item._id} className="border-b-2 border-border">
+                    {/* Product column */}
                     <td>
-                      <div className="avatar">
-                        <div className="h-10 w-10 border-2 border-border">
-                          <img src={item.photo} alt={item.title} />
+                      <div className="flex items-center gap-2">
+                        <input
+                          type="checkbox"
+                          checked={selectedItems.includes(item._id)}
+                          onChange={() => handleSelect(item)}
+                        />
+                        <div className="avatar">
+                          <div className="h-10 w-10 border-2 border-border">
+                            <img src={item.photo} alt={item.title} />
+                          </div>
                         </div>
                       </div>
                     </td>
@@ -65,6 +105,27 @@ const MyCart = () => {
 
                     <td className="text-sm xl:text-base font-bold text-primary-green">
                       ${item.price}
+                    </td>
+
+                    {/* 🔥 NEW Quantity Column */}
+                    <td>
+                      <div className="flex items-center gap-2">
+                        <button
+                          onClick={() => decreaseQty(item._id)}
+                          className="px-2 border"
+                        >
+                          -
+                        </button>
+
+                        <span>{quantities[item._id] || 1}</span>
+
+                        <button
+                          onClick={() => increaseQty(item._id)}
+                          className="px-2 border"
+                        >
+                          +
+                        </button>
+                      </div>
                     </td>
 
                     <td>
@@ -81,7 +142,7 @@ const MyCart = () => {
             </tbody>
           </table>
 
-          {/* pagination */}
+          {/* pagination untouched */}
           {totalPages > 1 && (
             <div className="flex justify-center mt-8 flex-wrap gap-2">
               <button
@@ -119,12 +180,14 @@ const MyCart = () => {
           )}
         </div>
 
-        {/* price */}
+        {/* 🔥 PRICE SECTION 100% UNCHANGED DESIGN */}
         <div className="w-full lg:w-1/3">
           <div className="border-2 border-border rounded-lg">
             <div className="flex justify-between px-6 py-3 border-b-2 border-border text-sm md:text-base font-medium">
               <h1 className="text-secondary-gray">SubTotal</h1>
-              <h1 className="text-primary-green font-bold">${formattedSubTotal}</h1>
+              <h1 className="text-primary-green font-bold">
+                ${formattedSubTotal}
+              </h1>
             </div>
 
             <div className="border-b-2 border-border flex">
@@ -140,7 +203,9 @@ const MyCart = () => {
 
             <div className="flex justify-between px-6 py-3 text-sm md:text-base font-medium">
               <h1 className="text-secondary-gray">Total</h1>
-              <h1 className="text-primary-green font-bold">${formattedSubTotal}</h1>
+              <h1 className="text-primary-green font-bold">
+                ${formattedSubTotal}
+              </h1>
             </div>
           </div>
 

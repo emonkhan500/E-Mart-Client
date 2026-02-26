@@ -159,7 +159,7 @@ const Nav = () => {
         <div className="flex items-center gap-1 md:gap-1 lg:gap-3">
           {/* Wishlist */}
           <Link to="/wish">
-            <div className="flex gap-2 bg-bg-honeydew px-2 md:px-2 lg:px-3 py-1 md:py-2 rounded-md items-center shadow-md">
+            <div className="flex gap-2 bg-bg-honeydew px-2 md:px-2 lg:px-3 py-1 md:py-2 rounded-md items-center shadow-md lg:border lg:border-primary-green">
               <div className="indicator">
                 <span className="indicator-item rounded-full bg-primary-green text-xs px-1 text-white">
                   {wishedProduct?.length || 0}
@@ -174,7 +174,7 @@ const Nav = () => {
 
           {/* Cart */}
           <Link to="/cart">
-            <div className="flex gap-2 bg-bg-honeydew px-2 md:px-2 lg:px-3 py-1 md:py-2 rounded-md items-center shadow-md">
+            <div className="flex gap-2 bg-bg-honeydew px-2 md:px-2 lg:px-3 py-1 md:py-2 rounded-md items-center shadow-md lg:border lg:border-primary-green">
               <div className="indicator">
                 <span className="indicator-item rounded-full bg-primary-green text-xs px-1 text-white">
                   {cartProducts?.length || 0}
@@ -189,7 +189,7 @@ const Nav = () => {
 
           {/* Dashboard */}
           <Link to="/dashboard">
-            <div className="flex gap-2 bg-bg-honeydew px-2 md:px-2 lg:px-3 py-1 md:py-2 rounded-md items-center shadow-md">
+            <div className="flex gap-2 bg-bg-honeydew px-2 md:px-2 lg:px-3 py-1 md:py-2 rounded-md items-center shadow-md lg:border lg:border-primary-green">
               <MdOutlineDashboard className="text-xl font-extrabold text-primary-text hover:text-primary-green" />
               <h1 className="mt-1 text-sm text-primary-gray hidden md:flex">
                 DashBoard
@@ -201,7 +201,7 @@ const Nav = () => {
           {user ? (
             <button
               onClick={handleLogout}
-              className="bg-bg-honeydew flex gap-1 items-center px-3 md:px-2 lg:px-3 py-1 md:py-2 rounded-md shadow-md"
+              className="bg-bg-honeydew flex gap-1 items-center px-3 md:px-2 lg:px-3 py-1 md:py-2 rounded-md shadow-md lg:border lg:border-primary-green"
             >
               {user?.photoURL ? (
                 <img
