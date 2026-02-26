@@ -2,34 +2,15 @@ import { useQuery } from "@tanstack/react-query";
 import { useRef, useState } from "react";
 import { FaHeart } from "react-icons/fa";
 import { FaSearch, FaShoppingCart } from "react-icons/fa";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import useAxiosSecure from "../../../Axios/useAxiosSecure";
 import ShareHead from "../../../Shared/ShareHead";
 import Newsletter from "../../Home/Newsletter";
 import useHooks from "../../../hooks/useHooks";
 
 const Details = () => {
-  const { handleWish, handleCart } = useHooks();
-  const products = [
-    {
-      id: 1,
-      name: "Chen Cardigan",
-      price: 99.5,
-      image: "https://i.ibb.co/mCFXymfH/thumbnail-4-jpg.png",
-    },
-    {
-      id: 2,
-      name: "Chen Sweater",
-      price: 89.5,
-      image: "https://i.ibb.co/4RJ5nQ0v/thumbnail-5-jpg.png",
-    },
-    {
-      id: 3,
-      name: "Colorful Jacket",
-      price: 25,
-      image: "https://i.ibb.co/ZR9JHp3b/thumbnail-6-jpg.png",
-    },
-  ];
+  const { handleWish, handleCart, allProduct } = useHooks();
+  console.log(allProduct);
 
   const [selectedSize, setSelectedSize] = useState("50g");
   const sizes = ["50g", "60g", "80g", "100g", "150g"];
@@ -157,10 +138,16 @@ const Details = () => {
 
                 {/* Quantity and Add to Cart */}
                 <div className="flex gap-4 items-center mt-3 mb-6 lato w-full ">
-                  <button onClick={()=>handleCart(id)} className="bg-primary-green hover:bg-primary-green text-white font-semibold w-full py-2 rounded-lg transition flex items-center justify-center gap-2">
+                  <button
+                    onClick={() => handleCart(SingleProduct)}
+                    className="bg-primary-green hover:bg-primary-green text-white font-semibold w-full py-2 rounded-lg transition flex items-center justify-center gap-2"
+                  >
                     <FaShoppingCart size={18} /> Add to cart
                   </button>
-                  <button  onClick={()=>handleWish(id)} className="bg-primary-green hover:bg-primary-green text-white font-semibold w-full py-2 rounded-lg transition flex items-center justify-center gap-2">
+                  <button
+                    onClick={() => handleWish(SingleProduct)}
+                    className="bg-primary-green hover:bg-primary-green text-white font-semibold w-full py-2 rounded-lg transition flex items-center justify-center gap-2"
+                  >
                     <FaHeart size={18} /> Add to wishlist
                   </button>
                 </div>
@@ -171,134 +158,39 @@ const Details = () => {
         </div>
 
         {/* Sidebar remains unchanged */}
-        <div className="w-full flex flex-col justify-center md:flex-row gap-5 xl:flex-col xl:w-1/4 space-y-10">
-          {/* Categories */}
-          <div className="bg-white rounded-2xl shadow-lg p-2 w-full max-w-sm mx-auto">
-            {/* Header */}
-            <div className="mb-6">
-              <h2 className="text-2xl font-bold text-gray-800">Category</h2>
-              <div className="w-16 h-1 bg-teal-500 mt-2 rounded-full"></div>
-            </div>
-            {/* Category List */}
-            <div className="space-y-3">
-              {/* Milks & Dairies */}
-              <div className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer group">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 flex-shrink-0">
-                    <img
-                      src="../../../src/assets/category-2.svg.png"
-                      alt="Milks & Dairies"
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                  <span className="text-primary-gray font-medium group-hover:text-primary-green transition-colors">
-                    Milks & Dairies
-                  </span>
-                </div>
-                <div className="bg-bg-honeydew text-primary-green font-semibold text-sm w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
-                  3
-                </div>
-              </div>
-              {/* Clothing */}
-              <div className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer group">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 flex-shrink-0">
-                    <img
-                      src="../../../src/assets/icon-1.svg.png"
-                      alt="Clothing"
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                  <span className="text-primary-gray font-medium group-hover:text-primary-green transition-colors">
-                    Clothing
-                  </span>
-                </div>
-                <div className="bg-bg-honeydew text-primary-green font-semibold text-sm w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
-                  4
-                </div>
-              </div>
-              {/* Pet Foods */}
-              <div className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer group">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 flex-shrink-0">
-                    <img
-                      src="../../../src/assets/category-4.svg.png"
-                      alt="Pet Foods"
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                  <span className="text-primary-gray font-medium group-hover:text-primary-green transition-colors">
-                    Pet Foods
-                  </span>
-                </div>
-                <div className="bg-bg-honeydew text-primary-green font-semibold text-sm w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
-                  5
-                </div>
-              </div>
-              {/* Baking material */}
-              <div className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer group">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 flex-shrink-0">
-                    <img
-                      src="../../../src/assets/category-5.svg.png"
-                      alt="Baking material"
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                  <span className="text-primary-gray font-medium group-hover:text-primary-green transition-colors">
-                    Baking material
-                  </span>
-                </div>
-                <div className="bg-bg-honeydew text-primary-green font-semibold text-sm w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
-                  8
-                </div>
-              </div>
-              {/* Fresh Fruit */}
-              <div className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer group">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 flex-shrink-0">
-                    <img
-                      src="../../../src/assets/category-1.svg.png"
-                      alt="Fresh Fruit"
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                  <span className="text-primary-gray font-medium group-hover:text-primary-green transition-colors">
-                    Fresh Fruit
-                  </span>
-                </div>
-                <div className="bg-bg-honeydew text-primary-green font-semibold text-sm w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
-                  10
-                </div>
-              </div>
-            </div>
-          </div>
+        <div className="w-full flex flex-col justify-center md:flex-row gap-5 xl:flex-col xl:w-1/4 ">
           {/* New Products */}
-          <div className="w-full max-w-sm bg-white shadow-lg rounded-xl p-6  mx-auto">
+          <div className="w-full xl:max-w-sm bg-white shadow-lg rounded-xl px-6  mx-auto">
             <h2 className="text-xl font-semibold text-primary-text">
               New Products
             </h2>
-            <div className="mt-4 space-y-4">
-              {products.map((product) => (
-                <div
-                  key={product.id}
-                  className="flex items-center space-x-4 border-b pb-3 last:border-b-0"
-                >
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-14 h-14 rounded-md"
-                  />
-                  <div>
-                    <h3 className="text-primary-green font-semibold">
-                      {product.name}
-                    </h3>
-                    <p className="text-primary-gray font-medium">
-                      ${product.price.toFixed(2)}
-                    </p>
-                  </div>
-                </div>
-              ))}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-1 gap-4 space-y-4 mt-4">
+              {allProduct
+                ?.slice()
+                .reverse()
+                .slice(0, 8)
+                .map((product) => (
+                  <Link to={`/details/${product._id}`}>
+                    <div
+                      key={product.id}
+                      className="flex items-center gap-5 border-b pb-3 border-border"
+                    >
+                      <img
+                        src={product.photo}
+                        alt={product.title}
+                        className="w-14 h-14 rounded-md object-cover"
+                      />
+                      <div>
+                        <h3 className="text-primary-green text-xl font-semibold">
+                          {product.title}
+                        </h3>
+                        <p className="text-primary-gray font-medium">
+                          ${product.price}
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
+                ))}
             </div>
           </div>
         </div>

@@ -6,6 +6,7 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "./DealStyle.css";
 import SharedTitle from "../../Shared/ui/SharedTitle";
+import useHooks from "../../hooks/useHooks";
 
 const products = [
   {
@@ -56,6 +57,7 @@ const products = [
 ];
 
 const DailyBestDeal = () => {
+  const { handleCart } = useHooks();
   return (
     <div className="mt-10">
       <SharedTitle title="Daily Best Deals" />
