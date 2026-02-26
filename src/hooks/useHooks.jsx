@@ -33,28 +33,12 @@ const useHooks = () => {
     queryKey: ["wishedProduct", user?.email],
     enabled: !!user?.email,
     queryFn: async () => {
-      const res = await axiosSecure.get(`/wishlists/${user.email}`);
-      return res.data;
-    },
-  });
-
-  // Cart Fetch
-
-  const {
-    data: cartProducts = [],
-    refetch: refetchCart,
-    isLoading: cartLoading,
-  } = useQuery({
-    queryKey: ["cartProduct", user?.email],
-    enabled: !!user?.email,
-    queryFn: async () => {
-      const res = await axiosSecure.get(`/carts/${user.email}`);
+      const res = await axiosSecure.get(`/wishlist/${user.email}`);
       return res.data;
     },
   });
 
   // Add  Wishlist
-
   const handleWish = async (item) => {
     if (!user?.email) {
       toast.error("Please login first");
@@ -84,6 +68,35 @@ const useHooks = () => {
       }
     }
   };
+
+  // Delete Wishlist
+  const handleDeleteWish = async (id) => {
+    try {
+      const { data } = await axiosSecure.delete(`/wishlist/${id}`);
+
+      if (data.deletedCount > 0) {
+        toast.success("Removed from WishList");
+        queryClient.invalidateQueries(["wishedProduct", user?.email]);
+      }
+    } catch (error) {
+      toast.error("Something went wrong");
+    }
+  };
+
+  // Cart Fetch
+
+  const {
+    data: cartProducts = [],
+    refetch: refetchCart,
+    isLoading: cartLoading,
+  } = useQuery({
+    queryKey: ["cartProduct", user?.email],
+    enabled: !!user?.email,
+      queryFn: async () => {
+      const res = await axiosSecure.get(`/cart/${user.email}`);
+      return res.data;
+    },
+  });
 
   // Add Cart
 
@@ -115,21 +128,6 @@ const useHooks = () => {
       } else {
         toast.error("Something went wrong");
       }
-    }
-  };
-
-  // Delete Wishlist
-
-  const handleDeleteWish = async (id) => {
-    try {
-      const { data } = await axiosSecure.delete(`/wishlist/${id}`);
-
-      if (data.deletedCount > 0) {
-        toast.success("Removed from WishList");
-        queryClient.invalidateQueries(["wishedProduct", user?.email]);
-      }
-    } catch (error) {
-      toast.error("Something went wrong");
     }
   };
 

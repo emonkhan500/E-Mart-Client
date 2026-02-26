@@ -1,20 +1,11 @@
-import { useQuery } from "@tanstack/react-query";
-import { useContext } from "react";
 import { IoCartOutline, IoHeartDislikeOutline } from "react-icons/io5";
-import useAxiosSecure from "../Axios/useAxiosSecure";
-import { AuthContext } from "../Provider/AuthProvider";
 import ShareHead from "../Shared/ShareHead";
 import useHooks from "../hooks/useHooks";
-import { CiHeart } from "react-icons/ci";
 import { TbDetails } from "react-icons/tb";
 import { Link } from "react-router-dom";
 
 const Wish = () => {
-  const { user } = useContext(AuthContext);
-  const { handleDeleteWish, handleCart , wishedProduct} = useHooks();
-  const axiosSecure = useAxiosSecure();
-
- 
+  const { handleDeleteWish, handleCart, wishedProduct } = useHooks();
 
   return (
     <div className="">
@@ -53,14 +44,14 @@ const Wish = () => {
                         onClick={() => handleDeleteWish(item._id)}
                         className="bg-white text-lg md:text-2xl p-1.5 md:p-2 text-primary-green hover:bg-primary-green hover:text-white transition border border-primary-green"
                       >
-                       <IoHeartDislikeOutline />
+                        <IoHeartDislikeOutline />
                       </button>
                     </div>
 
                     {/* Cart */}
                     <div className="relative tooltip" data-tip="Add To Cart">
                       <button
-                        onClick={() => handleCart(item)}
+                        onClick={() => handleCart(item._id)}
                         className="bg-white text-lg md:text-2xl p-1.5 md:p-2 text-primary-green hover:bg-primary-green hover:text-white transition border border-primary-green"
                       >
                         <IoCartOutline />
