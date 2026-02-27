@@ -144,7 +144,7 @@ const Nav = () => {
 
           <div className="relative hidden md:flex items-center justify-center md:ml-2 xl:ml-8">
             <input
-              className="md:w-[270px] lg:w-[300px] xxl:w-[400px] 2xl:w-[600px] py-3 pl-2 lg:pl-10 xl:pl-20 border-2 border-primary-green outline-none"
+              className="md:w-[270px] lg:w-[300px] xxl:w-[400px] 2xl:w-[500px] 3xl:w-[680px] py-3 pl-2 lg:pl-10 xl:pl-20 border-2 border-primary-green outline-none"
               placeholder="Search For Items..."
             />
             <IoIosSearch className="hidden md:flex absolute top-[14px] right-4 lg:right-10 2xl:right-20 text-secondary-text text-[1.3rem]" />
@@ -159,7 +159,7 @@ const Nav = () => {
         <div className="flex items-center gap-1 md:gap-1 lg:gap-3">
           {/* Wishlist */}
           <Link to="/wish">
-            <div className="flex gap-2 bg-bg-honeydew px-2 md:px-2 lg:px-3 py-1 md:py-2 rounded-md items-center shadow-md lg:border lg:border-primary-green">
+            <div className="flex gap-2 bg-bg-honeydew px-2 md:px-2 lg:px-3 py-1 md:py-2.5 rounded-md items-center shadow-md lg:border lg:border-primary-green">
               <div className="indicator">
                 <span className="indicator-item rounded-full bg-primary-green text-xs px-1 text-white">
                   {wishedProduct?.length || 0}
@@ -174,7 +174,7 @@ const Nav = () => {
 
           {/* Cart */}
           <Link to="/cart">
-            <div className="flex gap-2 bg-bg-honeydew px-2 md:px-2 lg:px-3 py-1 md:py-2 rounded-md items-center shadow-md lg:border lg:border-primary-green">
+            <div className="flex gap-2 bg-bg-honeydew px-2 md:px-2 lg:px-3 py-1 md:py-2.5 rounded-md items-center shadow-md lg:border lg:border-primary-green">
               <div className="indicator">
                 <span className="indicator-item rounded-full bg-primary-green text-xs px-1 text-white">
                   {cartProducts?.length || 0}
@@ -189,7 +189,7 @@ const Nav = () => {
 
           {/* Dashboard */}
           <Link to="/dashboard">
-            <div className="flex gap-2 bg-bg-honeydew px-2 md:px-2 lg:px-3 py-1 md:py-2 rounded-md items-center shadow-md lg:border lg:border-primary-green">
+            <div className="flex gap-2 bg-bg-honeydew px-2 md:px-2 lg:px-3 py-1 md:py-2.5 rounded-md items-center shadow-md lg:border lg:border-primary-green">
               <MdOutlineDashboard className="text-xl font-extrabold text-primary-text hover:text-primary-green" />
               <h1 className="mt-1 text-sm text-primary-gray hidden md:flex">
                 DashBoard

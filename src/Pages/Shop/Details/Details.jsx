@@ -9,13 +9,12 @@ import Newsletter from "../../Home/Newsletter";
 import useHooks from "../../../hooks/useHooks";
 
 const Details = () => {
+  const axiosSecure = useAxiosSecure();
+  const { id } = useParams();
   const { handleWish, handleCart, allProduct } = useHooks();
-  console.log(allProduct);
-
   const [selectedSize, setSelectedSize] = useState("50g");
   const sizes = ["50g", "60g", "80g", "100g", "150g"];
-  const { id } = useParams();
-  const axiosSecure = useAxiosSecure();
+  console.log(id);
 
   const { data: SingleProduct = {} } = useQuery({
     queryKey: ["product", id],
@@ -24,7 +23,7 @@ const Details = () => {
       return data.data;
     },
   });
-
+console.log(SingleProduct);
   //  Image Zoom Logic
   const [zoomStyle, setZoomStyle] = useState({});
   const imgRef = useRef(null);
