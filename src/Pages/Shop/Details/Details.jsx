@@ -14,8 +14,7 @@ const Details = () => {
   const { handleWish, handleCart, allProduct } = useHooks();
   const [selectedSize, setSelectedSize] = useState("50g");
   const sizes = ["50g", "60g", "80g", "100g", "150g"];
-  console.log(id);
-
+ 
   const { data: SingleProduct = {} } = useQuery({
     queryKey: ["product", id],
     queryFn: async () => {
@@ -45,7 +44,7 @@ console.log(SingleProduct);
     });
   };
 
-  return (
+  return (  
     <div>
       <ShareHead pageTitle="Product Details"></ShareHead>
 

@@ -73,7 +73,7 @@ const Wish = () => {
                         data-tip="Show Details"
                       >
                         <button className="bg-white text-lg md:text-2xl p-1.5 md:p-2 text-primary-green hover:bg-primary-green hover:text-white transition border border-primary-green">
-                          <Link to={`/details/${item?._id}`}>
+                          <Link to={`/details/${item?.productId}`}>
                             <TbDetails />
                           </Link>
                         </button>

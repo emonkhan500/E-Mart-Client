@@ -13,6 +13,7 @@ import useHooks from "../../hooks/useHooks";
 
 const Nav = () => {
   const { logOut, user } = useContext(AuthContext);
+  console.log(user);
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -203,7 +204,7 @@ const Nav = () => {
               onClick={handleLogout}
               className="bg-bg-honeydew flex gap-1 items-center px-3 md:px-2 lg:px-3 py-1 md:py-2 rounded-md shadow-md lg:border lg:border-primary-green"
             >
-              {user?.photoURL ? (
+              {user?.photoURL? (
                 <img
                   src={user.photoURL}
                   alt="profile"
@@ -211,7 +212,7 @@ const Nav = () => {
                 />
               ) : (
                 <img
-                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e"
+                  src="https://i.ibb.co/350c417S/MODEL-2-1-2.png"
                   alt="default profile"
                   className="w-6 h-6 rounded-full object-cover"
                 />
@@ -224,7 +225,7 @@ const Nav = () => {
           ) : (
             <Link
               to="/signin"
-              className="bg-bg-honeydew flex gap-1 items-center px-3 md:px-2 lg:px-3 py-1 md:py-2 rounded-md shadow-md"
+              className="bg-bg-honeydew flex gap-1 items-center px-3 md:px-2 lg:px-3 py-1 md:py-2 rounded-md shadow-md lg:border lg:border-primary-green"
             >
               <VscAccount className="text-2xl text-primary-text" />
               <span className="mt-1 text-sm text-primary-gray hidden md:flex">
