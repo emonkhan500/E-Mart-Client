@@ -16,7 +16,7 @@ const LatestProduct = () => {
         {allProduct
           ?.slice()
           .reverse()
-          .slice(0, 8)
+          .slice(0, 10)
           .map((item, index) => (
             <div
               key={index}

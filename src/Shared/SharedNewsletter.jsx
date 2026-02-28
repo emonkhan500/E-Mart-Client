@@ -1,6 +1,20 @@
 import news from "../assets/banner-13.png.png";
+import { useState } from "react";
+import { toast } from "react-toastify";
 
 const Newsletter = () => {
+  const [email, setEmail] = useState("");
+
+  const handleSubscribe = () => {
+    if (!email.trim()) {
+      toast.error("Please enter your email");
+      return;
+    }
+
+    toast.success("Subscribed Successfully!");
+    setEmail(""); 
+  };
+
   return (
     <div className="mt-5 md:mt-8 rounded px-3 md:px-6 h-[180px] small:h-[230px] md:h-[350px] lg:h-[400px] flex items-center lg:gap-14 justify-center quick bg-primary-border">
       <div className="lg:w-3/4  md:px-4 space-y-3">
@@ -15,11 +29,16 @@ const Newsletter = () => {
 
         <div className="text-center md:text-start pt-2 md:pt-3">
           <input
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             className="w-40 small:w-44 md:w-48 lg:w-64 px-8 small:px-4 lg:px-3 py-1 md:py-2 lg:py-4 focus:outline-none focus:ring-0 rounded-l-3xl text-base"
             type="text"
             placeholder="Enter Your Email"
           />
-          <button className="bg-primary-green text-white rounded-r-3xl py-1 md:py-2 lg:py-4 text-base px-2 md:px-4">
+          <button
+            onClick={handleSubscribe}
+            className="bg-primary-green text-white rounded-r-3xl py-1 md:py-2 lg:py-4 text-base px-2 md:px-4"
+          >
             Subscribe
           </button>
         </div>
