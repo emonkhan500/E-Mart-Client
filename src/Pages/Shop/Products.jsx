@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import {  useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { CiHeart } from "react-icons/ci";
 import { FiFilter } from "react-icons/fi";
 import { IoCartOutline } from "react-icons/io5";
@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 import useHooks from "../../hooks/useHooks";
 
 const Products = () => {
- const { allProduct }=useHooks()
+  const { allProduct } = useHooks();
   const { handleWish, handleCart } = useHooks();
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -27,8 +27,6 @@ const Products = () => {
     document.body.style.overflow = showSidebar ? "hidden" : "auto";
     return () => (document.body.style.overflow = "auto");
   }, [showSidebar]);
-
-
 
   const handleCheckboxChange = (value, state, setState) => {
     if (state.includes(value)) {
@@ -267,7 +265,7 @@ const Products = () => {
 
         {/* Product Grid */}
         <div className="flex-1">
-          <div className="grid gap-x-1.5 tab:gap-x-2 md:gap-x-3 lg:gap-x-1.5 xl:gap-x-1.5 xxl:gap-x-1.5 2xl:gap-x-6 gap-y-4 md:gap-y-6 lg:gap-y-8 grid-cols-2 tab:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 xxl:grid-cols-5 2xl:grid-cols-5 justify-center items-center 2xl:px-16 mt-5">
+          <div className="grid gap-x-1.5 tab:gap-x-2 md:gap-x-3 lg:gap-x-1.5 xl:gap-x-1.5 xxl:gap-x-1.5 2xl:gap-x-6 gap-y-4 md:gap-y-6 lg:gap-y-8 grid-cols-2 tab:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 xxl:grid-cols-5 2xl:grid-cols-5 justify-center items-center 3xl:px-16 mt-5">
             {filteredProducts.length === 0 ? (
               <div className="col-span-full text-center py-16">
                 <h2 className="text-xl md:text-2xl text-primary-green font-semibold">
@@ -307,7 +305,10 @@ const Products = () => {
                         </button>
 
                         {/* Cart */}
-                        <button  onClick={() => handleCart(item)} className="bg-white text-lg md:text-2xl p-1.5 md:p-2 text-primary-green hover:bg-primary-green hover:text-white transition border border-primary-green">
+                        <button
+                          onClick={() => handleCart(item)}
+                          className="bg-white text-lg md:text-2xl p-1.5 md:p-2 text-primary-green hover:bg-primary-green hover:text-white transition border border-primary-green"
+                        >
                           <IoCartOutline />
                         </button>
 
@@ -335,10 +336,20 @@ const Products = () => {
                     <div className="flex justify-between items-center mt-1 tab:mt-1.5 lg:mt-2">
                       <p className="text-[11px] small:text-xs tab:text-sm md:text-base xxl:text-sm 2xl:text-base">
                         By
-                        <span className="text-primary-green">
+                        <span className="text-primary-green text-[11px] small:text-xs tab:text-sm md:text-base xxl:text-sm 2xl:text-base">
                           {item?.vendor}
                         </span>
                       </p>
+                      <div className="flex">
+                        {[1, 2, 3, 4, 5].map((star) => (
+                          <span
+                            key={star}
+                            className={`mask mask-star w-[11px] small:w-3.5 md:w-4 h-3 md:h-4 ${
+                              star <= item?.rating ? "bg-orange" : "bg-black/5"
+                            }`}
+                          ></span>
+                        ))}
+                      </div>
                     </div>
 
                     {/* Price + Button */}
@@ -347,7 +358,10 @@ const Products = () => {
                         $ {item?.price}
                       </h1>
 
-                      <button  onClick={() => handleCart(item)} className="flex items-center gap-2 px-3 md:px-4 py-1 md:py-[5px] xxl:py-1 2xl:py-[5px] text-xs md:text-base rounded bg-primary-green text-white">
+                      <button
+                        onClick={() => handleCart(item)}
+                        className="flex items-center gap-2 px-3 md:px-4 py-1 md:py-[5px] xxl:py-1 2xl:py-[5px] text-xs md:text-base rounded bg-primary-green text-white"
+                      >
                         <IoCartOutline /> Add
                       </button>
                     </div>

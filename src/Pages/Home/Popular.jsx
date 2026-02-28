@@ -87,7 +87,7 @@ const Popular = () => {
                     <span
                       key={star}
                       className={`mask mask-star w-[11px] small:w-3.5 md:w-4 h-3 md:h-4 ${
-                        star <= item?.rating ? "bg-orange" : "bg-gray-300"
+                        star <= item?.rating ? "bg-orange" : "bg-black/5"
                       }`}
                     ></span>
                   ))}

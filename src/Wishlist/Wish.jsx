@@ -97,34 +97,16 @@ const Wish = () => {
                     </p>
 
                     {/* Rating */}
-                    <div className="rating ">
-                      <input
-                        type="radio"
-                        name="rating-1"
-                        className="mask mask-star bg-orange w-[11px] small:w-3.5 md:w-4 h-3 md:h-4"
-                      />
-                      <input
-                        type="radio"
-                        name="rating-1"
-                        className="mask mask-star bg-orange w-[11px] small:w-3.5 md:w-4 h-3 md:h-4"
-                        defaultChecked
-                      />
-                      <input
-                        type="radio"
-                        name="rating-1"
-                        className="mask mask-star w-[11px] small:w-3.5 md:w-4 h-3 md:h-4"
-                      />
-                      <input
-                        type="radio"
-                        name="rating-1"
-                        className="mask mask-star w-[11px] small:w-3.5 md:w-4 h-3 md:h-4"
-                      />
-                      <input
-                        type="radio"
-                        name="rating-1"
-                        className="mask mask-star w-[11px] small:w-3.5 md:w-4 h-3 md:h-4"
-                      />
-                    </div>
+                    <div className="flex">
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <span
+                      key={star}
+                      className={`mask mask-star w-[11px] small:w-3.5 md:w-4 h-3 md:h-4 ${
+                        star <= item?.rating ? "bg-orange" : "bg-black/5"
+                      }`}
+                    ></span>
+                  ))}
+                </div>
                   </div>
 
                   {/* Price + Button */}
