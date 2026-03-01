@@ -10,7 +10,7 @@ import Swal from "sweetalert2";
 import { Link, useNavigate } from "react-router-dom";
 
 const DashboardHeader = ({ setSidebarOpen }) => {
-  const { user, logOut } = useContext(AuthContext);
+  const { user, logOut, role } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -29,15 +29,17 @@ const DashboardHeader = ({ setSidebarOpen }) => {
       });
   };
 
+  const profileLink =
+    role === "admin" ? "/dashboard/adminprofile" : "/dashboard/userprofile";
+
   const userNavigation = [
-    { name: "Your profile", href: "/dashboard/adminprofile" },
+    { name: "Your profile", href: profileLink },
     { name: "Sign out", onClick: handleLogout },
   ];
 
   return (
     <div className="lg:pl-72 bg-cream py-3 md:py-4 shadow-2xs">
       <div className="sticky top-0 z-40 flex h-14 md:h-16 shrink-0 items-center gap-x-0 small:gap-x-2 border-b border-white/10 px-4 sm:gap-x-6 sm:px-6 lg:px-8">
-        
         {/* Mobile Sidebar Button */}
         <button
           type="button"
@@ -51,7 +53,6 @@ const DashboardHeader = ({ setSidebarOpen }) => {
         <div aria-hidden="true" className="h-6 w-px bg-white/10 lg:hidden" />
 
         <div className="flex flex-1 justify-between self-stretch lg:gap-x-6">
-          
           {/* Search */}
           <form className="grid flex-1 min-w-0 my-2 mx-2 max-w-xl relative">
             <input
@@ -68,7 +69,6 @@ const DashboardHeader = ({ setSidebarOpen }) => {
 
           {/* Right Section */}
           <div className="flex items-center gap-x-4 lg:gap-x-6">
-            
             {/* Profile Dropdown */}
             <Menu as="div" className="relative">
               <MenuButton className="relative flex items-center cursor-pointer">

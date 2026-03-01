@@ -1,20 +1,14 @@
-import {
-    createBrowserRouter,
-   
-  } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import Main from "./Layout/Main";
 import Home from "./Pages/Home/Home";
 import SignIn from "./Authentication/SignIn";
 import SignUp from "./Authentication/SignUp";
-
-
+import DashboardRedirect from "./Layout/DashboardRedirect";
 import Vendors from "./Pages/Vendors/Vendors";
-
 import Contact from "./Pages/Contact/Contact";
 import About from "./Pages/About/About";
 import Blog from "./Pages/Blogs/Blog";
 import Shop from "./Pages/Shop/Shop";
-// import Dashboard from "./Layout/Dashboard";
 import PDashboard from "./Layout/PDashBoard";
 import UserProfile from "./UserThing/UserProfile";
 import Orders from "./UserThing/Orders";
@@ -29,93 +23,118 @@ import Wish from "./Wishlist/Wish";
 import Details from "./Pages/Shop/Details/Details";
 
 export const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Main></Main>,
-      errorElement:<Error></Error>,
-      children:[
-        {
-          path:'/',
-          element:<Home></Home>  
-        },
-        {
-          path:'/signup',
-          element:<SignUp></SignUp>  
-        },
-        {
-          path:'/signin',
-          element:<SignIn></SignIn>  
-        },
-        {
-          path:'/about',
-          element:<About></About>
-        },
-        {
-          path:'/shop',
-          element:<PrivateRoute><Shop></Shop></PrivateRoute>
-        },
-        {
-          path:'/vendors',
-          element:<Vendors></Vendors>
-        },
-        
-        {
-          path:'/blogs',
-          element:<Blog></Blog>
-        },
-        {
-          path:'/contact',
-          element:<Contact></Contact>
-        },
-        {
-          path:'/cart',
-          element:<PrivateRoute><MyCart></MyCart></PrivateRoute>
-        },
-        {
-          path:'/wish',
-          element:<PrivateRoute><Wish></Wish></PrivateRoute>
-        },
-        {
-          path:'/details/:id',
-          element:<PrivateRoute><Details></Details></PrivateRoute>
-        },
-      ]
-    },
-    {
-      path:'/dashboard',
-      element:<PrivateRoute><PDashboard></PDashboard></PrivateRoute>,
-      children:[
-        // admin
-        {
-          path:'/dashboard/adminprofile',
-          element:<AdminProfile></AdminProfile>
-        },
-        
-        {
-          path:'/dashboard/manageorders',
-          element:<ManageOrders></ManageOrders>
-        },
-        {
-          path:'/dashboard/manageproducts',
-          element:<ManageProduct></ManageProduct>
-        },
-        {
-          path:'/dashboard/addproducts',
-          element:<AddProduct></AddProduct>
-        },
-        {
-          path:'/dashboard/manageusers',
-          element:<ManageUser></ManageUser>
-        },
-        // user
-        {
-          path:'/dashboard/userprofile',
-          element:<UserProfile></UserProfile>
-        },
-        {
-          path:'/dashboard/orders',
-          element:<Orders></Orders>
-        },
-      ]
-    }
-  ]);
+  {
+    path: "/",
+    element: <Main></Main>,
+    errorElement: <Error></Error>,
+    children: [
+      {
+        path: "/",
+        element: <Home></Home>,
+      },
+      {
+        path: "/signup",
+        element: <SignUp></SignUp>,
+      },
+      {
+        path: "/signin",
+        element: <SignIn></SignIn>,
+      },
+      {
+        path: "/about",
+        element: <About></About>,
+      },
+      {
+        path: "/shop",
+        element: (
+          <PrivateRoute>
+            <Shop></Shop>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/vendors",
+        element: <Vendors></Vendors>,
+      },
+
+      {
+        path: "/blogs",
+        element: <Blog></Blog>,
+      },
+      {
+        path: "/contact",
+        element: <Contact></Contact>,
+      },
+      {
+        path: "/cart",
+        element: (
+          <PrivateRoute>
+            <MyCart></MyCart>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/wish",
+        element: (
+          <PrivateRoute>
+            <Wish></Wish>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/details/:id",
+        element: (
+          <PrivateRoute>
+            <Details></Details>
+          </PrivateRoute>
+        ),
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: (
+      <PrivateRoute>
+        <PDashboard />
+      </PrivateRoute>
+    ),
+    children: [
+      {
+        index: true,
+        element: <DashboardRedirect />,
+      },
+
+      // admin
+      {
+        path: "adminprofile",
+        element: <AdminProfile />,
+      },
+      {
+        path: "manageorders",
+        element: <ManageOrders />,
+      },
+      {
+        path: "manageproducts",
+        element: <ManageProduct />,
+      },
+      {
+        path: "addproducts",
+        element: <AddProduct />,
+      },
+      {
+        path: "manageusers",
+        element: <ManageUser />,
+      },
+
+      // user
+      {
+        path: "userprofile",
+        element: <UserProfile />,
+      },
+      {
+        path: "orders",
+        element: <Orders />,
+      },
+    ],
+  },
+]);

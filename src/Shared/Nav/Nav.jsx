@@ -13,11 +13,10 @@ import useHooks from "../../hooks/useHooks";
 
 const Nav = () => {
   const { logOut, user } = useContext(AuthContext);
-  console.log(user);
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
-
   const { cartProducts, wishedProduct } = useHooks();
+
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -204,7 +203,7 @@ const Nav = () => {
               onClick={handleLogout}
               className="bg-bg-honeydew flex gap-1 items-center px-3 md:px-2 lg:px-3 py-1 md:py-2 rounded-md shadow-md lg:border lg:border-primary-green"
             >
-              {user?.photoURL? (
+              {user?.photoURL ? (
                 <img
                   src={user.photoURL}
                   alt="profile"
