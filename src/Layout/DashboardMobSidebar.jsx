@@ -14,6 +14,11 @@ import useAdmin from "../AdminThing/useAdmin";
 
 const adminNavigation = [
   { name: "Back To Home", href: "/", icon: ArrowUturnLeftIcon },
+   {
+    name: "Profile",
+    href: "/dashboard/adminprofile",
+    icon: UsersIcon,
+  },
   { name: "Add Product", href: "/dashboard/addproducts", icon: PlusCircleIcon },
   {
     name: "Manage Products",
@@ -35,14 +40,14 @@ const adminNavigation = [
 const userNavigation = [
   { name: "Back To Home", href: "/", icon: ArrowUturnLeftIcon },
   {
-    name: "My Orders",
-    href: "/dashboard/orders",
-    icon: ChartPieIcon,
-  },
-  {
     name: "Profile",
     href: "/dashboard/userprofile",
     icon: UsersIcon,
+  },
+  {
+    name: "My Orders",
+    href: "/dashboard/orders",
+    icon: ChartPieIcon,
   },
 ];
 
@@ -54,9 +59,7 @@ const DashboardMobSidebar = () => {
   if (isLoading) {
     return (
       <div className="flex items-center justify-center h-full">
-        <span className="text-primary-text font-semibold">
-          Loading...
-        </span>
+        <span className="text-primary-text font-semibold">Loading...</span>
       </div>
     );
   }
@@ -82,7 +85,7 @@ const DashboardMobSidebar = () => {
                     isActive
                       ? "bg-primary-green text-white"
                       : "text-primary-text hover:bg-primary-green hover:text-white",
-                    "group flex gap-x-3 rounded-md p-2 text-sm font-semibold"
+                    "group flex gap-x-3 rounded-md p-2 text-sm font-semibold",
                   )}
                 >
                   <item.icon
@@ -90,7 +93,7 @@ const DashboardMobSidebar = () => {
                       isActive
                         ? "text-white"
                         : "text-primary-text group-hover:text-white",
-                      "size-6 shrink-0"
+                      "size-6 shrink-0",
                     )}
                   />
                   {item.name}

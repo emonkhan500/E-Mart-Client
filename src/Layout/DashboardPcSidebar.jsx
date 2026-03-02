@@ -14,6 +14,7 @@ import useAdmin from "../AdminThing/useAdmin";
 
 const adminNavigation = [
   { name: "Back To Home", href: "/", icon: ArrowUturnLeftIcon },
+    {name: "Profile",href: "/dashboard/adminprofile", icon: UsersIcon },
   { name: "Add Product", href: "/dashboard/addproducts", icon: PlusCircleIcon },
   { name: "Manage Products", href: "/dashboard/manageproducts", icon: ClipboardDocumentIcon },
   { name: "Manage Orders", href: "/dashboard/manageorders", icon: ChartPieIcon },
@@ -22,8 +23,8 @@ const adminNavigation = [
 
 const userNavigation = [
   { name: "Back To Home", href: "/", icon: ArrowUturnLeftIcon },
-  { name: "My Orders", href: "/dashboard/orders", icon: ChartPieIcon },
   { name: "Profile", href: "/dashboard/userprofile", icon: UsersIcon },
+  { name: "My Orders", href: "/dashboard/orders", icon: ChartPieIcon },
 ];
 
 const DashboardPcSidebar = () => {
