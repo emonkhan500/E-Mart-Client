@@ -1,13 +1,26 @@
+import { toast } from "react-toastify";
 import SharedTitle from "../../Shared/ui/SharedTitle";
 
 const Message = () => {
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    toast.success("Message Sent Successfully!");
+
+    e.target.reset();
+  };
+
   return (
     <div className="lg:mt-16">
       <SharedTitle title={"Contact Here "}></SharedTitle>
+
       <section className="w-full lg:mb-8 lg:flex-row flex items-center gap-3 flex-col lg:p-[40px] rounded-xl">
+        
         {/* form area */}
-        <form className=" w-full lg:w-1/2">
+        <form onSubmit={handleSubmit} className=" w-full lg:w-1/2">
           <div className=" w-full mx-auto">
+            
             <div className="text-primary-text text-center md:text-start">
               <h1 className="text-xl md:text-3xl font-bold mt-3">
                 Drop Us a Line
@@ -23,7 +36,8 @@ const Message = () => {
                 <input
                   type="text"
                   placeholder="Your Name"
-                  className=" border-border-gray border rounded-md outline-none px-4 py-2 lg:py-4 w-full  text-black transition-colors duration-300"
+                  required
+                  className=" border-border-gray border rounded-md outline-none px-4 py-2 lg:py-4 w-full text-black transition-colors duration-300"
                 />
               </div>
 
@@ -31,16 +45,19 @@ const Message = () => {
                 <input
                   type="email"
                   placeholder="Your Email"
+                  required
                   className=" border-border-gray border rounded-md outline-none px-4 py-2 lg:py-4 w-full text-black transition-colors duration-300"
                 />
               </div>
             </div>
+
             <div className="flex mt-3 sm:flex-row flex-col items-center gap-2 md:gap-[20px]">
               <div className="flex flex-col gap-[5px] w-full sm:w-[50%]">
                 <input
                   type="number"
                   placeholder="Phone"
-                  className=" border-border-gray border rounded-md outline-none px-4 py-2 lg:py-4 w-full  text-black transition-colors duration-300"
+                  required
+                  className=" border-border-gray border rounded-md outline-none px-4 py-2 lg:py-4 w-full text-black transition-colors duration-300"
                 />
               </div>
 
@@ -48,6 +65,7 @@ const Message = () => {
                 <input
                   type="text"
                   placeholder="Subject"
+                  required
                   className=" border-border-gray border rounded-md outline-none px-4 py-2 lg:py-4 w-full text-black transition-colors duration-300"
                 />
               </div>
@@ -56,6 +74,7 @@ const Message = () => {
             <div className="flex flex-col gap-[5px] w-full mt-[20px]">
               <textarea
                 placeholder="Write message"
+                required
                 className=" min-h-28 md:min-h-[220px] border-border-gray border rounded-md outline-none px-4 py-3 w-full text-black transition-colors duration-300"
               ></textarea>
             </div>
@@ -66,10 +85,11 @@ const Message = () => {
             >
               Send Message
             </button>
+
           </div>
         </form>
 
-        {/*  image  */}
+        {/* image */}
         <div className="flex-1 ">
           <img
             src="https://i.ibb.co.com/JW8TGVwS/contact.png"
@@ -77,6 +97,7 @@ const Message = () => {
             className="rounded w-full xl:max-h-[450px] xxl:max-h-[500px] object-fill"
           />
         </div>
+
       </section>
     </div>
   );
