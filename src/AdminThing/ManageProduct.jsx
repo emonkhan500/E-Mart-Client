@@ -4,8 +4,10 @@ import { FaRegTrashAlt } from "react-icons/fa";
 import useHooks from "../hooks/useHooks";
 import useAxiosSecure from "../Axios/useAxiosSecure";
 import { toast } from "react-toastify";
+import { RxCross2 } from "react-icons/rx";
 
 const ManageProduct = () => {
+
   const { allProduct, handleDeleteProduct, refetchAllProduct } = useHooks();
   const axiosSecure = useAxiosSecure();
 
@@ -22,11 +24,12 @@ const ManageProduct = () => {
 
   // update handler
   const handleUpdate = async (e) => {
-    e.preventDefault();
 
+    e.preventDefault();
     const form = e.target;
 
     const updatedData = {
+      title: form.title.value,
       price: form.price.value,
       tag: form.tag.value,
       sold: form.sold.value,
@@ -35,30 +38,39 @@ const ManageProduct = () => {
     };
 
     try {
+
       const { data } = await axiosSecure.patch(
         `/product/${selectedProduct._id}`,
         updatedData
       );
 
       if (data.modifiedCount > 0) {
-        toast.success("Product Updated");
+
+        toast.success("Product Updated Successfully");
         refetchAllProduct();
         setSelectedProduct(null);
+
       }
+
     } catch (error) {
+
       toast.error("Update Failed");
+
     }
   };
 
   return (
+
     <div className="w-full">
 
       {/* TABLE */}
 
       <div className="overflow-x-auto w-full">
+
         <table className="table border-2 border-border p-6 w-full min-w-[1200px]">
 
-          <thead className="text-sm small:text-base md:text-base lg:text-lg bg-primary-green text-white">
+          <thead className="text-sm md:text-base lg:text-lg bg-primary-green text-white">
+
             <tr>
               <th>#</th>
               <th>Product</th>
@@ -72,6 +84,7 @@ const ManageProduct = () => {
               <th>Edit</th>
               <th>Remove</th>
             </tr>
+
           </thead>
 
           <tbody className="text-primary-text">
@@ -82,13 +95,17 @@ const ManageProduct = () => {
                 key={product._id}
                 className="border-b-2 border-bg-honeydew bg-border"
               >
+
                 <td>
                   {(currentPage - 1) * itemsPerPage + index + 1}
                 </td>
 
                 <td>
+
                   <div className="avatar">
+
                     <div className="h-10 w-10 border-2 border-border">
+
                       <img
                         src={
                           product.photo ||
@@ -96,58 +113,85 @@ const ManageProduct = () => {
                         }
                         alt={product.title}
                       />
+
                     </div>
+
                   </div>
+
                 </td>
 
                 <td className="font-medium truncate max-w-[140px]">
                   {product.title || "—"}
                 </td>
 
-                <td>{product.vendor || "—"}</td>
+                <td>
+                  {product.vendor || "—"}
+                </td>
 
                 <td className="font-medium text-primary-green">
                   ${product.price || "—"}
                 </td>
 
-                <td>{product.tag || "—"}</td>
+                <td>
+                  {product.tag || "—"}
+                </td>
 
-                <td>{product.sold || 0}</td>
+                <td>
+                  {product.sold || 0}
+                </td>
 
-                <td>{product.available || "—"}</td>
+                <td>
+                  {product.available || "—"}
+                </td>
 
-                <td>{product.disPrice || "—"}</td>
+                <td>
+                  {product.disPrice || "—"}
+                </td>
 
                 {/* EDIT */}
+
                 <td>
+
                   <button
                     onClick={() => setSelectedProduct(product)}
                     className="text-blue-600"
                   >
+
                     <CiEdit size={18} />
+
                   </button>
+
                 </td>
 
                 {/* DELETE */}
+
                 <td>
+
                   <button
                     onClick={() => handleDeleteProduct(product._id)}
                     className="text-red-600"
                   >
+
                     <FaRegTrashAlt />
+
                   </button>
+
                 </td>
 
               </tr>
+
             ))}
 
           </tbody>
+
         </table>
+
       </div>
 
       {/* PAGINATION */}
 
       {totalPages > 1 && (
+
         <div className="flex justify-center mt-10 flex-wrap gap-2">
 
           <button
@@ -159,6 +203,7 @@ const ManageProduct = () => {
           </button>
 
           {Array.from({ length: totalPages }, (_, i) => (
+
             <button
               key={i}
               className={`px-3 py-2 rounded ${
@@ -170,6 +215,7 @@ const ManageProduct = () => {
             >
               {i + 1}
             </button>
+
           ))}
 
           <button
@@ -183,6 +229,7 @@ const ManageProduct = () => {
           </button>
 
         </div>
+
       )}
 
       {/* EDIT MODAL */}
@@ -191,9 +238,9 @@ const ManageProduct = () => {
 
         <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex justify-center items-center z-50">
 
-          <div className="bg-border w-[500px] rounded-xl shadow-xl ">
+          <div className="bg-border w-[500px] rounded-xl shadow-xl">
 
-            {/* header */}
+            {/* HEADER */}
 
             <div className="bg-primary-green text-white px-6 py-4 rounded-t-xl flex justify-between">
 
@@ -202,26 +249,27 @@ const ManageProduct = () => {
               </h2>
 
               <button onClick={() => setSelectedProduct(null)}>
-                ✕
+                <RxCross2 />
               </button>
 
             </div>
 
-            {/* body */}
+            {/* FORM */}
 
             <form onSubmit={handleUpdate} className="p-6 space-y-4">
 
-              {/* product preview */}
+              {/* PRODUCT PREVIEW */}
 
-              <div className="flex gap-4 items-center border-b pb-4">
+              <div className="flex gap-4 items-center border-b border-primary-green pb-4">
 
                 <img
                   src={selectedProduct.photo}
                   alt={selectedProduct.title}
-                  className="w-16 h-16 border rounded"
+                  className="w-20 h-20 rounded"
                 />
 
                 <div>
+
                   <p className="font-semibold">
                     {selectedProduct.title}
                   </p>
@@ -229,59 +277,67 @@ const ManageProduct = () => {
                   <p className="text-sm opacity-70">
                     Vendor: {selectedProduct.vendor}
                   </p>
+
                 </div>
 
               </div>
 
-              {/* editable fields */}
+              {/* EDITABLE INPUTS */}
 
               <div className="grid grid-cols-2 gap-4">
 
                 <input
+                  name="title"
+                  defaultValue={selectedProduct.title}
+                  className="border border-primary-green px-3 py-2 rounded col-span-2"
+                  placeholder="Product Name"
+                />
+
+                <input
                   name="price"
                   defaultValue={selectedProduct.price}
-                  className="border px-3 py-2 rounded"
+                  className="border border-primary-green px-3 py-2 rounded"
                   placeholder="Price"
                 />
 
                 <input
                   name="tag"
                   defaultValue={selectedProduct.tag}
-                  className="border px-3 py-2 rounded"
+                  className="border border-primary-green px-3 py-2 rounded"
                   placeholder="Tag"
                 />
 
                 <input
                   name="sold"
                   defaultValue={selectedProduct.sold}
-                  className="border px-3 py-2 rounded"
+                  className="border border-primary-green px-3 py-2 rounded"
                   placeholder="Sold"
                 />
 
                 <input
                   name="available"
                   defaultValue={selectedProduct.available}
-                  className="border px-3 py-2 rounded"
+                  className="border border-primary-green px-3 py-2 rounded"
                   placeholder="Available"
                 />
 
                 <input
                   name="discount"
                   defaultValue={selectedProduct.disPrice}
-                  className="border px-3 py-2 rounded col-span-2"
+                  className="border border-primary-green px-3 py-2 rounded col-span-2"
                   placeholder="Discount"
                 />
 
               </div>
 
-              {/* buttons */}
+              {/* BUTTONS */}
 
-              <div className="flex justify-end gap-3 pt-4 border-t">
+              <div className="flex justify-end gap-3 pt-4 border-t border-primary-green">
 
                 <button
                   type="button"
                   onClick={() => setSelectedProduct(null)}
-                  className="px-4 py-2 border rounded"
+                  className="px-4 py-2 border border-primary-green rounded"
                 >
                   Cancel
                 </button>
@@ -300,6 +356,7 @@ const ManageProduct = () => {
           </div>
 
         </div>
+
       )}
 
     </div>
