@@ -1,4 +1,6 @@
 import { FaRegTrashAlt } from "react-icons/fa";
+import { HiOutlineMinus } from "react-icons/hi";
+import { HiPlusSmall } from "react-icons/hi2";
 import ShareHead from "../Shared/ShareHead";
 import SharedNewsletter from "../Shared/SharedNewsletter";
 import useHooks from "../hooks/useHooks";
@@ -107,23 +109,23 @@ const MyCart = () => {
                       ${item.price}
                     </td>
 
-                    {/* 🔥 NEW Quantity Column */}
+                    {/*  NEW Quantity Column */}
                     <td>
                       <div className="flex items-center gap-2">
                         <button
                           onClick={() => decreaseQty(item._id)}
-                          className="px-2 border"
+                          className="px-1 md:px-2"
                         >
-                          -
+                          <HiOutlineMinus />
                         </button>
 
-                        <span>{quantities[item._id] || 1}</span>
+                        <span className="text-xl font-bold">{quantities[item._id] || 1}</span>
 
                         <button
                           onClick={() => increaseQty(item._id)}
-                          className="px-2 border"
+                          className="px-1 md:px-2"
                         >
-                          +
+                          <HiPlusSmall />
                         </button>
                       </div>
                     </td>

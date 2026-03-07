@@ -5,68 +5,19 @@ import { Autoplay, FreeMode } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SharedTitle from "../../Shared/ui/SharedTitle";
 import "../Home/Style.css";
-
-const featuredCategories = [
-  {
-    id: 1,
-    title: "Fruit & Vegetable",
-    items: "26 items",
-    bg: "bg-bg-honeydew",
-    img: "https://i.ibb.co/r2ZJTpgk/removebg-download-7.png",
-    alt: "Fruits & Vegetables",
-  },
-  {
-    id: 2,
-    title: "Meat & Fish",
-    items: "26 items",
-    bg: "bg-orangee",
-    img: "https://i.ibb.co/PvjychQX/removebg-download-8.png",
-    alt: "Meat & Fish",
-  },
-  {
-    id: 3,
-    title: "Snacks & Drinks",
-    items: "26 items",
-    bg: "bg-bg-honeydew",
-    img: "https://i.ibb.co/d095bCFW/removebg-images-2.png",
-    alt: "Snacks & Drinks",
-  },
-  {
-    id: 4,
-    title: "Fashions",
-    items: "26 items",
-    bg: "bg-bg-honeydew",
-    img: "https://i.ibb.co/dwWDhmy8/removebg-download-9.png",
-    alt: "Fashion & Beauty",
-  },
-  {
-    id: 5,
-    title: "Home & Kitchen",
-    items: "26 items",
-    bg: "bg-cream",
-    img: "https://i.ibb.co/JF0c38qw/removebg-download-7-1-1.png",
-    alt: "Home & Kitchen",
-  },
-
-  {
-    id: 6,
-    title: "Gadgets",
-    items: "26 items",
-    bg: "bg-orangee",
-    img: "https://i.ibb.co.com/nMGdN0qs/gadget-vendor-removebg-preview.png",
-    alt: "Gadgets",
-  },
-  {
-    id: 7,
-    title: "Sports",
-    items: "26 items",
-    bg: "bg-cream",
-    img: "https://i.ibb.co/wrbvHNcw/removebg-imagess.png",
-    alt: "Sports",
-  },
-];
+import useAxiosSecure from "../../Axios/useAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
 
 const Featured = () => {
+  const axiosSecure = useAxiosSecure();
+  const {data: featuredCategorie=[]} = useQuery({
+    queryKey: ["featuredCategories"],
+    queryFn: async () => {
+      const res = await axiosSecure.get("/category");
+      return res.data;
+    },
+  });
+  // console.log(featuredCategorie);
   return (
     <div className="mb-5 md:mb-10 lg:mb-16 xl:mb-20">
       <SharedTitle title="Featured Categories" />
@@ -99,7 +50,7 @@ const Featured = () => {
           1700: { slidesPerView: 6 },
         }}
       >
-        {featuredCategories.map((item) => (
+        {featuredCategorie.map((item) => (
           <SwiperSlide key={item.id}>
             <div
               className={`py-6 px-8 md:px-12 lg:px-6 xl:px-8 xl:h-full ${item.bg} flex flex-col rounded-lg w-[95%]`}
