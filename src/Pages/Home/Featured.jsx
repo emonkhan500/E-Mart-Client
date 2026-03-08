@@ -3,6 +3,7 @@ import "swiper/css/autoplay";
 import "swiper/css/free-mode";
 import { Autoplay, FreeMode } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Link } from "react-router-dom";
 import SharedTitle from "../../Shared/ui/SharedTitle";
 import "../Home/Style.css";
 import useAxiosSecure from "../../Axios/useAxiosSecure";
@@ -10,14 +11,15 @@ import { useQuery } from "@tanstack/react-query";
 
 const Featured = () => {
   const axiosSecure = useAxiosSecure();
-  const {data: featuredCategorie=[]} = useQuery({
+
+  const { data: featuredCategorie = [] } = useQuery({
     queryKey: ["featuredCategories"],
     queryFn: async () => {
       const res = await axiosSecure.get("/category");
       return res.data;
     },
   });
-  // console.log(featuredCategorie);
+
   return (
     <div className="mb-5 md:mb-10 lg:mb-16 xl:mb-20">
       <SharedTitle title="Featured Categories" />
@@ -31,7 +33,7 @@ const Featured = () => {
           disableOnInteraction: false,
         }}
         modules={[FreeMode, Autoplay]}
-        className="w-full lg:max-w-[1700px] mx-auto mt-5 lg:mt-16 "
+        className="w-full lg:max-w-[1700px] mx-auto mt-5 lg:mt-16"
         breakpoints={{
           320: { slidesPerView: 1.7 },
           375: { slidesPerView: 2 },
@@ -51,26 +53,28 @@ const Featured = () => {
         }}
       >
         {featuredCategorie.map((item) => (
-          <SwiperSlide key={item.id}>
-            <div
-              className={`py-6 px-8 md:px-12 lg:px-6 xl:px-8 xl:h-full ${item.bg} flex flex-col rounded-lg w-[95%]`}
-            >
-              <div className="w-42 xl:w-48 h-20 md:h-28 lg:h-48">
-                <img
-                  className="w-full h-full object-contain"
-                  src={item.img}
-                  alt={item.alt}
-                />
+          <SwiperSlide key={item._id}>
+            <Link to={`/shop?category=${encodeURIComponent(item.title)}`}>
+              <div
+                className={`py-6 px-8 md:px-12 lg:px-6 xl:px-8 xl:h-full ${item.bg} flex flex-col rounded-lg w-[95%] cursor-pointer`}
+              >
+                <div className="w-42 xl:w-48 h-20 md:h-28 lg:h-48">
+                  <img
+                    className="w-full h-full object-contain"
+                    src={item.img}
+                    alt={item.alt}
+                  />
+                </div>
+
+                <h1 className="text-[12px] md:text-[14px] lg:text-base text-primary-text font-semibold md:px-3 lg:px-4">
+                  {item.title}
+                </h1>
+
+                <p className="text-[12px] md:text-[14px] lg:text-base text-primary-gray">
+                  {item.items}
+                </p>
               </div>
-
-              <h1 className="text-[12px] md:text-[14px] lg:text-base text-primary-text font-semibold md:px-3 lg:px-4">
-                {item.title}
-              </h1>
-
-              <p className="text-[12px] md:text-[14px] lg:text-base text-primary-gray">
-                {item.items}
-              </p>
-            </div>
+            </Link>
           </SwiperSlide>
         ))}
       </Swiper>

@@ -1,28 +1,38 @@
-import { useQuery } from "@tanstack/react-query";
 import { useEffect, useMemo, useState } from "react";
+import { useSearchParams, Link } from "react-router-dom";
 import { CiHeart } from "react-icons/ci";
 import { FiFilter } from "react-icons/fi";
 import { IoCartOutline } from "react-icons/io5";
 import { RxCross2 } from "react-icons/rx";
 import { TbDetails } from "react-icons/tb";
-import { Link } from "react-router-dom";
 
 import useHooks from "../../hooks/useHooks";
 
 const Products = () => {
-  const { allProduct } = useHooks();
-  const { handleWish, handleCart } = useHooks();
+  const { allProduct, handleWish, handleCart } = useHooks();
+
+  const [searchParams] = useSearchParams();
+  const categoryFromUrl = searchParams.get("category");
 
   const [currentPage, setCurrentPage] = useState(1);
   const [showSidebar, setShowSidebar] = useState(false);
+
   const postsPerPage = 15;
 
-  // STATES
   const [searchText, setSearchText] = useState("");
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [selectedVendors, setSelectedVendors] = useState([]);
   const [selectedPrices, setSelectedPrices] = useState([]);
 
+  // URL category auto select
+  useEffect(() => {
+    if (categoryFromUrl) {
+      setSelectedCategories([categoryFromUrl]);
+      setCurrentPage(1);
+    }
+  }, [categoryFromUrl]);
+
+  // sidebar scroll lock
   useEffect(() => {
     document.body.style.overflow = showSidebar ? "hidden" : "auto";
     return () => (document.body.style.overflow = "auto");
@@ -37,7 +47,7 @@ const Products = () => {
     setCurrentPage(1);
   };
 
-  // FILTER
+  // FILTER PRODUCTS
   const filteredProducts = useMemo(() => {
     return allProduct.filter((item) => {
       const matchesSearch =
@@ -79,8 +89,8 @@ const Products = () => {
 
   return (
     <div className="mt-8 md:mt-10 quick relative">
-      {/* Mobile Search */}
-      <div className="flex items-center mx-auto gap-3 mb-4 md:mb-8 px-3 lg:hidden w-full tab:w-[70%]">
+      {/* MOBILE SEARCH */}
+      <div className="flex items-center mx-auto gap-3 mb-4 md:mb-8 px-3 lg:hidden w-full">
         <input
           type="text"
           placeholder="Search products..."
@@ -89,8 +99,9 @@ const Products = () => {
             setSearchText(e.target.value);
             setCurrentPage(1);
           }}
-          className="flex-1 px-4 py-2 border border-primary-green rounded-lg focus:outline-none focus:ring-1 focus:ring-primary-green focus:border-primary-green"
+          className="flex-1 px-4 py-2 border border-primary-green rounded-lg"
         />
+
         <button
           onClick={() => setShowSidebar(true)}
           className="p-2 border border-primary-green rounded-lg text-primary-green"
@@ -100,6 +111,7 @@ const Products = () => {
       </div>
 
       <div className="flex flex-col lg:flex-row gap-6 mx-auto">
+        {/* SIDEBAR */}
         {showSidebar && (
           <div
             onClick={() => setShowSidebar(false)}
@@ -107,16 +119,14 @@ const Products = () => {
           />
         )}
 
-        {/* Sidebar */}
         <div
           className={`fixed lg:static top-0 left-0 h-screen lg:h-auto
-          w-72 tab:w-[70%] lg:w-52 xl:w-56 xxl:w-[208px]
-          bg-white z-50 lg:z-10
+          w-72 lg:w-56 bg-white z-50 lg:z-10
           transform transition-transform duration-300 shadow-xl
           ${showSidebar ? "translate-x-0" : "-translate-x-full"}
           lg:translate-x-0 lg:shadow-none flex flex-col`}
         >
-          <div className="lg:hidden sticky top-0 p-4 z-50 flex justify-end">
+          <div className="lg:hidden sticky top-0 p-4 flex justify-end">
             <button
               onClick={() => setShowSidebar(false)}
               className="text-3xl text-primary-green"
@@ -126,31 +136,31 @@ const Products = () => {
           </div>
 
           <div className="flex-1 overflow-y-auto px-4 space-y-6 pb-10">
-            {/* Desktop Search */}
-            <div className="hidden lg:block bg-white rounded-xl shadow-sm">
-              <h2 className="text-xl font-bold text-primary-text border-b-2 border-primary-green inline-block pb-1">
+            {/* SEARCH */}
+            <div>
+              <h2 className="text-xl font-bold border-b border-primary-green pb-1">
                 Search
               </h2>
-              <div className="mt-5">
-                <input
-                  type="text"
-                  placeholder="Search products..."
-                  value={searchText}
-                  onChange={(e) => {
-                    setSearchText(e.target.value);
-                    setCurrentPage(1);
-                  }}
-                  className="w-full px-4 py-2 border border-primary-green rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-green"
-                />
-              </div>
+
+              <input
+                type="text"
+                placeholder="Search products..."
+                value={searchText}
+                onChange={(e) => {
+                  setSearchText(e.target.value);
+                  setCurrentPage(1);
+                }}
+                className="w-full mt-4 px-4 py-2 border border-primary-green rounded-lg"
+              />
             </div>
 
-            {/* Category */}
-            <div className="bg-white rounded-xl shadow-sm">
-              <h2 className="text-xl font-bold text-primary-text border-b-2 border-primary-green inline-block pb-1">
+            {/* CATEGORY */}
+            <div>
+              <h2 className="text-xl font-bold border-b border-primary-green pb-1">
                 Product Category
               </h2>
-              <div className="mt-5 space-y-3 text-secondary-text">
+
+              <div className="mt-4 space-y-2">
                 {[
                   "Fruits & Vegetables",
                   "Meat & Fish",
@@ -160,10 +170,7 @@ const Products = () => {
                   "Gadgets",
                   "Sports",
                 ].map((category, index) => (
-                  <label
-                    key={index}
-                    className="flex items-center gap-3 cursor-pointer group"
-                  >
+                  <label key={index} className="flex gap-2 items-center">
                     <input
                       type="checkbox"
                       checked={selectedCategories.includes(category)}
@@ -174,35 +181,28 @@ const Products = () => {
                           setSelectedCategories,
                         )
                       }
-                      className="w-4 h-4 accent-primary-green"
                     />
-                    <span className="group-hover:text-primary-green transition">
-                      {category}
-                    </span>
+                    {category}
                   </label>
                 ))}
               </div>
             </div>
 
-            {/* Vendor */}
-            <div className="bg-white rounded-xl shadow-sm">
-              <h2 className="text-xl font-bold text-primary-text border-b-2 border-primary-green inline-block pb-1">
-                Product by Vendor
+            {/* VENDOR */}
+            <div>
+              <h2 className="text-xl font-bold border-b border-primary-green pb-1">
+                Vendor
               </h2>
-              <div className="mt-5 space-y-3 text-secondary-text">
+
+              <div className="mt-4 space-y-2">
                 {[
                   "Tech World",
                   "Fresh Fruits",
                   "Shonar Bangla Meat",
                   "Bangla Bites",
                   "Trendy Touch",
-                  "Home & Kitchen Mart",
-                  "Sports House",
                 ].map((vendor, index) => (
-                  <label
-                    key={index}
-                    className="flex items-center gap-3 cursor-pointer group"
-                  >
+                  <label key={index} className="flex gap-2 items-center">
                     <input
                       type="checkbox"
                       checked={selectedVendors.includes(vendor)}
@@ -213,34 +213,28 @@ const Products = () => {
                           setSelectedVendors,
                         )
                       }
-                      className="w-4 h-4 accent-primary-green"
                     />
-                    <span className="group-hover:text-primary-green transition">
-                      {vendor}
-                    </span>
+                    {vendor}
                   </label>
                 ))}
               </div>
             </div>
 
-            {/* Price */}
-            <div className="bg-white rounded-xl shadow-sm">
-              <h2 className="text-xl font-bold text-primary-text border-b-2 border-primary-green inline-block pb-1">
+            {/* PRICE */}
+            <div>
+              <h2 className="text-xl font-bold border-b border-primary-green pb-1">
                 Price Filter
               </h2>
-              <div className="mt-5 space-y-3 text-secondary-text">
+
+              <div className="mt-4 space-y-2">
                 {[
                   "$0 - $20",
                   "$21 - $40",
                   "$41 - $60",
                   "$61 - $80",
                   "$81 - $100",
-                  "$101 - $120",
                 ].map((price, index) => (
-                  <label
-                    key={index}
-                    className="flex items-center gap-3 cursor-pointer group"
-                  >
+                  <label key={index} className="flex gap-2 items-center">
                     <input
                       type="checkbox"
                       checked={selectedPrices.includes(price)}
@@ -251,11 +245,8 @@ const Products = () => {
                           setSelectedPrices,
                         )
                       }
-                      className="w-4 h-4 accent-primary-green"
                     />
-                    <span className="group-hover:text-primary-green transition">
-                      {price}
-                    </span>
+                    {price}
                   </label>
                 ))}
               </div>
@@ -263,17 +254,17 @@ const Products = () => {
           </div>
         </div>
 
-        {/* Product Grid */}
+        {/* PRODUCT GRID */}
         <div className="flex-1">
-          <div className="grid gap-x-1.5 tab:gap-x-2 md:gap-x-3 lg:gap-x-1.5 xl:gap-x-1.5 xxl:gap-x-1.5 2xl:gap-x-6 gap-y-4 md:gap-y-6 lg:gap-y-8 grid-cols-2 tab:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 xxl:grid-cols-5 2xl:grid-cols-5 justify-center items-center 3xl:px-16 mt-5">
+          <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6">
             {filteredProducts.length === 0 ? (
               <div className="col-span-full text-center py-16">
-                <h2 className="text-xl md:text-2xl text-primary-green font-semibold">
+                <h2 className="text-xl text-primary-green font-semibold">
                   No matched product found ...
                 </h2>
               </div>
             ) : (
-              currentItem?.map((item) => (
+              currentItem.map((item) => (
                 <div
                   key={item?._id}
                   className="group relative border border-border rounded-lg shadow mx-auto w-full overflow-hidden transition-all duration-300"
@@ -371,13 +362,12 @@ const Products = () => {
             )}
           </div>
 
-          {/* Pagination */}
+          {/* PAGINATION */}
           {filteredProducts.length > 0 && (
             <div className="flex justify-center mt-10">
               <button
                 className="mx-2 px-4 py-2 rounded bg-primary-green text-white"
                 onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-                disabled={currentPage === 1}
               >
                 Previous
               </button>
@@ -401,7 +391,6 @@ const Products = () => {
                 onClick={() =>
                   setCurrentPage((prev) => Math.min(prev + 1, totalPages))
                 }
-                disabled={currentPage === totalPages}
               >
                 Next
               </button>
