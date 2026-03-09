@@ -46,22 +46,40 @@ const AuthProvider = ({ children }) => {
   };
 
   // 🔹 Signup
-  const createUser = (email, password) => {
-    setLoading(true);
-    return createUserWithEmailAndPassword(auth, email, password);
-  };
+ const createUser = async (email, password) => {
+  setLoading(true);
+  try {
+    const result = await createUserWithEmailAndPassword(auth, email, password);
+    return result;
+  } catch (error) {
+    setLoading(false);
+    throw error;
+  }
+};
 
   // 🔹 Google login
-  const googleLogin = () => {
-    setLoading(true);
-    return signInWithPopup(auth, googleProvider);
-  };
+  const googleLogin = async () => {
+  setLoading(true);
+  try {
+    const result = await signInWithPopup(auth, googleProvider);
+    return result;
+  } catch (error) {
+    setLoading(false);
+    throw error;
+  }
+};
 
   // 🔹 Login
-  const login = (email, password) => {
-    setLoading(true);
-    return signInWithEmailAndPassword(auth, email, password);
-  };
+  const login = async (email, password) => {
+  setLoading(true);
+  try {
+    const result = await signInWithEmailAndPassword(auth, email, password);
+    return result;
+  } catch (error) {
+    setLoading(false); 
+    throw error;
+  }
+};
 
   // 🔹 Logout
   const logOut = async () => {

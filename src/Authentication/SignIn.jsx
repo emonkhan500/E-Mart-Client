@@ -13,31 +13,43 @@ const SignIn = () => {
   const axiosPublic = useAxiosPublic();
   const location = useLocation();
   const navigate = useNavigate();
-  const [registerError, setRegisterError] = useState();
+
+  const [registerError, setRegisterError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleLogin = (e) => {
     e.preventDefault();
+    setLoading(true);
+    setRegisterError("");
 
     const email = e.target.email.value;
     const pass = e.target.pass.value;
-    console.log(email, pass);
 
     login(email, pass)
       .then((result) => {
         console.log(result.user);
+
         Swal.fire({
           icon: "success",
           title: "Signed In Successfully",
           showConfirmButton: false,
           timer: 1000,
         });
+
         navigate(location?.state ? location?.state : "/");
       })
-      .catch((error) => {
-        setRegisterError(error.message);
+      .catch(() => {
+        setRegisterError("Email or Password not matched");
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
+
   const handleGoogleLogin = () => {
+    setLoading(true);
+    setRegisterError("");
+
     googleLogin()
       .then((result) => {
         const userInfo = {
@@ -45,14 +57,18 @@ const SignIn = () => {
           name: result.user?.displayName,
           time: result.user?.metadata?.creationTime,
         };
-        axiosPublic.post("/users", userInfo).then((res) => {
+
+        axiosPublic.post("/users", userInfo).then(() => {
           Swal.fire(`Welcome ${result.user.displayName}`);
-          console.log(result.user);
+
           navigate(location?.state ? location?.state : "/");
         });
       })
-      .catch((error) => {
-        setRegisterError(error.message);
+      .catch(() => {
+        setRegisterError("Google Sign In Failed");
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
@@ -64,9 +80,11 @@ const SignIn = () => {
           <h2 className="animate__animated animate__bounceIn animate__slow text- text-2xl lg:text-3xl font-bold text-primary-green lg:mt-8 mb-2">
             Welcome back!
           </h2>
+
           <p className="text-primary-text text-base lg:text-lg font-semibold">
             Experience The Best E-Commerce Platform !
           </p>
+
           <form onSubmit={handleLogin} className="mt-3 lg:mt-6">
             <div className="mb-4 animate__animated animate__lightSpeedInLeft animate__slow">
               <label
@@ -75,6 +93,7 @@ const SignIn = () => {
               >
                 Email
               </label>
+
               <input
                 type="email"
                 id="email"
@@ -84,6 +103,7 @@ const SignIn = () => {
                 className="w-full px-4 py-2 border rounded-lg text-primary-gray focus:outline-none focus:border-primary-green"
               />
             </div>
+
             <div className="mb-4 animate__animated animate__lightSpeedInRight animate__slow">
               <label
                 className="text-primary-text block text-sm font-semibold lg:font-bold mb-1 lg:mb-2"
@@ -91,6 +111,7 @@ const SignIn = () => {
               >
                 Password
               </label>
+
               <input
                 type="password"
                 id="password"
@@ -100,6 +121,13 @@ const SignIn = () => {
                 className="w-full px-4 py-2 border rounded-lg text-primary-gray focus:outline-none focus:border-primary-green"
               />
             </div>
+
+            <div>
+              {registerError && (
+                <p className="text-red text-sm mb-4">{registerError}</p>
+              )}
+            </div>
+
             <div className="flex items-center justify-between mb-4 animate__animated animate__lightSpeedInLeft animate__slow">
               <label className="flex items-center">
                 <input
@@ -110,6 +138,7 @@ const SignIn = () => {
                   Remember me
                 </span>
               </label>
+
               <a
                 href="#"
                 className="text-sm text-primary-green hover:underline"
@@ -117,22 +146,27 @@ const SignIn = () => {
                 Forgot Password?
               </a>
             </div>
+
             <button
               type="submit"
+              disabled={loading}
               className="animate__animated animate__lightSpeedInRight w-full text-primary-text font-bold py-2 px-4 rounded-lg border border-primary-green shadow-md hover:bg-primary-green hover:text-white hover:shadow-lg transition-all duration-300"
             >
-              Sign In
+              {loading ? "Signing In..." : "Sign In"}
             </button>
           </form>
+
           <button
             onClick={handleGoogleLogin}
+            disabled={loading}
             className="animate__animated animate__lightSpeedInLeft animate__slow mt-4 w-full text-primary-text font-bold py-2 px-4 rounded-lg border border-primary-green shadow-md hover:bg-primary-green hover:text-white hover:shadow-lg transition-all duration-300 flex items-center justify-center"
           >
             <FaGoogle className="mr-3 text-primary-green hover:text-black" />
-            Sign In with Google
+            {loading ? "Please wait..." : "Sign In with Google"}
           </button>
+
           <p className="text-primary-text mt-6 text-center font-bold">
-            Don’t have an account?{"  "}
+            Don’t have an account?{" "}
             <Link to="/signup" className="font-bold text-primary-green">
               Sign Up
             </Link>
