@@ -1,6 +1,6 @@
-# 🛒 E-Mart – Modern E-commerce Platform
+#  E-Mart – Modern E-commerce Platform
 
-## 📌 Project Purpose
+##  Project Purpose
 
 **E-Mart** is a modern **MERN stack e-commerce platform** designed to provide a smooth and scalable online shopping experience for customers and administrators.
 
@@ -14,16 +14,16 @@ This project demonstrates **real-world full-stack development skills**, includin
 
 ---
 
-# 🌐 Live Website
+#  Live Website
 
-* **Client Live URL:** *(Add your client live link here)*  
-* **Server Live URL:** *(Add your server live link here)*
+* **Client Live URL:**  *https://e-mart-724d0.web.app/*  
+* **Server Live URL:** *https://e-mart-server-beta.vercel.app/*
 
 > Environment variables and sensitive keys are securely stored using `.env`.
 
 ---
 
-# ⚙️ How the System Works
+# How the System Works
 
 1. **Users** can browse all available products from the homepage.
 2. Users can view detailed information for each product.
@@ -33,9 +33,9 @@ This project demonstrates **real-world full-stack development skills**, includin
 
 ---
 
-# 🚀 Key Features
+# Key Features
 
-## 🔐 Authentication & Authorization
+##  Authentication & Authorization
 
 - Firebase Authentication
 - Email & Password Login
@@ -46,7 +46,7 @@ This project demonstrates **real-world full-stack development skills**, includin
 
 ---
 
-## 🏠 Home Page Features
+##  Home Page Features
 
 - Hero Banner Section
 - Featured Categories
@@ -57,7 +57,7 @@ This project demonstrates **real-world full-stack development skills**, includin
 
 ---
 
-## 🛍 Product Features
+## Product Features
 
 - View all products
 - Product details page
@@ -68,7 +68,7 @@ This project demonstrates **real-world full-stack development skills**, includin
 
 ---
 
-## 🧑‍💼 Admin Dashboard
+## Admin Dashboard
 
 Admin can manage platform data including:
 
@@ -83,10 +83,11 @@ Admin can manage platform data including:
 
 - View all registered users
 - Monitor platform activity
-
+--- 
+![Dashboard](https://i.ibb.co/R4z563gQ/dashboard.png)
 ---
 
-## 📱 UI & UX Highlights
+##  UI & UX Highlights
 
 - Fully responsive design
 - Modern e-commerce layout
@@ -98,9 +99,9 @@ Admin can manage platform data including:
 
 ---
 
-## 🧰 Technologies Used
+## Technologies Used
 
-### 💻 Client Side
+### Client Side
 
 - React.js
 - React Router
@@ -113,7 +114,7 @@ Admin can manage platform data including:
 - React Icons
 - React Toastify
 
-### 🖥 Server Side
+### Server Side
 
 - Node.js
 - Express.js
@@ -124,7 +125,7 @@ Admin can manage platform data including:
 
 ---
 
-## 🔐 Security Practices
+## Security Practices
 
 - Sensitive API keys stored in `.env`
 - JWT authentication for protected APIs
@@ -133,20 +134,9 @@ Admin can manage platform data including:
 
 ---
 
-## ⭐ Advanced Features
 
--Cart and wishlist management with React Context / React Query
--Role-based dashboard routing (User / Admin)
--Loading spinners and notifications with React Toastify
--Product sliders using Swiper
--Fully responsive with Tailwind + DaisyUI
--Secure JWT-based API routes
--Dynamic data fetching and caching
--Pre-filled forms for editing products and user info
----
+##  Developer Info
 
-## 👨‍💻 Developer Info
-
--Project Name: E-Mart
--Developer: Md Emon Kah
--Role: MERN Stack Developer
+- Project Name: **E-Mart**
+- Developer: **Md Emon Khan**
+- Portfolio: *https://emon-khan-portfolio.netlify.app/*
