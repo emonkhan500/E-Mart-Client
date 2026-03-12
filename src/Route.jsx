@@ -21,6 +21,7 @@ import AdminProfile from "./AdminThing/AdminProfile";
 import PrivateRoute from "./Private&Admin/PrivateRoute";
 import Wish from "./Wishlist/Wish";
 import Details from "./Pages/Shop/Details/Details";
+import Payment from "./Payment/Payment";
 
 export const router = createBrowserRouter([
   {
@@ -73,6 +74,11 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+        {
+         path:'/payment',
+         element:<Payment></Payment>,
+       
+        },
       {
         path: "/wish",
         element: (
@@ -91,6 +97,7 @@ export const router = createBrowserRouter([
       },
     ],
   },
+
   {
     path: "/dashboard",
     element: (

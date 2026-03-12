@@ -5,6 +5,7 @@ import ShareHead from "../Shared/ShareHead";
 import SharedNewsletter from "../Shared/SharedNewsletter";
 import useHooks from "../hooks/useHooks";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const MyCart = () => {
   const { cartProducts, handleDeleteCart } = useHooks();
@@ -21,12 +22,12 @@ const MyCart = () => {
 
   // checkbox select
   const handleSelect = (item) => {
-  if (selectedItems.includes(item._id)) {
-    setSelectedItems(selectedItems.filter((id) => id !== item._id));
-  } else {
-    setSelectedItems([...selectedItems, item._id]);
-  }
-};
+    if (selectedItems.includes(item._id)) {
+      setSelectedItems(selectedItems.filter((id) => id !== item._id));
+    } else {
+      setSelectedItems([...selectedItems, item._id]);
+    }
+  };
 
   // quantity
   const increaseQty = (id) => {
@@ -119,7 +120,9 @@ const MyCart = () => {
                           <HiOutlineMinus />
                         </button>
 
-                        <span className="text-xl font-bold">{quantities[item._id] || 1}</span>
+                        <span className="text-xl font-bold">
+                          {quantities[item._id] || 1}
+                        </span>
 
                         <button
                           onClick={() => increaseQty(item._id)}
@@ -212,7 +215,7 @@ const MyCart = () => {
           </div>
 
           <button className="mt-4 text-white bg-primary-green w-full py-3 rounded text-sm md:text-base font-medium">
-            CHECKOUT & PAY
+            <Link to="/payment">CHECKOUT & PAY</Link>
           </button>
         </div>
       </div>
