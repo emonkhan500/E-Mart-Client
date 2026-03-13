@@ -214,9 +214,12 @@ const MyCart = () => {
             </div>
           </div>
 
-          <button className="mt-4 text-white bg-primary-green w-full py-3 rounded text-sm md:text-base font-medium">
-            <Link to="/payment">CHECKOUT & PAY</Link>
-          </button>
+          <Link
+            to="/payment"
+            
+          >
+            <button disabled={selectedItems.length === 0} className="mt-4 text-white bg-primary-green w-full py-3 rounded text-sm md:text-base font-medium">CHECKOUT & PAY </button>
+          </Link>
         </div>
       </div>
 
