@@ -1,10 +1,17 @@
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+
+const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PK);
 
 
 const Payment = () => {
     return (
-        <div>
-            <h1>This is Payment</h1>
-        </div>
+        <Elements stripe={stripePromise}>
+            
+
+        </Elements>
+            
+        
     );
 };
 
