@@ -1,4 +1,5 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
+import { CiCreditCard1 } from "react-icons/ci";
 import ShareHead from "../Shared/ShareHead";
 
 const CheckoutForm = () => {
@@ -18,19 +19,19 @@ const CheckoutForm = () => {
     <div className="">
       {/* <ShareHead pageTitle={"Pay For Order"}></ShareHead> */}
       <form
-  className="max-w-2xl mx-auto mt-16 p-8 rounded-2xl shadow-xl bg-white border border-gray-100"
+  className="max-w-2xl mx-auto mt-6 md:mt-10 p-2 md:p-8 rounded-2xl border-2 border-bg-honeydew drop-shadow-lg bg-white "
   onSubmit={handleSubmit}
 >
   {/* Title */}
-  <h2 className="text-2xl font-bold text-center text-green-600 mb-2">
+  <h2 className="text-3xl font-bold text-center text-primary-green mb-1 md:mb-2">
     Secure Payment
   </h2>
-  <p className="text-sm text-gray-500 text-center mb-6">
+  <p className="text-sm text-primary-text text-center mb-6">
     Pay safely using your card
   </p>
 
   {/* Card Box */}
-  <div className="p-4 border rounded-xl bg-gray-50 focus-within:ring-2 focus-within:ring-green-400 transition">
+  <div className="p-4 border border-border-gray rounded-md">
     <CardElement
       options={{
         style: {
@@ -54,13 +55,13 @@ const CheckoutForm = () => {
   <button
     type="submit"
     disabled={!stripe}
-    className="w-full mt-6 bg-green-500 hover:bg-green-600 text-white py-3 rounded-xl font-semibold transition duration-300 disabled:opacity-50"
+    className="w-full mt-3 md:mt-6 bg-primary-green  text-white py-3 rounded-md font-semibold flex items-center justify-center gap-2"
   >
-    Pay Now 💳
+    Pay Now <CiCreditCard1 className="text-lg"/>
   </button>
 
   {/* Footer */}
-  <p className="text-xs text-gray-400 text-center mt-4">
+  <p className="text-xs text-primary-gray text-center leading-3 mt-4">
     Your payment is securely processed with Stripe
   </p>
 </form>
