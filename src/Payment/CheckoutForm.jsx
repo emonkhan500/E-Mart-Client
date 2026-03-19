@@ -44,7 +44,7 @@ const CheckoutForm = () => {
             },
           },
           invalid: {
-            color: "#ef4444",
+            color: "text-red",
           },
         },
       }}
