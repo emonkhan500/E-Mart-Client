@@ -14,7 +14,16 @@ const CheckoutForm = () => {
     if (card === null) {
       return;
     }
+      const { error, paymentMethod } = await stripe.createPaymentMethod({
+        type: "card",
+        card,      });
+      if (error) {
+        console.log("[error]", error);
+      } else {
+        console.log("[PaymentMethod]", paymentMethod);
+      }
   };
+  
   return (
     <div className="">
       {/* <ShareHead pageTitle={"Pay For Order"}></ShareHead> */}
