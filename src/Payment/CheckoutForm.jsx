@@ -1,8 +1,11 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { CiCreditCard1 } from "react-icons/ci";
+import { AuthContext } from "../Provider/AuthProvider";
 import ShareHead from "../Shared/ShareHead";
+import { useContext } from "react";
 
 const CheckoutForm = () => {
+  const {loading} = useContext(AuthContext)  
   const stripe = useStripe();
   const elements = useElements();
   const handleSubmit = async (e) => {
@@ -63,7 +66,7 @@ const CheckoutForm = () => {
   {/* Pay Button */}
   <button
     type="submit"
-    disabled={!stripe}
+    disabled={loading || !stripe || !elements}
     className="w-full mt-3 md:mt-6 bg-primary-green  text-white py-3 rounded-md font-semibold flex items-center justify-center gap-2"
   >
     Pay Now <CiCreditCard1 className="text-lg"/>
