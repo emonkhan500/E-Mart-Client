@@ -2,9 +2,10 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { CiCreditCard1 } from "react-icons/ci";
 import { AuthContext } from "../Provider/AuthProvider";
 import ShareHead from "../Shared/ShareHead";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 const CheckoutForm = () => {
+  const [error, setError] = useState('');
   const {loading} = useContext(AuthContext)  
   const stripe = useStripe();
   const elements = useElements();
@@ -19,11 +20,13 @@ const CheckoutForm = () => {
     }
       const { error, paymentMethod } = await stripe.createPaymentMethod({
         type: "card",
-        card,      });
+        card,});
       if (error) {
         console.log("[error]", error);
+        setError(error.message);
       } else {
         console.log("[PaymentMethod]", paymentMethod);
+        setError('');
       }
   };
   
@@ -71,6 +74,7 @@ const CheckoutForm = () => {
   >
     Pay Now <CiCreditCard1 className="text-lg"/>
   </button>
+  <p className="text-sm text-red text-center mt-2">{error}</p>
 
   {/* Footer */}
   <p className="text-xs text-primary-gray text-center leading-3 mt-4">
