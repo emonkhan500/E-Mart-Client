@@ -23,6 +23,13 @@ This project demonstrates **real-world full-stack development skills**, includin
 
 ---
 
+#  Demo Credentials
+
+* **Admin:** email: admin@ad.com  password: emonkhan  
+* **User:**  email: user@user.com  password: emonkhan
+
+---
+
 # How the System Works
 
 1. **Users** can browse all available products from the homepage.
